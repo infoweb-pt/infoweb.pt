@@ -5,12 +5,19 @@ const LANGUAGE_STORAGE_KEY = "infoweb-language";
 const getNestedValue = (source, path) =>
   path.split(".").reduce((value, key) => (value ? value[key] : undefined), source);
 
-const formatCurrency = (value) =>
-  new Intl.NumberFormat(document.documentElement.lang === "pt" ? "pt-PT" : "en-IE", {
+const formatPaybackMoney = (value) => {
+  const locale = document.documentElement.lang === "pt" ? "pt-PT" : "en-IE";
+  const amount = Number(value);
+  const fractional = Math.abs(amount - Math.round(amount)) > 1e-6;
+  const minimumFractionDigits = Math.abs(amount) < 1 || fractional ? 2 : 0;
+
+  return new Intl.NumberFormat(locale, {
     currency: "EUR",
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 2,
+    minimumFractionDigits,
     style: "currency",
-  }).format(value);
+  }).format(amount);
+};
 
 const formatNumber = (value) =>
   new Intl.NumberFormat(document.documentElement.lang === "pt" ? "pt-PT" : "en-IE", {
@@ -121,7 +128,6 @@ const updatePaybackSimulator = () => {
   const clientValueOutput = simulator.querySelector("[data-payback-client-value]");
   const clientsNeededOutput = simulator.querySelector("[data-payback-clients-needed]");
   const cadenceOutput = simulator.querySelector("[data-payback-cadence]");
-  const profitOutput = simulator.querySelector("[data-payback-profit]");
 
   if (!planInput || !clientValueInput) {
     return;
@@ -129,14 +135,13 @@ const updatePaybackSimulator = () => {
 
   const language = document.documentElement.lang === "pt" ? "pt" : "en";
   const monthlyPlanCost = Number(planInput.value);
-  const clientValue = Math.max(1, Number(clientValueInput.value));
+  const clientValue = Math.max(0.5, Number(clientValueInput.value));
   const exactClientsNeeded = monthlyPlanCost / clientValue;
   const clientsNeeded = Math.max(1, Math.ceil(exactClientsNeeded));
 
-  clientValueOutput.textContent = formatCurrency(clientValue);
+  clientValueOutput.textContent = formatPaybackMoney(clientValue);
   clientsNeededOutput.textContent = formatNumber(clientsNeeded);
   cadenceOutput.textContent = formatCadence(clientsNeeded, language);
-  profitOutput.textContent = `+${formatCurrency(clientValue)}`;
 };
 
 const setupPaybackSimulator = () => {

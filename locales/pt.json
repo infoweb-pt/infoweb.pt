@@ -99,9 +99,7 @@
     "clientsLabel": "Novos clientes por mês necessários",
     "clientsHelper": "para pagar o website por completo",
     "cadenceLabel": "Ou seja, mais ou menos",
-    "profitLabel": "Cada cliente extra acima desse número",
-    "profitHelper": "fica como lucro",
-    "note": "Exemplo apenas: os resultados reais dependem da tua oferta, qualidade do tráfego, localização e rapidez no follow-up."
+    "note": "Exemplo apenas: os resultados reais dependem da tua oferta, margens, localização e rapidez no follow-up."
   },
   "caseStudies": {
     "eyebrow": "Exemplos práticos",
