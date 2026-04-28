@@ -1,7 +1,10 @@
 {
   "meta": {
     "title": "InfoWeb | Website as a Service",
-    "description": "InfoWeb provides managed websites for small businesses: domain, maintenance, bookings, dashboards, payments, and CMS access."
+    "description": "InfoWeb provides managed websites for small businesses: domain, maintenance, bookings, dashboards, payments, and CMS access.",
+    "ogImageAlt": "InfoWeb — managed websites, hosting, and updates for small businesses in one monthly plan.",
+    "ogLocale": "en_IE",
+    "ogLocaleAlternate": "pt_PT"
   },
   "nav": {
     "pricing": "Pricing",

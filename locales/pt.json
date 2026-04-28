@@ -1,7 +1,10 @@
 {
   "meta": {
     "title": "InfoWeb | Website as a Service",
-    "description": "A InfoWeb cria websites geridos para pequenos negócios: domínio, manutenção, reservas, dashboards, pagamentos e acesso CMS."
+    "description": "A InfoWeb cria websites geridos para pequenos negócios: domínio, manutenção, reservas, dashboards, pagamentos e acesso CMS.",
+    "ogImageAlt": "InfoWeb — websites geridos, alojamento e atualizações para pequenos negócios num plano mensal.",
+    "ogLocale": "pt_PT",
+    "ogLocaleAlternate": "en_IE"
   },
   "nav": {
     "pricing": "Preços",
