@@ -135,11 +135,17 @@
       "message": "Do que precisas?",
       "messagePlaceholder": "Fala-nos do teu negócio, plano preferido e timing de lançamento.",
       "submit": "Enviar pedido",
-      "note": "Substitui a action do Formspree pelo endpoint do teu formulário antes do lançamento."
+      "submitSubject": "InfoWeb — Formulário de contacto",
+      "note": "Entregue via FormSubmit. Na primeira utilização podes ter de confirmar a caixa de entrada uma vez em formsubmit.co."
     }
   },
   "footer": {
-    "copy": "InfoWeb by Sousa Dev. Websites geridos para pequenos negócios.",
-    "link": "Visitar Sousa Dev"
+    "tagline": "Websites geridos para pequenos negócios: domínio, alojamento, atualizações e um caminho claro para crescer online.",
+    "colExplore": "Explorar",
+    "colContact": "Contacto",
+    "whatsapp": "WhatsApp",
+    "linkStudio": "Sousa Dev",
+    "rights": "© 2026 InfoWeb. Operado pela Sousa Dev.",
+    "hosting": "Site estático · GitHub Pages"
   }
 }

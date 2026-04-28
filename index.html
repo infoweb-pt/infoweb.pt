@@ -42,7 +42,7 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260428" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260429" />
   </head>
 
   <body class="bg-slate-50 font-sans text-slate-900 antialiased">
@@ -334,7 +334,15 @@
             </a>
           </div>
 
-          <form class="rounded-[1.5rem] bg-white p-5 text-slate-950" action="https://formspree.io/f/your-form-id" method="POST">
+          <form
+            class="rounded-[1.5rem] bg-white p-5 text-slate-950"
+            action="https://formsubmit.co/info@sousadev.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" data-i18n-attr="value:contact.form.submitSubject" value="InfoWeb — Contact" />
+            <input type="hidden" name="_next" value="https://infoweb.sousadev.com/#contact" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="form-field">
                 <span data-i18n="contact.form.name">Name</span>
@@ -357,20 +365,55 @@
               Send request
             </button>
             <p class="mt-4 text-xs leading-5 text-slate-500" data-i18n="contact.form.note">
-              Replace the Formspree action with your form endpoint before launch.
+              Submissions are delivered via FormSubmit. On first use you may need to confirm the destination inbox once.
             </p>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-slate-200 bg-white py-8">
-      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-        <p data-i18n="footer.copy">InfoWeb by Sousa Dev. Managed websites for small businesses.</p>
-        <a href="https://sousadev.com" target="_blank" rel="noreferrer" class="font-bold text-slate-900 hover:text-blue-700" data-i18n="footer.link">Visit Sousa Dev</a>
+    <footer class="footer-site border-t border-white/10 bg-ink text-slate-300">
+      <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#top" class="inline-flex items-center gap-3 text-white" aria-label="InfoWeb home">
+              <img src="assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto opacity-95" width="120" height="36" />
+            </a>
+            <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400" data-i18n="footer.tagline">
+              Managed websites for small businesses: domain, hosting, updates, and a clear path to grow online.
+            </p>
+          </div>
+          <div>
+            <p class="footer-col-title" data-i18n="footer.colExplore">Explore</p>
+            <ul class="footer-links">
+              <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+              <li><a href="#case-studies" data-i18n="nav.caseStudies">Case Studies</a></li>
+              <li><a href="#developer" data-i18n="nav.developer">Developer</a></li>
+              <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-col-title" data-i18n="footer.colContact">Contact</p>
+            <ul class="footer-links">
+              <li>
+                <a href="mailto:info@sousadev.com">info@sousadev.com</a>
+              </li>
+              <li>
+                <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" data-i18n="footer.whatsapp">WhatsApp</a>
+              </li>
+              <li>
+                <a href="https://sousadev.com" target="_blank" rel="noreferrer" data-i18n="footer.linkStudio">Sousa Dev</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="text-xs text-slate-500" data-i18n="footer.rights">© 2026 InfoWeb. Operated by Sousa Dev.</p>
+          <p class="text-xs text-slate-500" data-i18n="footer.hosting">Static site · GitHub Pages</p>
+        </div>
       </div>
     </footer>
 
-    <script src="assets/js/scripts.js?v=20260428" defer></script>
+    <script src="assets/js/scripts.js?v=20260429" defer></script>
   </body>
 </html>

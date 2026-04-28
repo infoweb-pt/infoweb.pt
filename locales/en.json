@@ -135,11 +135,17 @@
       "message": "What do you need?",
       "messagePlaceholder": "Tell us about your business, preferred plan, and launch timing.",
       "submit": "Send request",
-      "note": "Replace the Formspree action with your form endpoint before launch."
+      "submitSubject": "InfoWeb — Contact form",
+      "note": "Delivered with FormSubmit. The first submission may ask you to confirm the inbox once at formsubmit.co."
     }
   },
   "footer": {
-    "copy": "InfoWeb by Sousa Dev. Managed websites for small businesses.",
-    "link": "Visit Sousa Dev"
+    "tagline": "Managed websites for small businesses: domain, hosting, updates, and a clear path to grow online.",
+    "colExplore": "Explore",
+    "colContact": "Contact",
+    "whatsapp": "WhatsApp",
+    "linkStudio": "Sousa Dev",
+    "rights": "© 2026 InfoWeb. Operated by Sousa Dev.",
+    "hosting": "Static site · GitHub Pages"
   }
 }
