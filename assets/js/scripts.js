@@ -95,6 +95,20 @@ const applyLanguage = async (language) => {
   updatePaybackSimulator();
 };
 
+const formatCadence = (clientsNeeded, language) => {
+  if (clientsNeeded <= 1) {
+    const daysBetween = Math.round(30 / Math.max(clientsNeeded, 0.001));
+    return language === "pt"
+      ? `1 cliente a cada ${daysBetween} dias`
+      : `1 client every ${daysBetween} days`;
+  }
+
+  const daysBetween = Math.max(1, Math.round(30 / clientsNeeded));
+  return language === "pt"
+    ? `1 cliente a cada ${daysBetween} dias`
+    : `1 client every ${daysBetween} days`;
+};
+
 const updatePaybackSimulator = () => {
   const simulator = document.querySelector("[data-payback-simulator]");
 
@@ -104,29 +118,25 @@ const updatePaybackSimulator = () => {
 
   const planInput = simulator.querySelector('input[name="payback-plan"]:checked');
   const clientValueInput = simulator.querySelector("[data-payback-client-value-input]");
-  const conversionInput = simulator.querySelector("[data-payback-conversion-input]");
   const clientValueOutput = simulator.querySelector("[data-payback-client-value]");
-  const conversionOutput = simulator.querySelector("[data-payback-conversion]");
   const clientsNeededOutput = simulator.querySelector("[data-payback-clients-needed]");
-  const visitorsNeededOutput = simulator.querySelector("[data-payback-visitors-needed]");
+  const cadenceOutput = simulator.querySelector("[data-payback-cadence]");
   const profitOutput = simulator.querySelector("[data-payback-profit]");
 
-  if (!planInput || !clientValueInput || !conversionInput) {
+  if (!planInput || !clientValueInput) {
     return;
   }
 
+  const language = document.documentElement.lang === "pt" ? "pt" : "en";
   const monthlyPlanCost = Number(planInput.value);
-  const clientValue = Number(clientValueInput.value);
-  const conversionRate = Number(conversionInput.value) / 100;
-  const clientsNeeded = Math.max(1, Math.ceil(monthlyPlanCost / clientValue));
-  const visitorsNeeded = Math.ceil(clientsNeeded / conversionRate);
-  const profitAfterThreeClients = clientValue * 3 - monthlyPlanCost;
+  const clientValue = Math.max(1, Number(clientValueInput.value));
+  const exactClientsNeeded = monthlyPlanCost / clientValue;
+  const clientsNeeded = Math.max(1, Math.ceil(exactClientsNeeded));
 
   clientValueOutput.textContent = formatCurrency(clientValue);
-  conversionOutput.textContent = `${conversionInput.value}%`;
   clientsNeededOutput.textContent = formatNumber(clientsNeeded);
-  visitorsNeededOutput.textContent = formatNumber(visitorsNeeded);
-  profitOutput.textContent = `${profitAfterThreeClients >= 0 ? "+" : ""}${formatCurrency(profitAfterThreeClients)}`;
+  cadenceOutput.textContent = formatCadence(clientsNeeded, language);
+  profitOutput.textContent = `+${formatCurrency(clientValue)}`;
 };
 
 const setupPaybackSimulator = () => {

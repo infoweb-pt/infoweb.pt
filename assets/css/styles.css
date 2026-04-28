@@ -468,9 +468,9 @@ body {
   margin-top: 1.25rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .payback-result {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1.4fr 1fr 1fr;
   }
 }
 
@@ -478,14 +478,15 @@ body {
   background: #ffffff;
   border-radius: 1rem;
   color: #020617;
-  padding: 1rem;
+  padding: 1.1rem 1.15rem;
 }
 
 .payback-result span {
   color: #64748b;
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 900;
+  letter-spacing: 0.04em;
   line-height: 1.35;
   text-transform: uppercase;
 }
@@ -496,7 +497,34 @@ body {
   font-weight: 950;
   letter-spacing: -0.05em;
   line-height: 1;
-  margin-top: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.payback-result em {
+  color: #475569;
+  display: block;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 0.45rem;
+}
+
+.payback-result-primary {
+  background: linear-gradient(135deg, #d7b46a 0%, #f8e7b5 100%) !important;
+  color: #020617 !important;
+  position: relative;
+}
+
+.payback-result-primary span {
+  color: #7c5a16;
+}
+
+.payback-result-primary strong {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+}
+
+.payback-result-primary em {
+  color: #1f2937;
 }
 
 .payback-note {

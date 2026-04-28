@@ -93,13 +93,14 @@
   "payback": {
     "eyebrow": "Payback simulator",
     "title": "How many new clients does the website need to pay for itself?",
-    "copy": "Adjust the plan, your average client value, and how many website visitors become clients. The math updates instantly.",
-    "planLabel": "Pick a plan",
+    "copy": "Pick the plan and your average client value. We tell you how many new clients the website needs to bring every month to fully pay for itself.",
+    "planLabel": "Pick a plan (with €10 early bird discount)",
     "clientValueLabel": "Average value per new client",
-    "conversionLabel": "Website visitors that become clients",
-    "breakEvenLabel": "Clients needed to break even",
-    "visitorsLabel": "Estimated monthly visitors needed",
-    "profitLabel": "If you get 3 new clients",
+    "clientsLabel": "New clients per month needed",
+    "clientsHelper": "to fully pay for the website",
+    "cadenceLabel": "That is roughly",
+    "profitLabel": "Every extra client beyond that",
+    "profitHelper": "stays as profit",
     "note": "Example only: real results depend on your offer, traffic quality, location, and follow-up speed."
   },
   "caseStudies": {

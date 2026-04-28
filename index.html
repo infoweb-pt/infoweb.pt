@@ -42,7 +42,7 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260429" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260429b" />
   </head>
 
   <body class="bg-slate-50 font-sans text-slate-900 antialiased">
@@ -264,7 +264,7 @@
               <p class="section-kicker text-signal" data-i18n="payback.eyebrow">Payback simulator</p>
               <h3 id="payback-title" data-i18n="payback.title">How many new clients does the website need to pay for itself?</h3>
               <p data-i18n="payback.copy">
-                Adjust the plan, your average client value, and how many website visitors become clients. The math updates instantly.
+                Pick the plan and your average client value. We tell you how many new clients the website needs to bring every month to fully pay for itself.
               </p>
             </div>
 
@@ -272,19 +272,19 @@
               <fieldset class="payback-plan-picker" aria-label="Website plan">
                 <legend data-i18n="payback.planLabel">Pick a plan</legend>
                 <label>
-                  <input type="radio" name="payback-plan" value="29" checked />
+                  <input type="radio" name="payback-plan" value="19" checked />
                   <span data-i18n="pricing.basic.name">Basic</span>
-                  <strong>€29</strong>
+                  <strong>€19</strong>
                 </label>
                 <label>
-                  <input type="radio" name="payback-plan" value="49" />
+                  <input type="radio" name="payback-plan" value="39" />
                   <span data-i18n="pricing.professional.name">Professional</span>
-                  <strong>€49</strong>
+                  <strong>€39</strong>
                 </label>
                 <label>
-                  <input type="radio" name="payback-plan" value="139" />
+                  <input type="radio" name="payback-plan" value="129" />
                   <span data-i18n="pricing.premium.name">Premium</span>
-                  <strong>€139</strong>
+                  <strong>€129</strong>
                 </label>
               </fieldset>
 
@@ -294,30 +294,24 @@
                     <span data-i18n="payback.clientValueLabel">Average value per new client</span>
                     <strong data-payback-client-value>€75</strong>
                   </span>
-                  <input type="range" min="20" max="500" step="5" value="75" data-payback-client-value-input />
-                </label>
-
-                <label class="payback-slider">
-                  <span>
-                    <span data-i18n="payback.conversionLabel">Website visitors that become clients</span>
-                    <strong data-payback-conversion>5%</strong>
-                  </span>
-                  <input type="range" min="1" max="20" step="1" value="5" data-payback-conversion-input />
+                  <input type="range" min="10" max="500" step="5" value="75" data-payback-client-value-input />
                 </label>
               </div>
 
               <div class="payback-result" aria-live="polite">
-                <div>
-                  <span data-i18n="payback.breakEvenLabel">Clients needed to break even</span>
+                <div class="payback-result-primary">
+                  <span data-i18n="payback.clientsLabel">New clients per month needed</span>
                   <strong data-payback-clients-needed>1</strong>
+                  <em data-i18n="payback.clientsHelper">to fully pay for the website</em>
                 </div>
                 <div>
-                  <span data-i18n="payback.visitorsLabel">Estimated monthly visitors needed</span>
-                  <strong data-payback-visitors-needed>20</strong>
+                  <span data-i18n="payback.cadenceLabel">That is roughly</span>
+                  <strong data-payback-cadence>1 / month</strong>
                 </div>
                 <div>
-                  <span data-i18n="payback.profitLabel">If you get 3 new clients</span>
-                  <strong data-payback-profit>+€196</strong>
+                  <span data-i18n="payback.profitLabel">Every extra client beyond that</span>
+                  <strong data-payback-profit>+€75</strong>
+                  <em data-i18n="payback.profitHelper">stays as profit</em>
                 </div>
               </div>
 
@@ -483,6 +477,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/scripts.js?v=20260429" defer></script>
+    <script src="assets/js/scripts.js?v=20260429b" defer></script>
   </body>
 </html>
