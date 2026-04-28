@@ -94,11 +94,11 @@
     "eyebrow": "Simulador de retorno",
     "title": "Quantos clientes novos precisa o website de trazer para se pagar sozinho?",
     "copy": "Escolhe o plano e o valor médio por cliente. Dizemos-te quantos clientes novos o website precisa de trazer por mês para se pagar a si próprio.",
-    "planLabel": "Escolhe um plano (com €10 de desconto early bird)",
+    "planLabel": "Plano (mesmos preços mensais de cima)",
     "clientValueLabel": "Valor médio por novo cliente",
-    "clientsLabel": "Novos clientes por mês necessários",
-    "clientsHelper": "para pagar o website por completo",
-    "cadenceLabel": "Ou seja, mais ou menos",
+    "clientsLabel": "Novos clientes por mês",
+    "clientsHelper": "Em média, para cobrir o plano",
+    "cadenceLabel": "Ritmo aproximado",
     "note": "Exemplo apenas: os resultados reais dependem da tua oferta, margens, localização e rapidez no follow-up."
   },
   "caseStudies": {

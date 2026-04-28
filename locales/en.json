@@ -94,11 +94,11 @@
     "eyebrow": "Payback simulator",
     "title": "How many new clients does the website need to pay for itself?",
     "copy": "Pick the plan and your average client value. We tell you how many new clients the website needs to bring every month to fully pay for itself.",
-    "planLabel": "Pick a plan (with €10 early bird discount)",
+    "planLabel": "Plan (same monthly prices as above)",
     "clientValueLabel": "Average value per new client",
-    "clientsLabel": "New clients per month needed",
-    "clientsHelper": "to fully pay for the website",
-    "cadenceLabel": "That is roughly",
+    "clientsLabel": "New clients per month",
+    "clientsHelper": "On average, to cover the plan",
+    "cadenceLabel": "Rough pace",
     "note": "Example only: real results depend on your offer, margins, location, and follow-up speed."
   },
   "caseStudies": {

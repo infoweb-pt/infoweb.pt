@@ -42,7 +42,7 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260429d" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260430a" />
   </head>
 
   <body class="bg-slate-50 font-sans text-slate-900 antialiased">
@@ -272,19 +272,19 @@
               <fieldset class="payback-plan-picker" aria-label="Website plan">
                 <legend data-i18n="payback.planLabel">Pick a plan</legend>
                 <label>
-                  <input type="radio" name="payback-plan" value="19" checked />
+                  <input type="radio" name="payback-plan" value="29" checked />
                   <span data-i18n="pricing.basic.name">Basic</span>
-                  <strong>€19</strong>
+                  <strong data-i18n="pricing.basic.price">€29</strong>
                 </label>
                 <label>
-                  <input type="radio" name="payback-plan" value="39" />
+                  <input type="radio" name="payback-plan" value="49" />
                   <span data-i18n="pricing.professional.name">Professional</span>
-                  <strong>€39</strong>
+                  <strong data-i18n="pricing.professional.price">€49</strong>
                 </label>
                 <label>
-                  <input type="radio" name="payback-plan" value="129" />
+                  <input type="radio" name="payback-plan" value="139" />
                   <span data-i18n="pricing.premium.name">Premium</span>
-                  <strong>€129</strong>
+                  <strong data-i18n="pricing.premium.price">€139</strong>
                 </label>
               </fieldset>
 
@@ -292,21 +292,21 @@
                 <label class="payback-slider">
                   <span>
                     <span data-i18n="payback.clientValueLabel">Average value per new client</span>
-                    <strong data-payback-client-value>€75</strong>
+                    <strong data-payback-client-value>€10</strong>
                   </span>
-                  <input type="range" min="0.5" max="500" step="0.5" value="75" data-payback-client-value-input />
+                  <input type="range" min="0.5" max="500" step="0.5" value="10" data-payback-client-value-input />
                 </label>
               </div>
 
               <div class="payback-result" aria-live="polite">
-                <div class="payback-result-primary">
-                  <span data-i18n="payback.clientsLabel">New clients per month needed</span>
-                  <strong data-payback-clients-needed>1</strong>
-                  <em data-i18n="payback.clientsHelper">to fully pay for the website</em>
+                <div class="payback-result-card payback-result-primary">
+                  <span class="payback-result-label" data-i18n="payback.clientsLabel">New clients per month</span>
+                  <strong class="payback-result-value" data-payback-clients-needed>3</strong>
+                  <p class="payback-result-hint" data-i18n="payback.clientsHelper">On average, to cover the plan</p>
                 </div>
-                <div>
-                  <span data-i18n="payback.cadenceLabel">That is roughly</span>
-                  <strong data-payback-cadence>1 / month</strong>
+                <div class="payback-result-card payback-result-secondary">
+                  <span class="payback-result-label" data-i18n="payback.cadenceLabel">Rough pace</span>
+                  <strong class="payback-result-value payback-result-value--cadence" data-payback-cadence>1 client every 10 days</strong>
                 </div>
               </div>
 
@@ -472,6 +472,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/scripts.js?v=20260429d" defer></script>
+    <script src="assets/js/scripts.js?v=20260430a" defer></script>
   </body>
 </html>
