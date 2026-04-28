@@ -135,8 +135,7 @@
       "message": "What do you need?",
       "messagePlaceholder": "Tell us about your business, preferred plan, and launch timing.",
       "submit": "Send request",
-      "submitSubject": "InfoWeb — Contact form",
-      "note": "Delivered with FormSubmit. The first submission may ask you to confirm the inbox once at formsubmit.co."
+      "submitSubject": "InfoWeb — Contact form"
     }
   },
   "footer": {

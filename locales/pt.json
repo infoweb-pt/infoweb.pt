@@ -135,8 +135,7 @@
       "message": "Do que precisas?",
       "messagePlaceholder": "Fala-nos do teu negócio, plano preferido e timing de lançamento.",
       "submit": "Enviar pedido",
-      "submitSubject": "InfoWeb — Formulário de contacto",
-      "note": "Entregue via FormSubmit. Na primeira utilização podes ter de confirmar a caixa de entrada uma vez em formsubmit.co."
+      "submitSubject": "InfoWeb — Formulário de contacto"
     }
   },
   "footer": {
