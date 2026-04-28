@@ -90,6 +90,18 @@
     "title": "+€15/mês por acesso CMS.",
     "copy": "Edita conteúdos selecionados do website enquanto a InfoWeb mantém a parte técnica gerida."
   },
+  "payback": {
+    "eyebrow": "Simulador de retorno",
+    "title": "Quantos clientes novos precisa o website de trazer para se pagar sozinho?",
+    "copy": "Ajusta o plano, o valor médio por cliente e quantos visitantes do website se tornam clientes. A conta atualiza na hora.",
+    "planLabel": "Escolhe um plano",
+    "clientValueLabel": "Valor médio por novo cliente",
+    "conversionLabel": "Visitantes do website que se tornam clientes",
+    "breakEvenLabel": "Clientes necessários para pagar o plano",
+    "visitorsLabel": "Visitantes mensais estimados necessários",
+    "profitLabel": "Se conseguires 3 novos clientes",
+    "note": "Exemplo apenas: os resultados reais dependem da tua oferta, qualidade do tráfego, localização e rapidez no follow-up."
+  },
   "caseStudies": {
     "eyebrow": "Exemplos práticos",
     "title": "Casos de estudo: configurações típicas da InfoWeb para negócios reais.",

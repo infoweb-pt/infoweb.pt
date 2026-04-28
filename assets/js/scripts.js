@@ -5,6 +5,18 @@ const LANGUAGE_STORAGE_KEY = "infoweb-language";
 const getNestedValue = (source, path) =>
   path.split(".").reduce((value, key) => (value ? value[key] : undefined), source);
 
+const formatCurrency = (value) =>
+  new Intl.NumberFormat(document.documentElement.lang === "pt" ? "pt-PT" : "en-IE", {
+    currency: "EUR",
+    maximumFractionDigits: 0,
+    style: "currency",
+  }).format(value);
+
+const formatNumber = (value) =>
+  new Intl.NumberFormat(document.documentElement.lang === "pt" ? "pt-PT" : "en-IE", {
+    maximumFractionDigits: 0,
+  }).format(value);
+
 const getPreferredLanguage = () => {
   const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
 
@@ -80,6 +92,56 @@ const applyLanguage = async (language) => {
   translateAttributes(translations);
   updateLanguageControls(safeLanguage);
   localStorage.setItem(LANGUAGE_STORAGE_KEY, safeLanguage);
+  updatePaybackSimulator();
+};
+
+const updatePaybackSimulator = () => {
+  const simulator = document.querySelector("[data-payback-simulator]");
+
+  if (!simulator) {
+    return;
+  }
+
+  const planInput = simulator.querySelector('input[name="payback-plan"]:checked');
+  const clientValueInput = simulator.querySelector("[data-payback-client-value-input]");
+  const conversionInput = simulator.querySelector("[data-payback-conversion-input]");
+  const clientValueOutput = simulator.querySelector("[data-payback-client-value]");
+  const conversionOutput = simulator.querySelector("[data-payback-conversion]");
+  const clientsNeededOutput = simulator.querySelector("[data-payback-clients-needed]");
+  const visitorsNeededOutput = simulator.querySelector("[data-payback-visitors-needed]");
+  const profitOutput = simulator.querySelector("[data-payback-profit]");
+
+  if (!planInput || !clientValueInput || !conversionInput) {
+    return;
+  }
+
+  const monthlyPlanCost = Number(planInput.value);
+  const clientValue = Number(clientValueInput.value);
+  const conversionRate = Number(conversionInput.value) / 100;
+  const clientsNeeded = Math.max(1, Math.ceil(monthlyPlanCost / clientValue));
+  const visitorsNeeded = Math.ceil(clientsNeeded / conversionRate);
+  const profitAfterThreeClients = clientValue * 3 - monthlyPlanCost;
+
+  clientValueOutput.textContent = formatCurrency(clientValue);
+  conversionOutput.textContent = `${conversionInput.value}%`;
+  clientsNeededOutput.textContent = formatNumber(clientsNeeded);
+  visitorsNeededOutput.textContent = formatNumber(visitorsNeeded);
+  profitOutput.textContent = `${profitAfterThreeClients >= 0 ? "+" : ""}${formatCurrency(profitAfterThreeClients)}`;
+};
+
+const setupPaybackSimulator = () => {
+  const simulator = document.querySelector("[data-payback-simulator]");
+
+  if (!simulator) {
+    return;
+  }
+
+  simulator.querySelectorAll("input").forEach((input) => {
+    input.addEventListener("input", updatePaybackSimulator);
+    input.addEventListener("change", updatePaybackSimulator);
+  });
+
+  updatePaybackSimulator();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -89,5 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  setupPaybackSimulator();
   applyLanguage(getPreferredLanguage()).catch(() => applyLanguage(DEFAULT_LANGUAGE));
 });

@@ -90,6 +90,18 @@
     "title": "+€15/mo for CMS access.",
     "copy": "Edit selected website content yourself while InfoWeb keeps the technical layer managed."
   },
+  "payback": {
+    "eyebrow": "Payback simulator",
+    "title": "How many new clients does the website need to pay for itself?",
+    "copy": "Adjust the plan, your average client value, and how many website visitors become clients. The math updates instantly.",
+    "planLabel": "Pick a plan",
+    "clientValueLabel": "Average value per new client",
+    "conversionLabel": "Website visitors that become clients",
+    "breakEvenLabel": "Clients needed to break even",
+    "visitorsLabel": "Estimated monthly visitors needed",
+    "profitLabel": "If you get 3 new clients",
+    "note": "Example only: real results depend on your offer, traffic quality, location, and follow-up speed."
+  },
   "caseStudies": {
     "eyebrow": "Practical examples",
     "title": "Case studies: typical InfoWeb setups for real businesses.",

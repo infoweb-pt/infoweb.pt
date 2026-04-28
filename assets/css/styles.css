@@ -278,6 +278,234 @@ body {
   border-color: #d7b46a;
 }
 
+.payback-simulator {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(215, 180, 106, 0.28), transparent 34%),
+    radial-gradient(circle at 88% 18%, rgba(29, 78, 216, 0.34), transparent 30%),
+    linear-gradient(135deg, #020617 0%, #0f172a 52%, #111827 100%);
+  border-radius: 2rem;
+  box-shadow: 0 30px 90px rgba(2, 6, 23, 0.28);
+  color: #ffffff;
+  overflow: hidden;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  position: relative;
+}
+
+.payback-simulator::before {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  content: "";
+  inset: 1rem;
+  pointer-events: none;
+  position: absolute;
+}
+
+.payback-orb {
+  border-radius: 999px;
+  filter: blur(6px);
+  opacity: 0.6;
+  position: absolute;
+}
+
+.payback-orb-one {
+  background: #d7b46a;
+  height: 7rem;
+  right: 12%;
+  top: -2.5rem;
+  width: 7rem;
+}
+
+.payback-orb-two {
+  background: #1d4ed8;
+  bottom: -3rem;
+  height: 10rem;
+  left: 8%;
+  width: 10rem;
+}
+
+.payback-content {
+  display: grid;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .payback-content {
+    align-items: center;
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+}
+
+.payback-intro h3 {
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin-top: 0.85rem;
+}
+
+.payback-intro p:not(.section-kicker) {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-top: 1.15rem;
+  max-width: 32rem;
+}
+
+.payback-panel {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.5rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.payback-plan-picker {
+  border: 0;
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.payback-plan-picker legend {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .payback-plan-picker {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.payback-plan-picker label {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  cursor: pointer;
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.payback-plan-picker label:has(input:checked) {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #020617;
+  transform: translateY(-2px);
+}
+
+.payback-plan-picker input {
+  accent-color: #d7b46a;
+}
+
+.payback-plan-picker span {
+  font-weight: 900;
+}
+
+.payback-plan-picker strong {
+  color: #d7b46a;
+  font-size: 1.4rem;
+  font-weight: 950;
+}
+
+.payback-plan-picker label:has(input:checked) strong {
+  color: #1d4ed8;
+}
+
+.payback-controls {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.payback-slider {
+  background: rgba(2, 6, 23, 0.38);
+  border-radius: 1rem;
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.payback-slider > span {
+  align-items: center;
+  color: #e2e8f0;
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 800;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.payback-slider strong {
+  color: #f8e7b5;
+  font-size: 1.15rem;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.payback-slider input {
+  accent-color: #d7b46a;
+  cursor: pointer;
+  width: 100%;
+}
+
+.payback-result {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .payback-result {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.payback-result div {
+  background: #ffffff;
+  border-radius: 1rem;
+  color: #020617;
+  padding: 1rem;
+}
+
+.payback-result span {
+  color: #64748b;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.payback-result strong {
+  display: block;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin-top: 0.65rem;
+}
+
+.payback-note {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
 .portfolio-card {
   background:
     linear-gradient(180deg, rgba(2, 6, 23, 0) 0%, rgba(2, 6, 23, 0.86) 100%),

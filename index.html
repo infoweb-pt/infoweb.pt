@@ -255,6 +255,78 @@
             <p class="mt-2 text-slate-700" data-i18n="addon.copy">Edit selected website content yourself while InfoWeb keeps the technical layer managed.</p>
           </div>
         </div>
+
+        <section class="payback-simulator mt-10" aria-labelledby="payback-title">
+          <div class="payback-orb payback-orb-one"></div>
+          <div class="payback-orb payback-orb-two"></div>
+          <div class="payback-content">
+            <div class="payback-intro">
+              <p class="section-kicker text-signal" data-i18n="payback.eyebrow">Payback simulator</p>
+              <h3 id="payback-title" data-i18n="payback.title">How many new clients does the website need to pay for itself?</h3>
+              <p data-i18n="payback.copy">
+                Adjust the plan, your average client value, and how many website visitors become clients. The math updates instantly.
+              </p>
+            </div>
+
+            <div class="payback-panel" data-payback-simulator>
+              <fieldset class="payback-plan-picker" aria-label="Website plan">
+                <legend data-i18n="payback.planLabel">Pick a plan</legend>
+                <label>
+                  <input type="radio" name="payback-plan" value="29" checked />
+                  <span data-i18n="pricing.basic.name">Basic</span>
+                  <strong>€29</strong>
+                </label>
+                <label>
+                  <input type="radio" name="payback-plan" value="49" />
+                  <span data-i18n="pricing.professional.name">Professional</span>
+                  <strong>€49</strong>
+                </label>
+                <label>
+                  <input type="radio" name="payback-plan" value="139" />
+                  <span data-i18n="pricing.premium.name">Premium</span>
+                  <strong>€139</strong>
+                </label>
+              </fieldset>
+
+              <div class="payback-controls">
+                <label class="payback-slider">
+                  <span>
+                    <span data-i18n="payback.clientValueLabel">Average value per new client</span>
+                    <strong data-payback-client-value>€75</strong>
+                  </span>
+                  <input type="range" min="20" max="500" step="5" value="75" data-payback-client-value-input />
+                </label>
+
+                <label class="payback-slider">
+                  <span>
+                    <span data-i18n="payback.conversionLabel">Website visitors that become clients</span>
+                    <strong data-payback-conversion>5%</strong>
+                  </span>
+                  <input type="range" min="1" max="20" step="1" value="5" data-payback-conversion-input />
+                </label>
+              </div>
+
+              <div class="payback-result" aria-live="polite">
+                <div>
+                  <span data-i18n="payback.breakEvenLabel">Clients needed to break even</span>
+                  <strong data-payback-clients-needed>1</strong>
+                </div>
+                <div>
+                  <span data-i18n="payback.visitorsLabel">Estimated monthly visitors needed</span>
+                  <strong data-payback-visitors-needed>20</strong>
+                </div>
+                <div>
+                  <span data-i18n="payback.profitLabel">If you get 3 new clients</span>
+                  <strong data-payback-profit>+€196</strong>
+                </div>
+              </div>
+
+              <p class="payback-note" data-i18n="payback.note">
+                Example only: real results depend on your offer, traffic quality, location, and follow-up speed.
+              </p>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section id="case-studies" class="bg-white py-24">
