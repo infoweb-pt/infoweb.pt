@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "InfoWeb | Website as a Service",
+    "description": "A InfoWeb cria websites geridos para pequenos negócios: domínio, manutenção, reservas, dashboards, pagamentos e acesso CMS."
+  },
+  "nav": {
+    "pricing": "Preços",
+    "caseStudies": "Casos de Estudo",
+    "developer": "Developer",
+    "contact": "Contacto",
+    "cta": "Começar"
+  },
+  "hero": {
+    "eyebrow": "Website as a Service para pequenos negócios",
+    "title": "A tua presença digital completa, gerida por um preço mensal.",
+    "subtitle": "A InfoWeb cria, aloja, atualiza e melhora o teu website para o teu negócio parecer profissional online sem precisares de uma equipa técnica interna.",
+    "primaryCta": "Ver planos",
+    "secondaryCta": "Falar no WhatsApp",
+    "card": {
+      "label": "Plano de site gerido",
+      "oldPrice": "€39/mês",
+      "price": "desde €29/mês",
+      "status": "Suporte ativo",
+      "item1": "Domínio e manutenção técnica",
+      "item2": "Opções de reservas e captação de leads",
+      "item3": "Evolução para pagamentos e equipas",
+      "noteLabel": "Ideal para",
+      "note": "Restaurantes, clínicas, serviços locais, freelancers e lojas."
+    }
+  },
+  "proof": {
+    "item1": "Sem projeto inicial de agência",
+    "item2": "Estático, rápido e pronto para GitHub Pages",
+    "item3": "Criado e mantido por um engenheiro de software"
+  },
+  "pricing": {
+    "eyebrow": "Serviços e preços",
+    "title": "Escolhe o nível de presença digital que o teu negócio precisa.",
+    "subtitle": "Começa com um site profissional e evolui para reservas, dashboards, pagamentos e utilizadores internos quando o negócio precisar.",
+    "perMonth": "/mês",
+    "cta": "Escolher plano",
+    "basic": {
+      "name": "Basic",
+      "oldPrice": "€39",
+      "price": "€29",
+      "description": "Um website informativo, limpo, com domínio e manutenção incluídos."
+    },
+    "professional": {
+      "name": "Professional",
+      "oldPrice": "€59",
+      "price": "€49",
+      "badge": "Mais popular",
+      "description": "Tudo do Basic mais sistema de reservas e um dashboard simples para o negócio."
+    },
+    "premium": {
+      "name": "Premium",
+      "oldPrice": "€149",
+      "price": "€139",
+      "description": "Para negócios que precisam de pagamentos, fluxos de clientes e acesso para equipa."
+    },
+    "custom": {
+      "name": "Custom",
+      "price": "Vamos falar",
+      "description": "Precisas de integrações, automações ou uma aplicação web personalizada? Define o scope diretamente com o developer.",
+      "cta": "Contacta-nos"
+    },
+    "features": {
+      "informative": "Website informativo",
+      "domain": "Configuração de domínio",
+      "maintenance": "Manutenção",
+      "everythingBasic": "Tudo do Basic",
+      "booking": "Sistema de reservas",
+      "dashboard": "Dashboard",
+      "everythingProfessional": "Tudo do Professional",
+      "payments": "Integrações de pagamento",
+      "multiUser": "Gestão multiutilizador",
+      "discovery": "Diagnóstico técnico",
+      "roadmap": "Plano claro de entrega",
+      "quote": "Orçamento personalizado"
+    }
+  },
+  "offer": {
+    "badge": "Early bird: €10 de desconto vitalício para os primeiros clientes",
+    "label": "Oferta early bird",
+    "title": "€10 de desconto vitalício para os primeiros clientes.",
+    "copy": "Mantém o desconto enquanto tiveres um plano mensal ativo."
+  },
+  "addon": {
+    "label": "Add-on opcional",
+    "title": "+€15/mês por acesso CMS.",
+    "copy": "Edita conteúdos selecionados do website enquanto a InfoWeb mantém a parte técnica gerida."
+  },
+  "caseStudies": {
+    "eyebrow": "Exemplos práticos",
+    "title": "Casos de estudo: configurações típicas da InfoWeb para negócios reais.",
+    "card1": {
+      "type": "Restaurante",
+      "title": "Menu, reservas e SEO local",
+      "copy": "Exemplo típico: site rápido com destaques do menu, chamada para reserva, horários e estrutura pronta para Google."
+    },
+    "card2": {
+      "type": "Clínica",
+      "title": "Serviços, marcações e leads de pacientes",
+      "copy": "Exemplo típico: páginas de serviços, credibilidade da equipa, pedidos de marcação e contacto bem encaminhado."
+    },
+    "card3": {
+      "type": "Serviço local",
+      "title": "Pedidos de orçamento e dashboard simples",
+      "copy": "Exemplo típico: site focado em conversão para canalizadores, eletricistas, limpezas, explicadores ou consultores, com dashboard opcional."
+    }
+  },
+  "developer": {
+    "eyebrow": "Quem vai gerir o teu site?",
+    "title": "Um full-stack developer, não um vendedor de templates sem rosto.",
+    "role1": "Engenheiro Informático",
+    "role2": "Fundador & Full-Stack Developer",
+    "copy1": "Eu próprio faço a gestão da InfoWeb. Sou o Henrique Sousa, fundador e full-stack developer na Sousa Dev, Engenheiro de Software com mestrado em Robótica e Sistemas Inteligentes e experiência a criar software público e prático.",
+    "copy2": "O meu primeiro projeto público, <a href=\"https://saomiguelbus.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"developer-inline-link\">São Miguel Bus</a>, resolveu um problema real de informação de transportes nos Açores. Trago essa mesma mentalidade de engenharia para aqui: sistemas fiáveis, comunicação clara e websites que continuam a funcionar depois do lançamento.",
+    "point1": "Base em engenharia de software",
+    "point2": "Entrega full-stack",
+    "point3": "Manutenção incluída"
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Lança um website gerido e pronto para clientes reais.",
+    "copy": "Envia o essencial e recebes o próximo passo prático: recomendação de plano, timeline e o que é necessário para lançar.",
+    "whatsapp": "Contactar no WhatsApp",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "O teu nome",
+      "business": "Negócio",
+      "businessPlaceholder": "Nome do negócio",
+      "email": "Email",
+      "emailPlaceholder": "tu@exemplo.com",
+      "message": "Do que precisas?",
+      "messagePlaceholder": "Fala-nos do teu negócio, plano preferido e timing de lançamento.",
+      "submit": "Enviar pedido",
+      "note": "Substitui a action do Formspree pelo endpoint do teu formulário antes do lançamento."
+    }
+  },
+  "footer": {
+    "copy": "InfoWeb by Sousa Dev. Websites geridos para pequenos negócios.",
+    "link": "Visitar Sousa Dev"
+  }
+}

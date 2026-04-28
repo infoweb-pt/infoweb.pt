@@ -1,355 +1,376 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="InfoWeb provides managed websites for small businesses: domain, maintenance, bookings, dashboards, payments, and CMS access."
+      data-i18n-attr="content:meta.description"
+    />
+    <meta name="theme-color" content="#020617" />
+    <title data-i18n="meta.title">InfoWeb | Website as a Service</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-    <title>InfoWeb</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-
-<!--
-    
-TemplateMo 562 Space Dynamic
-
-https://templatemo.com/tm-562-space-dynamic
-
--->
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Instrument Sans"', "ui-sans-serif", "system-ui"],
+              display: ['"Newsreader"', "ui-serif", "Georgia"],
+            },
+            colors: {
+              ink: "#020617",
+              slateglass: "#0f172a",
+              signal: "#d7b46a",
+              mist: "#eef4ff",
+            },
+            boxShadow: {
+              glow: "0 24px 80px rgba(15, 23, 42, 0.18)",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260428" />
   </head>
 
-<body>
+  <body class="bg-slate-50 font-sans text-slate-900 antialiased">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary navigation">
+        <a href="#top" class="flex items-center text-white" aria-label="InfoWeb home">
+          <img
+            src="assets/images/infoweb-logo.png"
+            alt="InfoWeb"
+            class="h-10 w-auto sm:h-11"
+          />
+        </a>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
+        <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+          <a href="#pricing" class="nav-link" data-i18n="nav.pricing">Pricing</a>
+          <a href="#case-studies" class="nav-link" data-i18n="nav.caseStudies">Case Studies</a>
+          <a href="#developer" class="nav-link" data-i18n="nav.developer">Developer</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+        </div>
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <img src="assets/images/infoweb-logo.png" style="height: 50px;"> 
+        <div class="flex items-center gap-3">
+          <div class="rounded-full border border-white/15 bg-white/10 p-1" aria-label="Language selector">
+            <button
+              type="button"
+              class="language-button active"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              class="language-button"
+              data-lang="pt"
+              aria-pressed="false"
+            >
+              PT
+            </button>
+          </div>
+          <a
+            href="#contact"
+            class="hidden rounded-full bg-white px-4 py-2 text-sm font-bold text-ink shadow-sm transition hover:bg-signal md:inline-flex"
+            data-i18n="nav.cta"
+          >
+            Start now
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="relative isolate overflow-hidden bg-ink pt-32 text-white lg:pt-40">
+        <div class="hero-grid absolute inset-0 -z-10 opacity-40"></div>
+        <div class="absolute left-1/2 top-24 -z-10 size-[34rem] -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl"></div>
+        <div class="mx-auto grid max-w-7xl gap-14 px-5 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-32">
+          <div class="max-w-3xl animate-rise">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-signal/40 bg-signal/10 px-4 py-2 text-sm font-bold text-signal">
+              <span class="size-2 rounded-full bg-signal"></span>
+              <span data-i18n="offer.badge">Early bird: €10 lifetime discount for the first clients</span>
+            </div>
+            <p class="mb-5 text-sm font-bold uppercase tracking-[0.28em] text-slate-400" data-i18n="hero.eyebrow">
+              Website as a Service for small businesses
+            </p>
+            <h1 class="font-display text-5xl font-bold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl" data-i18n="hero.title">
+              Your complete digital presence, managed for one monthly price.
+            </h1>
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300" data-i18n="hero.subtitle">
+              InfoWeb builds, hosts, updates, and improves your website so your business looks professional online without hiring an internal tech team.
+            </p>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#pricing" class="rounded-full bg-signal px-6 py-4 text-center text-sm font-black text-ink shadow-glow transition hover:-translate-y-0.5 hover:bg-amber-300" data-i18n="hero.primaryCta">
+                See plans
+              </a>
+              <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" class="rounded-full border border-white/15 px-6 py-4 text-center text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10" data-i18n="hero.secondaryCta">
+                Talk on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <aside class="animate-rise-delay rounded-[2rem] border border-white/10 bg-white/[0.06] p-5 shadow-glow backdrop-blur">
+            <div class="rounded-[1.5rem] bg-white p-5 text-slate-950">
+              <div class="flex items-start justify-between border-b border-slate-200 pb-5">
+                <div>
+                  <p class="text-sm font-bold text-slate-500" data-i18n="hero.card.label">Managed site plan</p>
+                  <p class="mt-1 text-3xl font-black">
+                    <span class="old-price text-base" data-i18n="hero.card.oldPrice">€39/mo</span>
+                    <span data-i18n="hero.card.price">from €29/mo</span>
+                  </p>
+                </div>
+                <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700" data-i18n="hero.card.status">Live support</span>
+              </div>
+              <div class="mt-6 space-y-4">
+                <div class="dashboard-row">
+                  <span data-i18n="hero.card.item1">Domain and technical maintenance</span>
+                  <strong>100%</strong>
+                </div>
+                <div class="dashboard-row">
+                  <span data-i18n="hero.card.item2">Booking and lead capture options</span>
+                  <strong>24/7</strong>
+                </div>
+                <div class="dashboard-row">
+                  <span data-i18n="hero.card.item3">Upgrade path for payments and teams</span>
+                  <strong>+</strong>
+                </div>
+              </div>
+              <div class="mt-6 rounded-2xl bg-slate-950 p-5 text-white">
+                <p class="text-sm text-slate-400" data-i18n="hero.card.noteLabel">Best for</p>
+                <p class="mt-2 text-xl font-black" data-i18n="hero.card.note">Restaurants, clinics, local services, freelancers, and shops.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="border-y border-slate-200 bg-white py-5">
+        <div class="mx-auto grid max-w-7xl gap-4 px-5 text-sm font-bold text-slate-600 sm:grid-cols-3 lg:px-8">
+          <p data-i18n="proof.item1">No upfront agency-sized project</p>
+          <p data-i18n="proof.item2">Static, fast, GitHub Pages-ready</p>
+          <p data-i18n="proof.item3">Built and maintained by a software engineer</p>
+        </div>
+      </section>
+
+      <section id="pricing" class="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="section-kicker" data-i18n="pricing.eyebrow">Services and pricing</p>
+          <h2 class="section-title" data-i18n="pricing.title">Pick the level of digital presence your business needs.</h2>
+          <p class="section-copy" data-i18n="pricing.subtitle">
+            Start with a professional site and grow into bookings, dashboards, payments, and internal users when the business needs it.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-5 lg:grid-cols-4">
+          <article class="pricing-card">
+            <h3 data-i18n="pricing.basic.name">Basic</h3>
+            <p class="price">
+              <span class="price-stack">
+                <span class="old-price" data-i18n="pricing.basic.oldPrice">€39</span>
+                <span data-i18n="pricing.basic.price">€29</span>
+              </span>
+              <small data-i18n="pricing.perMonth">/mo</small>
+            </p>
+            <p class="pricing-copy" data-i18n="pricing.basic.description">A clean informative website with domain and maintenance included.</p>
+            <ul class="feature-list">
+              <li data-i18n="pricing.features.informative">Informative website</li>
+              <li data-i18n="pricing.features.domain">Domain setup</li>
+              <li data-i18n="pricing.features.maintenance">Maintenance</li>
+            </ul>
+            <a href="#contact" class="plan-button" data-i18n="pricing.cta">Choose plan</a>
+          </article>
+
+          <article class="pricing-card featured-card">
+            <div class="mb-4 inline-flex rounded-full bg-signal px-3 py-1 text-xs font-black text-ink" data-i18n="pricing.professional.badge">Most popular</div>
+            <h3 data-i18n="pricing.professional.name">Professional</h3>
+            <p class="price">
+              <span class="price-stack">
+                <span class="old-price" data-i18n="pricing.professional.oldPrice">€59</span>
+                <span data-i18n="pricing.professional.price">€49</span>
+              </span>
+              <small data-i18n="pricing.perMonth">/mo</small>
+            </p>
+            <p class="pricing-copy" data-i18n="pricing.professional.description">Everything in Basic plus booking flows and a simple business dashboard.</p>
+            <ul class="feature-list">
+              <li data-i18n="pricing.features.everythingBasic">Everything in Basic</li>
+              <li data-i18n="pricing.features.booking">Booking system</li>
+              <li data-i18n="pricing.features.dashboard">Dashboard</li>
+            </ul>
+            <a href="#contact" class="plan-button featured" data-i18n="pricing.cta">Choose plan</a>
+          </article>
+
+          <article class="pricing-card">
+            <h3 data-i18n="pricing.premium.name">Premium</h3>
+            <p class="price">
+              <span class="price-stack">
+                <span class="old-price" data-i18n="pricing.premium.oldPrice">€149</span>
+                <span data-i18n="pricing.premium.price">€139</span>
+              </span>
+              <small data-i18n="pricing.perMonth">/mo</small>
+            </p>
+            <p class="pricing-copy" data-i18n="pricing.premium.description">For businesses that need payments, customer workflows, and team access.</p>
+            <ul class="feature-list">
+              <li data-i18n="pricing.features.everythingProfessional">Everything in Professional</li>
+              <li data-i18n="pricing.features.payments">Payment integrations</li>
+              <li data-i18n="pricing.features.multiUser">Multi-user management</li>
+            </ul>
+            <a href="#contact" class="plan-button" data-i18n="pricing.cta">Choose plan</a>
+          </article>
+
+          <article class="pricing-card custom-card">
+            <h3 data-i18n="pricing.custom.name">Custom</h3>
+            <p class="price" data-i18n="pricing.custom.price">Let's talk</p>
+            <p class="pricing-copy" data-i18n="pricing.custom.description">Need integrations, automations, or a custom web app? Scope it directly with the developer.</p>
+            <ul class="feature-list">
+              <li data-i18n="pricing.features.discovery">Technical discovery</li>
+              <li data-i18n="pricing.features.roadmap">Clear delivery roadmap</li>
+              <li data-i18n="pricing.features.quote">Custom quote</li>
+            </ul>
+            <a href="#contact" class="plan-button" data-i18n="pricing.custom.cta">Contact us</a>
+          </article>
+        </div>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-3xl border border-signal/40 bg-signal/10 p-6">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-amber-700" data-i18n="offer.label">Early bird offer</p>
+            <p class="mt-2 text-2xl font-black text-slate-950" data-i18n="offer.title">€10 lifetime discount for the first clients.</p>
+            <p class="mt-2 text-slate-700" data-i18n="offer.copy">Lock the discount while you keep an active monthly plan.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-slate-500" data-i18n="addon.label">Optional add-on</p>
+            <p class="mt-2 text-2xl font-black text-slate-950" data-i18n="addon.title">+€15/mo for CMS access.</p>
+            <p class="mt-2 text-slate-700" data-i18n="addon.copy">Edit selected website content yourself while InfoWeb keeps the technical layer managed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="case-studies" class="bg-white py-24">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="max-w-3xl">
+            <p class="section-kicker" data-i18n="caseStudies.eyebrow">Practical examples</p>
+            <h2 class="section-title" data-i18n="caseStudies.title">Case studies: typical InfoWeb setups for real businesses.</h2>
+          </div>
+          <div class="mt-12 grid gap-5 md:grid-cols-3">
+            <article class="portfolio-card">
+              <span data-i18n="caseStudies.card1.type">Restaurant</span>
+              <h3 data-i18n="caseStudies.card1.title">Menu, reservations, and local SEO</h3>
+              <p data-i18n="caseStudies.card1.copy">Example setup: a fast site with menu highlights, reservation CTA, opening hours, and Google-ready structure.</p>
+            </article>
+            <article class="portfolio-card">
+              <span data-i18n="caseStudies.card2.type">Clinic</span>
+              <h3 data-i18n="caseStudies.card2.title">Services, bookings, and patient leads</h3>
+              <p data-i18n="caseStudies.card2.copy">Example setup: service pages, team credibility, booking requests, and clear contact routing.</p>
+            </article>
+            <article class="portfolio-card">
+              <span data-i18n="caseStudies.card3.type">Local service</span>
+              <h3 data-i18n="caseStudies.card3.title">Quote requests and simple dashboard</h3>
+              <p data-i18n="caseStudies.card3.copy">Example setup: a conversion-focused site for trades, cleaners, tutors, or consultants, with optional dashboard.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="developer" class="overflow-hidden bg-slate-950 py-24 text-white">
+        <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div>
+            <p class="section-kicker text-signal" data-i18n="developer.eyebrow">Who will manage your site?</p>
+            <h2 class="font-display text-4xl font-bold leading-tight sm:text-5xl" data-i18n="developer.title">A full-stack developer, not a faceless template vendor.</h2>
+            <div class="developer-card mt-8">
+              <img src="assets/images/sousadev-photo.jpeg" alt="Henrique Sousa" class="developer-photo" />
+              <div>
+                <h3>Henrique Sousa</h3>
+                <p class="developer-role" data-i18n="developer.role1">Software Engineer</p>
+                <p class="developer-role" data-i18n="developer.role2">Founder & Full-Stack Developer</p>
+                <div class="social-links" aria-label="Henrique Sousa social links">
+                  <a href="https://www.linkedin.com/in/henriquecsousa/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+                  <a href="https://x.com/sousadev" target="_blank" rel="noreferrer" aria-label="X">X</a>
+                  <a href="https://github.com/hc-sousa" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+                  <a href="https://orcid.org/0000-0002-1903-5620" target="_blank" rel="noreferrer" aria-label="ORCID">iD</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6 text-lg leading-8 text-slate-300">
+            <p data-i18n="developer.copy1">
+              I manage InfoWeb directly. I am Henrique Sousa, founder and full-stack developer at Sousa Dev, a Software Engineer with a Master's degree in Robotics and Intelligent Systems and a track record of building public, practical software.
+            </p>
+            <p data-i18n-html="developer.copy2">
+              My first public project, <a href="https://saomiguelbus.com/" target="_blank" rel="noreferrer" class="developer-inline-link">Sao Miguel Bus</a>, solved a real transport information problem in the Azores. I bring that same engineering mindset here: reliable systems, clear communication, and websites that keep working after launch.
+            </p>
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="trust-pill" data-i18n="developer.point1">Software engineering background</div>
+              <div class="trust-pill" data-i18n="developer.point2">Full-stack delivery</div>
+              <div class="trust-pill" data-i18n="developer.point3">Maintenance included</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+        <div class="grid gap-10 rounded-[2rem] bg-ink p-6 text-white shadow-glow lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+          <div class="flex flex-col justify-between gap-8">
+            <div>
+              <p class="section-kicker text-signal" data-i18n="contact.eyebrow">Contact</p>
+              <h2 class="font-display text-4xl font-bold leading-tight sm:text-5xl" data-i18n="contact.title">Get a managed website ready for real customers.</h2>
+              <p class="mt-5 text-lg leading-8 text-slate-300" data-i18n="contact.copy">
+                Send the basics and you will get a practical next step: plan recommendation, timeline, and what is needed to launch.
+              </p>
+            </div>
+            <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" class="inline-flex w-fit rounded-full bg-signal px-6 py-4 text-sm font-black text-ink transition hover:bg-amber-300" data-i18n="contact.whatsapp">
+              Contact on WhatsApp
             </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#about">Sobre</a></li>
-              <li class="scroll-to-section"><a href="#services">Serviços</a></li>
-              <li class="scroll-to-section"><div class="main-red-button"><a href="#contact">Contate-nos</a></div></li> 
-            </ul>        
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+          </div>
 
-  <!-- ***** Home Area Start ***** -->
-  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6 align-self-center">
-              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <h6 data-en="Welcome to InfoWeb">Bem-vindo à InfoWeb</h6>
-                <h2>Fazemos <em>Websites</em> para o seu negócio a <span>Preços Acessíveis</span></h2>
-                <p>
-                  Crie uma presença online para o seu negócio com um website profissional e moderno. Desde 50€.
-                </p>
-              </div>
+          <form class="rounded-[1.5rem] bg-white p-5 text-slate-950" action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="form-field">
+                <span data-i18n="contact.form.name">Name</span>
+                <input name="name" type="text" autocomplete="name" required data-i18n-attr="placeholder:contact.form.namePlaceholder" placeholder="Your name" />
+              </label>
+              <label class="form-field">
+                <span data-i18n="contact.form.business">Business</span>
+                <input name="business" type="text" autocomplete="organization" data-i18n-attr="placeholder:contact.form.businessPlaceholder" placeholder="Business name" />
+              </label>
             </div>
-            <!-- <div class="col-lg-6">
-              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="assets/images/banner-right-image.png" alt="team meeting">
-              </div>
-            </div> -->
-            <h2>Website em <em>Desenvolvimento</em></h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Home Area End ***** -->
-
-
-
-  <!-- ***** About Area Start ***** -->
-  <!-- <div id="about" class="about-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <img src="assets/images/about-left-image.png" alt="person graphic">
-          </div>
-        </div>
-        <div class="col-lg-8 align-self-center">
-          <div class="services">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-01.png" alt="reporting">
-                  </div>
-                  <div class="right-text">
-                    <h4>Data Analysis</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-02.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Data Reporting</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-03.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Web Analytics</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
-                  <div class="icon">
-                    <img src="assets/images/service-icon-04.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>SEO Suggestions</h4>
-                    <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- ***** About Area End ***** -->
-
-  <!-- ***** Services Area Start ***** -->
-  <!-- <div id="services" class="our-services section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
-          <div class="left-image">
-            <img src="assets/images/services-left-image.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
-          <div class="section-heading">
-            <h2>Grow your website with our <em>SEO</em> service &amp; <span>Project</span> Ideas</h2>
-            <p>Space Dynamic HTML5 template is free to use for your website projects. However, you are not permitted to redistribute the template ZIP file on any CSS template collection websites. Please contact us for more information. Thank you for your kind cooperation.</p>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="first-bar progress-skill-bar">
-                <h4>Website Analysis</h4>
-                <span>84%</span>
-                <div class="filled-bar"></div>
-                <div class="full-bar"></div>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="second-bar progress-skill-bar">
-                <h4>SEO Reports</h4>
-                <span>88%</span>
-                <div class="filled-bar"></div>
-                <div class="full-bar"></div>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="third-bar progress-skill-bar">
-                <h4>Page Optimizations</h4>
-                <span>94%</span>
-                <div class="filled-bar"></div>
-                <div class="full-bar"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- ***** Services Area End ***** -->
-
-  <!-- <div id="portfolio" class="our-portfolio section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <h2>See What Our Agency <em>Offers</em> &amp; What We <span>Provide</span></h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-sm-6">
-          <a href="#">
-            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-              <div class="hidden-content">
-                <h4>SEO Analysis</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
-              </div>
-              <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <a href="#">
-            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-              <div class="hidden-content">
-                <h4>Website Reporting</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
-              </div>
-              <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <a href="#">
-            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-              <div class="hidden-content">
-                <h4>Performance Tests</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
-              </div>
-              <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <a href="#">
-            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
-              <div class="hidden-content">
-                <h4>Data Analysis</h4>
-                <p>Lorem ipsum dolor sit ameti ctetur aoi adipiscing eto.</p>
-              </div>
-              <div class="showed-content">
-                <img src="assets/images/portfolio-image.png" alt="">
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="contact" class="contact-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <div class="section-heading">
-            <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
-            <div class="phone-info">
-              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="main-button ">Send Message</button>
-                </fieldset>
-              </div>
-            </div>
-            <div class="contact-dec">
-              <img src="assets/images/contact-decoration.png" alt="">
-            </div>
+            <label class="form-field mt-4">
+              <span data-i18n="contact.form.email">Email</span>
+              <input name="email" type="email" autocomplete="email" required data-i18n-attr="placeholder:contact.form.emailPlaceholder" placeholder="you@example.com" />
+            </label>
+            <label class="form-field mt-4">
+              <span data-i18n="contact.form.message">What do you need?</span>
+              <textarea name="message" rows="5" required data-i18n-attr="placeholder:contact.form.messagePlaceholder" placeholder="Tell us about your business, preferred plan, and launch timing."></textarea>
+            </label>
+            <button type="submit" class="mt-5 w-full rounded-full bg-ink px-6 py-4 text-sm font-black text-white transition hover:bg-slate-800" data-i18n="contact.form.submit">
+              Send request
+            </button>
+            <p class="mt-4 text-xs leading-5 text-slate-500" data-i18n="contact.form.note">
+              Replace the Formspree action with your form endpoint before launch.
+            </p>
           </form>
         </div>
-      </div>
-    </div>
-  </div>  -->
+      </section>
+    </main>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© InfoWeb by <a href="https://sousadev.com" target="_blank">Sousa Dev</a>. 
-        </div>
+    <footer class="border-t border-slate-200 bg-white py-8">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <p data-i18n="footer.copy">InfoWeb by Sousa Dev. Managed websites for small businesses.</p>
+        <a href="https://sousadev.com" target="_blank" rel="noreferrer" class="font-bold text-slate-900 hover:text-blue-700" data-i18n="footer.link">Visit Sousa Dev</a>
       </div>
-    </div>
-  </footer>
-  <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/animation.js"></script>
-  <script src="assets/js/imagesloaded.js"></script>
-  <script src="assets/js/templatemo-custom.js"></script>
+    </footer>
 
-</body>
+    <script src="assets/js/scripts.js?v=20260428" defer></script>
+  </body>
 </html>

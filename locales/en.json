@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "InfoWeb | Website as a Service",
+    "description": "InfoWeb provides managed websites for small businesses: domain, maintenance, bookings, dashboards, payments, and CMS access."
+  },
+  "nav": {
+    "pricing": "Pricing",
+    "caseStudies": "Case Studies",
+    "developer": "Developer",
+    "contact": "Contact",
+    "cta": "Start now"
+  },
+  "hero": {
+    "eyebrow": "Website as a Service for small businesses",
+    "title": "Your complete digital presence, managed for one monthly price.",
+    "subtitle": "InfoWeb builds, hosts, updates, and improves your website so your business looks professional online without hiring an internal tech team.",
+    "primaryCta": "See plans",
+    "secondaryCta": "Talk on WhatsApp",
+    "card": {
+      "label": "Managed site plan",
+      "oldPrice": "€39/mo",
+      "price": "from €29/mo",
+      "status": "Live support",
+      "item1": "Domain and technical maintenance",
+      "item2": "Booking and lead capture options",
+      "item3": "Upgrade path for payments and teams",
+      "noteLabel": "Best for",
+      "note": "Restaurants, clinics, local services, freelancers, and shops."
+    }
+  },
+  "proof": {
+    "item1": "No upfront agency-sized project",
+    "item2": "Static, fast, GitHub Pages-ready",
+    "item3": "Built and maintained by a software engineer"
+  },
+  "pricing": {
+    "eyebrow": "Services and pricing",
+    "title": "Pick the level of digital presence your business needs.",
+    "subtitle": "Start with a professional site and grow into bookings, dashboards, payments, and internal users when the business needs it.",
+    "perMonth": "/mo",
+    "cta": "Choose plan",
+    "basic": {
+      "name": "Basic",
+      "oldPrice": "€39",
+      "price": "€29",
+      "description": "A clean informative website with domain and maintenance included."
+    },
+    "professional": {
+      "name": "Professional",
+      "oldPrice": "€59",
+      "price": "€49",
+      "badge": "Most popular",
+      "description": "Everything in Basic plus booking flows and a simple business dashboard."
+    },
+    "premium": {
+      "name": "Premium",
+      "oldPrice": "€149",
+      "price": "€139",
+      "description": "For businesses that need payments, customer workflows, and team access."
+    },
+    "custom": {
+      "name": "Custom",
+      "price": "Let's talk",
+      "description": "Need integrations, automations, or a custom web app? Scope it directly with the developer.",
+      "cta": "Contact us"
+    },
+    "features": {
+      "informative": "Informative website",
+      "domain": "Domain setup",
+      "maintenance": "Maintenance",
+      "everythingBasic": "Everything in Basic",
+      "booking": "Booking system",
+      "dashboard": "Dashboard",
+      "everythingProfessional": "Everything in Professional",
+      "payments": "Payment integrations",
+      "multiUser": "Multi-user management",
+      "discovery": "Technical discovery",
+      "roadmap": "Clear delivery roadmap",
+      "quote": "Custom quote"
+    }
+  },
+  "offer": {
+    "badge": "Early bird: €10 lifetime discount for the first clients",
+    "label": "Early bird offer",
+    "title": "€10 lifetime discount for the first clients.",
+    "copy": "Lock the discount while you keep an active monthly plan."
+  },
+  "addon": {
+    "label": "Optional add-on",
+    "title": "+€15/mo for CMS access.",
+    "copy": "Edit selected website content yourself while InfoWeb keeps the technical layer managed."
+  },
+  "caseStudies": {
+    "eyebrow": "Practical examples",
+    "title": "Case studies: typical InfoWeb setups for real businesses.",
+    "card1": {
+      "type": "Restaurant",
+      "title": "Menu, reservations, and local SEO",
+      "copy": "Example setup: a fast site with menu highlights, reservation CTA, opening hours, and Google-ready structure."
+    },
+    "card2": {
+      "type": "Clinic",
+      "title": "Services, bookings, and patient leads",
+      "copy": "Example setup: service pages, team credibility, booking requests, and clear contact routing."
+    },
+    "card3": {
+      "type": "Local service",
+      "title": "Quote requests and simple dashboard",
+      "copy": "Example setup: a conversion-focused site for trades, cleaners, tutors, or consultants, with optional dashboard."
+    }
+  },
+  "developer": {
+    "eyebrow": "Who will manage your site?",
+    "title": "A full-stack developer, not a faceless template vendor.",
+    "role1": "Software Engineer",
+    "role2": "Founder & Full-Stack Developer",
+    "copy1": "I manage InfoWeb directly. I am Henrique Sousa, founder and full-stack developer at Sousa Dev, a Software Engineer with a Master's degree in Robotics and Intelligent Systems and a track record of building public, practical software.",
+    "copy2": "My first public project, <a href=\"https://saomiguelbus.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"developer-inline-link\">Sao Miguel Bus</a>, solved a real transport information problem in the Azores. I bring that same engineering mindset here: reliable systems, clear communication, and websites that keep working after launch.",
+    "point1": "Software engineering background",
+    "point2": "Full-stack delivery",
+    "point3": "Maintenance included"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get a managed website ready for real customers.",
+    "copy": "Send the basics and you will get a practical next step: plan recommendation, timeline, and what is needed to launch.",
+    "whatsapp": "Contact on WhatsApp",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "business": "Business",
+      "businessPlaceholder": "Business name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "message": "What do you need?",
+      "messagePlaceholder": "Tell us about your business, preferred plan, and launch timing.",
+      "submit": "Send request",
+      "note": "Replace the Formspree action with your form endpoint before launch."
+    }
+  },
+  "footer": {
+    "copy": "InfoWeb by Sousa Dev. Managed websites for small businesses.",
+    "link": "Visit Sousa Dev"
+  }
+}
