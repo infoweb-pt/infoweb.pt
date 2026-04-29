@@ -2,7 +2,7 @@
   "meta": {
     "title": "InfoWeb | Website as a Service",
     "description": "A InfoWeb cria websites geridos para pequenos negócios: domínio, manutenção, reservas, dashboards, pagamentos e acesso CMS.",
-    "ogImageAlt": "InfoWeb — websites geridos, alojamento e atualizações para pequenos negócios num plano mensal.",
+    "ogImageAlt": "InfoWeb — websites geridos, alojamento e atualizações para pequenos negócios num plano faturado a cada 4 semanas.",
     "ogLocale": "pt_PT",
     "ogLocaleAlternate": "en_IE"
   },
@@ -15,14 +15,14 @@
   },
   "hero": {
     "eyebrow": "Website as a Service para pequenos negócios",
-    "title": "A tua presença digital completa, gerida por um preço mensal.",
+    "title": "A tua presença digital completa, gerida a um preço a cada 4 semanas.",
     "subtitle": "A InfoWeb cria, aloja, atualiza e melhora o teu website para o teu negócio parecer profissional online sem precisares de uma equipa técnica interna.",
     "primaryCta": "Ver planos",
     "secondaryCta": "Falar no WhatsApp",
     "card": {
       "label": "Plano de site gerido",
-      "oldPrice": "€39/mês",
-      "price": "desde €29/mês",
+      "oldPrice": "€39/4 sem.",
+      "price": "desde €29/4 sem.",
       "status": "Suporte ativo",
       "item1": "Domínio e manutenção técnica",
       "item2": "Opções de reservas e captação de leads",
@@ -40,7 +40,7 @@
     "eyebrow": "Serviços e preços",
     "title": "Escolhe o nível de presença digital que o teu negócio precisa.",
     "subtitle": "Começa com um site profissional e evolui para reservas, dashboards, pagamentos e utilizadores internos quando o negócio precisar.",
-    "perMonth": "/mês",
+    "perFourWeeks": "/4 sem.",
     "cta": "Escolher plano",
     "basic": {
       "name": "Basic",
@@ -86,21 +86,21 @@
     "badge": "Early bird: €10 de desconto vitalício para os primeiros clientes",
     "label": "Oferta early bird",
     "title": "€10 de desconto vitalício para os primeiros clientes.",
-    "copy": "Mantém o desconto enquanto tiveres um plano mensal ativo."
+    "copy": "Mantém o desconto enquanto tiveres um plano ativo faturado a cada 4 semanas."
   },
   "addon": {
     "label": "Add-on opcional",
-    "title": "+€15/mês por acesso CMS.",
+    "title": "+€15 a cada 4 semanas por acesso CMS.",
     "copy": "Edita conteúdos selecionados do website enquanto a InfoWeb mantém a parte técnica gerida."
   },
   "payback": {
     "eyebrow": "Simulador de retorno",
     "title": "Quantos clientes novos precisa o website de trazer para se pagar sozinho?",
-    "copy": "Escolhe o plano e o valor médio por cliente. Dizemos-te quantos clientes novos o website precisa de trazer por mês para se pagar a si próprio.",
-    "planLabel": "Plano (mesmos preços mensais de cima)",
+    "copy": "Escolhe o plano e o valor médio por cliente. Dizemos-te quantos clientes novos o website precisa de trazer em cada período de faturação (4 semanas) para se pagar a si próprio.",
+    "planLabel": "Plano (mesmos preços de cima, a cada 4 semanas)",
     "clientValueLabel": "Valor médio por novo cliente",
-    "clientsLabel": "Novos clientes por mês",
-    "clientsHelper": "Em média, para cobrir o plano",
+    "clientsLabel": "Novos clientes por período de 4 semanas",
+    "clientsHelper": "Em média, para cobrir cada período de faturação",
     "cadenceLabel": "Ritmo aproximado",
     "note": "Exemplo apenas: os resultados reais dependem da tua oferta, margens, localização e rapidez no follow-up."
   },

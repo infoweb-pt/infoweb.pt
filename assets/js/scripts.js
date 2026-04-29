@@ -102,15 +102,18 @@ const applyLanguage = async (language) => {
   updatePaybackSimulator();
 };
 
+/** Billing period length for cadence hints (4 weeks). */
+const PAYBACK_BILLING_PERIOD_DAYS = 28;
+
 const formatCadence = (clientsNeeded, language) => {
   if (clientsNeeded <= 1) {
-    const daysBetween = Math.round(30 / Math.max(clientsNeeded, 0.001));
+    const daysBetween = Math.round(PAYBACK_BILLING_PERIOD_DAYS / Math.max(clientsNeeded, 0.001));
     return language === "pt"
       ? `1 cliente a cada ${daysBetween} dias`
       : `1 client every ${daysBetween} days`;
   }
 
-  const daysBetween = Math.max(1, Math.round(30 / clientsNeeded));
+  const daysBetween = Math.max(1, Math.round(PAYBACK_BILLING_PERIOD_DAYS / clientsNeeded));
   return language === "pt"
     ? `1 cliente a cada ${daysBetween} dias`
     : `1 client every ${daysBetween} days`;
@@ -134,9 +137,9 @@ const updatePaybackSimulator = () => {
   }
 
   const language = document.documentElement.lang === "pt" ? "pt" : "en";
-  const monthlyPlanCost = Number(planInput.value);
+  const planCostPerFourWeeks = Number(planInput.value);
   const clientValue = Math.max(0.5, Number(clientValueInput.value));
-  const exactClientsNeeded = monthlyPlanCost / clientValue;
+  const exactClientsNeeded = planCostPerFourWeeks / clientValue;
   const clientsNeeded = Math.max(1, Math.ceil(exactClientsNeeded));
 
   clientValueOutput.textContent = formatPaybackMoney(clientValue);
