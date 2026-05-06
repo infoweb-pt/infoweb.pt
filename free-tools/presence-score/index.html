@@ -218,8 +218,14 @@
 
         <p id="gate-email-error" class="hidden" role="alert"
            style="font-size:0.8rem;color:#f87171;margin:0 0 0.5rem;">Please enter a valid email address.</p>
-        <p id="email-api-error"  class="hidden" role="alert"
-           style="font-size:0.8rem;color:#f87171;margin:0 0 0.5rem;">Something went wrong. Please try again in a moment.</p>
+        <div id="email-api-error" class="hidden" role="alert"
+             style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;margin:0 0 0.5rem;">
+          <p style="font-size:0.8rem;color:#f87171;margin:0;">Something went wrong. Please try again.</p>
+          <button type="button" onclick="submitEmail()"
+                  style="font-size:0.75rem;font-weight:600;color:#d7b46a;background:transparent;border:none;cursor:pointer;text-decoration:underline;padding:0;">
+            Try again
+          </button>
+        </div>
 
         <!-- Spinner -->
         <div id="email-spinner" class="hidden" aria-live="polite" aria-label="Sending…">

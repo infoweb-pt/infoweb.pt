@@ -85,7 +85,7 @@ function renderQuestion(idx) {
   document.getElementById('q-text').textContent   = q.text;
   document.getElementById('q-counter').textContent = `Question ${idx + 1} of ${total}`;
 
-  const pct = Math.round(((idx) / total) * 100);
+  const pct = Math.round(((idx + 1) / total) * 100);
   document.getElementById('quiz-progress-fill').style.width = pct + '%';
   document.getElementById('quiz-pct').textContent = pct + '%';
   document.getElementById('quiz-progress-bar')
