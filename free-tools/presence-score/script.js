@@ -142,7 +142,6 @@ function computeScore() {
   finalScore = Math.round((raw / MAX_RAW_SCORE) * 100);
 
   // Populate result elements
-  document.getElementById('score-display').textContent  = finalScore;
   document.getElementById('score-total').textContent    = '/ 100';
 
   const band = getBand(finalScore);
@@ -244,7 +243,7 @@ async function submitEmail() {
     // ── Simulated submission (backend not yet wired) ────────────────────────
     // When API_ENDPOINT is live, replace this block with a real fetch().
     const payload = { email, score: finalScore, answers };
-    console.log('[submitEmail] Lead payload (POST to', API_ENDPOINT, '):', payload);
+    console.debug('[submitEmail] Payload ready for', API_ENDPOINT, '— score:', payload.score);
 
     await new Promise(resolve => setTimeout(resolve, 900));
 
