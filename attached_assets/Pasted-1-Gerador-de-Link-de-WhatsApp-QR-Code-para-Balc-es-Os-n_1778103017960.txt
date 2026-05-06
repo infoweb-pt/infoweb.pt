@@ -1,0 +1,20 @@
+1. Gerador de Link de WhatsApp + QR Code para Balcões
+Os negócios locais e restaurantes usam o WhatsApp para quase tudo (reservas, encomendas, dúvidas), mas muitos não sabem como criar um link direto ou um QR Code para os clientes lerem na mesa ou na barraca.
+• O que faz: O utilizador coloca o número de telemóvel e uma mensagem padrão (ex: "Olá, queria fazer uma encomenda!"). A ferramenta gera o link para o Instagram e um QR Code pronto a imprimir para colocar no espaço físico.
+• A "Isca" (CTA): Depois de ele descarregar o QR Code, aparece a mensagem: "Muitas mensagens no WhatsApp para gerir? E se os seus clientes pudessem ver o menu e fazer o pedido sozinhos num site profissional? Conheça os nossos planos a partir de X€/mês."
+• Vantagem Técnica: Facílimo de programar. Podes usar bibliotecas gratuitas em JavaScript (como o qrcode.js) que rodam 100% do lado do cliente, sem gastar recursos da tua API.
+2. Calculadora de "Clientes Perdidos" (O custo de não ter site)
+A maior objeção de um dono de negócio é achar que não precisa de um site. Esta ferramenta serve para lhe mostrar que não ter um site está a custar-lhe dinheiro.
+• O que faz: Um formulário simples com 3 perguntas:
+1.	Qual é o valor médio que um cliente gasta no seu negócio? (ex: 20€)
+2.	Quantas pessoas lhe mandam mensagem fora de horas ou ao fim de semana? (ex: 5)
+3.	Quantas dessas pessoas desistem porque não têm resposta imediata? (ex: 3)
+• O Resultado: A calculadora faz as contas e diz de forma impactante: "Você está a perder aproximadamente 60€ por semana (240€/mês) por não ter um site a receber pedidos/informações 24 horas por dia."
+• A "Isca" (CTA): "Pare de perder dinheiro enquanto dorme. O nosso serviço de sites resolve isto por uma fração desse valor. Fale connosco."
+• Vantagem Técnica: É pura matemática em JavaScript. A tua API intermédia só precisa de guardar o e-mail da pessoa para lhe enviares o resultado.
+3. Diagnóstico Rápido de Presença Online (Score de 0 a 100)
+Os donos de negócios adoram quizzes e saber a sua "pontuação" face à concorrência.
+• O que faz: Um questionário interativo de 5 a 7 perguntas de Sim/Não. (Ex: Quando alguém pesquisa o seu serviço no Google, você aparece em 1º? Tem um domínio próprio .pt ou .com? O seu menu/portfólio está atualizado num link único?)
+• O Resultado: Dependendo das respostas, gera uma pontuação (ex: 45/100) com um gráfico circular simples e identifica o maior ponto fraco. "O seu maior problema atual é a falta de visibilidade nas pesquisas do Google."
+• A "Isca" (CTA): "Podemos elevar a sua pontuação para 100/100 em menos de uma semana, sem dores de cabeça. Veja como funciona o nosso modelo de sites por subscrição."
+• Vantagem Técnica: Muito interativo e visualmente apelativo. Podes usar apenas HTML, CSS e JS, guardando as leads na tua base de dados através da API.
