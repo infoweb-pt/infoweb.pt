@@ -125,9 +125,8 @@ function validateStep(step) {
 function calculate() {
   if (!validateStep(3)) return;
 
-  const avgSpend      = parseFloat(document.getElementById('avg-spend').value)       || 0;
-  const contactsMissed = parseFloat(document.getElementById('contacts-missed').value) || 0;
-  const customersLost = parseFloat(document.getElementById('customers-lost').value)   || 0;
+  const avgSpend      = parseFloat(document.getElementById('avg-spend').value)     || 0;
+  const customersLost = parseFloat(document.getElementById('customers-lost').value) || 0;
 
   weeklyLoss  = avgSpend * customersLost;
   monthlyLoss = weeklyLoss * 4;
@@ -211,11 +210,13 @@ function resetCalculator() {
     hide(id);
   });
 
-  // Reset email gate
+  // Reset email gate — restore all gate elements so leads can be re-submitted
   document.getElementById('gate-email').value = '';
   hide('gate-email-error');
   hide('email-api-error');
+  hide('email-spinner');
   hide('email-success');
+  show('email-gate');
   show('email-submit-btn');
 
   // Reset state

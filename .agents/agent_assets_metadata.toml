@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "RaV2cYGyHBDVkUgK0bbkH"
+uri = "file://free-tools/lost-customers-calculator/og-image.png"
+type = "image"
+title = "generated_image"
