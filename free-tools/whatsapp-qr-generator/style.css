@@ -1,0 +1,57 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-width: 320px;
+}
+
+::selection {
+  background: #22c55e;
+  color: #020617;
+}
+
+/* Smooth details/summary animation */
+details > p {
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Signal colour used in CTA hover */
+.hover\:bg-signal:hover {
+  background-color: #d7b46a;
+}
+
+/* Spinner show helper (flex display) */
+.show-flex {
+  display: flex !important;
+}
+
+/* Copy success flash */
+@keyframes flash {
+  0%   { background-color: rgba(34,197,94,0.15); }
+  100% { background-color: transparent; }
+}
+
+.copy-flash {
+  animation: flash 0.6s ease;
+}
+
+/* QR canvas sizing */
+#qr-canvas {
+  display: block;
+}
+
+/* Mobile-first select arrow fix */
+select {
+  min-width: 90px;
+}

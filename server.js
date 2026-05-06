@@ -33,6 +33,20 @@ const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, urlPath);
 
   fs.stat(filePath, (err, stat) => {
+    if (!err && stat.isDirectory()) {
+      const dirIndex = path.join(filePath, 'index.html');
+      fs.readFile(dirIndex, (err2, data) => {
+        if (err2) {
+          res.writeHead(404);
+          res.end('Not found');
+          return;
+        }
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+      });
+      return;
+    }
+
     if (err || !stat.isFile()) {
       const indexPath = path.join(__dirname, 'index.html');
       fs.readFile(indexPath, (err2, data) => {
