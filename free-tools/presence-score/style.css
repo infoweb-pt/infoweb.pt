@@ -1,0 +1,350 @@
+/* ── Brand tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --ink:     #020617;
+  --signal:  #d7b46a;
+  --bg:      #020617;
+  --surface: #0f172a;
+  --border:  #1e293b;
+  --muted:   #64748b;
+  --text:    #f1f5f9;
+  --danger:  #f87171;
+  --success: #34d399;
+  --font:    "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background:  var(--bg);
+  color:       var(--text);
+  font-family: var(--font);
+  margin:      0;
+  min-width:   320px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--signal); color: var(--ink); }
+
+/* ── Utility ──────────────────────────────────────────────────────────────── */
+.hidden       { display: none !important; }
+.show-flex    { display: flex !important; }
+
+/* ── Free badge ───────────────────────────────────────────────────────────── */
+.free-badge {
+  align-items:   center;
+  background:    rgba(52, 211, 153, 0.12);
+  border:        1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 999px;
+  color:         #34d399;
+  display:       inline-flex;
+  font-size:     0.78rem;
+  font-weight:   700;
+  gap:           0.45rem;
+  padding:       0.35rem 0.85rem;
+}
+
+.free-badge-dot {
+  background:    #34d399;
+  border-radius: 999px;
+  display:       inline-block;
+  height:        0.45rem;
+  width:         0.45rem;
+}
+
+/* ── Quiz progress bar ────────────────────────────────────────────────────── */
+.progress-track {
+  background:    #1e293b;
+  border-radius: 999px;
+  height:        5px;
+  overflow:      hidden;
+  width:         100%;
+}
+
+.progress-fill {
+  background:    var(--signal);
+  border-radius: 999px;
+  height:        100%;
+  transition:    width 280ms ease;
+  width:         0%;
+}
+
+/* ── Question card ────────────────────────────────────────────────────────── */
+.question-card {
+  background:    #0f172a;
+  border:        1px solid #1e293b;
+  border-radius: 1.25rem;
+  padding:       2rem 1.5rem;
+}
+
+.card-exit  { animation: cardOut 220ms ease forwards; }
+.card-enter { animation: cardIn  300ms ease forwards; }
+
+@keyframes cardOut {
+  to { opacity: 0; transform: translateX(-30px) scale(0.97); }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateX(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0)    scale(1);    }
+}
+
+/* ── Yes / No buttons ─────────────────────────────────────────────────────── */
+.answer-btn {
+  align-items:    center;
+  background:     #1e293b;
+  border:         1.5px solid #334155;
+  border-radius:  0.875rem;
+  color:          var(--text);
+  cursor:         pointer;
+  display:        flex;
+  flex:           1;
+  font-family:    var(--font);
+  font-size:      1.05rem;
+  font-weight:    800;
+  gap:            0.6rem;
+  justify-content: center;
+  min-height:     3.75rem;
+  padding:        1rem;
+  transition:     background 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+
+.answer-btn:hover,
+.answer-btn:focus-visible {
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.answer-btn.yes-btn:hover,
+.answer-btn.yes-btn:focus-visible {
+  background:    rgba(52, 211, 153, 0.18);
+  border-color:  #34d399;
+  color:         #34d399;
+}
+
+.answer-btn.no-btn:hover,
+.answer-btn.no-btn:focus-visible {
+  background:    rgba(248, 113, 113, 0.18);
+  border-color:  #f87171;
+  color:         #f87171;
+}
+
+.answer-btn:active { transform: scale(0.97); }
+
+/* ── Score ring ───────────────────────────────────────────────────────────── */
+.ring-container {
+  display:         flex;
+  justify-content: center;
+  margin:          0 auto 1.5rem;
+  position:        relative;
+  width:           220px;
+}
+
+.ring-svg { display: block; }
+
+.ring-track {
+  fill:         none;
+  stroke:       #1e293b;
+  stroke-width: 12;
+}
+
+#score-ring {
+  fill:               none;
+  stroke:             var(--signal);
+  stroke-linecap:     round;
+  stroke-width:       12;
+  transform:          rotate(-90deg);
+  transform-origin:   50% 50%;
+  transition:         stroke 300ms ease;
+}
+
+.ring-label {
+  align-items:   center;
+  display:       flex;
+  flex-direction: column;
+  inset:         0;
+  justify-content: center;
+  position:      absolute;
+}
+
+.ring-number {
+  font-size:     3.25rem;
+  font-weight:   900;
+  letter-spacing: -0.04em;
+  line-height:   1;
+}
+
+.ring-total {
+  color:       var(--muted);
+  font-size:   1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── Score band label ─────────────────────────────────────────────────────── */
+.score-band {
+  border-radius: 999px;
+  display:       inline-block;
+  font-size:     0.85rem;
+  font-weight:   800;
+  padding:       0.3rem 1rem;
+}
+
+.band-critical    { background: rgba(248,113,113,0.15); color: #f87171; }
+.band-needs-work  { background: rgba(251,191,36,0.15);  color: #fbbf24; }
+.band-good        { background: rgba(52,211,153,0.15);  color: #34d399; }
+.band-excellent   { background: rgba(215,180,106,0.15); color: #d7b46a; }
+
+/* Ring stroke colour per band */
+.ring-critical  #score-ring { stroke: #f87171; }
+.ring-needs-work #score-ring { stroke: #fbbf24; }
+.ring-good      #score-ring { stroke: #34d399; }
+.ring-excellent #score-ring { stroke: #d7b46a; }
+
+/* ── Breakdown list ───────────────────────────────────────────────────────── */
+.breakdown-wrapper {
+  margin-top:  1rem;
+  position:    relative;
+}
+
+.breakdown-locked {
+  filter:         blur(6px);
+  pointer-events: none;
+  user-select:    none;
+}
+
+.breakdown-overlay {
+  align-items:    center;
+  background:     rgba(2, 6, 23, 0.7);
+  border:         1px solid #1e293b;
+  border-radius:  1rem;
+  display:        flex;
+  flex-direction: column;
+  gap:            0.75rem;
+  inset:          0;
+  justify-content: center;
+  padding:        1.5rem;
+  position:       absolute;
+  text-align:     center;
+  z-index:        10;
+}
+
+.breakdown-list {
+  list-style: none;
+  margin:     0;
+  padding:    0;
+}
+
+.breakdown-item {
+  align-items:  flex-start;
+  display:      flex;
+  gap:          0.75rem;
+  padding:      0.65rem 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.breakdown-item:last-child { border-bottom: none; }
+
+.breakdown-icon {
+  border-radius: 50%;
+  display:       flex;
+  flex:          0 0 auto;
+  font-size:     0.75rem;
+  font-weight:   900;
+  height:        1.5rem;
+  width:         1.5rem;
+  align-items:   center;
+  justify-content: center;
+  line-height:   1;
+}
+
+.icon-yes { background: rgba(52,211,153,0.15); color: #34d399; }
+.icon-no  { background: rgba(248,113,113,0.15); color: #f87171; }
+
+.breakdown-text {
+  color:       #94a3b8;
+  font-size:   0.875rem;
+  line-height: 1.55;
+}
+
+/* ── Email gate ───────────────────────────────────────────────────────────── */
+#email-spinner {
+  align-items:     center;
+  gap:             0.75rem;
+  justify-content: center;
+  padding:         0.75rem 0;
+}
+
+/* ── Spinner ──────────────────────────────────────────────────────────────── */
+.animate-spin { animation: spin 700ms linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background:    var(--signal);
+  border:        none;
+  border-radius: 0.75rem;
+  color:         var(--ink);
+  cursor:        pointer;
+  display:       block;
+  font-family:   var(--font);
+  font-size:     1rem;
+  font-weight:   800;
+  padding:       0.9rem 1.5rem;
+  text-align:    center;
+  transition:    background 160ms ease, transform 160ms ease;
+  width:         100%;
+}
+
+.btn-primary:hover  { background: #e4c47f; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* ── FAQ accordion ────────────────────────────────────────────────────────── */
+details.faq-item {
+  border:        1px solid var(--border);
+  border-radius: 0.875rem;
+  margin-bottom: 0.625rem;
+  overflow:      hidden;
+}
+
+details.faq-item[open] { border-color: #334155; }
+
+details.faq-item summary {
+  cursor:          pointer;
+  display:         flex;
+  font-size:       0.975rem;
+  font-weight:     600;
+  gap:             1rem;
+  justify-content: space-between;
+  list-style:      none;
+  padding:         1.1rem 1.25rem;
+  user-select:     none;
+}
+
+details.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-chevron {
+  color:      var(--muted);
+  flex:       0 0 auto;
+  font-size:  1.1rem;
+  transition: transform 240ms ease;
+}
+
+details.faq-item[open] .faq-chevron { transform: rotate(180deg); }
+
+.faq-body {
+  color:       #94a3b8;
+  font-size:   0.9rem;
+  line-height: 1.75;
+  padding:     0 1.25rem 1.25rem;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+header {
+  backdrop-filter:         blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}

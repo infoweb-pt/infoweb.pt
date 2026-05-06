@@ -6,3 +6,9 @@ id = "RaV2cYGyHBDVkUgK0bbkH"
 uri = "file://free-tools/lost-customers-calculator/og-image.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "zsAVhgoAXA6TMLhfoh5Bl"
+uri = "file://free-tools/presence-score/og-image.png"
+type = "image"
+title = "generated_image"
