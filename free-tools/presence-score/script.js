@@ -240,26 +240,22 @@ async function submitEmail() {
   showFlex('email-spinner');
 
   try {
-    // ── Simulated submission (backend not yet wired) ────────────────────────
-    // When API_ENDPOINT is live, replace this block with a real fetch().
     const payload = { email, score: finalScore, answers };
-    console.debug('[submitEmail] Payload ready for', API_ENDPOINT, '— score:', payload.score);
 
-    await new Promise(resolve => setTimeout(resolve, 900));
+    // POST lead to intermediate API.
+    // Replace API_ENDPOINT constant at the top of this file once backend is ready.
+    const response = await fetch(API_ENDPOINT, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
 
-    // Uncomment when backend is ready:
-    // const response = await fetch(API_ENDPOINT, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(payload)
-    // });
-    // if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    // ── End of simulated block ─────────────────────────────────────────────
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
+    // Success — unlock breakdown and show confirmation
     hide('email-spinner');
     hide('email-gate');
     show('email-success');
-    // Unlock breakdown
     document.getElementById('breakdown-wrapper').classList.remove('breakdown-locked');
     document.getElementById('breakdown-overlay').classList.add('hidden');
 
