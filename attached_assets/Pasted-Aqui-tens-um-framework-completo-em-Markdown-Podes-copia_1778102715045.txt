@@ -1,0 +1,43 @@
+Aqui tens um *framework* completo em Markdown. Podes copiar e guardar isto como a tua "Bíblia" ou *Checklist* sempre que fores desenvolver uma nova ferramenta gratuita.
+Ele cobre desde as limitações técnicas do GitHub Pages até à psicologia de conversão para o teu negócio de WaaS.
+# 📋 Requisitos Padrão: Ferramentas Gratuitas (Free Tool Marketing)
+## 1. Requisitos Técnicos (Infraestrutura e GitHub Pages)
+Como o *hosting* é feito no GitHub Pages, o ambiente é 100% estático. A ferramenta tem de respeitar as seguintes regras:
+ * **Frontend-Only:** Construção exclusiva em HTML, CSS e JavaScript (Vanilla, React, Vue, etc., desde que exportado como estático).
+ * **Processamento Client-Side:** Sempre que possível, os cálculos, validações e manipulações de dados devem ocorrer no *browser* do utilizador para poupar custos e tempo de resposta.
+ * **Comunicação com a API Intermédia:**
+   * Toda a comunicação com a base de dados ou serviços de terceiros deve ser feita via *fetch*/*axios* para a tua API intermédia.
+   * **CORS:** A API intermédia tem de ter o CORS configurado para aceitar pedidos apenas dos teus domínios (ex: [https://teudominio.github.io](https://teudominio.github.io)).
+   * **Segurança de Chaves:** NUNCA deixar *API Keys* sensíveis (como credenciais de bases de dados ou chaves de OpenAI) expostas no código do GitHub Pages. Essas chaves ficam na API intermédia.
+ * **Loading States:** Como as chamadas à API podem demorar, a ferramenta tem de ter sempre indicadores visuais de carregamento (*spinners*, *skeletons* ou barras de progresso).
+## 2. Estrutura Visual da Página (UI/UX)
+A página da ferramenta deve ser focada e sem distrações. O design deve refletir a qualidade dos sites que vendes no teu serviço WaaS.
+ * **Header Minimalista:** Apenas o logótipo da tua marca WaaS e um botão discreto a dizer "Conhecer Serviço de Sites". Sem menus complexos.
+ * **Hero Section Direta:**
+   * Título claro e focado no benefício (ex: *"Gere o seu link de WhatsApp em 5 segundos"*).
+   * Subtítulo explicativo e curto.
+ * **Área da Ferramenta (Input):** Formulários curtos, com *placeholders* claros e validação em tempo real (ex: avisar logo se o e-mail for inválido antes de clicar em enviar).
+ * **Área de Resultado (Output):** Onde a "mágica" acontece. Deve ser visualmente destacada (usar caixas com cor de fundo diferente ou sombras).
+## 3. Funil de Marketing e Conversão (Obrigatório)
+O objetivo da ferramenta é gerar *leads* ou vendas para o serviço principal (WaaS). Cada ferramenta tem de incluir:
+ * **A Regra do Valor Imediato:** A ferramenta tem de entregar pelo menos 80% do valor prometido gratuitamente e sem barreiras para criar confiança.
+ * **Gating Estratégico (Opcional, mas recomendado para B2B):**
+   * *Opção A (Acesso Livre):* A pessoa usa a ferramenta e, no resultado, aparece o CTA principal.
+   * *Opção B (Lead Capture):* A pessoa vê um resumo do resultado no ecrã, mas tem de inserir o e-mail para receber o PDF/Relatório completo.
+ * **O "Call to Action" (CTA) de Transição:** Posicionado logo abaixo do resultado da ferramenta.
+   * *Fórmula do CTA:* "Gostou desta facilidade? O seu site também pode ser assim." -> [Botão: Ver Planos de Sites].
+ * **Micro-Prova Social:** Uma pequena secção no rodapé com algo como: *"Desenvolvido por [Tua Marca]. Já ajudámos X negócios locais a dominar o online."*
+## 4. Requisitos de Analytics e Tracking
+Para saberes se a ferramenta está a funcionar como canal de aquisição, deves implementar:
+ * **Eventos de Sucesso:** Disparar um evento no Google Analytics / Meta Pixel (se usares anúncios) sempre que alguém:
+   * Clica em "Gerar/Calcular" (Uso da ferramenta).
+   * Clica no botão de CTA para o teu site WaaS (Conversão de tráfego).
+   * Submete o e-mail (Geração de Lead).
+ * **UTMs Internas:** O link que aponta da ferramenta gratuita para a tua página de vendas (WaaS) deve ter parâmetros UTM (ex: ?utm_source=freetool&utm_medium=whatsapp_generator) para saberes de onde vêm os clientes.
+## 5. Checklist de Lançamento (QA)
+Antes de publicar qualquer ferramenta no GitHub Pages, verificar:
+ * [ ] Está 100% responsiva (Mobile First)? (A maioria dos donos de negócios locais usa o telemóvel).
+ * [ ] O tratamento de erros da API é amigável? (Em vez de um erro 500 no ecrã, mostrar "Ups, tivemos um problema temporário. Tente novamente").
+ * [ ] O botão do CTA para o serviço WaaS está a abrir num novo separador (target="_blank")?
+ * [ ] O *Favicon* e os meta-dados (Open Graph / SEO) estão configurados para quando o link for partilhado no WhatsApp ou Facebook?
+Que tipo de ferramenta gratuita estás a pensar desenvolver primeiro para testar esta estratégia?
