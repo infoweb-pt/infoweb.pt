@@ -2,7 +2,7 @@
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let lastWaLink = '';
-let qrInstance  = null;
+let qrReady    = false;
 
 // ─── Analytics helper ─────────────────────────────────────────────────────────
 function trackEvent(eventName, params) {
@@ -14,47 +14,69 @@ function trackEvent(eventName, params) {
 }
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
-function show(id)   { const el = document.getElementById(id); el.classList.remove('hidden'); }
+function show(id)   { document.getElementById(id).classList.remove('hidden'); }
 function hide(id)   { document.getElementById(id).classList.add('hidden'); }
 function showFlex(id) {
   const el = document.getElementById(id);
   el.classList.remove('hidden');
   el.classList.add('show-flex');
 }
-
 function showSpinner()  { showFlex('spinner'); }
-function hideSpinner()  { hide('spinner'); document.getElementById('spinner').classList.remove('show-flex'); }
-
-function clearErrors() {
-  hide('phone-error');
-  const phoneInput = document.getElementById('phone-number');
-  phoneInput.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+function hideSpinner()  {
+  const el = document.getElementById('spinner');
+  el.classList.add('hidden');
+  el.classList.remove('show-flex');
 }
 
-function updateCharCount() {
-  const msg = document.getElementById('wa-message').value;
-  document.getElementById('char-count').textContent = msg.length;
+function setDownloadEnabled(enabled) {
+  const btn = document.getElementById('btn-download');
+  btn.disabled = !enabled;
 }
 
-// ─── Validation ───────────────────────────────────────────────────────────────
+// ─── Live phone validation (fires on every keystroke) ─────────────────────────
+function validateLive() {
+  const phone     = document.getElementById('phone-number').value.trim();
+  const digits    = phone.replace(/\D/g, '');
+  const errorEl   = document.getElementById('phone-error');
+  const inputEl   = document.getElementById('phone-number');
+  const hasValue  = phone.length > 0;
+  const isInvalid = hasValue && (digits.length < 6 || digits !== phone.replace(/\s|-/g, ''));
+
+  if (isInvalid) {
+    errorEl.classList.remove('hidden');
+    inputEl.classList.add('ring-2', 'ring-red-500', 'border-red-500');
+    inputEl.classList.remove('focus:ring-green-500');
+  } else {
+    errorEl.classList.add('hidden');
+    inputEl.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+    inputEl.classList.add('focus:ring-green-500');
+  }
+}
+
+// ─── Submit-time validation ───────────────────────────────────────────────────
 function validateInputs() {
-  const phone = document.getElementById('phone-number').value.trim();
-  const digitsOnly = phone.replace(/\D/g, '');
+  const phone  = document.getElementById('phone-number').value.trim();
+  const digits = phone.replace(/\D/g, '');
 
-  if (!digitsOnly || digitsOnly.length < 6) {
-    show('phone-error');
-    const phoneInput = document.getElementById('phone-number');
-    phoneInput.classList.add('ring-2', 'ring-red-500', 'border-red-500');
-    phoneInput.focus();
+  if (!digits || digits.length < 6) {
+    const errorEl = document.getElementById('phone-error');
+    const inputEl = document.getElementById('phone-number');
+    errorEl.classList.remove('hidden');
+    inputEl.classList.add('ring-2', 'ring-red-500', 'border-red-500');
+    inputEl.focus();
     return false;
   }
   return true;
 }
 
+// ─── Char counter ─────────────────────────────────────────────────────────────
+function updateCharCount() {
+  document.getElementById('char-count').textContent =
+    document.getElementById('wa-message').value.length;
+}
+
 // ─── Main tool logic ──────────────────────────────────────────────────────────
 function runTool() {
-  clearErrors();
-
   if (!validateInputs()) return;
 
   trackEvent('tool_used');
@@ -62,17 +84,19 @@ function runTool() {
   showSpinner();
   hide('result-box');
   hide('error-box');
+  setDownloadEnabled(false);
+  qrReady = false;
 
-  // Simulate brief async for UX (QR generation is sync but feels instant otherwise)
+  // Brief delay so spinner is visible; QR gen itself is synchronous
   setTimeout(() => {
     try {
       const countryCode = document.getElementById('country-code').value;
       const phone       = document.getElementById('phone-number').value.trim().replace(/\D/g, '');
       const message     = document.getElementById('wa-message').value.trim();
+      const fullNumber  = countryCode + phone;
+      const encoded     = message ? encodeURIComponent(message) : '';
 
-      const fullNumber = countryCode + phone;
-      const encoded    = message ? encodeURIComponent(message) : '';
-      lastWaLink       = encoded
+      lastWaLink = encoded
         ? `https://wa.me/${fullNumber}?text=${encoded}`
         : `https://wa.me/${fullNumber}`;
 
@@ -83,7 +107,7 @@ function runTool() {
     } finally {
       hideSpinner();
     }
-  }, 400);
+  }, 350);
 }
 
 function renderResult(waLink) {
@@ -91,47 +115,26 @@ function renderResult(waLink) {
   document.getElementById('wa-link-display').textContent = waLink;
   document.getElementById('wa-link-open').href = waLink;
 
-  // Generate QR Code
-  const canvas = document.getElementById('qr-canvas');
+  // Render QR Code directly into #qr-container
+  // qrcode.js draws synchronously onto a <canvas> it creates inside the container
+  const container = document.getElementById('qr-container');
+  container.innerHTML = ''; // clear any previous QR
 
-  // Clear previous QR if any
-  if (qrInstance) {
-    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  // QRCode.js renders into a div, so we use a temp container then copy to canvas
-  const tempDiv = document.createElement('div');
-  tempDiv.style.display = 'none';
-  document.body.appendChild(tempDiv);
-
-  qrInstance = new QRCode(tempDiv, {
+  new QRCode(container, {
     text: waLink,
     width: 220,
     height: 220,
-    colorDark: '#020617',
+    colorDark:  '#020617',
     colorLight: '#ffffff',
     correctLevel: QRCode.CorrectLevel.H
   });
 
-  // QRCode.js creates an <img> element asynchronously
-  setTimeout(() => {
-    const qrImg = tempDiv.querySelector('img');
-    if (qrImg) {
-      const img = new Image();
-      img.onload = () => {
-        canvas.width  = 220;
-        canvas.height = 220;
-        canvas.getContext('2d').drawImage(img, 0, 0, 220, 220);
-      };
-      img.src = qrImg.src;
-    }
-    document.body.removeChild(tempDiv);
-  }, 100);
+  // qrcode.js draws the canvas synchronously; enable download immediately
+  qrReady = true;
+  setDownloadEnabled(true);
 
-  // Show result
+  // Show result section and scroll to it
   show('result-box');
-
-  // Scroll to result
   document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   trackEvent('tool_result_shown');
@@ -146,48 +149,55 @@ function showFriendlyError() {
 function copyLink() {
   if (!lastWaLink) return;
 
-  navigator.clipboard.writeText(lastWaLink).then(() => {
-    const btn  = document.getElementById('copy-btn-text');
+  const doFeedback = () => {
+    const btn = document.getElementById('copy-btn-text');
+    const box = document.getElementById('wa-link-display');
     btn.textContent = 'Copied!';
-    const linkDisplay = document.getElementById('wa-link-display');
-    linkDisplay.classList.add('copy-flash');
+    box.classList.add('copy-flash');
     setTimeout(() => {
       btn.textContent = 'Copy link';
-      linkDisplay.classList.remove('copy-flash');
+      box.classList.remove('copy-flash');
     }, 2000);
     trackEvent('result_copied');
-  }).catch(() => {
-    // Fallback for older browsers
-    const textarea = document.createElement('textarea');
-    textarea.value = lastWaLink;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    document.getElementById('copy-btn-text').textContent = 'Copied!';
-    setTimeout(() => { document.getElementById('copy-btn-text').textContent = 'Copy link'; }, 2000);
-    trackEvent('result_copied');
-  });
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(lastWaLink).then(doFeedback).catch(() => fallbackCopy(doFeedback));
+  } else {
+    fallbackCopy(doFeedback);
+  }
 }
 
-// ─── Download QR Code ─────────────────────────────────────────────────────────
+function fallbackCopy(callback) {
+  const ta = document.createElement('textarea');
+  ta.value = lastWaLink;
+  ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (_) {}
+  document.body.removeChild(ta);
+  if (callback) callback();
+}
+
+// ─── Download QR Code (high-res, print-ready) ─────────────────────────────────
 function downloadQR() {
-  const canvas = document.getElementById('qr-canvas');
-  if (!canvas || canvas.width === 0) return;
+  if (!qrReady) return;
 
-  // Create a higher-res version for printing quality
-  const printCanvas  = document.createElement('canvas');
-  const scale        = 4; // 4× for print quality
-  printCanvas.width  = 220 * scale;
-  printCanvas.height = 220 * scale;
-  const ctx          = printCanvas.getContext('2d');
+  // qrcode.js creates a <canvas> directly inside #qr-container
+  const srcCanvas = document.querySelector('#qr-container canvas');
+  if (!srcCanvas) return;
 
+  const scale       = 4; // 4× = 880×880 px — suitable for print
+  const printCanvas = document.createElement('canvas');
+  printCanvas.width  = srcCanvas.width  * scale;
+  printCanvas.height = srcCanvas.height * scale;
+
+  const ctx = printCanvas.getContext('2d');
   ctx.imageSmoothingEnabled = false;
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, printCanvas.width, printCanvas.height);
-  ctx.drawImage(canvas, 0, 0, printCanvas.width, printCanvas.height);
+  ctx.drawImage(srcCanvas, 0, 0, printCanvas.width, printCanvas.height);
 
   const link    = document.createElement('a');
   link.download = 'whatsapp-qr-infoweb.png';
@@ -201,17 +211,24 @@ function downloadQR() {
 function resetTool() {
   hide('result-box');
   hide('error-box');
-  clearErrors();
-  document.getElementById('phone-number').value = '';
-  document.getElementById('wa-message').value   = '';
+
+  const inputEl = document.getElementById('phone-number');
+  inputEl.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+  document.getElementById('phone-error').classList.add('hidden');
+  inputEl.value = '';
+  document.getElementById('wa-message').value = '';
   document.getElementById('char-count').textContent = '0';
-  lastWaLink  = '';
-  qrInstance  = null;
-  document.getElementById('phone-number').focus();
+  document.getElementById('qr-container').innerHTML = '';
+
+  lastWaLink = '';
+  qrReady    = false;
+  setDownloadEnabled(false);
+
+  inputEl.focus();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── Allow Enter key on phone field ──────────────────────────────────────────
+// ─── Keyboard shortcut: Enter on phone field triggers generate ────────────────
 document.getElementById('phone-number').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') runTool();
 });
