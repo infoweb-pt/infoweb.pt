@@ -177,14 +177,24 @@ async function submitEmail() {
   showFlex('email-spinner');
 
   try {
-    // POST to intermediate API (endpoint is a placeholder — wire up when backend is ready)
-    const response = await fetch(API_ENDPOINT, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, weekly_loss: weeklyLoss, monthly_loss: monthlyLoss })
-    });
+    // ── Simulated submission (backend not yet wired) ────────────────────────
+    // When API_ENDPOINT is live, replace the block below with a real fetch().
+    // The payload is logged here so it is visible in the browser console and
+    // the lead data is ready to copy into any backend system.
+    const payload = { email, weekly_loss: weeklyLoss, monthly_loss: monthlyLoss };
+    console.log('[submitEmail] Lead payload (POST to', API_ENDPOINT, '):', payload);
 
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    // Simulate async latency so the spinner and UX feel realistic
+    await new Promise(resolve => setTimeout(resolve, 900));
+
+    // Uncomment and replace the block above once the backend is ready:
+    // const response = await fetch(API_ENDPOINT, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(payload)
+    // });
+    // if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    // ── End of simulated block ─────────────────────────────────────────────
 
     // Success
     hide('email-spinner');
