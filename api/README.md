@@ -1,0 +1,50 @@
+# InfoWeb Lead Capture API
+
+Minimal Django REST API that stores email leads from the free tools on the InfoWeb site.
+
+## Endpoints
+
+| Method | Path | Tool | Payload |
+|--------|------|------|---------|
+| POST | `/leads/lost-customers/` | Lost Customers Calculator | `{email, weekly_loss, monthly_loss}` |
+| POST | `/leads/presence-score/` | Online Presence Score | `{email, score, answers}` |
+
+Returns `201 Created` on success, `400 Bad Request` with validation errors on failure.
+
+## Setup
+
+From the `api/` directory:
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Apply database migrations
+python manage.py migrate
+
+# 3. Create an admin user to access /admin/
+python manage.py createsuperuser
+
+# 4. Start the dev server (port 8001 to avoid conflict with the front-end on 5000)
+python manage.py runserver 8001
+```
+
+The admin panel is at **http://localhost:8001/admin/** — log in with the superuser credentials to view and search all leads.
+
+## Configuration
+
+Set these environment variables (or create a `.env` file in `api/`) before deploying:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SECRET_KEY` | insecure dev key | Django secret key — **must change in production** |
+| `DEBUG` | `True` | Set to `False` in production |
+| `ALLOWED_HOSTS` | `*` | Comma-separated list of allowed hostnames |
+| `CORS_ALLOW_ALL_ORIGINS` | `True` | Set to `False` and configure `CORS_ALLOWED_ORIGINS` in production |
+
+## Wiring the front-end
+
+Update the `API_ENDPOINT` constant at the top of each tool script to point to the deployed API:
+
+- `free-tools/lost-customers-calculator/script.js` → `/leads/lost-customers/`
+- `free-tools/presence-score/script.js` → `/leads/presence-score/`

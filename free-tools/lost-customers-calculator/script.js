@@ -1,9 +1,10 @@
 'use strict';
 
-// ─── Intermediate API endpoint ────────────────────────────────────────────────
-// Replace with your actual backend URL when wiring up.
+// ─── API endpoint ─────────────────────────────────────────────────────────────
+// Local dev: run `python manage.py runserver 8001` inside api/ then use the URL below.
+// Production: replace with your deployed API domain (e.g. https://api.yourdomain.com/leads/lost-customers/).
 // Expected POST body: { email, weekly_loss, monthly_loss }
-const API_ENDPOINT = 'https://api.YOUR-BACKEND.com/leads/lost-customers';
+const API_ENDPOINT = 'http://localhost:8001/leads/lost-customers/';
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let currentStep  = 1;
@@ -177,24 +178,16 @@ async function submitEmail() {
   showFlex('email-spinner');
 
   try {
-    // ── Simulated submission (backend not yet wired) ────────────────────────
-    // When API_ENDPOINT is live, replace the block below with a real fetch().
-    // The payload is logged here so it is visible in the browser console and
-    // the lead data is ready to copy into any backend system.
     const payload = { email, weekly_loss: weeklyLoss, monthly_loss: monthlyLoss };
-    console.log('[submitEmail] Lead payload (POST to', API_ENDPOINT, '):', payload);
 
-    // Simulate async latency so the spinner and UX feel realistic
-    await new Promise(resolve => setTimeout(resolve, 900));
+    // POST lead to API. Update API_ENDPOINT at the top of this file for production.
+    const response = await fetch(API_ENDPOINT, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
 
-    // Uncomment and replace the block above once the backend is ready:
-    // const response = await fetch(API_ENDPOINT, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(payload)
-    // });
-    // if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    // ── End of simulated block ─────────────────────────────────────────────
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     // Success
     hide('email-spinner');
