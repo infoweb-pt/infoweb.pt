@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { request: httpRequest } = require('http');
 
 const PORT = 5000;
 const HOST = '0.0.0.0';
@@ -27,6 +28,27 @@ const mimeTypes = {
 };
 
 const server = http.createServer((req, res) => {
+  if (req.url.startsWith('/api/')) {
+    const target = req.url.slice(4);
+    const options = {
+      hostname: '127.0.0.1',
+      port: 8001,
+      path: target,
+      method: req.method,
+      headers: Object.assign({}, req.headers, { host: '127.0.0.1:8001' }),
+    };
+    const proxy = httpRequest(options, (proxyRes) => {
+      res.writeHead(proxyRes.statusCode, proxyRes.headers);
+      proxyRes.pipe(res);
+    });
+    proxy.on('error', (err) => {
+      res.writeHead(502);
+      res.end(JSON.stringify({ error: 'API unavailable', detail: err.message }));
+    });
+    req.pipe(proxy);
+    return;
+  }
+
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
 

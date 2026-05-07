@@ -165,10 +165,10 @@ const setupPaybackSimulator = () => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", () => {
-      applyLanguage(button.dataset.lang).catch(() => applyLanguage(DEFAULT_LANGUAGE));
+      applyLanguage(button.dataset.lang).catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
     });
   });
 
   setupPaybackSimulator();
-  applyLanguage(getPreferredLanguage()).catch(() => applyLanguage(DEFAULT_LANGUAGE));
+  applyLanguage(getPreferredLanguage()).catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
 });

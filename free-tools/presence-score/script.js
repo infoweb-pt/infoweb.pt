@@ -4,7 +4,7 @@
 // Local dev: run `python manage.py runserver 8001` inside api/ then use the URL below.
 // Production: replace with your deployed API domain (e.g. https://api.yourdomain.com/leads/presence-score/).
 // Expected POST body: { email, score, answers }
-const API_ENDPOINT = 'http://localhost:8001/leads/presence-score/';
+const API_ENDPOINT = '/api/leads/presence-score/';
 
 // ─── Quiz data ────────────────────────────────────────────────────────────────
 // points: weighted values — Q1, Q5, Q7 = 16; rest = 12; max raw = 96

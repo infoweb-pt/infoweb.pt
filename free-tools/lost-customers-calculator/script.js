@@ -4,7 +4,7 @@
 // Local dev: run `python manage.py runserver 8001` inside api/ then use the URL below.
 // Production: replace with your deployed API domain (e.g. https://api.yourdomain.com/leads/lost-customers/).
 // Expected POST body: { email, weekly_loss, monthly_loss }
-const API_ENDPOINT = 'http://localhost:8001/leads/lost-customers/';
+const API_ENDPOINT = '/api/leads/lost-customers/';
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let currentStep  = 1;
