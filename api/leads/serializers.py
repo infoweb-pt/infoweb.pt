@@ -1,11 +1,19 @@
 from rest_framework import serializers
 from .models import LostCustomerLead, PresenceScoreLead
+from .utils import is_disposable_email
 
 
 class LostCustomerLeadSerializer(serializers.ModelSerializer):
     class Meta:
         model = LostCustomerLead
         fields = ['email', 'weekly_loss', 'monthly_loss']
+
+    def validate_email(self, value):
+        if is_disposable_email(value):
+            raise serializers.ValidationError(
+                'Please use a real business or personal email address.'
+            )
+        return value.lower().strip()
 
     def validate_weekly_loss(self, value):
         if value < 0:
@@ -29,3 +37,10 @@ class PresenceScoreLeadSerializer(serializers.ModelSerializer):
     class Meta:
         model = PresenceScoreLead
         fields = ['email', 'score', 'answers']
+
+    def validate_email(self, value):
+        if is_disposable_email(value):
+            raise serializers.ValidationError(
+                'Please use a real business or personal email address.'
+            )
+        return value.lower().strip()
