@@ -9,7 +9,7 @@ Minimal Django REST API that stores email leads from the free tools on the InfoW
 | POST | `/leads/lost-customers/` | Lost Customers Calculator | `{email, weekly_loss, monthly_loss}` |
 | POST | `/leads/presence-score/` | Online Presence Score | `{email, score, answers}` |
 
-Returns `201 Created` on success, `400 Bad Request` with validation errors on failure.
+Returns `200 OK` on success, `400 Bad Request` with validation errors on failure.
 
 ## Setup
 
