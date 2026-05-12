@@ -98,9 +98,14 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
-# Allow all origins in development. In production, set CORS_ALLOWED_ORIGINS
-# to your front-end domain(s) via environment variable.
+# Allow all origins in development.
+# In production set CORS_ALLOW_ALL_ORIGINS=False and list your frontend
+# domain(s) in CORS_ALLOWED_ORIGINS (comma-separated).
 CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=True, cast=bool)
+
+if not CORS_ALLOW_ALL_ORIGINS:
+    _cors_origins = config('CORS_ALLOWED_ORIGINS', default='')
+    CORS_ALLOWED_ORIGINS = [o.strip() for o in _cors_origins.split(',') if o.strip()]
 
 # ── Cache (used by DRF throttling) ────────────────────────────────────────────
 CACHES = {
