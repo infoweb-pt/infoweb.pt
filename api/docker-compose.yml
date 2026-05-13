@@ -1,5 +1,3 @@
-version: "3.9"
-
 networks:
   infoweb:
     driver: bridge
@@ -31,11 +29,18 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-    env_file:
-      - .env
     environment:
+      SECRET_KEY: ${SECRET_KEY:-django-insecure-dev-key-change-in-production}
+      DEBUG: ${DEBUG:-False}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-*}
+      DATABASE_URL: ${DATABASE_URL:-postgres://infoweb:changeme@db:5432/infoweb}
+      DB_NAME: ${DB_NAME:-infoweb}
+      DB_USER: ${DB_USER:-infoweb}
+      DB_PASSWORD: ${DB_PASSWORD:-changeme}
       DB_HOST: db
       DB_PORT: 5432
+      CORS_ALLOW_ALL_ORIGINS: ${CORS_ALLOW_ALL_ORIGINS:-False}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-}
     ports:
       - "8123:8000"
     depends_on:
