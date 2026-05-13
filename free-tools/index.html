@@ -15,6 +15,7 @@
 
     gtag("config", "G-XXQSMBERJM");
   </script>
+  <script src="../assets/js/analytics.js" defer></script>
 
   <title>Free tools for small business — InfoWeb</title>
   <meta name="description" content="Free calculators and utilities for local businesses: WhatsApp QR, presence score, and more. No sign-up." />
@@ -40,10 +41,10 @@
 <body class="bg-slate-950 text-white font-sans antialiased min-h-screen flex flex-col">
   <header class="border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-xl">
     <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="../" class="inline-flex items-center gap-2 text-white" aria-label="InfoWeb home">
+      <a href="../" class="inline-flex items-center gap-2 text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="header" data-track-target="/">
         <img src="../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" width="120" height="36" />
       </a>
-      <a href="../#pricing" class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition">
+      <a href="../#pricing" class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition" data-track="cta_click" data-track-location="free_tools_hub" data-track-target="/#pricing">
         Plans
       </a>
     </div>
@@ -57,19 +58,19 @@
     </p>
     <ul class="space-y-4">
       <li>
-        <a href="whatsapp-qr-generator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition">
+        <a href="whatsapp-qr-generator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="whatsapp_qr_generator">
           <span class="text-white font-semibold">WhatsApp link &amp; QR generator</span>
           <span class="block text-sm text-slate-400 mt-1">Click-to-chat link and printable QR for your shop or menu.</span>
         </a>
       </li>
       <li>
-        <a href="presence-score/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition">
+        <a href="presence-score/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="presence_score">
           <span class="text-white font-semibold">Local presence score</span>
           <span class="block text-sm text-slate-400 mt-1">See how visible your business looks online.</span>
         </a>
       </li>
       <li>
-        <a href="lost-customers-calculator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition">
+        <a href="lost-customers-calculator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="lost_customers_calculator">
           <span class="text-white font-semibold">Lost customers calculator</span>
           <span class="block text-sm text-slate-400 mt-1">Estimate revenue left on the table from missed leads.</span>
         </a>
@@ -78,7 +79,7 @@
   </main>
 
   <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-    <a href="../" class="text-slate-400 hover:text-white transition">← InfoWeb home</a>
+    <a href="../" class="text-slate-400 hover:text-white transition" data-track="nav_click" data-track-location="footer" data-track-target="/">← InfoWeb home</a>
   </footer>
 </body>
 </html>

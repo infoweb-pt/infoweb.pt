@@ -15,6 +15,7 @@
 
     gtag("config", "G-XXQSMBERJM");
   </script>
+  <script src="../assets/js/analytics.js" defer></script>
 
   <title data-i18n="affiliates.meta.title">Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb</title>
 
@@ -91,7 +92,7 @@
   <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/60">
     <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="https://infoweb.sousadev.com/" aria-label="InfoWeb homepage">
+      <a href="https://infoweb.sousadev.com/" aria-label="InfoWeb homepage" data-track="nav_click" data-track-location="header" data-track-target="/">
         <img src="../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
       </a>
       <div class="flex items-center gap-3">
@@ -109,7 +110,10 @@
         </div>
         <a href="https://infoweb.sousadev.com/#pricing"
            class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white hover:text-white text-slate-300 transition-all"
-           data-i18n="affiliates.nav.seePlans">
+           data-i18n="affiliates.nav.seePlans"
+           data-track="cta_click"
+           data-track-location="header"
+           data-track-target="/#pricing">
           See Plans
         </a>
       </div>
@@ -137,7 +141,9 @@
         <a href="mailto:henrique@sousadev.com?subject=InfoWeb%20Affiliate%20Programme&body=Hi%20Henrique%2C%0A%0AI%27m%20interested%20in%20joining%20the%20InfoWeb%20affiliate%20programme.%0A%0AHere%27s%20a%20bit%20about%20me%3A%0A"
            class="inline-block bg-signal text-ink font-black rounded-full px-8 py-4 text-base hover:bg-amber-300 transition-all shadow-lg"
            data-i18n="affiliates.hero.cta"
-           data-i18n-attr="href:affiliates.mailtoHref">
+           data-i18n-attr="href:affiliates.mailtoHref"
+           data-track="affiliate_apply_click"
+           data-track-location="hero">
           Apply to become an affiliate →
         </a>
         <p class="mt-4 text-sm text-slate-500" data-i18n="affiliates.hero.note">Email henrique@sousadev.com — we'll get back to you within 24 h</p>
@@ -297,7 +303,9 @@
           <a href="mailto:henrique@sousadev.com?subject=InfoWeb%20Affiliate%20Programme&body=Hi%20Henrique%2C%0A%0AI%27m%20interested%20in%20joining%20the%20InfoWeb%20affiliate%20programme.%0A%0AHere%27s%20a%20bit%20about%20me%3A%0A"
              class="inline-block bg-signal text-ink font-black rounded-full px-8 py-4 text-base hover:bg-amber-300 transition-all shadow-lg mb-4"
              data-i18n="affiliates.cta.button"
-             data-i18n-attr="href:affiliates.mailtoHref">
+             data-i18n-attr="href:affiliates.mailtoHref"
+             data-track="affiliate_apply_click"
+             data-track-location="cta_section">
             Email henrique@sousadev.com →
           </a>
           <p class="text-sm text-slate-500">
@@ -316,11 +324,14 @@
       <span>© <span id="year"></span> InfoWeb by Sousa Dev</span>
       <nav class="flex gap-6">
         <a href="https://infoweb.sousadev.com/" class="hover:text-slate-300 transition-all"
-           data-i18n="affiliates.footer.mainSite">Main site</a>
+           data-i18n="affiliates.footer.mainSite"
+           data-track="nav_click" data-track-location="footer" data-track-target="/">Main site</a>
         <a href="https://infoweb.sousadev.com/#pricing" class="hover:text-slate-300 transition-all"
-           data-i18n="affiliates.footer.plansAndPricing">Plans &amp; pricing</a>
+           data-i18n="affiliates.footer.plansAndPricing"
+           data-track="nav_click" data-track-location="footer" data-track-target="/#pricing">Plans &amp; pricing</a>
         <a href="mailto:henrique@sousadev.com" class="hover:text-slate-300 transition-all"
-           data-i18n="affiliates.footer.contact">Contact</a>
+           data-i18n="affiliates.footer.contact"
+           data-track="affiliate_apply_click" data-track-location="footer">Contact</a>
       </nav>
     </div>
   </footer>

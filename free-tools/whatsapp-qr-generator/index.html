@@ -84,6 +84,7 @@
 
     gtag("config", "G-XXQSMBERJM");
   </script>
+  <script src="../../assets/js/analytics.js" defer></script>
 </head>
 <body class="bg-slate-950 text-white font-sans antialiased">
 
@@ -97,7 +98,7 @@
       <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=whatsapp_qr_generator&utm_campaign=header_btn#pricing"
          target="_blank" rel="noopener"
          class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white hover:text-white text-slate-300 transition-all"
-         onclick="trackEvent('header_cta_click')">
+         data-track="header_cta_click">
         See Website Plans
       </a>
     </div>
@@ -309,7 +310,8 @@
       <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=whatsapp_qr_generator&utm_campaign=cta#pricing"
          target="_blank" rel="noopener"
          class="inline-block bg-white text-slate-950 font-bold rounded-full px-8 py-3.5 hover:bg-signal transition-all text-base"
-         onclick="trackEvent('cta_click')">
+         data-track="cta_click"
+         data-track-location="tool_funnel">
         See Website Plans — from €29/4 wks →
       </a>
     </section>
@@ -405,7 +407,7 @@
       <span>© <span id="year"></span> InfoWeb by Sousa Dev</span>
       <nav class="flex gap-5">
         <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener" class="hover:text-slate-300 transition-all">Main site</a>
-        <a href="../" class="hover:text-slate-300 transition-all">All free tools</a>
+        <a href="../" class="hover:text-slate-300 transition-all" data-track="back_to_tools_click">All free tools</a>
       </nav>
     </div>
   </footer>

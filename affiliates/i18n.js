@@ -56,7 +56,15 @@ const applyLanguage = async (language) => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-lang]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      applyLanguage(btn.dataset.lang).catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
+      const fromLang = document.documentElement.lang || "en";
+      const toLang = btn.dataset.lang;
+      applyLanguage(btn.dataset.lang)
+        .then(() => {
+          if (typeof window.trackEvent === "function") {
+            window.trackEvent("language_change", { language_from: fromLang, language_to: toLang });
+          }
+        })
+        .catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
     });
   });
 

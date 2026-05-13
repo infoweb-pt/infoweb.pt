@@ -80,6 +80,7 @@
 
     gtag("config", "G-XXQSMBERJM");
   </script>
+  <script src="../../assets/js/analytics.js" defer></script>
 </head>
 <body>
 
@@ -92,7 +93,7 @@
       </a>
       <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=lost_customers_calculator_header_btn#pricing"
          target="_blank" rel="noopener"
-         onclick="trackEvent('header_cta_click')"
+         data-track="header_cta_click"
          style="font-size:0.875rem;font-weight:700;border:1px solid #334155;border-radius:999px;padding:0.4rem 1rem;color:#f1f5f9;text-decoration:none;transition:border-color 160ms ease;"
          onmouseover="this.style.borderColor='#f1f5f9'"
          onmouseout="this.style.borderColor='#334155'">
@@ -309,7 +310,8 @@
       </p>
       <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=lost_customers_calculator&utm_campaign=cta#pricing"
          target="_blank" rel="noopener"
-         onclick="trackEvent('cta_click')"
+         data-track="cta_click"
+         data-track-location="tool_funnel"
          style="display:inline-block;background:#f1f5f9;color:#020617;font-weight:900;font-size:1rem;border-radius:999px;padding:0.85rem 2rem;text-decoration:none;transition:background 160ms ease;"
          onmouseover="this.style.background='#d7b46a'"
          onmouseout="this.style.background='#f1f5f9'">
@@ -425,7 +427,8 @@
         <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener"
            style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'">Main site</a>
         <a href="../" target="_blank" rel="noopener"
-           style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'">All free tools</a>
+           style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'"
+           data-track="back_to_tools_click">All free tools</a>
       </nav>
     </div>
   </footer>

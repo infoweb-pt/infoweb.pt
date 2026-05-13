@@ -516,33 +516,42 @@ https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=[SLUG]&utm_campaign
 
 ## 8. Analytics & Tracking
 
-### 8.1 Events to fire (Google Analytics 4)
+### 8.1 Shared bundle (required)
 
-Add `gtag.js` to the `<head>` and fire these events at the appropriate moments:
+Every tool page must load the site-wide **`assets/js/analytics.js`** (relative from the tool folder: `../../assets/js/analytics.js`) **after** the GA4 `gtag` snippet in `<head>`.
 
-```js
-// Fires when user clicks the main action button
-function trackEvent(eventName, params = {}) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', eventName, {
-      tool_name: '[SLUG]',  // e.g. 'whatsapp_generator'
-      ...params
-    });
-  }
-}
+That file defines **`window.trackEvent(name, params)`**, auto-fires **`page_view_enriched`**, tracks **`scroll_depth`** (25/50/75/100), **`external_link_click`** on outbound `http(s)` links, and **`faq_open`** when `<details>` elements open.
+
+**Declarative clicks:** add `data-track="event_name"` plus optional `data-track-*` attributes (becomes snake_case param names). Example:
+
+```html
+<a href="..." data-track="cta_click" data-track-location="tool_funnel">See plans</a>
 ```
 
-| Moment | Event name | When to call |
+Do **not** ship a private `trackEvent` implementation in `script.js` — always call `window.trackEvent` so base params stay consistent (`page_path`, `page_location`, `language`, `tool_name` derived from URL slug with `-` → `_`).
+
+### 8.2 Recommended tool events
+
+| Event | When | Params (examples) |
 |---|---|---|
-| User clicks Generate / Calculate | `tool_used` | Inside `runTool()` before the API call |
-| Result is shown successfully | `tool_result_shown` | Inside `renderResult()` |
-| User clicks the CTA button | `cta_click` | `onclick` on the CTA anchor |
-| User copies the result | `result_copied` | Inside `copyResult()` |
-| User submits email (Option B) | `lead_submitted` | Inside `submitEmail()` after success |
+| `tool_used` | User commits the main action (generate / calculate / first quiz answer) | tool-specific numerics |
+| `tool_result_shown` | Result UI visible | `duration_ms`, scores, losses |
+| `tool_input_changed` | Debounced input change | `field` |
+| `tool_validation_error` | Submit blocked by validation | `field`, `reason` |
+| `quiz_question_answered` | Each quiz answer (if applicable) | `step`, `answer` |
+| `header_cta_click` | Header “See plans” (use `data-track`) | — |
+| `cta_click` | In-page conversion CTA | `location` |
+| `lead_form_opened` | First focus on email field | `form` |
+| `lead_submitted` | Successful lead API / contact | avoid PII beyond what backend needs |
+| `lead_submit_failed` | Lead API error | `error_type` |
+| `result_copied` / `qr_downloaded` | As applicable | — |
+| `back_to_tools_click` | Footer link back to hub | — |
 
-### 8.2 Google Analytics Setup
+FAQ accordions: use `<details>`; `faq_open` is automatic from `analytics.js`.
 
-Paste this block in `index.html` `<head>` (before `</head>`). Use measurement ID **`G-XXQSMBERJM`** — do not swap for a placeholder.
+### 8.3 Google Analytics tag
+
+Paste this block in `index.html` `<head>` (before `</head>`). Measurement ID **`G-XXQSMBERJM`**.
 
 ```html
 <!-- Google tag (gtag.js) -->
@@ -554,9 +563,12 @@ Paste this block in `index.html` `<head>` (before `</head>`). Use measurement ID
 
   gtag('config', 'G-XXQSMBERJM');
 </script>
+<script src="../../assets/js/analytics.js" defer></script>
 ```
 
-Before publishing, run **`bash scripts/check-html-ga.sh`** from the repo root so no tool ships without GA.
+Before publishing: **`bash scripts/check-html-ga.sh`** from repo root (validates gtag + `analytics.js` on all site HTML entry points).
+
+See **[GA4 key events (admin)](../docs/GA4-key-events.md)** for which events to mark as conversions in GA4.
 
 ---
 
@@ -587,12 +599,15 @@ Complete **every item** before pushing to GitHub Pages.
 - [ ] CTA button uses the correct UTM parameters
 - [ ] CTA button opens InfoWeb pricing page in a new tab
 - [ ] Lead-capture email field validates format before submitting (Option B tools only)
-- [ ] `trackEvent('tool_used')` fires on Generate click
-- [ ] `trackEvent('cta_click')` fires on CTA click
+- [ ] `window.trackEvent('tool_used')` fires on main action
+- [ ] CTA uses `data-track="cta_click"` (or `header_cta_click`) — not inline `onclick` shims
 
 ### Analytics
-- [ ] Google tag (gtag.js) is in `<head>` with measurement ID **`G-XXQSMBERJM`** (loader URL and `gtag('config', …)` must match)
-- [ ] `bash scripts/check-html-ga.sh` passes from repo root (covers this tool and the rest of the site)
+- [ ] Google tag (gtag.js) + **`assets/js/analytics.js`** in `<head>` (measurement ID **`G-XXQSMBERJM`**)
+- [ ] `window.trackEvent` used for custom tool events; no duplicate local `trackEvent` helper
+- [ ] `lead_submitted` / `lead_submit_failed` / `lead_form_opened` wired for gated flows
+- [ ] `bash scripts/check-html-ga.sh` passes from repo root
+- [ ] Mark key events in GA4 per **[docs/GA4-key-events.md](../docs/GA4-key-events.md)** after deploy
 
 ### Design & Accessibility
 - [ ] Page is fully responsive — tested at 375px, 768px and 1280px widths

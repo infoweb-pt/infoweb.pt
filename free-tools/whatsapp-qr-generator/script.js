@@ -3,15 +3,7 @@
 // ─── State ────────────────────────────────────────────────────────────────────
 let lastWaLink = '';
 let qrReady    = false;
-
-// ─── Analytics helper ─────────────────────────────────────────────────────────
-function trackEvent(eventName, params) {
-  params = Object.assign({ tool_name: 'whatsapp_qr_generator' }, params || {});
-  if (typeof gtag !== 'undefined') {
-    gtag('event', eventName, params);
-  }
-  console.debug('[trackEvent]', eventName, params);
-}
+let toolRunStartedAt = 0;
 
 // ─── Contact lead API (optional — presence / InfoWeb follow-up) ────────────────
 // Production: full HTTPS URL required for GitHub Pages fetch.
@@ -50,12 +42,17 @@ async function submitContactLead() {
     hide('contact-spinner');
     hide('contact-lead-form');
     show('contact-success');
-    trackEvent('contact_lead_submitted');
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('lead_submitted', { form: 'tool_contact', source: CONTACT_SOURCE });
+    }
   } catch (err) {
     console.error('[submitContactLead]', err);
     hide('contact-spinner');
     show('contact-submit-btn');
     show('contact-api-error');
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('lead_submit_failed', { error_type: 'api_error', form: 'tool_contact' });
+    }
   }
 }
 
@@ -123,9 +120,15 @@ function updateCharCount() {
 
 // ─── Main tool logic ──────────────────────────────────────────────────────────
 function runTool() {
-  if (!validateInputs()) return;
+  if (!validateInputs()) {
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('tool_validation_error', { field: 'phone', reason: 'invalid_or_short' });
+    }
+    return;
+  }
 
-  trackEvent('tool_used');
+  toolRunStartedAt = performance.now();
+  if (typeof window.trackEvent === 'function') window.trackEvent('tool_used');
 
   showSpinner();
   hide('result-box');
@@ -183,7 +186,11 @@ function renderResult(waLink) {
   show('result-box');
   document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  trackEvent('tool_result_shown');
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_result_shown', {
+      duration_ms: Math.round(performance.now() - toolRunStartedAt),
+    });
+  }
 }
 
 function showFriendlyError() {
@@ -204,7 +211,7 @@ function copyLink() {
       btn.textContent = 'Copy link';
       box.classList.remove('copy-flash');
     }, 2000);
-    trackEvent('result_copied');
+    if (typeof window.trackEvent === 'function') window.trackEvent('result_copied');
   };
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -250,7 +257,7 @@ function downloadQR() {
   link.href     = printCanvas.toDataURL('image/png');
   link.click();
 
-  trackEvent('qr_downloaded');
+  if (typeof window.trackEvent === 'function') window.trackEvent('qr_downloaded');
 }
 
 // ─── Reset ────────────────────────────────────────────────────────────────────
@@ -278,3 +285,37 @@ function resetTool() {
 document.getElementById('phone-number').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') runTool();
 });
+
+(function bindToolAnalytics() {
+  const debounce = {};
+  function schedule(fieldId) {
+    clearTimeout(debounce[fieldId]);
+    debounce[fieldId] = setTimeout(function () {
+      if (typeof window.trackEvent === 'function') window.trackEvent('tool_input_changed', { field: fieldId });
+    }, 600);
+  }
+  ['phone-number', 'wa-message'].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', function () { schedule(id); });
+  });
+  const cc = document.getElementById('country-code');
+  if (cc) {
+    cc.addEventListener('change', function () {
+      if (typeof window.trackEvent === 'function') {
+        window.trackEvent('tool_input_changed', { field: 'country_code', value: cc.value });
+      }
+    });
+  }
+  const contactEmail = document.getElementById('contact-email');
+  if (contactEmail) {
+    contactEmail.addEventListener(
+      'focus',
+      function () {
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('lead_form_opened', { form: 'tool_contact' });
+        }
+      },
+      { once: true }
+    );
+  }
+})();

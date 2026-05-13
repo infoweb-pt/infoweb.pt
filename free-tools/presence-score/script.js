@@ -61,13 +61,7 @@ let answers         = [];  // 'yes' | 'no' for each question
 let finalScore      = 0;
 let weaknessMsg     = '';
 let firstStarted    = false;
-
-// ─── Analytics helper ─────────────────────────────────────────────────────────
-function trackEvent(eventName, params) {
-  params = Object.assign({ tool_name: 'presence_score' }, params || {});
-  if (typeof gtag !== 'undefined') gtag('event', eventName, params);
-  console.debug('[trackEvent]', eventName, params);
-}
+let quizStartedAt = 0;
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
 function show(id)  { document.getElementById(id).classList.remove('hidden'); }
@@ -94,10 +88,15 @@ function renderQuestion(idx) {
 }
 
 function answerQuestion(answer) {
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('quiz_question_answered', { step: currentQuestion + 1, answer });
+  }
+
   // Fire tool_used on first answer
   if (!firstStarted) {
     firstStarted = true;
-    trackEvent('tool_used');
+    quizStartedAt = performance.now();
+    if (typeof window.trackEvent === 'function') window.trackEvent('tool_used');
   }
 
   answers[currentQuestion] = answer;
@@ -121,7 +120,12 @@ function answerQuestion(answer) {
       show('result-section');
       document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
       animateRing(finalScore);
-      trackEvent('quiz_completed', { score: finalScore });
+      if (typeof window.trackEvent === 'function') {
+        window.trackEvent('tool_result_shown', {
+          score: finalScore,
+          duration_ms: Math.round(performance.now() - quizStartedAt),
+        });
+      }
     }
   }, 220);
 }
@@ -259,13 +263,18 @@ async function submitEmail() {
     document.getElementById('breakdown-wrapper').classList.remove('breakdown-locked');
     document.getElementById('breakdown-overlay').classList.add('hidden');
 
-    trackEvent('lead_submitted', { score: finalScore });
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('lead_submitted', { score: finalScore });
+    }
 
   } catch (err) {
     console.error('[submitEmail]', err);
     hide('email-spinner');
     show('email-submit-btn');
     show('email-api-error');
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('lead_submit_failed', { error_type: 'api_error' });
+    }
   }
 }
 
@@ -277,6 +286,7 @@ function retakeQuiz() {
   finalScore      = 0;
   weaknessMsg     = '';
   firstStarted    = false;
+  quizStartedAt   = 0;
 
   // Reset email gate
   document.getElementById('gate-email').value = '';
@@ -307,3 +317,18 @@ function retakeQuiz() {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 renderQuestion(0);
+
+(function bindPresenceLeadAnalytics() {
+  const gate = document.getElementById('gate-email');
+  if (gate) {
+    gate.addEventListener(
+      'focus',
+      function () {
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('lead_form_opened', { form: 'presence_score_report' });
+        }
+      },
+      { once: true }
+    );
+  }
+})();

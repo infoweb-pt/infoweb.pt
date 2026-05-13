@@ -10,12 +10,16 @@ const API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/lost-customers/';
 let currentStep  = 1;
 let weeklyLoss   = 0;
 let monthlyLoss  = 0;
+let toolRunStartedAt = 0;
 
-// ─── Analytics helper ─────────────────────────────────────────────────────────
-function trackEvent(eventName, params) {
-  params = Object.assign({ tool_name: 'lost_customers_calculator' }, params || {});
-  if (typeof gtag !== 'undefined') gtag('event', eventName, params);
-  console.debug('[trackEvent]', eventName, params);
+function markToolSessionStart() {
+  if (toolRunStartedAt === 0) toolRunStartedAt = performance.now();
+}
+
+function emitValidationError(field, reason) {
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_validation_error', { field, reason });
+  }
 }
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
@@ -54,6 +58,8 @@ function updateProgress(step) {
 function goToStep(targetStep) {
   const direction = targetStep > currentStep ? 'forward' : 'back';
 
+  if (targetStep !== currentStep) markToolSessionStart();
+
   // Validate before advancing
   if (direction === 'forward') {
     if (!validateStep(currentStep)) return;
@@ -89,6 +95,7 @@ function validateStep(step) {
   if (step === 1) {
     const val = parseFloat(document.getElementById('avg-spend').value);
     if (!val || val <= 0) {
+      emitValidationError('avg_spend', 'invalid_or_empty');
       show('avg-spend-error');
       document.getElementById('avg-spend').focus();
       return false;
@@ -97,6 +104,7 @@ function validateStep(step) {
   if (step === 2) {
     const val = parseFloat(document.getElementById('contacts-missed').value);
     if (val === '' || isNaN(val) || val < 0) {
+      emitValidationError('contacts_missed', 'invalid');
       show('contacts-missed-error');
       document.getElementById('contacts-missed').focus();
       return false;
@@ -107,12 +115,14 @@ function validateStep(step) {
     const lost   = parseFloat(document.getElementById('customers-lost').value);
     const errEl  = document.getElementById('customers-lost-error');
     if (isNaN(lost) || lost < 0) {
+      emitValidationError('customers_lost', 'not_a_number');
       errEl.textContent = 'Please enter a number (0 or more).';
       show('customers-lost-error');
       document.getElementById('customers-lost').focus();
       return false;
     }
     if (lost > missed) {
+      emitValidationError('customers_lost', 'exceeds_contacts_missed');
       errEl.textContent = `Cannot be more than your step 2 answer (${missed}).`;
       show('customers-lost-error');
       document.getElementById('customers-lost').focus();
@@ -126,13 +136,17 @@ function validateStep(step) {
 function calculate() {
   if (!validateStep(3)) return;
 
+  markToolSessionStart();
+
   const avgSpend      = parseFloat(document.getElementById('avg-spend').value)     || 0;
   const customersLost = parseFloat(document.getElementById('customers-lost').value) || 0;
 
   weeklyLoss  = avgSpend * customersLost;
   monthlyLoss = weeklyLoss * 4;
 
-  trackEvent('tool_used', { weekly_loss: weeklyLoss, monthly_loss: monthlyLoss });
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_used', { weekly_loss: weeklyLoss, monthly_loss: monthlyLoss });
+  }
 
   // Hide the form, show result
   hide('calculator-section');
@@ -157,7 +171,14 @@ function renderResult() {
   show('result-box');
   document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  trackEvent('tool_result_shown', { weekly_loss: weeklyLoss, monthly_loss: monthlyLoss });
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_result_shown', {
+      weekly_loss: weeklyLoss,
+      monthly_loss: monthlyLoss,
+      duration_ms:
+        toolRunStartedAt > 0 ? Math.round(performance.now() - toolRunStartedAt) : undefined,
+    });
+  }
 }
 
 // ─── Email lead capture ───────────────────────────────────────────────────────
@@ -193,13 +214,18 @@ async function submitEmail() {
     hide('email-spinner');
     hide('email-gate');
     show('email-success');
-    trackEvent('lead_submitted', { weekly_loss: weeklyLoss, monthly_loss: monthlyLoss });
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('lead_submitted', { weekly_loss: weeklyLoss, monthly_loss: monthlyLoss });
+    }
 
   } catch (err) {
     console.error('[submitEmail]', err);
     hide('email-spinner');
     show('email-submit-btn');
     show('email-api-error');
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('lead_submit_failed', { error_type: 'api_error' });
+    }
   }
 }
 
@@ -226,6 +252,7 @@ function resetCalculator() {
   weeklyLoss  = 0;
   monthlyLoss = 0;
   currentStep = 1;
+  toolRunStartedAt = 0;
 
   // Show step 1, hide others and result
   ['step-2', 'step-3'].forEach(id => hide(id));
@@ -248,3 +275,36 @@ document.addEventListener('keydown', function (e) {
   else if (active.id === 'customers-lost')  calculate();
   else if (active.id === 'gate-email')      submitEmail();
 });
+
+(function bindLostCalcAnalytics() {
+  const debounce = {};
+  function schedule(fieldId) {
+    clearTimeout(debounce[fieldId]);
+    debounce[fieldId] = setTimeout(function () {
+      if (typeof window.trackEvent === 'function') {
+        window.trackEvent('tool_input_changed', { field: fieldId });
+      }
+    }, 600);
+  }
+  ['avg-spend', 'contacts-missed', 'customers-lost'].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function () {
+        markToolSessionStart();
+        schedule(id);
+      });
+    }
+  });
+  const gate = document.getElementById('gate-email');
+  if (gate) {
+    gate.addEventListener(
+      'focus',
+      function () {
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('lead_form_opened', { form: 'lost_customers_report' });
+        }
+      },
+      { once: true }
+    );
+  }
+})();

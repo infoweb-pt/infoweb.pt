@@ -15,6 +15,7 @@
 
       gtag("config", "G-XXQSMBERJM");
     </script>
+    <script src="assets/js/analytics.js" defer></script>
 
     <meta
       name="description"
@@ -144,7 +145,7 @@
   <body class="bg-slate-50 font-sans text-slate-900 antialiased">
     <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary navigation">
-        <a href="#top" class="flex items-center text-white" aria-label="InfoWeb home">
+        <a href="#top" class="flex items-center text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="header" data-track-target="#top">
           <img
             src="assets/images/infoweb-logo.png"
             alt="InfoWeb"
@@ -153,10 +154,10 @@
         </a>
 
         <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
-          <a href="#pricing" class="nav-link" data-i18n="nav.pricing">Pricing</a>
-          <a href="#case-studies" class="nav-link" data-i18n="nav.caseStudies">Case Studies</a>
-          <a href="#developer" class="nav-link" data-i18n="nav.developer">Developer</a>
-          <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+          <a href="#pricing" class="nav-link" data-i18n="nav.pricing" data-track="nav_click" data-track-location="header" data-track-target="#pricing">Pricing</a>
+          <a href="#case-studies" class="nav-link" data-i18n="nav.caseStudies" data-track="nav_click" data-track-location="header" data-track-target="#case-studies">Case Studies</a>
+          <a href="#developer" class="nav-link" data-i18n="nav.developer" data-track="nav_click" data-track-location="header" data-track-target="#developer">Developer</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact" data-track="nav_click" data-track-location="header" data-track-target="#contact">Contact</a>
         </div>
 
         <div class="flex items-center gap-3">
@@ -182,6 +183,8 @@
             href="#contact"
             class="hidden rounded-full bg-white px-4 py-2 text-sm font-bold text-ink shadow-sm transition hover:bg-signal md:inline-flex"
             data-i18n="nav.cta"
+            data-track="cta_click"
+            data-track-location="header"
           >
             Start now
           </a>
@@ -209,10 +212,10 @@
               InfoWeb builds, hosts, updates, and improves your website so your business looks professional online without hiring an internal tech team.
             </p>
             <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="#pricing" class="rounded-full bg-signal px-6 py-4 text-center text-sm font-black text-ink shadow-glow transition hover:-translate-y-0.5 hover:bg-amber-300" data-i18n="hero.primaryCta">
+              <a href="#pricing" class="rounded-full bg-signal px-6 py-4 text-center text-sm font-black text-ink shadow-glow transition hover:-translate-y-0.5 hover:bg-amber-300" data-i18n="hero.primaryCta" data-track="cta_click" data-track-location="hero">
                 See plans
               </a>
-              <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" class="rounded-full border border-white/15 px-6 py-4 text-center text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10" data-i18n="hero.secondaryCta">
+              <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" class="rounded-full border border-white/15 px-6 py-4 text-center text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10" data-i18n="hero.secondaryCta" data-track="whatsapp_click" data-track-location="hero">
                 Talk on WhatsApp
               </a>
             </div>
@@ -286,7 +289,7 @@
               <li data-i18n="pricing.features.domain">Domain setup</li>
               <li data-i18n="pricing.features.maintenance">Maintenance</li>
             </ul>
-            <a href="#contact" class="plan-button" data-i18n="pricing.cta">Choose plan</a>
+            <a href="#contact" class="plan-button" data-i18n="pricing.cta" data-track="plan_select" data-track-location="pricing" data-track-plan="basic" data-track-cycle="4_weeks">Choose plan</a>
           </article>
 
           <article class="pricing-card featured-card">
@@ -305,7 +308,7 @@
               <li data-i18n="pricing.features.booking">Booking system</li>
               <li data-i18n="pricing.features.dashboard">Dashboard</li>
             </ul>
-            <a href="#contact" class="plan-button featured" data-i18n="pricing.cta">Choose plan</a>
+            <a href="#contact" class="plan-button featured" data-i18n="pricing.cta" data-track="plan_select" data-track-location="pricing" data-track-plan="professional" data-track-cycle="4_weeks">Choose plan</a>
           </article>
 
           <article class="pricing-card">
@@ -323,7 +326,7 @@
               <li data-i18n="pricing.features.payments">Payment integrations</li>
               <li data-i18n="pricing.features.multiUser">Multi-user management</li>
             </ul>
-            <a href="#contact" class="plan-button" data-i18n="pricing.cta">Choose plan</a>
+            <a href="#contact" class="plan-button" data-i18n="pricing.cta" data-track="plan_select" data-track-location="pricing" data-track-plan="premium" data-track-cycle="4_weeks">Choose plan</a>
           </article>
 
           <article class="pricing-card custom-card">
@@ -335,7 +338,7 @@
               <li data-i18n="pricing.features.roadmap">Clear delivery roadmap</li>
               <li data-i18n="pricing.features.quote">Custom quote</li>
             </ul>
-            <a href="#contact" class="plan-button" data-i18n="pricing.custom.cta">Contact us</a>
+            <a href="#contact" class="plan-button" data-i18n="pricing.custom.cta" data-track="plan_select" data-track-location="pricing" data-track-plan="custom" data-track-cycle="4_weeks">Contact us</a>
           </article>
         </div>
 
@@ -421,17 +424,17 @@
             <h2 class="section-title" data-i18n="caseStudies.title">Case studies: typical InfoWeb setups for real businesses.</h2>
           </div>
           <div class="mt-12 grid gap-5 md:grid-cols-3">
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-track="case_study_click" data-track-slug="restaurant">
               <span data-i18n="caseStudies.card1.type">Restaurant</span>
               <h3 data-i18n="caseStudies.card1.title">Menu, reservations, and local SEO</h3>
               <p data-i18n="caseStudies.card1.copy">Example setup: a fast site with menu highlights, reservation CTA, opening hours, and Google-ready structure.</p>
             </article>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-track="case_study_click" data-track-slug="clinic">
               <span data-i18n="caseStudies.card2.type">Clinic</span>
               <h3 data-i18n="caseStudies.card2.title">Services, bookings, and patient leads</h3>
               <p data-i18n="caseStudies.card2.copy">Example setup: service pages, team credibility, booking requests, and clear contact routing.</p>
             </article>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-track="case_study_click" data-track-slug="local_service">
               <span data-i18n="caseStudies.card3.type">Local service</span>
               <h3 data-i18n="caseStudies.card3.title">Quote requests and simple dashboard</h3>
               <p data-i18n="caseStudies.card3.copy">Example setup: a conversion-focused site for trades, cleaners, tutors, or consultants, with optional dashboard.</p>
@@ -452,10 +455,10 @@
                 <p class="developer-role" data-i18n="developer.role1">Software Engineer</p>
                 <p class="developer-role" data-i18n="developer.role2">Founder & Full-Stack Developer</p>
                 <div class="social-links" aria-label="Henrique Sousa social links">
-                  <a href="https://www.linkedin.com/in/henriquecsousa/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
-                  <a href="https://x.com/sousadev" target="_blank" rel="noreferrer" aria-label="X">X</a>
-                  <a href="https://github.com/hc-sousa" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
-                  <a href="https://orcid.org/0000-0002-1903-5620" target="_blank" rel="noreferrer" aria-label="ORCID">iD</a>
+                  <a href="https://www.linkedin.com/in/henriquecsousa/" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-track="social_link_click" data-track-network="linkedin">in</a>
+                  <a href="https://x.com/sousadev" target="_blank" rel="noreferrer" aria-label="X" data-track="social_link_click" data-track-network="twitter">X</a>
+                  <a href="https://github.com/hc-sousa" target="_blank" rel="noreferrer" aria-label="GitHub" data-track="social_link_click" data-track-network="github">GH</a>
+                  <a href="https://orcid.org/0000-0002-1903-5620" target="_blank" rel="noreferrer" aria-label="ORCID" data-track="social_link_click" data-track-network="orcid">iD</a>
                 </div>
               </div>
             </div>
@@ -486,7 +489,7 @@
                 Send the basics and you will get a practical next step: plan recommendation, timeline, and what is needed to launch.
               </p>
             </div>
-            <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" class="inline-flex w-fit rounded-full bg-signal px-6 py-4 text-sm font-black text-ink transition hover:bg-amber-300" data-i18n="contact.whatsapp">
+            <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" class="inline-flex w-fit rounded-full bg-signal px-6 py-4 text-sm font-black text-ink transition hover:bg-amber-300" data-i18n="contact.whatsapp" data-track="whatsapp_click" data-track-location="contact">
               Contact on WhatsApp
             </a>
           </div>
@@ -495,6 +498,7 @@
             class="rounded-[1.5rem] bg-white p-5 text-slate-950"
             action="https://formsubmit.co/info@sousadev.com"
             method="POST"
+            data-track-form="contact"
           >
             <input type="hidden" name="_subject" data-i18n-attr="value:contact.form.submitSubject" value="InfoWeb — Contact" />
             <input type="hidden" name="_next" value="https://infoweb.sousadev.com/#contact" />
@@ -530,7 +534,7 @@
       <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="#top" class="inline-flex items-center gap-3 text-white" aria-label="InfoWeb home">
+            <a href="#top" class="inline-flex items-center gap-3 text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="footer" data-track-target="#top">
               <img src="assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto opacity-95" width="120" height="36" />
             </a>
             <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400" data-i18n="footer.tagline">
@@ -540,12 +544,12 @@
           <div>
             <p class="footer-col-title" data-i18n="footer.colExplore">Explore</p>
             <ul class="footer-links">
-              <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
-              <li><a href="#case-studies" data-i18n="nav.caseStudies">Case Studies</a></li>
-              <li><a href="#developer" data-i18n="nav.developer">Developer</a></li>
-              <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-              <li><a href="/affiliates/" data-i18n="footer.affiliates">Affiliates</a></li>
-              <li><a href="/free-tools/" data-i18n="footer.freeTools">Free tools</a></li>
+              <li><a href="#pricing" data-i18n="nav.pricing" data-track="nav_click" data-track-location="footer" data-track-target="#pricing">Pricing</a></li>
+              <li><a href="#case-studies" data-i18n="nav.caseStudies" data-track="nav_click" data-track-location="footer" data-track-target="#case-studies">Case Studies</a></li>
+              <li><a href="#developer" data-i18n="nav.developer" data-track="nav_click" data-track-location="footer" data-track-target="#developer">Developer</a></li>
+              <li><a href="#contact" data-i18n="nav.contact" data-track="nav_click" data-track-location="footer" data-track-target="#contact">Contact</a></li>
+              <li><a href="/affiliates/" data-i18n="footer.affiliates" data-track="nav_click" data-track-location="footer" data-track-target="/affiliates/">Affiliates</a></li>
+              <li><a href="/free-tools/" data-i18n="footer.freeTools" data-track="nav_click" data-track-location="footer" data-track-target="/free-tools/">Free tools</a></li>
             </ul>
           </div>
           <div>
@@ -555,7 +559,7 @@
                 <a href="mailto:info@sousadev.com">info@sousadev.com</a>
               </li>
               <li>
-                <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" data-i18n="footer.whatsapp">WhatsApp</a>
+                <a href="https://wa.link/tboeew" target="_blank" rel="noreferrer" data-i18n="footer.whatsapp" data-track="whatsapp_click" data-track-location="footer">WhatsApp</a>
               </li>
               <li>
                 <a href="https://sousadev.com" target="_blank" rel="noreferrer" data-i18n="footer.linkStudio">Sousa Dev</a>

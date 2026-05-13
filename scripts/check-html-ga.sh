@@ -23,6 +23,10 @@ check_file() {
     printf 'ERROR: %s — missing gtag.js loader for %s\n' "$f" "$GA_ID" >&2
     errors=$((errors + 1))
   fi
+  if ! grep -qE 'src="[^"]*assets/js/analytics\.js"' "$f"; then
+    printf 'ERROR: %s — missing shared assets/js/analytics.js script tag\n' "$f" >&2
+    errors=$((errors + 1))
+  fi
 }
 
 check_file "$ROOT/index.html"

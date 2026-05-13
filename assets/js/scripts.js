@@ -105,6 +105,27 @@ const applyLanguage = async (language) => {
 /** Billing period length for cadence hints (4 weeks). */
 const PAYBACK_BILLING_PERIOD_DAYS = 28;
 
+let paybackAnalyticsTimer = null;
+
+const paybackPlanValueToKey = (value) =>
+  ({ 29: "basic", 49: "professional", 139: "premium" }[String(value)] || String(value));
+
+const schedulePaybackAnalytics = (simulator) => {
+  if (typeof window.trackEvent !== "function" || !simulator) return;
+  if (paybackAnalyticsTimer) clearTimeout(paybackAnalyticsTimer);
+  paybackAnalyticsTimer = setTimeout(() => {
+    const planInput = simulator.querySelector('input[name="payback-plan"]:checked');
+    const plan = paybackPlanValueToKey(planInput ? planInput.value : "");
+    const clientValueInput = simulator.querySelector("[data-payback-client-value-input]");
+    const clientsNeededOutput = simulator.querySelector("[data-payback-clients-needed]");
+    const clientVal = clientValueInput ? Number(clientValueInput.value) : 0;
+    const clientsText = clientsNeededOutput ? String(clientsNeededOutput.textContent).replace(/\D/g, "") : "";
+    const clientsNeeded = clientsText ? Number(clientsText) : 0;
+    window.trackEvent("payback_input_change", { field: "payback_simulator", plan, client_value: clientVal });
+    window.trackEvent("payback_result_shown", { clients_needed: clientsNeeded, plan });
+  }, 400);
+};
+
 const formatCadence = (clientsNeeded, language) => {
   if (clientsNeeded <= 1) {
     const daysBetween = Math.round(PAYBACK_BILLING_PERIOD_DAYS / Math.max(clientsNeeded, 0.001));
@@ -119,7 +140,7 @@ const formatCadence = (clientsNeeded, language) => {
     : `1 client every ${daysBetween} days`;
 };
 
-const updatePaybackSimulator = () => {
+const updatePaybackSimulator = (emitPaybackAnalytics = false) => {
   const simulator = document.querySelector("[data-payback-simulator]");
 
   if (!simulator) {
@@ -145,6 +166,10 @@ const updatePaybackSimulator = () => {
   clientValueOutput.textContent = formatPaybackMoney(clientValue);
   clientsNeededOutput.textContent = formatNumber(clientsNeeded);
   cadenceOutput.textContent = formatCadence(clientsNeeded, language);
+
+  if (emitPaybackAnalytics) {
+    schedulePaybackAnalytics(simulator);
+  }
 };
 
 const setupPaybackSimulator = () => {
@@ -155,20 +180,38 @@ const setupPaybackSimulator = () => {
   }
 
   simulator.querySelectorAll("input").forEach((input) => {
-    input.addEventListener("input", updatePaybackSimulator);
-    input.addEventListener("change", updatePaybackSimulator);
+    const onUserChange = () => updatePaybackSimulator(true);
+    input.addEventListener("input", onUserChange);
+    input.addEventListener("change", onUserChange);
   });
 
-  updatePaybackSimulator();
+  updatePaybackSimulator(false);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", () => {
-      applyLanguage(button.dataset.lang).catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
+      const fromLang = document.documentElement.lang || "en";
+      const toLang = button.dataset.lang;
+      applyLanguage(button.dataset.lang)
+        .then(() => {
+          if (typeof window.trackEvent === "function") {
+            window.trackEvent("language_change", { language_from: fromLang, language_to: toLang });
+          }
+        })
+        .catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
     });
   });
 
   setupPaybackSimulator();
   applyLanguage(getPreferredLanguage()).catch(() => applyLanguage(DEFAULT_LANGUAGE).catch(() => {}));
+
+  const contactForm = document.querySelector('form[action*="formsubmit.co"]');
+  if (contactForm) {
+    contactForm.addEventListener("submit", () => {
+      if (typeof window.trackEvent === "function") {
+        window.trackEvent("contact_form_submit", { form: "contact" });
+      }
+    });
+  }
 });

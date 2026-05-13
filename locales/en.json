@@ -129,7 +129,7 @@
     "role1": "Software Engineer",
     "role2": "Founder & Full-Stack Developer",
     "copy1": "I manage InfoWeb directly. I am Henrique Sousa, founder and full-stack developer at Sousa Dev, a Software Engineer with a Master's degree in Robotics and Intelligent Systems and a track record of building public, practical software.",
-    "copy2": "My first public project, <a href=\"https://saomiguelbus.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"developer-inline-link\">Sao Miguel Bus</a>, solved a real transport information problem in the Azores. I bring that same engineering mindset here: reliable systems, clear communication, and websites that keep working after launch.",
+    "copy2": "My first public project, <a href=\"https://saomiguelbus.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"developer-inline-link\" data-track=\"external_project_click\" data-track-slug=\"saomiguelbus\">Sao Miguel Bus</a>, solved a real transport information problem in the Azores. I bring that same engineering mindset here: reliable systems, clear communication, and websites that keep working after launch.",
     "point1": "Software engineering background",
     "point2": "Full-stack delivery",
     "point3": "Maintenance included"

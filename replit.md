@@ -6,7 +6,8 @@ A professional landing page for a "Website as a Service" business targeting smal
 
 - **Start server:** `node server.js`
 - **Port:** 5000
-- **Verify GA4 is present on all HTML pages:** `bash scripts/check-html-ga.sh`
+- **Verify GA4 is present on all HTML pages:** `bash scripts/check-html-ga.sh` (checks gtag + `assets/js/analytics.js`)
+- **GA4 key events (admin):** see `docs/GA4-key-events.md`
 
 ## Stack
 
@@ -19,7 +20,7 @@ A professional landing page for a "Website as a Service" business targeting smal
 
 - `index.html` — Main landing page
 - `assets/css/` — Custom stylesheets
-- `assets/js/scripts.js` — Main JS (i18n, payback simulator, interactions)
+- `assets/js/analytics.js` — shared `trackEvent`, scroll depth, `data-track` auto-binding
 - `locales/en.json`, `locales/pt.json` — Translations
 - `assets/images/` — Brand and decorative images
 - `vendor/` — Bootstrap, jQuery and plugins
