@@ -9,7 +9,7 @@ let qrCustomizer = null;
 let uploadedLogo = null;
 
 // ─── API Configuration ────────────────────────────────────────────────────────
-const API_BASE = 'https://infoweb.api.sousadev.com';
+const API_BASE = 'https://infoweb.sousadev.com';
 const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
 
 // ─── Contact lead API ─────────────────────────────────────────────────────────

@@ -8,7 +8,7 @@ let smartQRData = null;
 let toolRunStartedAt = 0;
 
 // ─── API Configuration ────────────────────────────────────────────────────────
-const API_BASE = 'https://infoweb.api.sousadev.com';
+const API_BASE = 'https://infoweb.sousadev.com';
 const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────

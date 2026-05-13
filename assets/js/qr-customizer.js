@@ -147,7 +147,8 @@ class QRCustomizer {
         return null;
       }
       
-      // qrcode-generator API: qrcode(typeNumber, errorCorrectionLevel)
+      // qrcode-generator library exposes a global function
+      // Usage: qrcode(typeNumber, errorCorrectionLevel)
       const typeNumber = 0; // Auto-detect
       const errorCorrectionLevel = this.config.errorCorrectionLevel;
       
@@ -157,8 +158,8 @@ class QRCustomizer {
       
       // Return the module count and accessor function
       return {
-        getModuleCount: () => qr.getModuleCount(),
-        isDark: (row, col) => qr.isDark(row, col)
+        getModuleCount: function() { return qr.getModuleCount(); },
+        isDark: function(row, col) { return qr.isDark(row, col); }
       };
     } catch (e) {
       console.error('QRCustomizer: QR generation failed', e);

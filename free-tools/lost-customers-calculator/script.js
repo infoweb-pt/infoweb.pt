@@ -4,7 +4,7 @@
 // Production: deployed InfoWeb API (HTTPS + full URL — required for GitHub Pages fetch).
 // Local dev: http://localhost:8001/leads/lost-customers/ (run `python manage.py runserver 8001` in api/).
 // Expected POST body: { email, weekly_loss, monthly_loss }
-const API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/lost-customers/';
+const API_ENDPOINT = 'https://infoweb.sousadev.com/leads/lost-customers/';
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let currentStep  = 1;
