@@ -1,0 +1,141 @@
+/**
+ * Free Tools Shared Styles
+ * Common styles for all InfoWeb free tools
+ */
+
+/* ─── Base Variables ─────────────────────────────────────────────────────────── */
+:root {
+  --color-ink: #020617;
+  --color-signal: #d7b46a;
+  --color-slate-950: #020617;
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────────────────── */
+.show-flex {
+  display: flex !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ─── Form Elements ──────────────────────────────────────────────────────────── */
+.input-field {
+  @apply w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all;
+}
+
+.input-error {
+  @apply ring-2 ring-red-500 border-red-500;
+}
+
+.btn-primary {
+  @apply w-full bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl px-6 py-4 transition-all focus:outline-none focus:ring-2 focus:ring-green-400 text-base;
+}
+
+.btn-secondary {
+  @apply flex items-center gap-2 text-sm border border-slate-600 rounded-lg px-4 py-2 hover:border-green-500 hover:text-green-400 text-slate-300 transition-all;
+}
+
+/* ─── Color Input Styling ────────────────────────────────────────────────────── */
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+/* ─── File Upload ────────────────────────────────────────────────────────────── */
+.file-upload-label {
+  @apply flex items-center justify-center gap-2 w-full bg-slate-800 border-2 border-dashed border-slate-600 rounded-xl px-4 py-8 cursor-pointer hover:border-green-500 hover:bg-slate-800/80 transition-all;
+}
+
+.file-upload-label:hover {
+  border-color: var(--color-green-500);
+}
+
+/* ─── Tool Card ──────────────────────────────────────────────────────────────── */
+.tool-card {
+  @apply block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition;
+}
+
+/* ─── Result Box ─────────────────────────────────────────────────────────────── */
+.result-box {
+  @apply bg-slate-900 border border-slate-700 rounded-2xl p-5;
+}
+
+/* ─── FAQ Accordion ──────────────────────────────────────────────────────────── */
+.faq-item {
+  @apply bg-slate-900 border border-slate-800 rounded-xl p-4;
+}
+
+.faq-item summary {
+  @apply font-semibold text-white cursor-pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  float: right;
+  font-size: 1.2em;
+  color: var(--color-slate-400);
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+/* ─── Preview Overlay ────────────────────────────────────────────────────────── */
+.preview-overlay {
+  @apply absolute inset-0 flex items-center justify-center pointer-events-none;
+}
+
+.preview-overlay span {
+  @apply text-2xl font-black text-red-500/30 rotate-[-15deg] border-4 border-red-500/30 px-4 py-2 rounded;
+}
+
+/* ─── Loading Spinner ────────────────────────────────────────────────────────── */
+.spinner {
+  @apply animate-spin h-8 w-8 mb-3 text-green-500;
+}
+
+/* ─── Animation ──────────────────────────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tool-container {
+    @apply px-4;
+  }
+}
