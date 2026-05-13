@@ -5,6 +5,9 @@ from unittest.mock import patch
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.test import TestCase
+from rest_framework.test import APIClient
+
+from leads.models import ToolContactLead
 
 
 class EnsureSuperuserCommandTests(TestCase):
@@ -28,3 +31,37 @@ class EnsureSuperuserCommandTests(TestCase):
 
         self.assertEqual(User.objects.filter(is_superuser=True).count(), 1)
         self.assertFalse(User.objects.filter(username='infoweb_admin').exists())
+
+
+class ToolContactLeadViewTests(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+
+    def test_post_creates_lead(self):
+        url = '/leads/tool-contact/'
+        payload = {'email': 'owner@example.com', 'source': 'whatsapp_qr_generator'}
+        response = self.client.post(url, payload, format='json')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {'status': 'ok'})
+        self.assertEqual(ToolContactLead.objects.count(), 1)
+        lead = ToolContactLead.objects.first()
+        self.assertEqual(lead.email, 'owner@example.com')
+        self.assertEqual(lead.source, 'whatsapp_qr_generator')
+
+    def test_duplicate_within_window_returns_ok_without_second_row(self):
+        url = '/leads/tool-contact/'
+        payload = {'email': 'dup@example.com', 'source': 'whatsapp_qr_generator'}
+        self.client.post(url, payload, format='json')
+        response = self.client.post(url, payload, format='json')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(ToolContactLead.objects.count(), 1)
+
+    def test_invalid_source_rejected(self):
+        url = '/leads/tool-contact/'
+        payload = {'email': 'x@example.com', 'source': 'evil'}
+        response = self.client.post(url, payload, format='json')
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(ToolContactLead.objects.count(), 0)

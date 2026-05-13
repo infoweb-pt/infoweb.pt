@@ -6,8 +6,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.throttling import AnonRateThrottle
 
-from .serializers import LostCustomerLeadSerializer, PresenceScoreLeadSerializer
-from .models import LostCustomerLead, PresenceScoreLead
+from .serializers import (
+    LostCustomerLeadSerializer,
+    PresenceScoreLeadSerializer,
+    ToolContactLeadSerializer,
+)
+from .models import LostCustomerLead, PresenceScoreLead, ToolContactLead
 
 DEDUP_WINDOW_MINUTES = 60
 
@@ -52,6 +56,31 @@ class PresenceScoreLeadView(APIView):
         email = serializer.validated_data['email']
         cutoff = timezone.now() - timedelta(minutes=DEDUP_WINDOW_MINUTES)
         if PresenceScoreLead.objects.filter(email=email, created_at__gte=cutoff).exists():
+            return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+
+        serializer.save()
+        return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+
+
+class ToolContactLeadView(APIView):
+    """
+    POST /leads/tool-contact/
+    Body: { "email": "...", "source": "whatsapp_qr_generator" }
+    """
+
+    throttle_classes = [LeadSubmitThrottle]
+
+    def post(self, request):
+        serializer = ToolContactLeadSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        email = serializer.validated_data['email']
+        source = serializer.validated_data['source']
+        cutoff = timezone.now() - timedelta(minutes=DEDUP_WINDOW_MINUTES)
+        if ToolContactLead.objects.filter(
+            email=email, source=source, created_at__gte=cutoff
+        ).exists():
             return Response({'status': 'ok'}, status=status.HTTP_200_OK)
 
         serializer.save()

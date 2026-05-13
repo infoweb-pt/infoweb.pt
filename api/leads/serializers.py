@@ -1,6 +1,8 @@
 from rest_framework import serializers
-from .models import LostCustomerLead, PresenceScoreLead
+from .models import LostCustomerLead, PresenceScoreLead, ToolContactLead
 from .utils import is_disposable_email
+
+TOOL_CONTACT_ALLOWED_SOURCES = frozenset({'whatsapp_qr_generator'})
 
 
 class LostCustomerLeadSerializer(serializers.ModelSerializer):
@@ -44,3 +46,24 @@ class PresenceScoreLeadSerializer(serializers.ModelSerializer):
                 'Please use a real business or personal email address.'
             )
         return value.lower().strip()
+
+
+class ToolContactLeadSerializer(serializers.ModelSerializer):
+    source = serializers.CharField(max_length=64)
+
+    class Meta:
+        model = ToolContactLead
+        fields = ['email', 'source']
+
+    def validate_email(self, value):
+        if is_disposable_email(value):
+            raise serializers.ValidationError(
+                'Please use a real business or personal email address.'
+            )
+        return value.lower().strip()
+
+    def validate_source(self, value):
+        value = value.strip()
+        if value not in TOOL_CONTACT_ALLOWED_SOURCES:
+            raise serializers.ValidationError('Invalid source.')
+        return value

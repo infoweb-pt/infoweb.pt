@@ -29,3 +29,19 @@ class PresenceScoreLead(models.Model):
 
     def __str__(self):
         return f'{self.email} — score {self.score}/100 ({self.created_at:%Y-%m-%d})'
+
+
+class ToolContactLead(models.Model):
+    """Optional email capture from free-tool CTAs (e.g. WhatsApp QR generator)."""
+
+    email = models.EmailField()
+    source = models.CharField(max_length=64)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Tool Contact Lead'
+        verbose_name_plural = 'Tool Contact Leads'
+
+    def __str__(self):
+        return f'{self.email} — {self.source} ({self.created_at:%Y-%m-%d})'

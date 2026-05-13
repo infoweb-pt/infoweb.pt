@@ -13,6 +13,52 @@ function trackEvent(eventName, params) {
   console.debug('[trackEvent]', eventName, params);
 }
 
+// ─── Contact lead API (optional — presence / InfoWeb follow-up) ────────────────
+// Production: full HTTPS URL required for GitHub Pages fetch.
+// Local dev: http://localhost:8001/leads/tool-contact/
+const CONTACT_API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/tool-contact/';
+const CONTACT_SOURCE = 'whatsapp_qr_generator';
+
+function clearContactEmailError() {
+  hide('contact-email-error');
+  hide('contact-api-error');
+}
+
+async function submitContactLead() {
+  const emailInput = document.getElementById('contact-email');
+  const email = emailInput.value.trim();
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    show('contact-email-error');
+    emailInput.focus();
+    return;
+  }
+
+  clearContactEmailError();
+  hide('contact-submit-btn');
+  showFlex('contact-spinner');
+
+  try {
+    const response = await fetch(CONTACT_API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: CONTACT_SOURCE })
+    });
+
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+    hide('contact-spinner');
+    hide('contact-lead-form');
+    show('contact-success');
+    trackEvent('contact_lead_submitted');
+  } catch (err) {
+    console.error('[submitContactLead]', err);
+    hide('contact-spinner');
+    show('contact-submit-btn');
+    show('contact-api-error');
+  }
+}
+
 // ─── UI helpers ───────────────────────────────────────────────────────────────
 function show(id)   { document.getElementById(id).classList.remove('hidden'); }
 function hide(id)   { document.getElementById(id).classList.add('hidden'); }

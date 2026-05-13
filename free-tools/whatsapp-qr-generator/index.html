@@ -247,6 +247,52 @@
       </div>
     </section>
 
+    <!-- CONTACT LEAD CTA (optional email — improves online presence / InfoWeb) -->
+    <section aria-label="Get contacted about your online presence"
+      class="mb-10 rounded-2xl border-2 border-signal/40 bg-gradient-to-br from-slate-900 via-slate-900 to-ink p-8 shadow-[0_0_40px_-12px_rgba(215,180,106,0.35)]">
+      <p class="text-signal mb-2 text-xs font-black uppercase tracking-[0.2em]">Want help beyond WhatsApp?</p>
+      <h2 class="text-xl font-bold mb-2 text-white sm:text-2xl">
+        Get contacted about your website &amp; Google presence
+      </h2>
+      <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+        Leave your email if you’d like us to reach out with tips to improve how customers find you online — separate from generating your QR (still runs only in your browser).
+      </p>
+
+      <div id="contact-lead-form">
+        <label class="sr-only" for="contact-email">Email</label>
+        <input id="contact-email" type="email" inputmode="email" autocomplete="email" placeholder="you@business.com"
+          aria-describedby="contact-email-error contact-api-error"
+          oninput="clearContactEmailError()"
+          class="mb-3 w-full rounded-xl border border-slate-600 bg-slate-950 px-4 py-3 text-slate-100 placeholder:text-slate-500 outline-none ring-signal focus:border-signal focus:ring-2" />
+
+        <p id="contact-email-error" class="mb-3 hidden text-sm text-red-400" role="alert">Please enter a valid email address.</p>
+
+        <div id="contact-api-error" class="mb-3 hidden text-center" role="alert">
+          <p class="text-sm text-red-400">Something went wrong. Please try again.</p>
+          <button type="button" onclick="submitContactLead()"
+            class="mt-1 text-xs font-semibold text-signal underline">Try again</button>
+        </div>
+
+        <div id="contact-spinner" class="mb-3 hidden flex-col items-center justify-center gap-2 py-2 text-slate-400" aria-live="polite">
+          <svg class="h-6 w-6 animate-spin text-signal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+          </svg>
+          <span class="text-sm">Sending…</span>
+        </div>
+
+        <button id="contact-submit-btn" type="button" onclick="submitContactLead()"
+          class="w-full rounded-full bg-gradient-to-b from-amber-100 to-signal py-3.5 text-base font-black text-ink shadow-[0_4px_0_rgb(15_23_42_/_0.4),0_8px_24px_rgb(215_180_106_/_0.45)] transition hover:brightness-105 active:translate-y-px">
+          Email me — contact me about my presence
+        </button>
+      </div>
+
+      <div id="contact-success" class="hidden rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-5 py-4 text-center">
+        <p class="text-lg font-bold text-emerald-400">You’re on the list</p>
+        <p class="mt-1 text-sm text-slate-400">We’ll be in touch soon. Check spam if you don’t hear from us.</p>
+      </div>
+    </section>
+
     <!-- CONVERSION CTA -->
     <section aria-label="Call to action"
       class="mb-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-2xl p-8">
@@ -295,7 +341,7 @@
           <span class="ml-4 text-slate-500 group-open:rotate-180 transition-transform duration-200">▾</span>
         </summary>
         <p class="px-5 pb-5 text-slate-400 leading-relaxed text-sm">
-          Yes — completely free, forever, with no account or email required. Everything runs directly in your browser, so your phone number and message are never sent to any server. You can generate and download as many QR Codes as you need.
+          Yes — generating your WhatsApp link and QR Code is completely free, forever, with no account required: everything for that runs directly in your browser, so your phone number and message are never sent to any server when you use the tool. If you optionally leave your email in the box below to ask us to contact you about your online presence, only that email (not your phone number) is sent to InfoWeb. You can generate and download as many QR Codes as you need.
         </p>
       </details>
 
@@ -327,7 +373,7 @@
           {
             "@type": "Question",
             "name": "Is this WhatsApp link generator really free? Do I need to sign up?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free, forever, with no account or email required. Everything runs in your browser. Your phone number is never sent to any server." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — generating the link and QR runs free in your browser; your phone number is not sent to any server for that. If you optionally submit your email to be contacted about online presence, only that email is sent to InfoWeb." }
           },
           {
             "@type": "Question",
