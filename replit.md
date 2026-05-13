@@ -5,7 +5,8 @@ A professional landing page for a "Website as a Service" business targeting smal
 ## Run & Operate
 
 - **Start server:** `node server.js`
-- **Port:** 5000 
+- **Port:** 5000
+- **Verify GA4 is present on all HTML pages:** `bash scripts/check-html-ga.sh`
 
 ## Stack
 

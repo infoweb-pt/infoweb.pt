@@ -542,17 +542,21 @@ function trackEvent(eventName, params = {}) {
 
 ### 8.2 Google Analytics Setup
 
+Paste this block in `index.html` `<head>` (before `</head>`). Use measurement ID **`G-XXQSMBERJM`** — do not swap for a placeholder.
+
 ```html
-<!-- Add to <head>, before </head> -->
-<!-- Replace G-XXXXXXXXXX with your GA4 Measurement ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+
+  gtag('config', 'G-XXQSMBERJM');
 </script>
 ```
+
+Before publishing, run **`bash scripts/check-html-ga.sh`** from the repo root so no tool ships without GA.
 
 ---
 
@@ -585,6 +589,10 @@ Complete **every item** before pushing to GitHub Pages.
 - [ ] Lead-capture email field validates format before submitting (Option B tools only)
 - [ ] `trackEvent('tool_used')` fires on Generate click
 - [ ] `trackEvent('cta_click')` fires on CTA click
+
+### Analytics
+- [ ] Google tag (gtag.js) is in `<head>` with measurement ID **`G-XXQSMBERJM`** (loader URL and `gtag('config', …)` must match)
+- [ ] `bash scripts/check-html-ga.sh` passes from repo root (covers this tool and the rest of the site)
 
 ### Design & Accessibility
 - [ ] Page is fully responsive — tested at 375px, 768px and 1280px widths
