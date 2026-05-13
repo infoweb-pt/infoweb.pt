@@ -134,10 +134,28 @@ async function runTool() {
   hide('error-box');
 
   try {
-    // For now, we'll create a simple menu URL
-    // In production, this would upload the file to a CDN and get a URL
-    // For demo purposes, we'll use a placeholder URL
-    const menuUrl = `https://infoweb.sousadev.com/menu/${encodeURIComponent(restaurantName.toLowerCase().replace(/\s+/g, '-'))}`;
+    // Upload file to API
+    let menuUrl = null;
+    if (uploadedFile) {
+      showSpinner();
+      const formData = new FormData();
+      formData.append('file', uploadedFile);
+      
+      const uploadResponse = await fetch(`${API_BASE}/upload/`, {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!uploadResponse.ok) {
+        const errorData = await uploadResponse.json().catch(() => ({}));
+        throw new Error('Upload failed: ' + (errorData.detail || uploadResponse.status));
+      }
+      
+      const uploadResult = await uploadResponse.json();
+      menuUrl = uploadResult.url;
+    } else {
+      menuUrl = `https://infoweb.sousadev.com/menu/${encodeURIComponent(restaurantName.toLowerCase().replace(/\s+/g, '-'))}`;
+    }
     
     // Generate QR with customizer
     if (!qrCustomizer) {
