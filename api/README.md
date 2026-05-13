@@ -9,6 +9,8 @@ Minimal Django REST API that stores email leads from the free tools on the InfoW
 | POST | `/leads/lost-customers/` | Lost Customers Calculator | `{email, weekly_loss, monthly_loss}` |
 | POST | `/leads/presence-score/` | Online Presence Score | `{email, score, answers}` |
 
+Deployed base URL: **`https://infoweb.api.sousadev.com`** — e.g. `https://infoweb.api.sousadev.com/leads/lost-customers/`.
+
 Returns `200 OK` on success, `400 Bad Request` with validation errors on failure.
 
 ## Setup
@@ -44,7 +46,9 @@ Set these environment variables (or create a `.env` file in `api/`) before deplo
 
 ## Wiring the front-end
 
-Update the `API_ENDPOINT` constant at the top of each tool script to point to the deployed API:
+Production: set **`API_ENDPOINT`** at the top of each tool script to the full HTTPS URL (GitHub Pages needs an absolute URL for browser `fetch`):
 
-- `free-tools/lost-customers-calculator/script.js` → `/leads/lost-customers/`
-- `free-tools/presence-score/script.js` → `/leads/presence-score/`
+- [`free-tools/lost-customers-calculator/script.js`](../free-tools/lost-customers-calculator/script.js) → `https://infoweb.api.sousadev.com/leads/lost-customers/`
+- [`free-tools/presence-score/script.js`](../free-tools/presence-score/script.js) → `https://infoweb.api.sousadev.com/leads/presence-score/`
+
+Local dev: swap to `http://localhost:8001/leads/.../` when running `python manage.py runserver 8001` from `api/`.

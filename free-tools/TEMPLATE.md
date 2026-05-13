@@ -55,7 +55,7 @@ free-tools/
 - The `index.html` must be self-contained or reference only relative paths and CDN links.
 - No server-side code. Everything runs in the browser.
 - The `og-image.png` must clearly show the tool name and brand for WhatsApp / social previews.
-- Do **not** commit API keys. All sensitive calls go through the intermediate API.
+- Do **not** commit API keys. All sensitive calls go through the Django API hosted at **`https://infoweb.api.sousadev.com`**.
 
 ---
 
@@ -159,10 +159,17 @@ Copy this `<head>` block into every tool's `index.html`. Replace every `[PLACEHO
 | Rule | Detail |
 |---|---|
 | **Static only** | Pure HTML + CSS + JS. No PHP, no Node, no server rendering. |
-| **Client-side first** | All calculations, validations and data transformations happen in the browser. Only reach the intermediate API when strictly necessary (external data, AI, DB reads). |
-| **No exposed keys** | Sensitive API keys (OpenAI, DB credentials, etc.) live exclusively in the intermediate API backend. Never in source files on GitHub Pages. |
-| **CORS** | The intermediate API must whitelist `https://[GITHUB-USER].github.io` only. |
-| **Paths** | Always use **relative** paths for local assets. Use absolute CDN URLs for external libraries. |
+| **Client-side first** | All calculations, validations and data transformations happen in the browser. Only reach the Django API when strictly necessary (external data, AI, DB reads). |
+| **No exposed keys** | Sensitive API keys (OpenAI, DB credentials, etc.) live exclusively in the API backend (`api/`). Never in source files on GitHub Pages. |
+| **CORS** | The Django API (`https://infoweb.api.sousadev.com`) must allow browser `fetch()` from your GitHub Pages origin `https://[GITHUB-USER].github.io`. In production set `CORS_ALLOWED_ORIGINS` on the API; avoid `CORS_ALLOW_ALL_ORIGINS` except local dev. |
+| **Paths** | Use **relative** paths for local assets. Use absolute URLs for GitHub-hosted static pages + the Django API (see §4.1b). CDN libraries stay as absolute URLs. |
+
+### 4.1b Django API URL (lead capture)
+
+- **Production base:** `https://infoweb.api.sousadev.com`
+- **Path pattern:** `https://infoweb.api.sousadev.com/leads/[endpoint]/` — there is **no** `/api` prefix before `leads/`.
+- In each tool's `script.js`, set `API_ENDPOINT` to the **full HTTPS URL above** when shipping to GitHub Pages (browser `fetch` is cross-origin; relative URLs like `/api/...` hit the Pages host, not Django).
+- **Local:** `http://localhost:8001/leads/[endpoint]/` with `python manage.py runserver 8001` from `api/`.
 
 ### 4.2 Loading States (Mandatory)
 
@@ -464,7 +471,7 @@ Trust is built before you ask for anything. The remaining 20% (e.g. PDF export, 
 | Option | When to use | Implementation |
 |---|---|---|
 | **A — Open Access** | Most tools (lower friction, higher volume) | Show CTA immediately below result |
-| **B — Lead Capture** | High-value reports / analysis tools | Show partial result → ask email → send full PDF via intermediate API |
+| **B — Lead Capture** | High-value reports / analysis tools | Show partial result → ask email → send full breakdown via Django API |
 
 #### Option B — Email gate pattern
 

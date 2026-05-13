@@ -1,10 +1,10 @@
 'use strict';
 
 // ─── API endpoint ─────────────────────────────────────────────────────────────
-// Local dev: run `python manage.py runserver 8001` inside api/ then use the URL below.
-// Production: replace with your deployed API domain (e.g. https://api.yourdomain.com/leads/presence-score/).
+// Production: deployed InfoWeb API (HTTPS + full URL — required for GitHub Pages fetch).
+// Local dev: http://localhost:8001/leads/presence-score/ (run `python manage.py runserver 8001` in api/).
 // Expected POST body: { email, score, answers }
-const API_ENDPOINT = '/api/leads/presence-score/';
+const API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/presence-score/';
 
 // ─── Quiz data ────────────────────────────────────────────────────────────────
 // points: weighted values — Q1, Q5, Q7 = 16; rest = 12; max raw = 96
@@ -243,8 +243,7 @@ async function submitEmail() {
   try {
     const payload = { email, score: finalScore, answers };
 
-    // POST lead to intermediate API.
-    // Replace API_ENDPOINT constant at the top of this file once backend is ready.
+    // POST lead to InfoWeb API.
     const response = await fetch(API_ENDPOINT, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },

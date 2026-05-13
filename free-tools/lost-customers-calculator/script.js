@@ -1,10 +1,10 @@
 'use strict';
 
 // ─── API endpoint ─────────────────────────────────────────────────────────────
-// Local dev: run `python manage.py runserver 8001` inside api/ then use the URL below.
-// Production: replace with your deployed API domain (e.g. https://api.yourdomain.com/leads/lost-customers/).
+// Production: deployed InfoWeb API (HTTPS + full URL — required for GitHub Pages fetch).
+// Local dev: http://localhost:8001/leads/lost-customers/ (run `python manage.py runserver 8001` in api/).
 // Expected POST body: { email, weekly_loss, monthly_loss }
-const API_ENDPOINT = '/api/leads/lost-customers/';
+const API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/lost-customers/';
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let currentStep  = 1;
@@ -180,7 +180,7 @@ async function submitEmail() {
   try {
     const payload = { email, weekly_loss: weeklyLoss, monthly_loss: monthlyLoss };
 
-    // POST lead to API. Update API_ENDPOINT at the top of this file for production.
+    // POST lead to API.
     const response = await fetch(API_ENDPOINT, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
