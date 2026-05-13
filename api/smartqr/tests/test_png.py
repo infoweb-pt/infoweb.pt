@@ -38,4 +38,4 @@ class SmartQRPngTests(TestCase):
         with patch('smartqr.public_views.qrcode.QRCode.add_data') as add_data:
             response = self.client.get('/q/Ax9k2P.png?size=512&ec=M')
         self.assertEqual(response.status_code, 200)
-        add_data.assert_called_once_with('https://infoweb.api.sousadev.com/q/Ax9k2P')
+        add_data.assert_called_once_with('https://infoweb.sousadev.com/q/Ax9k2P')
