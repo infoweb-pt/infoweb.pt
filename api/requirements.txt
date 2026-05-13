@@ -5,3 +5,5 @@ python-decouple>=3.8
 psycopg2-binary>=2.9
 gunicorn>=21.2
 whitenoise>=6.8
+qrcode[pil]>=7.4
+user-agents>=2.2
