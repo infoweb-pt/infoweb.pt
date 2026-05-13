@@ -2,13 +2,16 @@
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let lastWaLink = '';
+let smartQRData = null;  // { slug, short_url, manage_url, manage_token, qr_png_url }
 let qrReady    = false;
 let toolRunStartedAt = 0;
 
+// ─── API Configuration ────────────────────────────────────────────────────────
+const API_BASE = 'https://infoweb.api.sousadev.com';
+const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
+
 // ─── Contact lead API (optional — presence / InfoWeb follow-up) ────────────────
-// Production: full HTTPS URL required for GitHub Pages fetch.
-// Local dev: http://localhost:8001/leads/tool-contact/
-const CONTACT_API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/tool-contact/';
+const CONTACT_API_ENDPOINT = `${API_BASE}/leads/tool-contact/`;
 const CONTACT_SOURCE = 'whatsapp_qr_generator';
 
 function clearContactEmailError() {
@@ -119,7 +122,7 @@ function updateCharCount() {
 }
 
 // ─── Main tool logic ──────────────────────────────────────────────────────────
-function runTool() {
+async function runTool() {
   if (!validateInputs()) {
     if (typeof window.trackEvent === 'function') {
       window.trackEvent('tool_validation_error', { field: 'phone', reason: 'invalid_or_short' });
@@ -136,38 +139,100 @@ function runTool() {
   setDownloadEnabled(false);
   qrReady = false;
 
-  // Brief delay so spinner is visible; QR gen itself is synchronous
-  setTimeout(() => {
-    try {
-      const countryCode = document.getElementById('country-code').value;
-      const phone       = document.getElementById('phone-number').value.trim().replace(/\D/g, '');
-      const message     = document.getElementById('wa-message').value.trim();
-      const fullNumber  = countryCode + phone;
-      const encoded     = message ? encodeURIComponent(message) : '';
+  try {
+    const countryCode = document.getElementById('country-code').value;
+    const phone       = document.getElementById('phone-number').value.trim().replace(/\D/g, '');
+    const message     = document.getElementById('wa-message').value.trim();
+    const fullNumber  = countryCode + phone;
+    const encoded     = message ? encodeURIComponent(message) : '';
 
-      lastWaLink = encoded
-        ? `https://wa.me/${fullNumber}?text=${encoded}`
-        : `https://wa.me/${fullNumber}`;
+    lastWaLink = encoded
+      ? `https://wa.me/${fullNumber}?text=${encoded}`
+      : `https://wa.me/${fullNumber}`;
 
-      renderResult(lastWaLink);
-    } catch (err) {
-      console.error('[runTool]', err);
-      showFriendlyError();
-    } finally {
-      hideSpinner();
+    // Create SmartQR code via API
+    const response = await fetch(SMARTQR_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        target_url: lastWaLink,
+        label: `WhatsApp: +${fullNumber}`,
+        tool_source: 'whatsapp_qr_generator'
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('[SmartQR API error]', errorData);
+      throw new Error('SmartQR API: ' + (errorData.detail || response.status));
     }
-  }, 350);
+
+    smartQRData = await response.json();
+    renderResult(lastWaLink, smartQRData);
+  } catch (err) {
+    console.error('[runTool]', err);
+    showFriendlyError();
+  } finally {
+    hideSpinner();
+  }
 }
 
-function renderResult(waLink) {
-  // Update link display
+function renderResult(waLink, smartQR) {
+  // Update direct link display
   document.getElementById('wa-link-display').textContent = waLink;
   document.getElementById('wa-link-open').href = waLink;
 
-  // Render QR Code directly into #qr-container
-  // qrcode.js draws synchronously onto a <canvas> it creates inside the container
+  // Update SmartQR short URL
+  const shortUrlEl = document.getElementById('smartqr-short-url');
+  if (shortUrlEl && smartQR) {
+    shortUrlEl.textContent = smartQR.short_url;
+    shortUrlEl.href = smartQR.short_url;
+  }
+
+  // Update manage link
+  const manageEl = document.getElementById('smartqr-manage-url');
+  if (manageEl && smartQR) {
+    manageEl.href = smartQR.manage_url;
+    manageEl.classList.remove('hidden');
+  }
+
+  // Render QR Code using server-generated PNG
+  const qrContainer = document.getElementById('qr-container');
+  qrContainer.innerHTML = '';
+
+  if (smartQR && smartQR.qr_png_url) {
+    const img = document.createElement('img');
+    img.src = smartQR.qr_png_url;
+    img.alt = 'WhatsApp QR Code';
+    img.className = 'w-full h-full';
+    img.onload = function() {
+      qrReady = true;
+      setDownloadEnabled(true);
+    };
+    img.onerror = function() {
+      // Fallback to local QR generation if server PNG fails
+      renderLocalQR(waLink);
+    };
+    qrContainer.appendChild(img);
+  } else {
+    renderLocalQR(waLink);
+  }
+
+  // Show result section and scroll to it
+  show('result-box');
+  document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_result_shown', {
+      duration_ms: Math.round(performance.now() - toolRunStartedAt),
+      has_smartqr: !!smartQR
+    });
+  }
+}
+
+function renderLocalQR(waLink) {
   const container = document.getElementById('qr-container');
-  container.innerHTML = ''; // clear any previous QR
+  container.innerHTML = '';
 
   new QRCode(container, {
     text: waLink,
@@ -178,19 +243,8 @@ function renderResult(waLink) {
     correctLevel: QRCode.CorrectLevel.H
   });
 
-  // qrcode.js draws the canvas synchronously; enable download immediately
   qrReady = true;
   setDownloadEnabled(true);
-
-  // Show result section and scroll to it
-  show('result-box');
-  document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_result_shown', {
-      duration_ms: Math.round(performance.now() - toolRunStartedAt),
-    });
-  }
 }
 
 function showFriendlyError() {
@@ -221,9 +275,30 @@ function copyLink() {
   }
 }
 
-function fallbackCopy(callback) {
+function copyShortUrl() {
+  if (!smartQRData || !smartQRData.short_url) return;
+
+  const doFeedback = () => {
+    const btn = document.getElementById('copy-short-btn-text');
+    btn.textContent = 'Copied!';
+    setTimeout(() => {
+      btn.textContent = 'Copy short link';
+    }, 2000);
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('result_copied', { type: 'short_url' });
+    }
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(smartQRData.short_url).then(doFeedback).catch(() => fallbackCopy(doFeedback, smartQRData.short_url));
+  } else {
+    fallbackCopy(doFeedback, smartQRData.short_url);
+  }
+}
+
+function fallbackCopy(callback, text) {
   const ta = document.createElement('textarea');
-  ta.value = lastWaLink;
+  ta.value = text || lastWaLink;
   ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
   document.body.appendChild(ta);
   ta.focus();
@@ -237,11 +312,22 @@ function fallbackCopy(callback) {
 function downloadQR() {
   if (!qrReady) return;
 
-  // qrcode.js creates a <canvas> directly inside #qr-container
+  // If we have a server-generated QR, download that
+  if (smartQRData && smartQRData.qr_png_url) {
+    const link = document.createElement('a');
+    link.href = smartQRData.qr_png_url + '?size=1024&logo=1';
+    link.download = 'whatsapp-qr-infoweb.png';
+    link.target = '_blank';
+    link.click();
+    if (typeof window.trackEvent === 'function') window.trackEvent('qr_downloaded', { source: 'smartqr' });
+    return;
+  }
+
+  // Fallback: download locally-generated QR
   const srcCanvas = document.querySelector('#qr-container canvas');
   if (!srcCanvas) return;
 
-  const scale       = 4; // 4× = 880×880 px — suitable for print
+  const scale       = 4;
   const printCanvas = document.createElement('canvas');
   printCanvas.width  = srcCanvas.width  * scale;
   printCanvas.height = srcCanvas.height * scale;
@@ -257,7 +343,7 @@ function downloadQR() {
   link.href     = printCanvas.toDataURL('image/png');
   link.click();
 
-  if (typeof window.trackEvent === 'function') window.trackEvent('qr_downloaded');
+  if (typeof window.trackEvent === 'function') window.trackEvent('qr_downloaded', { source: 'local' });
 }
 
 // ─── Reset ────────────────────────────────────────────────────────────────────
@@ -274,8 +360,13 @@ function resetTool() {
   document.getElementById('qr-container').innerHTML = '';
 
   lastWaLink = '';
+  smartQRData = null;
   qrReady    = false;
   setDownloadEnabled(false);
+
+  // Hide SmartQR elements
+  const manageEl = document.getElementById('smartqr-manage-url');
+  if (manageEl) manageEl.classList.add('hidden');
 
   inputEl.focus();
   window.scrollTo({ top: 0, behavior: 'smooth' });
