@@ -120,8 +120,8 @@ class QRCustomizer {
     this.ctx.fillRect(0, 0, size, totalHeight);
     
     // Generate QR matrix
-    const matrix = this.generateQRMatrix();
-    if (!matrix) {
+    const qrData = this.generateQRMatrix();
+    if (!qrData) {
       // Draw error message
       this.ctx.fillStyle = '#ef4444';
       this.ctx.font = 'bold 16px sans-serif';
@@ -131,7 +131,7 @@ class QRCustomizer {
     }
     
     // Draw QR code
-    await this.drawQR(matrix);
+    await this.drawQR(qrData);
     
     // Draw frame if present
     if (frame) {
@@ -147,7 +147,7 @@ class QRCustomizer {
         return null;
       }
       
-      // qrcode-generator library exposes a global function
+      // qrcode-generator library exposes a factory function
       // Usage: qrcode(typeNumber, errorCorrectionLevel)
       const typeNumber = 0; // Auto-detect
       const errorCorrectionLevel = this.config.errorCorrectionLevel;
@@ -156,7 +156,7 @@ class QRCustomizer {
       qr.addData(this.config.text);
       qr.make();
       
-      // Return the module count and accessor function
+      // Return object with getModuleCount and isDark methods
       return {
         getModuleCount: function() { return qr.getModuleCount(); },
         isDark: function(row, col) { return qr.isDark(row, col); }

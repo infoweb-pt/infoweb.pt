@@ -8,7 +8,7 @@ let smartQRData = null;
 let toolRunStartedAt = 0;
 
 // ─── API Configuration ────────────────────────────────────────────────────────
-const API_BASE = 'https://infoweb.sousadev.com';
+const API_BASE = 'https://infoweb.api.sousadev.com';
 const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
@@ -154,7 +154,7 @@ async function runTool() {
       const uploadResult = await uploadResponse.json();
       menuUrl = uploadResult.url;
     } else {
-      menuUrl = `https://infoweb.sousadev.com/menu/${encodeURIComponent(restaurantName.toLowerCase().replace(/\s+/g, '-'))}`;
+      menuUrl = `https://infoweb.api.sousadev.com/menu/${encodeURIComponent(restaurantName.toLowerCase().replace(/\s+/g, '-'))}`;
     }
     
     // Generate QR with customizer
@@ -289,7 +289,7 @@ function resetTool() {
 document.addEventListener('DOMContentLoaded', function() {
   qrCustomizer = new QRCustomizer({
     container: '#qr-preview',
-    defaultText: 'https://infoweb.sousadev.com/free-tools/qr-example/',
+    defaultText: 'https://infoweb.api.sousadev.com/free-tools/qr-example/',
     onChange: (config) => console.log('QR config:', config)
   });
 });

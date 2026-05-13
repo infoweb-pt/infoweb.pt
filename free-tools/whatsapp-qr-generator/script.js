@@ -9,7 +9,7 @@ let qrCustomizer = null;
 let uploadedLogo = null;
 
 // ─── API Configuration ────────────────────────────────────────────────────────
-const API_BASE = 'https://infoweb.sousadev.com';
+const API_BASE = 'https://infoweb.api.sousadev.com';
 const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
 
 // ─── Contact lead API ─────────────────────────────────────────────────────────
@@ -179,7 +179,7 @@ function updatePreview() {
   
   // Preview always shows example page, not actual WhatsApp link
   // This avoids requiring input and shows a working demo
-  qrCustomizer.setText('https://infoweb.sousadev.com/free-tools/qr-example/');
+  qrCustomizer.setText('https://infoweb.api.sousadev.com/free-tools/qr-example/');
 }
 
 // ─── Submit-time validation ───────────────────────────────────────────────────
@@ -411,7 +411,7 @@ function resetTool() {
       colorLight: '#ffffff',
       dotStyle: 'square'
     });
-    qrCustomizer.setText('https://infoweb.sousadev.com/free-tools/qr-example/');
+    qrCustomizer.setText('https://infoweb.api.sousadev.com/free-tools/qr-example/');
   }
 
   // Reset dot style buttons
@@ -434,7 +434,7 @@ document.getElementById('phone-number').addEventListener('keydown', function (e)
 document.addEventListener('DOMContentLoaded', function() {
   qrCustomizer = new QRCustomizer({
     container: '#qr-preview',
-    defaultText: 'https://infoweb.sousadev.com/free-tools/qr-example/',
+    defaultText: 'https://infoweb.api.sousadev.com/free-tools/qr-example/',
     onChange: (config) => console.log('QR config:', config)
   });
   
