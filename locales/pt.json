@@ -152,6 +152,70 @@
       "submitSubject": "InfoWeb — Formulário de contacto"
     }
   },
+  "affiliates": {
+    "meta": {
+      "title": "Programa de Afiliados — Ganha Mensalmente por Cada Cliente que Nos Trazes | InfoWeb",
+      "description": "Junta-te ao programa de afiliados da InfoWeb. Refere clientes ou vende planos de website gerido em nosso nome e recebe uma percentagem mensal recorrente enquanto ficarem subscritos."
+    },
+    "nav": {
+      "seePlans": "Ver Planos"
+    },
+    "hero": {
+      "badge": "Programa de Afiliados — Já Disponível",
+      "title": "Ganha um rendimento mensal por cada cliente que nos trazes.",
+      "subtitle": "Refere um pequeno negócio à InfoWeb — ou vende em nosso nome — e recebe uma percentagem recorrente da subscrição deles todos os meses, enquanto ficarem connosco.",
+      "cta": "Candidata-te a afiliado →",
+      "note": "Email henrique@sousadev.com — respondemos em 24 h"
+    },
+    "howItWorks": {
+      "eyebrow": "Como funciona",
+      "title": "Três passos. Rendimento recorrente.",
+      "step1Title": "Tu referes ou vendes",
+      "step1Body": "Conheces um restaurante, clínica ou negócio local que precisa de um website profissional? Apresenta-os à InfoWeb — ou representa-nos ativamente junto de potenciais clientes.",
+      "step2Title": "Eles subscrevem",
+      "step2Body": "Assim que o teu cliente referido se inscreve e o plano fica ativo, fica ligado à tua conta de afiliado. Sem complicações — nós tratamos de tudo, desde o onboarding ao suporte.",
+      "step3Title": "Tu ganhas todos os meses",
+      "step3Body": "Em cada ciclo de faturação em que o teu cliente está ativo, recebes a tua percentagem. Continua enquanto ficarem subscritos — sem limites de tempo, sem teto máximo."
+    },
+    "keyBenefit": {
+      "eyebrow": "O principal benefício",
+      "title": "Ganhas para sempre — não apenas na primeira venda.",
+      "body1": "A maioria dos programas de referência paga-te uma vez. O nosso paga-te todos os meses enquanto o teu cliente mantiver a subscrição ativa. Um único cliente que tragas hoje pode ainda estar a gerar rendimento daqui a anos.",
+      "body2": "Os pagamentos só param se um cliente cancelar o plano — e a retenção da InfoWeb é forte porque tratamos de absolutamente tudo por eles.",
+      "statPaymentLabel": "Modelo de pagamento",
+      "statPaymentValue": "Recorrente mensal",
+      "statDurationLabel": "Duração",
+      "statDurationValue": "Para sempre (enquanto ativo)",
+      "statCapLabel": "Teto de ganhos",
+      "statCapValue": "Nenhum",
+      "statMinLabel": "Mínimo de referências",
+      "statMinValue": "Apenas uma"
+    },
+    "whoIsThisFor": {
+      "eyebrow": "Para quem é isto?",
+      "title": "Funciona para quase toda a gente.",
+      "card1Title": "Freelancers e consultores",
+      "card1Body": "Trabalhas com pequenos negócios — acrescenta uma fonte de rendimento passivo ao referires clientes que precisam de um website.",
+      "card2Title": "Marketers e gestores de redes sociais",
+      "card2Body": "Os teus clientes perguntam sobre websites toda a hora. Agora podes beneficiar de cada vez que um deles se inscreve.",
+      "card3Title": "Parceiros de vendas",
+      "card3Body": "Queres vender ativamente os planos InfoWeb? Podes representar-nos, fazer pitch a potenciais clientes e ganhar comissão em cada subscrição que fechares.",
+      "card4Title": "Criadores de conteúdo e bloggers",
+      "card4Body": "Recomenda a InfoWeb à tua audiência de pequenos empresários e ganha sempre que um deles subscreve."
+    },
+    "cta": {
+      "eyebrow": "Pronto para começar?",
+      "title": "Entra em contacto e tratamos do teu acordo de afiliado.",
+      "body": "Envia-nos um email a apresentares-te — diz-nos quem és, como trarías clientes, e qualquer dúvida que tenhas. Respondemos em 24 horas e explicamos todos os detalhes.",
+      "button": "Email henrique@sousadev.com →",
+      "note": "Ou copia o endereço:"
+    },
+    "footer": {
+      "mainSite": "Site principal",
+      "plansAndPricing": "Planos e preços",
+      "contact": "Contacto"
+    }
+  },
   "footer": {
     "tagline": "Websites geridos para pequenos negócios: domínio, alojamento, atualizações e um caminho claro para crescer online.",
     "colExplore": "Explorar",

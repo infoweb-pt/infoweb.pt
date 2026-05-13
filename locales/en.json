@@ -152,6 +152,70 @@
       "submitSubject": "InfoWeb — Contact form"
     }
   },
+  "affiliates": {
+    "meta": {
+      "title": "Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb",
+      "description": "Join the InfoWeb affiliate programme. Refer clients or sell managed website plans on our behalf and earn a recurring monthly percentage for as long as they stay subscribed."
+    },
+    "nav": {
+      "seePlans": "See Plans"
+    },
+    "hero": {
+      "badge": "Affiliate Programme — Now Open",
+      "title": "Earn a monthly income for every client you bring us.",
+      "subtitle": "Refer a small business to InfoWeb — or sell on our behalf — and receive a recurring percentage of their subscription every month, for as long as they stay with us.",
+      "cta": "Apply to become an affiliate →",
+      "note": "Email henrique@sousadev.com — we'll get back to you within 24 h"
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "Three steps. Recurring income.",
+      "step1Title": "You refer or sell",
+      "step1Body": "Know a restaurant, clinic, or local business that needs a professional website? Introduce them to InfoWeb — or actively pitch our plans on our behalf.",
+      "step2Title": "They subscribe",
+      "step2Body": "Once your referred client signs up and their plan is active, they're linked to your affiliate account. No fuss — we handle everything from onboarding to support.",
+      "step3Title": "You earn every month",
+      "step3Body": "Every billing cycle your client is active, you receive your percentage. It keeps going as long as they stay subscribed — no time limits, no caps."
+    },
+    "keyBenefit": {
+      "eyebrow": "The key benefit",
+      "title": "You earn for life — not just for the first sale.",
+      "body1": "Most referral programmes pay you once. Ours pays you every single month your client keeps their subscription active. A single client you bring today could still be generating income for you years from now.",
+      "body2": "The only time payments stop is if a client cancels their plan — and InfoWeb's retention is strong because we handle absolutely everything for them.",
+      "statPaymentLabel": "Payment model",
+      "statPaymentValue": "Monthly recurring",
+      "statDurationLabel": "Duration",
+      "statDurationValue": "For life (while active)",
+      "statCapLabel": "Earning cap",
+      "statCapValue": "None",
+      "statMinLabel": "Minimum referrals",
+      "statMinValue": "Just one"
+    },
+    "whoIsThisFor": {
+      "eyebrow": "Who is this for?",
+      "title": "This works for almost anyone.",
+      "card1Title": "Freelancers & consultants",
+      "card1Body": "You work with small businesses — add a passive income stream by referring clients who need a website.",
+      "card2Title": "Marketers & social media managers",
+      "card2Body": "Your clients ask about websites all the time. Now you can benefit every time one of them signs up.",
+      "card3Title": "Sales partners",
+      "card3Body": "Want to actively sell InfoWeb plans? You can represent us, pitch to prospects, and earn a commission on every subscription you close.",
+      "card4Title": "Content creators & bloggers",
+      "card4Body": "Recommend InfoWeb to your audience of small business owners and earn every time one of them subscribes."
+    },
+    "cta": {
+      "eyebrow": "Ready to get started?",
+      "title": "Reach out and we'll set up your affiliate deal.",
+      "body": "Send us an email introducing yourself — tell us who you are, how you'd bring clients, and any questions you have. We'll reply within 24 hours and walk you through the details.",
+      "button": "Email henrique@sousadev.com →",
+      "note": "Or copy the address:"
+    },
+    "footer": {
+      "mainSite": "Main site",
+      "plansAndPricing": "Plans & pricing",
+      "contact": "Contact"
+    }
+  },
   "footer": {
     "tagline": "Managed websites for small businesses: domain, hosting, updates, and a clear path to grow online.",
     "colExplore": "Explore",

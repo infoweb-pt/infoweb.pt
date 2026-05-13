@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb</title>
+  <title data-i18n="affiliates.meta.title">Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb</title>
 
   <meta name="description"
+    data-i18n-attr="content:affiliates.meta.description"
     content="Join the InfoWeb affiliate programme. Refer clients or sell managed website plans on our behalf and earn a recurring monthly percentage for as long as they stay subscribed." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="InfoWeb by Sousa Dev" />
@@ -15,16 +16,25 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="InfoWeb" />
   <meta property="og:url" content="https://infoweb.sousadev.com/affiliates/" />
-  <meta property="og:title" content="Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb" />
-  <meta property="og:description" content="Refer clients or sell InfoWeb plans and earn a recurring monthly percentage for as long as they stay subscribed. No cap. No expiry." />
+  <meta property="og:title"
+    data-i18n-attr="content:affiliates.meta.title"
+    content="Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb" />
+  <meta property="og:description"
+    data-i18n-attr="content:affiliates.meta.description"
+    content="Refer clients or sell InfoWeb plans and earn a recurring monthly percentage for as long as they stay subscribed. No cap. No expiry." />
   <meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png" />
   <meta property="og:image:width" content="1259" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:locale" content="en_IE" />
+  <meta property="og:locale" content="en_IE" data-i18n-attr="content:meta.ogLocale" />
+  <meta property="og:locale:alternate" content="pt_PT" data-i18n-attr="content:meta.ogLocaleAlternate" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb" />
-  <meta name="twitter:description" content="Refer clients or sell InfoWeb plans and earn a recurring monthly percentage for as long as they stay subscribed." />
+  <meta name="twitter:title"
+    data-i18n-attr="content:affiliates.meta.title"
+    content="Affiliate Programme — Earn Monthly for Every Client You Refer | InfoWeb" />
+  <meta name="twitter:description"
+    data-i18n-attr="content:affiliates.meta.description"
+    content="Refer clients or sell InfoWeb plans and earn a recurring monthly percentage for as long as they stay subscribed." />
   <meta name="twitter:image" content="https://infoweb.sousadev.com/assets/images/og-image.png" />
 
   <script type="application/ld+json">
@@ -72,10 +82,25 @@
       <a href="https://infoweb.sousadev.com/" aria-label="InfoWeb homepage">
         <img src="../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
       </a>
-      <a href="https://infoweb.sousadev.com/#pricing"
-         class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white hover:text-white text-slate-300 transition-all">
-        See Plans
-      </a>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1 rounded-full border border-slate-700 p-1">
+          <button
+            class="language-button active"
+            data-lang="en"
+            aria-pressed="true"
+            aria-label="Switch to English">EN</button>
+          <button
+            class="language-button"
+            data-lang="pt"
+            aria-pressed="false"
+            aria-label="Mudar para Português">PT</button>
+        </div>
+        <a href="https://infoweb.sousadev.com/#pricing"
+           class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white hover:text-white text-slate-300 transition-all"
+           data-i18n="affiliates.nav.seePlans">
+          See Plans
+        </a>
+      </div>
     </div>
   </header>
 
@@ -87,49 +112,60 @@
       <div class="relative z-10 max-w-3xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-signal/10 border border-signal/30 rounded-full px-4 py-1.5 text-sm font-semibold text-signal mb-6">
           <span class="w-2 h-2 rounded-full bg-signal animate-pulse"></span>
-          Affiliate Programme — Now Open
+          <span data-i18n="affiliates.hero.badge">Affiliate Programme — Now Open</span>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white"
+            data-i18n="affiliates.hero.title">
           Earn a monthly income for every client you bring us.
         </h1>
-        <p class="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto mb-10">
+        <p class="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto mb-10"
+           data-i18n="affiliates.hero.subtitle">
           Refer a small business to InfoWeb — or sell on our behalf — and receive a recurring percentage of their subscription every month, for as long as they stay with us.
         </p>
         <a href="mailto:henrique@sousadev.com?subject=InfoWeb%20Affiliate%20Programme&body=Hi%20Henrique%2C%0A%0AI%27m%20interested%20in%20joining%20the%20InfoWeb%20affiliate%20programme.%0A%0AHere%27s%20a%20bit%20about%20me%3A%0A"
-           class="inline-block bg-signal text-ink font-black rounded-full px-8 py-4 text-base hover:bg-amber-300 transition-all shadow-lg">
+           class="inline-block bg-signal text-ink font-black rounded-full px-8 py-4 text-base hover:bg-amber-300 transition-all shadow-lg"
+           data-i18n="affiliates.hero.cta">
           Apply to become an affiliate →
         </a>
-        <p class="mt-4 text-sm text-slate-500">Email henrique@sousadev.com — we'll get back to you within 24 h</p>
+        <p class="mt-4 text-sm text-slate-500" data-i18n="affiliates.hero.note">Email henrique@sousadev.com — we'll get back to you within 24 h</p>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="py-20 px-5 bg-slate-950">
       <div class="max-w-4xl mx-auto">
-        <p class="text-xs font-bold uppercase tracking-widest text-signal text-center mb-3">How it works</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14">Three steps. Recurring income.</h2>
+        <p class="text-xs font-bold uppercase tracking-widest text-signal text-center mb-3"
+           data-i18n="affiliates.howItWorks.eyebrow">How it works</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14"
+            data-i18n="affiliates.howItWorks.title">Three steps. Recurring income.</h2>
 
         <div class="grid gap-6 sm:grid-cols-3">
           <div class="step-card">
             <div class="step-number">1</div>
-            <h3 class="text-lg font-bold text-white mb-2">You refer or sell</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-white mb-2"
+                data-i18n="affiliates.howItWorks.step1Title">You refer or sell</h3>
+            <p class="text-slate-400 text-sm leading-relaxed"
+               data-i18n="affiliates.howItWorks.step1Body">
               Know a restaurant, clinic, or local business that needs a professional website? Introduce them to InfoWeb — or actively pitch our plans on our behalf.
             </p>
           </div>
 
           <div class="step-card">
             <div class="step-number">2</div>
-            <h3 class="text-lg font-bold text-white mb-2">They subscribe</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-white mb-2"
+                data-i18n="affiliates.howItWorks.step2Title">They subscribe</h3>
+            <p class="text-slate-400 text-sm leading-relaxed"
+               data-i18n="affiliates.howItWorks.step2Body">
               Once your referred client signs up and their plan is active, they're linked to your affiliate account. No fuss — we handle everything from onboarding to support.
             </p>
           </div>
 
           <div class="step-card">
             <div class="step-number">3</div>
-            <h3 class="text-lg font-bold text-white mb-2">You earn every month</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-white mb-2"
+                data-i18n="affiliates.howItWorks.step3Title">You earn every month</h3>
+            <p class="text-slate-400 text-sm leading-relaxed"
+               data-i18n="affiliates.howItWorks.step3Body">
               Every billing cycle your client is active, you receive your percentage. It keeps going as long as they stay subscribed — no time limits, no caps.
             </p>
           </div>
@@ -144,33 +180,37 @@
           <div class="benefit-inner">
             <div class="grid gap-10 md:grid-cols-2 items-center">
               <div>
-                <p class="text-xs font-bold uppercase tracking-widest text-signal mb-3">The key benefit</p>
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
+                <p class="text-xs font-bold uppercase tracking-widest text-signal mb-3"
+                   data-i18n="affiliates.keyBenefit.eyebrow">The key benefit</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug"
+                    data-i18n="affiliates.keyBenefit.title">
                   You earn for life — not just for the first sale.
                 </h2>
-                <p class="text-slate-400 leading-relaxed mb-6">
+                <p class="text-slate-400 leading-relaxed mb-6"
+                   data-i18n="affiliates.keyBenefit.body1">
                   Most referral programmes pay you once. Ours pays you every single month your client keeps their subscription active. A single client you bring today could still be generating income for you years from now.
                 </p>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed"
+                   data-i18n="affiliates.keyBenefit.body2">
                   The only time payments stop is if a client cancels their plan — and InfoWeb's retention is strong because we handle absolutely everything for them.
                 </p>
               </div>
               <div class="space-y-4">
                 <div class="stat-box">
-                  <span class="stat-label">Payment model</span>
-                  <span class="stat-value">Monthly recurring</span>
+                  <span class="stat-label" data-i18n="affiliates.keyBenefit.statPaymentLabel">Payment model</span>
+                  <span class="stat-value" data-i18n="affiliates.keyBenefit.statPaymentValue">Monthly recurring</span>
                 </div>
                 <div class="stat-box">
-                  <span class="stat-label">Duration</span>
-                  <span class="stat-value">For life (while active)</span>
+                  <span class="stat-label" data-i18n="affiliates.keyBenefit.statDurationLabel">Duration</span>
+                  <span class="stat-value" data-i18n="affiliates.keyBenefit.statDurationValue">For life (while active)</span>
                 </div>
                 <div class="stat-box">
-                  <span class="stat-label">Earning cap</span>
-                  <span class="stat-value">None</span>
+                  <span class="stat-label" data-i18n="affiliates.keyBenefit.statCapLabel">Earning cap</span>
+                  <span class="stat-value" data-i18n="affiliates.keyBenefit.statCapValue">None</span>
                 </div>
                 <div class="stat-box">
-                  <span class="stat-label">Minimum referrals</span>
-                  <span class="stat-value">Just one</span>
+                  <span class="stat-label" data-i18n="affiliates.keyBenefit.statMinLabel">Minimum referrals</span>
+                  <span class="stat-value" data-i18n="affiliates.keyBenefit.statMinValue">Just one</span>
                 </div>
               </div>
             </div>
@@ -182,35 +222,45 @@
     <!-- WHO IS THIS FOR -->
     <section class="py-20 px-5 bg-slate-950">
       <div class="max-w-4xl mx-auto">
-        <p class="text-xs font-bold uppercase tracking-widest text-signal text-center mb-3">Who is this for?</p>
-        <h2 class="text-3xl font-bold text-white text-center mb-12">This works for almost anyone.</h2>
+        <p class="text-xs font-bold uppercase tracking-widest text-signal text-center mb-3"
+           data-i18n="affiliates.whoIsThisFor.eyebrow">Who is this for?</p>
+        <h2 class="text-3xl font-bold text-white text-center mb-12"
+            data-i18n="affiliates.whoIsThisFor.title">This works for almost anyone.</h2>
         <div class="grid gap-4 sm:grid-cols-2">
           <div class="audience-card">
             <div class="audience-icon">💼</div>
             <div>
-              <h3 class="font-bold text-white mb-1">Freelancers & consultants</h3>
-              <p class="text-slate-400 text-sm">You work with small businesses — add a passive income stream by referring clients who need a website.</p>
+              <h3 class="font-bold text-white mb-1"
+                  data-i18n="affiliates.whoIsThisFor.card1Title">Freelancers & consultants</h3>
+              <p class="text-slate-400 text-sm"
+                 data-i18n="affiliates.whoIsThisFor.card1Body">You work with small businesses — add a passive income stream by referring clients who need a website.</p>
             </div>
           </div>
           <div class="audience-card">
             <div class="audience-icon">📣</div>
             <div>
-              <h3 class="font-bold text-white mb-1">Marketers & social media managers</h3>
-              <p class="text-slate-400 text-sm">Your clients ask about websites all the time. Now you can benefit every time one of them signs up.</p>
+              <h3 class="font-bold text-white mb-1"
+                  data-i18n="affiliates.whoIsThisFor.card2Title">Marketers & social media managers</h3>
+              <p class="text-slate-400 text-sm"
+                 data-i18n="affiliates.whoIsThisFor.card2Body">Your clients ask about websites all the time. Now you can benefit every time one of them signs up.</p>
             </div>
           </div>
           <div class="audience-card">
             <div class="audience-icon">🤝</div>
             <div>
-              <h3 class="font-bold text-white mb-1">Sales partners</h3>
-              <p class="text-slate-400 text-sm">Want to actively sell InfoWeb plans? You can represent us, pitch to prospects, and earn a commission on every subscription you close.</p>
+              <h3 class="font-bold text-white mb-1"
+                  data-i18n="affiliates.whoIsThisFor.card3Title">Sales partners</h3>
+              <p class="text-slate-400 text-sm"
+                 data-i18n="affiliates.whoIsThisFor.card3Body">Want to actively sell InfoWeb plans? You can represent us, pitch to prospects, and earn a commission on every subscription you close.</p>
             </div>
           </div>
           <div class="audience-card">
             <div class="audience-icon">🌐</div>
             <div>
-              <h3 class="font-bold text-white mb-1">Content creators & bloggers</h3>
-              <p class="text-slate-400 text-sm">Recommend InfoWeb to your audience of small business owners and earn every time one of them subscribes.</p>
+              <h3 class="font-bold text-white mb-1"
+                  data-i18n="affiliates.whoIsThisFor.card4Title">Content creators & bloggers</h3>
+              <p class="text-slate-400 text-sm"
+                 data-i18n="affiliates.whoIsThisFor.card4Body">Recommend InfoWeb to your audience of small business owners and earn every time one of them subscribes.</p>
             </div>
           </div>
         </div>
@@ -221,18 +271,25 @@
     <section class="py-20 px-5">
       <div class="max-w-2xl mx-auto text-center">
         <div class="cta-card">
-          <p class="text-xs font-bold uppercase tracking-widest text-signal mb-4">Ready to get started?</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-snug">
+          <p class="text-xs font-bold uppercase tracking-widest text-signal mb-4"
+             data-i18n="affiliates.cta.eyebrow">Ready to get started?</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-snug"
+              data-i18n="affiliates.cta.title">
             Reach out and we'll set up your affiliate deal.
           </h2>
-          <p class="text-slate-400 leading-relaxed mb-8">
+          <p class="text-slate-400 leading-relaxed mb-8"
+             data-i18n="affiliates.cta.body">
             Send us an email introducing yourself — tell us who you are, how you'd bring clients, and any questions you have. We'll reply within 24 hours and walk you through the details.
           </p>
           <a href="mailto:henrique@sousadev.com?subject=InfoWeb%20Affiliate%20Programme&body=Hi%20Henrique%2C%0A%0AI%27m%20interested%20in%20joining%20the%20InfoWeb%20affiliate%20programme.%0A%0AHere%27s%20a%20bit%20about%20me%3A%0A"
-             class="inline-block bg-signal text-ink font-black rounded-full px-8 py-4 text-base hover:bg-amber-300 transition-all shadow-lg mb-4">
+             class="inline-block bg-signal text-ink font-black rounded-full px-8 py-4 text-base hover:bg-amber-300 transition-all shadow-lg mb-4"
+             data-i18n="affiliates.cta.button">
             Email henrique@sousadev.com →
           </a>
-          <p class="text-sm text-slate-500">Or copy the address: <span class="text-slate-300 select-all">henrique@sousadev.com</span></p>
+          <p class="text-sm text-slate-500">
+            <span data-i18n="affiliates.cta.note">Or copy the address:</span>
+            <span class="text-slate-300 select-all">henrique@sousadev.com</span>
+          </p>
         </div>
       </div>
     </section>
@@ -244,14 +301,17 @@
     <div class="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
       <span>© <span id="year"></span> InfoWeb by Sousa Dev</span>
       <nav class="flex gap-6">
-        <a href="https://infoweb.sousadev.com/" class="hover:text-slate-300 transition-all">Main site</a>
-        <a href="https://infoweb.sousadev.com/#pricing" class="hover:text-slate-300 transition-all">Plans &amp; pricing</a>
-        <a href="mailto:henrique@sousadev.com" class="hover:text-slate-300 transition-all">Contact</a>
+        <a href="https://infoweb.sousadev.com/" class="hover:text-slate-300 transition-all"
+           data-i18n="affiliates.footer.mainSite">Main site</a>
+        <a href="https://infoweb.sousadev.com/#pricing" class="hover:text-slate-300 transition-all"
+           data-i18n="affiliates.footer.plansAndPricing">Plans &amp; pricing</a>
+        <a href="mailto:henrique@sousadev.com" class="hover:text-slate-300 transition-all"
+           data-i18n="affiliates.footer.contact">Contact</a>
       </nav>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="i18n.js"></script>
 
 </body>
 </html>

@@ -125,6 +125,22 @@ body {
   padding: 3rem 2rem;
 }
 
+/* Language toggle */
+.language-button {
+  border-radius: 999px;
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0.55rem 0.7rem;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.language-button.active {
+  background: #ffffff;
+  color: #020617;
+}
+
 /* Signal colour used in hover */
 .hover\:bg-signal:hover {
   background-color: #d7b46a;
