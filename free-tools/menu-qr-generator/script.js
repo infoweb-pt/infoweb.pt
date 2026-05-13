@@ -289,7 +289,7 @@ function resetTool() {
 document.addEventListener('DOMContentLoaded', function() {
   qrCustomizer = new QRCustomizer({
     container: '#qr-preview',
-    defaultText: 'https://infoweb.sousadev.com',
+    defaultText: 'https://infoweb.sousadev.com/free-tools/qr-example/',
     onChange: (config) => console.log('QR config:', config)
   });
 });

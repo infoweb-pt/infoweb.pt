@@ -176,6 +176,74 @@
           </p>
         </div>
 
+        <!-- Live Preview -->
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-sm font-semibold text-slate-300">Live Preview</p>
+            <span class="text-xs text-slate-500 bg-slate-700 px-2 py-1 rounded">Example — enter your number to generate</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="bg-white rounded-xl p-3 shadow-lg mb-2">
+              <div id="qr-preview"></div>
+            </div>
+            <p class="text-xs text-slate-500 text-center">Scan to see example WhatsApp chat</p>
+          </div>
+        </div>
+
+        <!-- QR Customizer -->
+        <div class="border border-slate-700 rounded-xl p-4 space-y-4">
+          <p class="text-sm font-semibold text-slate-300">Customize Your QR Code</p>
+          
+          <!-- Colors -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="text-xs text-slate-500 mb-1 block">QR Color</label>
+              <input type="color" id="qr-color" value="#020617"
+                class="w-full h-10 rounded-lg cursor-pointer"
+                onchange="updateQRStyle()" />
+            </div>
+            <div>
+              <label class="text-xs text-slate-500 mb-1 block">Background</label>
+              <input type="color" id="qr-bg" value="#ffffff"
+                class="w-full h-10 rounded-lg cursor-pointer"
+                onchange="updateQRStyle()" />
+            </div>
+          </div>
+
+          <!-- Dot Style -->
+          <div>
+            <label class="text-xs text-slate-500 mb-1 block">Dot Style</label>
+            <div class="flex gap-2">
+              <button onclick="setDotStyle('square')" class="dot-style-btn active flex-1 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-style="square">Square</button>
+              <button onclick="setDotStyle('rounded')" class="dot-style-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-style="rounded">Rounded</button>
+              <button onclick="setDotStyle('dots')" class="dot-style-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-style="dots">Dots</button>
+            </div>
+          </div>
+
+          <!-- Logo Upload -->
+          <div>
+            <label class="text-xs text-slate-500 mb-1 block">Logo (optional)</label>
+            <input type="file" id="logo-file" accept=".png,.jpg,.jpeg"
+              class="hidden"
+              onchange="handleLogoUpload(this)" />
+            <label for="logo-file"
+              class="flex items-center justify-center gap-2 w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 cursor-pointer hover:border-green-500 transition-all">
+              <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span id="logo-label" class="text-sm text-slate-400">Upload logo (PNG with transparency)</span>
+            </label>
+          </div>
+
+          <!-- Frame Text -->
+          <div>
+            <label for="frame-text" class="text-xs text-slate-500 mb-1 block">Frame Text (optional)</label>
+            <input id="frame-text" type="text" placeholder="e.g., Scan to Chat" maxlength="30"
+              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-sm"
+              oninput="updateQRStyle()" />
+          </div>
+        </div>
+
         <button id="btn-generate" type="button" onclick="runTool()"
           class="w-full bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl px-6 py-4 transition-all focus:outline-none focus:ring-2 focus:ring-green-400 text-base">
           Generate WhatsApp Link &amp; QR Code — It's Free
@@ -439,6 +507,7 @@
 
   <!-- qrcode.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="../../assets/js/qr-customizer.js"></script>
   <script src="script.js" defer></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 

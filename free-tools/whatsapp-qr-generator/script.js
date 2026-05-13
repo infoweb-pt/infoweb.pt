@@ -2,15 +2,17 @@
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let lastWaLink = '';
-let smartQRData = null;  // { slug, short_url, manage_url, manage_token, qr_png_url }
-let qrReady    = false;
+let smartQRData = null;
+let qrReady = false;
 let toolRunStartedAt = 0;
+let qrCustomizer = null;
+let uploadedLogo = null;
 
 // ─── API Configuration ────────────────────────────────────────────────────────
 const API_BASE = 'https://infoweb.api.sousadev.com';
 const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
 
-// ─── Contact lead API (optional — presence / InfoWeb follow-up) ────────────────
+// ─── Contact lead API ─────────────────────────────────────────────────────────
 const CONTACT_API_ENDPOINT = `${API_BASE}/leads/tool-contact/`;
 const CONTACT_SOURCE = 'whatsapp_qr_generator';
 
@@ -79,7 +81,74 @@ function setDownloadEnabled(enabled) {
   btn.disabled = !enabled;
 }
 
-// ─── Live phone validation (fires on every keystroke) ─────────────────────────
+// ─── Logo Upload ──────────────────────────────────────────────────────────────
+function handleLogoUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  
+  if (file.size > 2 * 1024 * 1024) {
+    alert('Logo too large. Max 2MB.');
+    input.value = '';
+    return;
+  }
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      uploadedLogo = img;
+      document.getElementById('logo-label').textContent = file.name;
+      if (qrCustomizer) {
+        qrCustomizer.setLogo(img, 0.2);
+      }
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+  
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_input_changed', { field: 'logo_file' });
+  }
+}
+
+// ─── QR Style Updates ─────────────────────────────────────────────────────────
+function updateQRStyle() {
+  if (!qrCustomizer) return;
+  
+  const color = document.getElementById('qr-color').value;
+  const bg = document.getElementById('qr-bg').value;
+  const frameText = document.getElementById('frame-text').value;
+  
+  qrCustomizer.update({
+    colorDark: color,
+    colorLight: bg
+  });
+  
+  if (frameText) {
+    qrCustomizer.setFrame(frameText, color, bg);
+  } else {
+    qrCustomizer.removeFrame();
+  }
+}
+
+function setDotStyle(style) {
+  document.querySelectorAll('.dot-style-btn').forEach(btn => {
+    btn.classList.remove('active', 'border-green-500', 'text-green-400');
+    btn.classList.add('border-slate-600', 'text-slate-300');
+  });
+  
+  const activeBtn = document.querySelector(`[data-style="${style}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active', 'border-green-500', 'text-green-400');
+    activeBtn.classList.remove('border-slate-600', 'text-slate-300');
+  }
+  
+  if (qrCustomizer) {
+    qrCustomizer.setDotStyle(style);
+  }
+}
+
+// ─── Live phone validation ────────────────────────────────────────────────────
 function validateLive() {
   const phone     = document.getElementById('phone-number').value.trim();
   const digits    = phone.replace(/\D/g, '');
@@ -96,6 +165,30 @@ function validateLive() {
     errorEl.classList.add('hidden');
     inputEl.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
     inputEl.classList.add('focus:ring-green-500');
+  }
+  
+  // Update preview if valid
+  if (digits.length >= 6) {
+    updatePreview();
+  }
+}
+
+// ─── Update preview with current inputs ───────────────────────────────────────
+function updatePreview() {
+  if (!qrCustomizer) return;
+  
+  const countryCode = document.getElementById('country-code').value;
+  const phone       = document.getElementById('phone-number').value.trim().replace(/\D/g, '');
+  const message     = document.getElementById('wa-message').value.trim();
+  
+  if (phone.length >= 6) {
+    const fullNumber = countryCode + phone;
+    const encoded    = message ? encodeURIComponent(message) : '';
+    const waLink     = encoded
+      ? `https://wa.me/${fullNumber}?text=${encoded}`
+      : `https://wa.me/${fullNumber}`;
+    
+    qrCustomizer.setText(waLink);
   }
 }
 
@@ -119,6 +212,7 @@ function validateInputs() {
 function updateCharCount() {
   document.getElementById('char-count').textContent =
     document.getElementById('wa-message').value.length;
+  updatePreview();
 }
 
 // ─── Main tool logic ──────────────────────────────────────────────────────────
@@ -150,7 +244,10 @@ async function runTool() {
       ? `https://wa.me/${fullNumber}?text=${encoded}`
       : `https://wa.me/${fullNumber}`;
 
-    // Create SmartQR code via API
+    // Update customizer with final link
+    qrCustomizer.setText(lastWaLink);
+
+    // Create SmartQR via API
     const response = await fetch(SMARTQR_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -196,27 +293,16 @@ function renderResult(waLink, smartQR) {
     manageEl.classList.remove('hidden');
   }
 
-  // Render QR Code using server-generated PNG
+  // Move QR from preview to result
+  const qrPreview = document.getElementById('qr-preview');
   const qrContainer = document.getElementById('qr-container');
   qrContainer.innerHTML = '';
-
-  if (smartQR && smartQR.qr_png_url) {
-    const img = document.createElement('img');
-    img.src = smartQR.qr_png_url;
-    img.alt = 'WhatsApp QR Code';
-    img.className = 'w-full h-full';
-    img.onload = function() {
-      qrReady = true;
-      setDownloadEnabled(true);
-    };
-    img.onerror = function() {
-      // Fallback to local QR generation if server PNG fails
-      renderLocalQR(waLink);
-    };
-    qrContainer.appendChild(img);
-  } else {
-    renderLocalQR(waLink);
+  if (qrPreview && qrPreview.firstChild) {
+    qrContainer.appendChild(qrPreview.firstChild);
   }
+
+  qrReady = true;
+  setDownloadEnabled(true);
 
   // Show result section and scroll to it
   show('result-box');
@@ -228,23 +314,6 @@ function renderResult(waLink, smartQR) {
       has_smartqr: !!smartQR
     });
   }
-}
-
-function renderLocalQR(waLink) {
-  const container = document.getElementById('qr-container');
-  container.innerHTML = '';
-
-  new QRCode(container, {
-    text: waLink,
-    width: 220,
-    height: 220,
-    colorDark:  '#020617',
-    colorLight: '#ffffff',
-    correctLevel: QRCode.CorrectLevel.H
-  });
-
-  qrReady = true;
-  setDownloadEnabled(true);
 }
 
 function showFriendlyError() {
@@ -308,42 +377,15 @@ function fallbackCopy(callback, text) {
   if (callback) callback();
 }
 
-// ─── Download QR Code (high-res, print-ready) ─────────────────────────────────
+// ─── Download QR Code ─────────────────────────────────────────────────────────
 function downloadQR() {
-  if (!qrReady) return;
-
-  // If we have a server-generated QR, download that
-  if (smartQRData && smartQRData.qr_png_url) {
-    const link = document.createElement('a');
-    link.href = smartQRData.qr_png_url + '?size=1024&logo=1';
-    link.download = 'whatsapp-qr-infoweb.png';
-    link.target = '_blank';
-    link.click();
-    if (typeof window.trackEvent === 'function') window.trackEvent('qr_downloaded', { source: 'smartqr' });
-    return;
+  if (!qrCustomizer) return;
+  
+  qrCustomizer.download('whatsapp-qr-infoweb.png');
+  
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('qr_downloaded', { source: 'whatsapp_qr' });
   }
-
-  // Fallback: download locally-generated QR
-  const srcCanvas = document.querySelector('#qr-container canvas');
-  if (!srcCanvas) return;
-
-  const scale       = 4;
-  const printCanvas = document.createElement('canvas');
-  printCanvas.width  = srcCanvas.width  * scale;
-  printCanvas.height = srcCanvas.height * scale;
-
-  const ctx = printCanvas.getContext('2d');
-  ctx.imageSmoothingEnabled = false;
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, 0, printCanvas.width, printCanvas.height);
-  ctx.drawImage(srcCanvas, 0, 0, printCanvas.width, printCanvas.height);
-
-  const link    = document.createElement('a');
-  link.download = 'whatsapp-qr-infoweb.png';
-  link.href     = printCanvas.toDataURL('image/png');
-  link.click();
-
-  if (typeof window.trackEvent === 'function') window.trackEvent('qr_downloaded', { source: 'local' });
 }
 
 // ─── Reset ────────────────────────────────────────────────────────────────────
@@ -358,13 +400,34 @@ function resetTool() {
   document.getElementById('wa-message').value = '';
   document.getElementById('char-count').textContent = '0';
   document.getElementById('qr-container').innerHTML = '';
+  document.getElementById('frame-text').value = '';
+  document.getElementById('qr-color').value = '#020617';
+  document.getElementById('qr-bg').value = '#ffffff';
+  document.getElementById('logo-file').value = '';
+  document.getElementById('logo-label').textContent = 'Upload logo (PNG with transparency)';
 
   lastWaLink = '';
   smartQRData = null;
-  qrReady    = false;
+  qrReady = false;
+  uploadedLogo = null;
   setDownloadEnabled(false);
 
-  // Hide SmartQR elements
+  // Reset customizer
+  if (qrCustomizer) {
+    qrCustomizer.removeLogo();
+    qrCustomizer.removeFrame();
+    qrCustomizer.update({
+      colorDark: '#020617',
+      colorLight: '#ffffff',
+      dotStyle: 'square'
+    });
+    qrCustomizer.setText('https://infoweb.sousadev.com/free-tools/qr-example/');
+  }
+
+  // Reset dot style buttons
+  setDotStyle('square');
+
+  // Hide manage link
   const manageEl = document.getElementById('smartqr-manage-url');
   if (manageEl) manageEl.classList.add('hidden');
 
@@ -372,12 +435,20 @@ function resetTool() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── Keyboard shortcut: Enter on phone field triggers generate ────────────────
+// ─── Keyboard shortcut ────────────────────────────────────────────────────────
 document.getElementById('phone-number').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') runTool();
 });
 
-(function bindToolAnalytics() {
+// ─── Initialize ───────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  qrCustomizer = new QRCustomizer({
+    container: '#qr-preview',
+    defaultText: 'https://infoweb.sousadev.com/free-tools/qr-example/',
+    onChange: (config) => console.log('QR config:', config)
+  });
+  
+  // Bind analytics
   const debounce = {};
   function schedule(fieldId) {
     clearTimeout(debounce[fieldId]);
@@ -395,6 +466,7 @@ document.getElementById('phone-number').addEventListener('keydown', function (e)
       if (typeof window.trackEvent === 'function') {
         window.trackEvent('tool_input_changed', { field: 'country_code', value: cc.value });
       }
+      updatePreview();
     });
   }
   const contactEmail = document.getElementById('contact-email');
@@ -409,4 +481,4 @@ document.getElementById('phone-number').addEventListener('keydown', function (e)
       { once: true }
     );
   }
-})();
+});
