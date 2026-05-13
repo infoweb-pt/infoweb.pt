@@ -1,6 +1,6 @@
 /**
  * QR Code Customizer - Reusable Component
- * Works with qrcode-generator library
+ * Works with qrcode-generator library (qrcode-generator.com)
  */
 
 class QRCustomizer {
@@ -119,99 +119,141 @@ class QRCustomizer {
     this.ctx.fillStyle = colorLight;
     this.ctx.fillRect(0, 0, size, totalHeight);
     
-    // Generate QR using qrcode-generator
-    const qr = qrcode(0, this.config.errorCorrectionLevel);
-    qr.addData(this.config.text);
-    qr.make();
-    
-    const moduleCount = qr.getModuleCount();
-    const moduleSize = (size - (this.config.margin * 2)) / moduleCount;
-    const offset = this.config.margin;
-    
-    // Draw modules
-    for (let row = 0; row < moduleCount; row++) {
-      for (let col = 0; col < moduleCount; col++) {
-        if (qr.isDark(row, col)) {
-          const x = offset + col * moduleSize;
-          const y = offset + row * moduleSize;
-          
-          const isCorner = this.isCornerFinder(moduleCount, row, col);
-          
-          this.ctx.fillStyle = this.config.colorDark;
-          
-          if (isCorner) {
-            this.drawCornerModule(x, y, moduleSize);
-          } else {
-            this.drawDotModule(x, y, moduleSize);
-          }
-        }
-      }
+    // Generate QR matrix
+    const matrix = this.generateQRMatrix();
+    if (!matrix) {
+      // Draw error message
+      this.ctx.fillStyle = '#ef4444';
+      this.ctx.font = 'bold 16px sans-serif';
+      this.ctx.textAlign = 'center';
+      this.ctx.fillText('QR Error', size/2, size/2);
+      return;
     }
     
-    // Draw logo
-    if (this.config.logo && this.config.logo.image) {
-      await this.drawLogo(size);
-    }
+    // Draw QR code
+    await this.drawQR(matrix);
     
-    // Draw frame
+    // Draw frame if present
     if (frame) {
       this.drawFrame(size, frameHeight);
     }
   }
   
+  generateQRMatrix() {
+    try {
+      // Check for qrcode-generator library
+      if (typeof qrcode === 'undefined') {
+        console.error('QRCustomizer: qrcode library not loaded');
+        return null;
+      }
+      
+      // qrcode-generator API: qrcode(typeNumber, errorCorrectionLevel)
+      const typeNumber = 0; // Auto-detect
+      const errorCorrectionLevel = this.config.errorCorrectionLevel;
+      
+      const qr = qrcode(typeNumber, errorCorrectionLevel);
+      qr.addData(this.config.text);
+      qr.make();
+      
+      // Return the module count and accessor function
+      return {
+        getModuleCount: () => qr.getModuleCount(),
+        isDark: (row, col) => qr.isDark(row, col)
+      };
+    } catch (e) {
+      console.error('QRCustomizer: QR generation failed', e);
+      return null;
+    }
+  }
+  
+  async drawQR(qrData) {
+    const { size, margin, colorDark, colorLight, dotStyle, cornerStyle, logo } = this.config;
+    const moduleCount = qrData.getModuleCount();
+    const moduleSize = (size - (margin * 2)) / moduleCount;
+    const offset = margin;
+    
+    // Draw modules
+    for (let row = 0; row < moduleCount; row++) {
+      for (let col = 0; col < moduleCount; col++) {
+        if (qrData.isDark(row, col)) {
+          const x = offset + col * moduleSize;
+          const y = offset + row * moduleSize;
+          
+          // Check if this is a corner finder pattern
+          const isCorner = this.isCornerFinder(moduleCount, row, col);
+          
+          this.ctx.fillStyle = colorDark;
+          
+          if (isCorner) {
+            this.drawCornerModule(x, y, moduleSize, cornerStyle);
+          } else {
+            this.drawDotModule(x, y, moduleSize, dotStyle);
+          }
+        }
+      }
+    }
+    
+    // Draw logo if present
+    if (logo && logo.image) {
+      await this.drawLogo(size, logo);
+    }
+  }
+  
   isCornerFinder(moduleCount, row, col) {
-    const size = 7;
+    const size = 7; // Finder pattern size
+    // Top-left
     if (row < size && col < size) return true;
+    // Top-right
     if (row < size && col >= moduleCount - size) return true;
+    // Bottom-left
     if (row >= moduleCount - size && col < size) return true;
     return false;
   }
   
-  drawCornerModule(x, y, size) {
+  drawCornerModule(x, y, size, style) {
     this.ctx.beginPath();
     
-    switch (this.config.cornerStyle) {
+    switch (style) {
       case 'rounded':
         this.roundRect(x, y, size, size, size * 0.2);
         break;
-      default:
+      default: // square
         this.ctx.rect(x, y, size, size);
     }
     
     this.ctx.fill();
   }
   
-  drawDotModule(x, y, size) {
+  drawDotModule(x, y, size, style) {
     this.ctx.beginPath();
     
-    switch (this.config.dotStyle) {
+    switch (style) {
       case 'rounded':
         this.roundRect(x, y, size, size, size * 0.3);
         break;
       case 'dots':
         this.ctx.arc(x + size/2, y + size/2, size * 0.4, 0, Math.PI * 2);
         break;
-      default:
+      default: // square
         this.ctx.rect(x, y, size, size);
     }
     
     this.ctx.fill();
   }
   
-  async drawLogo(canvasSize) {
+  async drawLogo(canvasSize, logo) {
     return new Promise((resolve) => {
-      const logo = this.config.logo;
       const logoSize = canvasSize * logo.size;
       const x = (canvasSize - logoSize) / 2;
       const y = (canvasSize - logoSize) / 2;
       
-      // White background
+      // White background for logo
       this.ctx.fillStyle = this.config.colorLight;
       this.ctx.beginPath();
       this.roundRect(x - 4, y - 4, logoSize + 8, logoSize + 8, 8);
       this.ctx.fill();
       
-      // Logo image
+      // Draw logo image
       if (logo.image.complete) {
         this.ctx.drawImage(logo.image, x, y, logoSize, logoSize);
         resolve();
@@ -228,9 +270,11 @@ class QRCustomizer {
   drawFrame(qrSize, frameHeight) {
     const { frame } = this.config;
     
+    // Frame background
     this.ctx.fillStyle = frame.bgColor;
     this.ctx.fillRect(0, qrSize, qrSize, frameHeight);
     
+    // Frame text
     this.ctx.fillStyle = frame.color;
     this.ctx.font = `bold ${frameHeight * 0.35}px "Instrument Sans", sans-serif`;
     this.ctx.textAlign = 'center';

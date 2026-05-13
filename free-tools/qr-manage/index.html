@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Stats — InfoWeb</title>
+  <meta name="description" content="View your QR code scan statistics. Track scans, devices, locations, and more." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="../../favicon_io/favicon-32x32.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui'] },
+          colors: { ink: '#020617', signal: '#d7b46a' }
+        }
+      }
+    };
+  </script>
+  <style>
+    .stat-card {
+      @apply bg-slate-900 border border-slate-800 rounded-xl p-4;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased min-h-screen">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-xl">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="https://infoweb.sousadev.com/" class="inline-flex items-center gap-2">
+        <img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-12">
+
+    <!-- Loading State -->
+    <div id="loading-state" class="text-center py-12">
+      <svg class="animate-spin h-8 w-8 mx-auto mb-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+      </svg>
+      <p class="text-slate-400">Loading your QR code stats...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="hidden text-center py-12">
+      <div class="bg-red-900/30 border border-red-700/50 rounded-2xl p-8">
+        <svg class="h-12 w-12 mx-auto mb-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <h2 class="text-xl font-bold text-white mb-2">Access Denied</h2>
+        <p class="text-slate-400 mb-4">Invalid or expired manage token.</p>
+        <a href="../" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition">
+          ← Back to tools
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats Content -->
+    <div id="stats-content" class="hidden space-y-6">
+      
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-1.5 text-sm font-semibold text-green-400 mb-4">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Active
+        </div>
+        <h1 class="text-3xl font-bold text-white mb-2">Your QR Code Stats</h1>
+        <p class="text-slate-400">Track how many people scan your QR code</p>
+      </div>
+
+      <!-- Main Stats -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 text-center">
+          <p class="text-3xl font-bold text-white mb-1" id="total-scans">0</p>
+          <p class="text-sm text-slate-400">Total Scans</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 text-center">
+          <p class="text-3xl font-bold text-white mb-1" id="unique-scans">0</p>
+          <p class="text-sm text-slate-400">Unique Visitors</p>
+        </div>
+      </div>
+
+      <!-- QR Info -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+        <h2 class="text-lg font-semibold text-white mb-3">QR Code Details</h2>
+        <div class="space-y-2">
+          <div class="flex justify-between">
+            <span class="text-slate-400">Short URL</span>
+            <a id="short-url" href="#" target="_blank" class="text-green-400 hover:text-green-300 text-sm font-mono"></a>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Target URL</span>
+            <span id="target-url" class="text-slate-300 text-sm truncate max-w-[200px]"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Created</span>
+            <span id="created-at" class="text-slate-300 text-sm"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time Range -->
+      <div class="flex gap-2">
+        <button onclick="loadStats('7d')" class="time-range-btn active flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="7d">Last 7 days</button>
+        <button onclick="loadStats('30d')" class="time-range-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="30d">Last 30 days</button>
+        <button onclick="loadStats('90d')" class="time-range-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="90d">Last 90 days</button>
+      </div>
+
+      <!-- Device Breakdown -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+        <h2 class="text-lg font-semibold text-white mb-4">Devices</h2>
+        <div id="device-stats" class="space-y-3">
+          <p class="text-slate-400 text-sm">Loading...</p>
+        </div>
+      </div>
+
+      <!-- Top Countries -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+        <h2 class="text-lg font-semibold text-white mb-4">Top Countries</h2>
+        <div id="country-stats" class="space-y-3">
+          <p class="text-slate-400 text-sm">Loading...</p>
+        </div>
+      </div>
+
+      <!-- Daily Chart -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+        <h2 class="text-lg font-semibold text-white mb-4">Scans Over Time</h2>
+        <div id="daily-stats" class="space-y-2">
+          <p class="text-slate-400 text-sm">Loading...</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
+    <a href="https://infoweb.sousadev.com/" class="text-slate-400 hover:text-white transition">InfoWeb home</a>
+  </footer>
+
+  <script>
+    const API_BASE = 'https://infoweb.api.sousadev.com';
+    
+    // Parse URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get('slug');
+    const token = urlParams.get('token');
+    
+    if (!slug || !token) {
+      showError();
+    } else {
+      loadStats('7d');
+    }
+    
+    function showError() {
+      document.getElementById('loading-state').classList.add('hidden');
+      document.getElementById('error-state').classList.remove('hidden');
+    }
+    
+    async function loadStats(range) {
+      // Update active button
+      document.querySelectorAll('.time-range-btn').forEach(btn => {
+        btn.classList.remove('active', 'border-green-500', 'text-green-400');
+        btn.classList.add('border-slate-600', 'text-slate-300');
+      });
+      const activeBtn = document.querySelector(`[data-range="${range}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'border-green-500', 'text-green-400');
+        activeBtn.classList.remove('border-slate-600', 'text-slate-300');
+      }
+      
+      try {
+        // Fetch QR details
+        const detailResponse = await fetch(`${API_BASE}/smartqr/codes/${slug}/`, {
+          headers: { 'X-Manage-Token': token }
+        });
+        
+        if (!detailResponse.ok) throw new Error('Invalid token');
+        
+        const detail = await detailResponse.json();
+        
+        // Fetch stats
+        const statsResponse = await fetch(`${API_BASE}/smartqr/codes/${slug}/stats/?range=${range}`, {
+          headers: { 'X-Manage-Token': token }
+        });
+        
+        const stats = await statsResponse.json();
+        
+        // Display data
+        displayStats(detail, stats);
+        
+      } catch (err) {
+        console.error('Failed to load stats:', err);
+        showError();
+      }
+    }
+    
+    function displayStats(detail, stats) {
+      document.getElementById('loading-state').classList.add('hidden');
+      document.getElementById('stats-content').classList.remove('hidden');
+      
+      // Basic info
+      document.getElementById('short-url').href = detail.short_url || '#';
+      document.getElementById('short-url').textContent = detail.short_url || 'N/A';
+      document.getElementById('target-url').textContent = detail.target_url || 'N/A';
+      document.getElementById('created-at').textContent = detail.created_at 
+        ? new Date(detail.created_at).toLocaleDateString() 
+        : 'N/A';
+      
+      // Stats
+      document.getElementById('total-scans').textContent = stats.totals?.scans || 0;
+      document.getElementById('unique-scans').textContent = stats.totals?.unique || 0;
+      
+      // Device breakdown
+      const deviceContainer = document.getElementById('device-stats');
+      if (stats.by_device && stats.by_device.length > 0) {
+        deviceContainer.innerHTML = stats.by_device.map(d => `
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300 capitalize">${d.key}</span>
+            <div class="flex items-center gap-2">
+              <div class="w-24 bg-slate-800 rounded-full h-2">
+                <div class="bg-green-500 h-2 rounded-full" style="width: ${Math.min(100, (d.scans / (stats.totals?.scans || 1)) * 100)}%"></div>
+              </div>
+              <span class="text-slate-400 text-sm w-8 text-right">${d.scans}</span>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        deviceContainer.innerHTML = '<p class="text-slate-400 text-sm">No data yet</p>';
+      }
+      
+      // Country breakdown
+      const countryContainer = document.getElementById('country-stats');
+      if (stats.by_country && stats.by_country.length > 0) {
+        countryContainer.innerHTML = stats.by_country.slice(0, 5).map(c => `
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">${c.key || 'Unknown'}</span>
+            <span class="text-slate-400 text-sm">${c.scans} scans</span>
+          </div>
+        `).join('');
+      } else {
+        countryContainer.innerHTML = '<p class="text-slate-400 text-sm">No data yet</p>';
+      }
+      
+      // Daily stats
+      const dailyContainer = document.getElementById('daily-stats');
+      if (stats.by_day && stats.by_day.length > 0) {
+        dailyContainer.innerHTML = stats.by_day.map(d => `
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300 text-sm">${new Date(d.date).toLocaleDateString()}</span>
+            <div class="flex items-center gap-2">
+              <div class="w-32 bg-slate-800 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full" style="width: ${Math.min(100, (d.scans / Math.max(...stats.by_day.map(x => x.scans))) * 100)}%"></div>
+              </div>
+              <span class="text-slate-400 text-sm w-8 text-right">${d.scans}</span>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        dailyContainer.innerHTML = '<p class="text-slate-400 text-sm">No data yet</p>';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -177,19 +177,9 @@ function validateLive() {
 function updatePreview() {
   if (!qrCustomizer) return;
   
-  const countryCode = document.getElementById('country-code').value;
-  const phone       = document.getElementById('phone-number').value.trim().replace(/\D/g, '');
-  const message     = document.getElementById('wa-message').value.trim();
-  
-  if (phone.length >= 6) {
-    const fullNumber = countryCode + phone;
-    const encoded    = message ? encodeURIComponent(message) : '';
-    const waLink     = encoded
-      ? `https://wa.me/${fullNumber}?text=${encoded}`
-      : `https://wa.me/${fullNumber}`;
-    
-    qrCustomizer.setText(waLink);
-  }
+  // Preview always shows example page, not actual WhatsApp link
+  // This avoids requiring input and shows a working demo
+  qrCustomizer.setText('https://infoweb.sousadev.com/free-tools/qr-example/');
 }
 
 // ─── Submit-time validation ───────────────────────────────────────────────────

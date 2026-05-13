@@ -112,7 +112,7 @@ SMARTQR_PUBLIC_BASE_URL = config(
 ).rstrip('/')
 SMARTQR_FRONTEND_MANAGE_URL = config(
     'SMARTQR_FRONTEND_MANAGE_URL',
-    default='https://infoweb.sousadev.com/free-tools/qr/manage/',
+    default='https://hc-sousa.github.io/infoweb/free-tools/qr-manage/',
 ).rstrip('/')
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
