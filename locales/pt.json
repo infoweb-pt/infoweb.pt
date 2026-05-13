@@ -153,6 +153,7 @@
     }
   },
   "affiliates": {
+    "mailtoHref": "mailto:henrique@sousadev.com?subject=Programa%20de%20Afiliados%20InfoWeb&body=Ol%C3%A1%20Henrique%2C%0A%0AEstou%20interessado%2Fa%20em%20juntar-me%20ao%20programa%20de%20afiliados%20da%20InfoWeb.%0A%0AUm%20pouco%20sobre%20mim%3A%0A",
     "meta": {
       "title": "Programa de Afiliados — Ganha Mensalmente por Cada Cliente que Nos Trazes | InfoWeb",
       "description": "Junta-te ao programa de afiliados da InfoWeb. Refere clientes ou vende planos de website gerido em nosso nome e recebe uma percentagem mensal recorrente enquanto ficarem subscritos."
