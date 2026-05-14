@@ -35,7 +35,7 @@ class FileUploadView(APIView):
         
     Response:
         {
-            "url": "https://infoweb.api.sousadev.com/media/2026/05/14_abc123.pdf",
+            "url": "https://<this-host>/media/2026/05/14_abc123.pdf",
             "filename": "2026/05/14_abc123.pdf",
             "size": 12345,
             "content_type": "application/pdf"
@@ -93,6 +93,10 @@ class FileUploadView(APIView):
         
         try:
             result = store_uploaded_file(file_obj)
+            url = result.get('url') or ''
+            # Relative MEDIA_URL paths fail SmartQR target_url validation (needs http/https).
+            if url.startswith('/'):
+                result['url'] = request.build_absolute_uri(url)
             return Response(result, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response(

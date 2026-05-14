@@ -24,6 +24,11 @@ class FileUploadTests(APITestCase):
         
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertIn('url', response.data)
+        self.assertTrue(
+            response.data['url'].startswith('http://')
+            or response.data['url'].startswith('https://'),
+            'upload url must be absolute for downstream SmartQR / clients',
+        )
         self.assertIn('filename', response.data)
         self.assertIn('size', response.data)
         self.assertEqual(response.data['size'], len(file_content))
