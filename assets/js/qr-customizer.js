@@ -24,10 +24,12 @@ class QRCustomizer {
     
     this.canvas = null;
     this.ctx = null;
-    
+    /** Serializes async render + onChange so previews never snapshot a half-drawn canvas. */
+    this._renderChain = Promise.resolve();
+
     this.init();
   }
-  
+
   init() {
     if (!this.container) {
       console.error('QRCustomizer: Container not found');
@@ -49,67 +51,74 @@ class QRCustomizer {
     this.container.innerHTML = '';
     this.container.appendChild(this.canvas);
     this.ctx = this.canvas.getContext('2d');
-    
-    this.render();
+
+    this._enqueueRender();
   }
-  
+
+  _enqueueRender() {
+    if (!this.ctx) {
+      return Promise.resolve();
+    }
+    this._renderChain = this._renderChain.then(async () => {
+      await this.render();
+      this.onChange(this.getConfig());
+    });
+    return this._renderChain;
+  }
+
+  /** Wait until the latest queued render (and onChange) has finished. */
+  waitForRender() {
+    return Promise.resolve(this._renderChain);
+  }
+
   update(updates) {
     Object.assign(this.config, updates);
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   getConfig() {
     return { ...this.config };
   }
-  
+
   setText(text) {
     this.config.text = text;
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   setColors(colorDark, colorLight) {
     this.config.colorDark = colorDark;
     this.config.colorLight = colorLight;
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   setLogo(image, size = 0.25) {
     this.config.logo = { image, size };
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   removeLogo() {
     this.config.logo = null;
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   setDotStyle(style) {
     this.config.dotStyle = style;
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   setCornerStyle(style) {
     this.config.cornerStyle = style;
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   setFrame(text, color, bgColor) {
     this.config.frame = { text, color, bgColor };
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
-  
+
   removeFrame() {
     this.config.frame = null;
-    this.render();
-    this.onChange(this.getConfig());
+    this._enqueueRender();
   }
   
   async render() {
@@ -305,16 +314,18 @@ class QRCustomizer {
   
   async generate(text) {
     if (text) this.config.text = text;
-    await this.render();
+    await this._enqueueRender();
     return this.canvas.toDataURL('image/png');
   }
-  
+
   download(filename = 'qr-code.png') {
-    if (!this.canvas) return;
-    const link = document.createElement('a');
-    link.download = filename;
-    link.href = this.canvas.toDataURL('image/png');
-    link.click();
+    Promise.resolve(this._renderChain).then(() => {
+      if (!this.canvas) return;
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = this.canvas.toDataURL('image/png');
+      link.click();
+    });
   }
 }
 

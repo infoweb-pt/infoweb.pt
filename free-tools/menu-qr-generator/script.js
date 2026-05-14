@@ -217,6 +217,15 @@ async function runTool() {
     }
 
     smartQRData = await response.json();
+
+    const scanUrl = smartQRData.short_url ? toAbsoluteUrl(smartQRData.short_url) : '';
+    if (scanUrl) {
+      smartQRData.short_url = scanUrl;
+      qrCustomizer.setText(scanUrl);
+      updateQRStyle();
+      await qrCustomizer.waitForRender();
+    }
+
     renderResult(smartQRData);
   } catch (err) {
     console.error('[runTool]', err);
@@ -232,9 +241,7 @@ function renderResult(smartQR) {
   smartqrInfo.classList.remove('hidden');
   
   const shortUrlEl = document.getElementById('smartqr-short-url');
-  const shortUrl = smartQR.slug
-    ? `${API_BASE}/q/${smartQR.slug}`
-    : toAbsoluteUrl(smartQR.short_url || '');
+  const shortUrl = smartQR.short_url ? toAbsoluteUrl(smartQR.short_url) : '';
   smartQR.short_url = shortUrl;
   shortUrlEl.textContent = shortUrl;
   shortUrlEl.href = shortUrl;
@@ -325,5 +332,4 @@ document.addEventListener('DOMContentLoaded', function() {
     defaultText: 'https://infoweb.api.sousadev.com/free-tools/qr-example/',
     onChange: () => syncResultPreview()
   });
-  syncResultPreview();
 });
