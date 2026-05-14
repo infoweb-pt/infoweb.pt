@@ -2,7 +2,9 @@ from rest_framework import serializers
 from .models import LostCustomerLead, PresenceScoreLead, ToolContactLead
 from .utils import is_disposable_email
 
-TOOL_CONTACT_ALLOWED_SOURCES = frozenset({'whatsapp_qr_generator'})
+TOOL_CONTACT_ALLOWED_SOURCES = frozenset(
+    {'whatsapp_qr_generator', 'wifi_qr_generator'}
+)
 
 
 class LostCustomerLeadSerializer(serializers.ModelSerializer):

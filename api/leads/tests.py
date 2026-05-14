@@ -58,10 +58,10 @@ class ToolContactLeadViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(ToolContactLead.objects.count(), 1)
 
-    def test_invalid_source_rejected(self):
+    def test_post_accepts_wifi_qr_generator_source(self):
         url = '/leads/tool-contact/'
-        payload = {'email': 'x@example.com', 'source': 'evil'}
+        payload = {'email': 'wifi@example.com', 'source': 'wifi_qr_generator'}
         response = self.client.post(url, payload, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(ToolContactLead.objects.filter(source='wifi_qr_generator').count(), 1)
 
-        self.assertEqual(response.status_code, 400)
-        self.assertEqual(ToolContactLead.objects.count(), 0)
