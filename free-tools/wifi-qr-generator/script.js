@@ -1,5 +1,10 @@
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 const API_BASE = 'https://infoweb.api.sousadev.com';
 const CONTACT_API_ENDPOINT = `${API_BASE}/leads/tool-contact/`;
 const CONTACT_SOURCE = 'wifi_qr_generator';
@@ -43,11 +48,16 @@ function buildWifiPayload() {
   const hidden = document.getElementById('wifi-hidden').checked;
 
   if (!ssid) {
-    return { error: 'Please enter your Wi-Fi network name (SSID).' };
+    return { error: L('Please enter your Wi-Fi network name (SSID).', 'Introduza o nome da rede Wi‑Fi (SSID).') };
   }
 
   if (security !== 'nopass' && !password) {
-    return { error: 'Please enter the Wi-Fi password, or choose “Open network”.' };
+    return {
+      error: L(
+        'Please enter the Wi-Fi password, or choose “Open network”.',
+        'Introduza a palavra-passe Wi‑Fi ou escolha «Rede aberta».'
+      )
+    };
   }
 
   const encS = escapeWifiValue(ssid);
@@ -108,7 +118,7 @@ function handleLogoUpload(input) {
   const file = input.files[0];
   if (!file) return;
   if (file.size > 2 * 1024 * 1024) {
-    alert('Logo too large. Max 2MB.');
+    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
     input.value = '';
     return;
   }

@@ -1,5 +1,10 @@
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 // ─── State ────────────────────────────────────────────────────────────────────
 let qrCustomizer = null;
 let uploadedFile = null;
@@ -60,7 +65,7 @@ function handleFileUpload(input) {
   if (!file) return;
   
   if (file.size > 10 * 1024 * 1024) {
-    alert('File too large. Max 10MB.');
+    alert(L('File too large. Max 10MB.', 'Ficheiro demasiado grande. Máx. 10MB.'));
     input.value = '';
     return;
   }
@@ -78,7 +83,7 @@ function handleLogoUpload(input) {
   if (!file) return;
   
   if (file.size > 2 * 1024 * 1024) {
-    alert('Logo too large. Max 2MB.');
+    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
     input.value = '';
     return;
   }
@@ -144,12 +149,12 @@ async function runTool() {
   const restaurantName = document.getElementById('restaurant-name').value.trim();
   
   if (!uploadedFile) {
-    alert('Please upload your menu file first.');
+    alert(L('Please upload your menu file first.', 'Carregue primeiro o ficheiro da ementa.'));
     return;
   }
   
   if (!restaurantName) {
-    alert('Please enter your restaurant name.');
+    alert(L('Please enter your restaurant name.', 'Introduza o nome do restaurante.'));
     document.getElementById('restaurant-name').focus();
     return;
   }
@@ -301,9 +306,15 @@ function resetTool() {
   
   document.getElementById('restaurant-name').value = '';
   document.getElementById('menu-file').value = '';
-  document.getElementById('file-label').textContent = 'Click to upload PDF or image';
+  document.getElementById('file-label').textContent = L(
+    'Click to upload PDF or image',
+    'Clique para carregar PDF ou imagem'
+  );
   document.getElementById('logo-file').value = '';
-  document.getElementById('logo-label').textContent = 'Upload logo (PNG with transparency)';
+  document.getElementById('logo-label').textContent = L(
+    'Upload logo (PNG with transparency)',
+    'Carregar logótipo (PNG com transparência)'
+  );
   document.getElementById('frame-text').value = '';
   document.getElementById('qr-color').value = '#020617';
   document.getElementById('qr-bg').value = '#ffffff';

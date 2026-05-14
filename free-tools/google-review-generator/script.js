@@ -4,6 +4,11 @@
 
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 const DEFAULT_QR_TEXT =
   'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('My Business');
 
@@ -74,7 +79,7 @@ function handleLogoUpload(input) {
   if (!file) return;
 
   if (file.size > 2 * 1024 * 1024) {
-    alert('Logo too large. Max 2MB.');
+    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
     input.value = '';
     return;
   }
@@ -104,13 +109,18 @@ async function runTool() {
   const reviewMessage = document.getElementById('review-message').value.trim();
 
   if (!businessName) {
-    alert('Please enter your business name.');
+    alert(L('Please enter your business name.', 'Introduza o nome do negócio.'));
     document.getElementById('business-name').focus();
     return;
   }
 
   if (!qrCustomizer) {
-    alert('QR preview is not ready. Please refresh the page.');
+    alert(
+      L(
+        'QR preview is not ready. Please refresh the page.',
+        'A pré-visualização do QR não está pronta. Atualize a página.'
+      )
+    );
     return;
   }
 
@@ -191,9 +201,9 @@ function copySuggestedText() {
   const doFeedback = function () {
     const el = document.getElementById('copy-suggested-btn-text');
     if (!el) return;
-    el.textContent = 'Copied!';
+    el.textContent = L('Copied!', 'Copiado!');
     setTimeout(function () {
-      el.textContent = 'Copy suggested text';
+      el.textContent = L('Copy suggested text', 'Copiar texto sugerido');
     }, 2000);
     if (typeof window.trackEvent === 'function') {
       window.trackEvent('suggested_review_copied');
@@ -229,9 +239,9 @@ function copyLink() {
 
   const doFeedback = function () {
     const btn = document.getElementById('copy-btn-text');
-    btn.textContent = 'Copied!';
+    btn.textContent = L('Copied!', 'Copiado!');
     setTimeout(function () {
-      btn.textContent = 'Copy link';
+      btn.textContent = L('Copy link', 'Copiar link');
     }, 2000);
     if (typeof window.trackEvent === 'function') window.trackEvent('result_copied');
   };
@@ -282,7 +292,7 @@ function resetTool() {
   const logoInput = document.getElementById('logo-file');
   if (logoInput) logoInput.value = '';
   const logoLabel = document.getElementById('logo-label');
-  if (logoLabel) logoLabel.textContent = 'Upload logo (PNG with transparency)';
+  if (logoLabel) logoLabel.textContent = L('Upload logo (PNG with transparency)', 'Carregar logótipo (PNG com transparência)');
 
   const frameEl = document.getElementById('frame-text');
   if (frameEl) frameEl.value = '';

@@ -1,5 +1,10 @@
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 // ─── API endpoint ─────────────────────────────────────────────────────────────
 // Production: deployed InfoWeb API (HTTPS + full URL — required for GitHub Pages fetch).
 // Local dev: http://localhost:8001/leads/lost-customers/ (run `python manage.py runserver 8001` in api/).
@@ -47,7 +52,7 @@ function updateProgress(step) {
   const pctEl = document.getElementById('step-pct');
 
   fill.style.width  = pct + '%';
-  label.textContent = `Step ${step} of 3`;
+  label.textContent = L(`Step ${step} of 3`, `Passo ${step} de 3`);
   pctEl.textContent = pct + '%';
 
   document.getElementById('progress-bar-container')
@@ -116,14 +121,17 @@ function validateStep(step) {
     const errEl  = document.getElementById('customers-lost-error');
     if (isNaN(lost) || lost < 0) {
       emitValidationError('customers_lost', 'not_a_number');
-      errEl.textContent = 'Please enter a number (0 or more).';
+      errEl.textContent = L('Please enter a number (0 or more).', 'Introduza um número (0 ou superior).');
       show('customers-lost-error');
       document.getElementById('customers-lost').focus();
       return false;
     }
     if (lost > missed) {
       emitValidationError('customers_lost', 'exceeds_contacts_missed');
-      errEl.textContent = `Cannot be more than your step 2 answer (${missed}).`;
+      errEl.textContent = L(
+        `Cannot be more than your step 2 answer (${missed}).`,
+        `Não pode ser superior à resposta do passo 2 (${missed}).`
+      );
       show('customers-lost-error');
       document.getElementById('customers-lost').focus();
       return false;
@@ -154,14 +162,21 @@ function calculate() {
 }
 
 function renderResult() {
-  const fmt = (n) => '€' + n.toLocaleString('en-IE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  const loc = PT ? 'pt-PT' : 'en-IE';
+  const fmt = (n) =>
+    n.toLocaleString(loc, { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
   document.getElementById('result-weekly').textContent  = fmt(weeklyLoss);
   document.getElementById('result-monthly').textContent = fmt(monthlyLoss);
 
   const customersLost = parseFloat(document.getElementById('customers-lost').value) || 0;
-  document.getElementById('result-sentence').textContent =
-    `You are losing approximately ${fmt(weeklyLoss)} per week — that is ${fmt(monthlyLoss)} per month — because ${customersLost} potential customer${customersLost !== 1 ? 's' : ''} give up each week when they get no immediate reply.`;
+  const custWord =
+    customersLost !== 1
+      ? L('potential customers', 'potenciais clientes')
+      : L('potential customer', 'potencial cliente');
+  document.getElementById('result-sentence').textContent = PT
+    ? `Está a perder cerca de ${fmt(weeklyLoss)} por semana — cerca de ${fmt(monthlyLoss)} por mês — porque ${customersLost} ${custWord} desistem por semana quando não obtêm resposta imediata.`
+    : `You are losing approximately ${fmt(weeklyLoss)} per week — that is ${fmt(monthlyLoss)} per month — because ${customersLost} ${custWord} give up each week when they get no immediate reply.`;
 
   // Animate figures in
   ['result-weekly', 'result-monthly'].forEach(id => {

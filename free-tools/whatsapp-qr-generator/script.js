@@ -1,5 +1,10 @@
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 // ─── State ────────────────────────────────────────────────────────────────────
 let lastWaLink = '';
 let smartQRData = null;
@@ -87,7 +92,7 @@ function handleLogoUpload(input) {
   if (!file) return;
   
   if (file.size > 2 * 1024 * 1024) {
-    alert('Logo too large. Max 2MB.');
+    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
     input.value = '';
     return;
   }
@@ -318,10 +323,10 @@ function copyLink() {
   const doFeedback = () => {
     const btn = document.getElementById('copy-btn-text');
     const box = document.getElementById('wa-link-display');
-    btn.textContent = 'Copied!';
+    btn.textContent = L('Copied!', 'Copiado!');
     box.classList.add('copy-flash');
     setTimeout(() => {
-      btn.textContent = 'Copy link';
+      btn.textContent = L('Copy link', 'Copiar ligação');
       box.classList.remove('copy-flash');
     }, 2000);
     if (typeof window.trackEvent === 'function') window.trackEvent('result_copied');
@@ -339,9 +344,9 @@ function copyShortUrl() {
 
   const doFeedback = () => {
     const btn = document.getElementById('copy-short-btn-text');
-    btn.textContent = 'Copied!';
+    btn.textContent = L('Copied!', 'Copiado!');
     setTimeout(() => {
-      btn.textContent = 'Copy short link';
+      btn.textContent = L('Copy short link', 'Copiar ligação curta');
     }, 2000);
     if (typeof window.trackEvent === 'function') {
       window.trackEvent('result_copied', { type: 'short_url' });
@@ -394,7 +399,10 @@ function resetTool() {
   document.getElementById('qr-color').value = '#020617';
   document.getElementById('qr-bg').value = '#ffffff';
   document.getElementById('logo-file').value = '';
-  document.getElementById('logo-label').textContent = 'Upload logo (PNG with transparency)';
+  document.getElementById('logo-label').textContent = L(
+    'Upload logo (PNG with transparency)',
+    'Carregar logótipo (PNG com transparência)'
+  );
 
   lastWaLink = '';
   smartQRData = null;

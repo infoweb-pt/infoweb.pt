@@ -4,6 +4,11 @@
 
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 const SAMPLE_VCARD =
   'BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Your Name\r\nN:Your Name;;;;\r\nEND:VCARD';
 
@@ -74,7 +79,7 @@ function handleLogoUpload(input) {
   if (!file) return;
 
   if (file.size > 2 * 1024 * 1024) {
-    alert('Logo too large. Max 2MB.');
+    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
     input.value = '';
     return;
   }
@@ -108,13 +113,18 @@ async function runTool() {
   const website = document.getElementById('card-website').value.trim();
 
   if (!name) {
-    alert('Please enter your name.');
+    alert(L('Please enter your name.', 'Introduza o seu nome.'));
     document.getElementById('card-name').focus();
     return;
   }
 
   if (!qrCustomizer) {
-    alert('QR preview is not ready. Please refresh the page.');
+    alert(
+      L(
+        'QR preview is not ready. Please refresh the page.',
+        'A pré-visualização do QR não está pronta. Atualize a página.'
+      )
+    );
     return;
   }
 
@@ -249,7 +259,7 @@ function resetTool() {
   const logoInput = document.getElementById('logo-file');
   if (logoInput) logoInput.value = '';
   const logoLabel = document.getElementById('logo-label');
-  if (logoLabel) logoLabel.textContent = 'Upload logo (PNG with transparency)';
+  if (logoLabel) logoLabel.textContent = L('Upload logo (PNG with transparency)', 'Carregar logótipo (PNG com transparência)');
 
   const frameEl = document.getElementById('frame-text');
   if (frameEl) frameEl.value = '';

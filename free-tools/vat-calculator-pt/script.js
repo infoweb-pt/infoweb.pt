@@ -1,5 +1,10 @@
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 const REGION_RATES = {
   continente: [
     { label: '6%', value: 0.06 },
@@ -19,7 +24,7 @@ const REGION_RATES = {
 };
 
 let debounceTimer = null;
-const fmt = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' });
+const fmt = new Intl.NumberFormat(PT ? 'pt-PT' : 'en-GB', { style: 'currency', currency: 'EUR' });
 
 function getRegion() {
   return document.querySelector('input[name="vat-region"]:checked').value;
@@ -40,6 +45,13 @@ function parseAmount() {
   return n;
 }
 
+function regionSuffix(region) {
+  const cap = region.charAt(0).toUpperCase() + region.slice(1);
+  if (!PT) return ' (' + cap + ' VAT)';
+  const map = { continente: 'Continente', madeira: 'Madeira', acores: 'Açores' };
+  return ' (IVA ' + (map[region] || cap) + ')';
+}
+
 function renderRateOptions() {
   const region = getRegion();
   const sel = document.getElementById('vat-rate');
@@ -48,7 +60,7 @@ function renderRateOptions() {
   rates.forEach(function (r, i) {
     const opt = document.createElement('option');
     opt.value = String(r.value);
-    opt.textContent = r.label + ' (IVA ' + region.charAt(0).toUpperCase() + region.slice(1) + ')';
+    opt.textContent = r.label + regionSuffix(region);
     sel.appendChild(opt);
     if (region === 'continente' && r.value === 0.23) opt.selected = true;
     if (region === 'madeira' && r.value === 0.22) opt.selected = true;

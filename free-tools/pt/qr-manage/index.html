@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pt" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QR Code Stats — InfoWeb</title>
-  <meta name="description" content="View your QR code scan statistics. Track scans, devices, locations, and more." />
+  <meta name="description" content="View your QR code scan statistics. Track leituras, devices, locations, and more." />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/qr-manage/" />
+  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/pt/qr-manage/" />
   <link rel="alternate" hreflang="en" href="https://hc-sousa.github.io/infoweb/free-tools/qr-manage/" />
   <link rel="alternate" hreflang="pt" href="https://hc-sousa.github.io/infoweb/free-tools/pt/qr-manage/" />
   <link rel="alternate" hreflang="x-default" href="https://hc-sousa.github.io/infoweb/free-tools/qr-manage/" />
-  <meta property="og:locale" content="en_GB" />
-  <meta property="og:locale:alternate" content="pt_PT" />
-  <link rel="icon" type="image/png" href="../../favicon_io/favicon-32x32.png" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <link rel="icon" type="image/png" href="../../../favicon_io/favicon-32x32.png" />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -33,7 +33,7 @@
     gtag("js", new Date());
     gtag("config", "G-XXQSMBERJM");
   </script>
-  <script src="../../assets/js/analytics.js" defer></script>
+  <script src="../../../assets/js/analytics.js" defer></script>
   <style>
     .stat-card {
       @apply bg-slate-900 border border-slate-800 rounded-xl p-4;
@@ -46,11 +46,11 @@
   <header class="border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-xl">
     <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
       <a href="https://infoweb.api.sousadev.com/" class="inline-flex items-center gap-2">
-        <img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
+        <img src="../../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
       </a>
-      <nav class="flex items-center gap-1 text-[11px] font-semibold shrink-0" aria-label="Language">
-        <span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white" title="English">EN</span>
-        <a href="pt/qr-manage/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>
+      <nav class="flex items-center gap-1 text-[11px] font-semibold shrink-0" aria-label="Idioma">
+        <a href="../../qr-manage/" hreflang="en" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="en" title="English">EN</a>
+        <span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white" title="Português">PT</span>
       </nav>
     </div>
   </header>
@@ -63,7 +63,7 @@
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
       </svg>
-      <p class="text-slate-400">Loading your QR code stats...</p>
+      <p class="text-slate-400">A carregar estatísticas do QR…</p>
     </div>
 
     <!-- Error State -->
@@ -72,10 +72,10 @@
         <svg class="h-12 w-12 mx-auto mb-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
         </svg>
-        <h2 class="text-xl font-bold text-white mb-2">Access Denied</h2>
-        <p class="text-slate-400 mb-4">Invalid or expired manage token.</p>
+        <h2 class="text-xl font-bold text-white mb-2">Acesso recusado</h2>
+        <p class="text-slate-400 mb-4">Token de gestão inválido ou expirado.</p>
         <a href="../" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition">
-          ← Back to tools
+          ← Todas as ferramentas
         </a>
       </div>
     </div>
@@ -87,38 +87,38 @@
       <div class="text-center mb-8">
         <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-1.5 text-sm font-semibold text-green-400 mb-4">
           <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-          Active
+          Ativo
         </div>
-        <h1 class="text-3xl font-bold text-white mb-2">Your QR Code Stats</h1>
-        <p class="text-slate-400">Track how many people scan your QR code</p>
+        <h1 class="text-3xl font-bold text-white mb-2">Estatísticas do seu QR</h1>
+        <p class="text-slate-400">Veja quantas pessoas leem o seu QR</p>
       </div>
 
       <!-- Main Stats -->
       <div class="grid grid-cols-2 gap-4">
         <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 text-center">
           <p class="text-3xl font-bold text-white mb-1" id="total-scans">0</p>
-          <p class="text-sm text-slate-400">Total Scans</p>
+          <p class="text-sm text-slate-400">Leituras totais</p>
         </div>
         <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 text-center">
           <p class="text-3xl font-bold text-white mb-1" id="unique-scans">0</p>
-          <p class="text-sm text-slate-400">Unique Visitors</p>
+          <p class="text-sm text-slate-400">Visitantes únicos</p>
         </div>
       </div>
 
       <!-- QR Info -->
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
-        <h2 class="text-lg font-semibold text-white mb-3">QR Code Details</h2>
+        <h2 class="text-lg font-semibold text-white mb-3">Detalhes do QR</h2>
         <div class="space-y-2">
           <div class="flex justify-between">
-            <span class="text-slate-400">Short URL</span>
+            <span class="text-slate-400">URL curto</span>
             <a id="short-url" href="#" target="_blank" class="text-green-400 hover:text-green-300 text-sm font-mono"></a>
           </div>
           <div class="flex justify-between">
-            <span class="text-slate-400">Target URL</span>
+            <span class="text-slate-400">URL de destino</span>
             <span id="target-url" class="text-slate-300 text-sm truncate max-w-[200px]"></span>
           </div>
           <div class="flex justify-between">
-            <span class="text-slate-400">Created</span>
+            <span class="text-slate-400">Criado</span>
             <span id="created-at" class="text-slate-300 text-sm"></span>
           </div>
         </div>
@@ -126,32 +126,32 @@
 
       <!-- Time Range -->
       <div class="flex gap-2">
-        <button onclick="loadStats('7d')" class="time-range-btn active flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="7d">Last 7 days</button>
-        <button onclick="loadStats('30d')" class="time-range-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="30d">Last 30 days</button>
-        <button onclick="loadStats('90d')" class="time-range-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="90d">Last 90 days</button>
+        <button onclick="loadStats('7d')" class="time-range-btn active flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="7d">Últimos 7 dias</button>
+        <button onclick="loadStats('30d')" class="time-range-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="30d">Últimos 30 dias</button>
+        <button onclick="loadStats('90d')" class="time-range-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-sm text-slate-300 hover:border-green-500 transition-all" data-range="90d">Últimos 90 dias</button>
       </div>
 
       <!-- Device Breakdown -->
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
-        <h2 class="text-lg font-semibold text-white mb-4">Devices</h2>
+        <h2 class="text-lg font-semibold text-white mb-4">Dispositivos</h2>
         <div id="device-stats" class="space-y-3">
-          <p class="text-slate-400 text-sm">Loading...</p>
+          <p class="text-slate-400 text-sm">A carregar…</p>
         </div>
       </div>
 
-      <!-- Top Countries -->
+      <!-- Principais países -->
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
-        <h2 class="text-lg font-semibold text-white mb-4">Top Countries</h2>
+        <h2 class="text-lg font-semibold text-white mb-4">Principais países</h2>
         <div id="country-stats" class="space-y-3">
-          <p class="text-slate-400 text-sm">Loading...</p>
+          <p class="text-slate-400 text-sm">A carregar…</p>
         </div>
       </div>
 
       <!-- Daily Chart -->
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
-        <h2 class="text-lg font-semibold text-white mb-4">Scans Over Time</h2>
+        <h2 class="text-lg font-semibold text-white mb-4">Leituras ao longo do tempo</h2>
         <div id="daily-stats" class="space-y-2">
-          <p class="text-slate-400 text-sm">Loading...</p>
+          <p class="text-slate-400 text-sm">A carregar…</p>
         </div>
       </div>
 
@@ -161,7 +161,7 @@
 
   <!-- Footer -->
   <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-    <a href="https://infoweb.api.sousadev.com/" class="text-slate-400 hover:text-white transition">InfoWeb home</a>
+    <a href="https://infoweb.api.sousadev.com/" class="text-slate-400 hover:text-white transition">Início InfoWeb</a>
   </footer>
 
   <script>
@@ -242,7 +242,7 @@
       if (stats.by_device && stats.by_device.length > 0) {
         deviceContainer.innerHTML = stats.by_device.map(d => `
           <div class="flex items-center justify-between">
-            <span class="text-slate-300 capitalize">${d.key}</span>
+            <span class="text-slate-300 capitalize">${(d.key && d.key.toLowerCase() === 'unknown') ? 'Desconhecido' : d.key}</span>
             <div class="flex items-center gap-2">
               <div class="w-24 bg-slate-800 rounded-full h-2">
                 <div class="bg-green-500 h-2 rounded-full" style="width: ${Math.min(100, (d.scans / (stats.totals?.scans || 1)) * 100)}%"></div>
@@ -252,7 +252,7 @@
           </div>
         `).join('');
       } else {
-        deviceContainer.innerHTML = '<p class="text-slate-400 text-sm">No data yet</p>';
+        deviceContainer.innerHTML = '<p class="text-slate-400 text-sm">Ainda sem dados</p>';
       }
       
       // Country breakdown
@@ -260,12 +260,12 @@
       if (stats.by_country && stats.by_country.length > 0) {
         countryContainer.innerHTML = stats.by_country.slice(0, 5).map(c => `
           <div class="flex items-center justify-between">
-            <span class="text-slate-300">${c.key || 'Unknown'}</span>
-            <span class="text-slate-400 text-sm">${c.scans} scans</span>
+            <span class="text-slate-300">${c.key ? ((c.key === 'Unknown' || c.key.toLowerCase() === 'unknown') ? 'Desconhecido' : c.key) : 'Desconhecido'}</span>
+            <span class="text-slate-400 text-sm">${c.scans} leituras</span>
           </div>
         `).join('');
       } else {
-        countryContainer.innerHTML = '<p class="text-slate-400 text-sm">No data yet</p>';
+        countryContainer.innerHTML = '<p class="text-slate-400 text-sm">Ainda sem dados</p>';
       }
       
       // Daily stats
@@ -283,7 +283,7 @@
           </div>
         `).join('');
       } else {
-        dailyContainer.innerHTML = '<p class="text-slate-400 text-sm">No data yet</p>';
+        dailyContainer.innerHTML = '<p class="text-slate-400 text-sm">Ainda sem dados</p>';
       }
     }
   </script>

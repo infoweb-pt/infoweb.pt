@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pt" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,7 @@
     content="online presence score tool for small businesses, how to improve google ranking small business, is my business visible online, free digital presence audit, InfoWeb" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="InfoWeb by Sousa Dev" />
-  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/presence-score/" />
+  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/pt/presence-score/" />
 
   <!-- OPEN GRAPH -->
   <meta property="og:type"        content="website" />
@@ -23,8 +23,8 @@
   <meta property="og:image"       content="https://hc-sousa.github.io/infoweb/free-tools/presence-score/og-image.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_GB" />
-  <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale" content="pt_PT" />
+  <meta property="og:locale:alternate" content="en_GB" />
   <link rel="alternate" hreflang="en" href="https://hc-sousa.github.io/infoweb/free-tools/presence-score/" />
   <link rel="alternate" hreflang="pt" href="https://hc-sousa.github.io/infoweb/free-tools/pt/presence-score/" />
   <link rel="alternate" hreflang="x-default" href="https://hc-sousa.github.io/infoweb/free-tools/presence-score/" />
@@ -42,7 +42,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Online Presence Score Diagnostic",
-    "url": "https://hc-sousa.github.io/infoweb/free-tools/presence-score/",
+    "url": "https://hc-sousa.github.io/infoweb/free-tools/pt/presence-score/",
     "description": "Answer 7 quick Yes/No questions and get your free online presence score out of 100. Instantly see your biggest gap and how to fix it.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
@@ -60,8 +60,8 @@
   </script>
 
   <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="../../favicon_io/favicon-32x32.png" />
-  <link rel="apple-touch-icon"       href="../../favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="../../../favicon_io/favicon-32x32.png" />
+  <link rel="apple-touch-icon"       href="../../../favicon_io/apple-touch-icon.png" />
 
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,7 +70,7 @@
         rel="stylesheet" />
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../presence-score/style.css" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
@@ -83,7 +83,7 @@
 
     gtag("config", "G-XXQSMBERJM");
   </script>
-  <script src="../../assets/js/analytics.js" defer></script>
+  <script src="../../../assets/js/analytics.js" defer></script>
 </head>
 <body>
 
@@ -91,8 +91,8 @@
   <header style="position:sticky;top:0;z-index:50;background:rgba(2,6,23,0.88);border-bottom:1px solid #1e293b;">
     <div style="max-width:640px;margin:0 auto;padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;">
       <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=presence_score_header"
-         target="_blank" rel="noopener" aria-label="InfoWeb homepage">
-        <img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" style="height:2rem;width:auto;" />
+         target="_blank" rel="noopener" aria-label="Início InfoWebpage">
+        <img src="../../../assets/images/infoweb-logo.png" alt="InfoWeb" style="height:2rem;width:auto;" />
       </a>
       <div style="display:flex;align-items:center;gap:0.5rem;">
         <nav style="display:flex;align-items:center;gap:0.25rem;font-size:11px;font-weight:700;" aria-label="Language">
@@ -103,7 +103,7 @@
          target="_blank" rel="noopener"
          data-track="header_cta_click"
          class="header-cta-btn">
-        See Website Plans
+        Ver planos
       </a>
       </div>
     </div>
@@ -115,7 +115,7 @@
     <section style="text-align:center;margin-bottom:2.5rem;">
       <span class="free-badge" style="margin-bottom:1.25rem;">
         <span class="free-badge-dot"></span>
-        Free — No sign-up needed
+        Grátis — sem registo
       </span>
       <h1 style="font-size:clamp(1.9rem,6vw,2.75rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;margin:0.75rem 0 0.75rem;color:#f1f5f9;">
         How Visible Is Your Business Online? Get Your Score in 60 Seconds
@@ -236,17 +236,17 @@
           <p style="font-size:0.8rem;color:#f87171;margin:0;">Something went wrong. Please try again.</p>
           <button type="button" onclick="submitEmail()"
                   style="font-size:0.75rem;font-weight:600;color:#d7b46a;background:transparent;border:none;cursor:pointer;text-decoration:underline;padding:0;">
-            Try again
+            Tentar novamente
           </button>
         </div>
 
         <!-- Spinner -->
-        <div id="email-spinner" class="hidden" aria-live="polite" aria-label="Sending…">
+        <div id="email-spinner" class="hidden" aria-live="polite" aria-label="A enviar…">
           <svg class="animate-spin" style="width:1.5rem;height:1.5rem;color:#d7b46a;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle style="opacity:0.25;" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path  style="opacity:0.75;"  fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
           </svg>
-          <span style="color:#94a3b8;font-size:0.9rem;">Sending…</span>
+          <span style="color:#94a3b8;font-size:0.9rem;">A enviar…</span>
         </div>
 
         <button id="email-submit-btn" type="button" onclick="submitEmail()" class="btn-primary">
@@ -285,14 +285,14 @@
          data-track="cta_click"
          data-track-location="tool_funnel"
          class="conversion-cta-btn">
-        See Website Plans →
+        Ver planos →
       </a>
     </section>
 
     <!-- ══════════ SOCIAL PROOF ══════════ -->
     <section style="text-align:center;margin-bottom:3rem;">
       <p style="color:#475569;font-size:0.875rem;">
-        Built by <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener"
+        Criado por <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener"
                     style="color:#64748b;text-decoration:underline;">InfoWeb</a> ·
         Helping local businesses grow online since 2024.
       </p>
@@ -301,7 +301,7 @@
     <!-- ══════════ FAQ ══════════ -->
     <section aria-labelledby="faq-heading" style="margin-bottom:3rem;">
       <h2 id="faq-heading" style="font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;margin:0 0 1.25rem;color:#f1f5f9;">
-        Frequently Asked Questions
+        Perguntas frequentes
       </h2>
 
       <details class="faq-item">
@@ -395,15 +395,15 @@
       <span style="font-size:0.75rem;color:#334155;">© <span id="year"></span> InfoWeb by Sousa Dev</span>
       <nav style="display:flex;gap:1.25rem;font-size:0.75rem;">
         <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener"
-           style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'">Main site</a>
+           style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'">Site principal</a>
         <a href="../" target="_blank" rel="noopener"
            style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#f1f5f9'" onmouseout="this.style.color='#475569'"
-           data-track="back_to_tools_click">All free tools</a>
+           data-track="back_to_tools_click">Todas as ferramentas</a>
       </nav>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../../presence-score/script.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 </body>

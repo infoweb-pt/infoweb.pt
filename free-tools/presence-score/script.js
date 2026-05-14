@@ -1,5 +1,10 @@
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 // ─── API endpoint ─────────────────────────────────────────────────────────────
 // Production: deployed InfoWeb API (HTTPS + full URL — required for GitHub Pages fetch).
 // Local dev: http://localhost:8001/leads/presence-score/ (run `python manage.py runserver 8001` in api/).
@@ -8,7 +13,7 @@ const API_ENDPOINT = 'https://infoweb.api.sousadev.com/leads/presence-score/';
 
 // ─── Quiz data ────────────────────────────────────────────────────────────────
 // points: weighted values — Q1, Q5, Q7 = 16; rest = 12; max raw = 96
-const QUESTIONS = [
+const QUESTIONS_EN = [
   {
     id: 1,
     points: 16,
@@ -53,6 +58,60 @@ const QUESTIONS = [
   }
 ];
 
+const QUESTIONS_PT = [
+  {
+    id: 1,
+    points: 16,
+    text: 'O seu negócio aparece na primeira página do Google quando alguém procura o seu serviço?',
+    weakness:
+      'O maior gap: não é encontrado no Google — está invisível para clientes que procuram o seu serviço agora.'
+  },
+  {
+    id: 2,
+    points: 12,
+    text: 'Tem o seu próprio domínio (.com, .pt ou similar)?',
+    weakness:
+      'O maior gap: sem domínio próprio, o negócio parece menos credível e é mais difícil de encontrar ou memorizar online.'
+  },
+  {
+    id: 3,
+    points: 12,
+    text: 'O seu perfil Google Business está completo e atualizado?',
+    weakness:
+      'O maior gap: perfil incompleto — clientes locais podem escolher um concorrente com ficha completa.'
+  },
+  {
+    id: 4,
+    points: 12,
+    text: 'Tem uma página onde os clientes veem ementa, serviços ou portefólio?',
+    weakness:
+      'O maior gap: não tem onde mostrar a oferta — clientes não veem preços ou serviços sem ligar primeiro.'
+  },
+  {
+    id: 5,
+    points: 16,
+    text: 'Os clientes podem marcar, pedir informações ou encomendar online sem telefonar?',
+    weakness:
+      'O maior gap: sem reserva ou pedido online — perde vendas para quem oferece autoserviço 24/7.'
+  },
+  {
+    id: 6,
+    points: 12,
+    text: 'O site carrega em menos de 3 segundos no telemóvel?',
+    weakness:
+      'O maior gap: site lento no telemóvel — a maioria sai em segundos e o Google penaliza velocidade.'
+  },
+  {
+    id: 7,
+    points: 16,
+    text: 'O negócio está correto no Google Maps?',
+    weakness:
+      'O maior gap: marcação incorreta no Maps — clientes perto não o encontram fisicamente.'
+  }
+];
+
+const QUESTIONS = PT ? QUESTIONS_PT : QUESTIONS_EN;
+
 const MAX_RAW_SCORE = QUESTIONS.reduce((sum, q) => sum + q.points, 0); // 96
 
 // ─── State ────────────────────────────────────────────────────────────────────
@@ -78,7 +137,10 @@ function renderQuestion(idx) {
   const total = QUESTIONS.length;
 
   document.getElementById('q-text').textContent   = q.text;
-  document.getElementById('q-counter').textContent = `Question ${idx + 1} of ${total}`;
+  document.getElementById('q-counter').textContent = L(
+    `Question ${idx + 1} of ${total}`,
+    `Pergunta ${idx + 1} de ${total}`
+  );
 
   const pct = Math.round(((idx + 1) / total) * 100);
   document.getElementById('quiz-progress-fill').style.width = pct + '%';
@@ -155,17 +217,21 @@ function computeScore() {
   bandEl.className    = 'score-band band-' + band.key;
 
   document.getElementById('weakness-msg').textContent =
-    weaknessMsg || 'Excellent work — your online presence is strong across all areas!';
+    weaknessMsg ||
+    L(
+      'Excellent work — your online presence is strong across all areas!',
+      'Excelente — a sua presença online está forte em todas as áreas!'
+    );
 
   // Build per-question breakdown
   buildBreakdown();
 }
 
 function getBand(score) {
-  if (score <= 39) return { key: 'critical',    label: '⚠ Critical'    };
-  if (score <= 69) return { key: 'needs-work',  label: '↗ Needs Work'  };
-  if (score <= 89) return { key: 'good',        label: '✓ Good'        };
-  return               { key: 'excellent',    label: '★ Excellent'   };
+  if (score <= 39) return { key: 'critical', label: L('⚠ Critical', '⚠ Crítico') };
+  if (score <= 69) return { key: 'needs-work', label: L('↗ Needs Work', '↗ A melhorar') };
+  if (score <= 89) return { key: 'good', label: L('✓ Good', '✓ Bom') };
+  return { key: 'excellent', label: L('★ Excellent', '★ Excelente') };
 }
 
 function buildBreakdown() {
@@ -177,7 +243,7 @@ function buildBreakdown() {
     li.className = 'breakdown-item';
     li.innerHTML = `
       <span class="breakdown-icon ${ans === 'yes' ? 'icon-yes' : 'icon-no'}"
-            aria-label="${ans === 'yes' ? 'Yes' : 'No'}">
+            aria-label="${ans === 'yes' ? L('Yes', 'Sim') : L('No', 'Não')}">
         ${ans === 'yes' ? '✓' : '✗'}
       </span>
       <span class="breakdown-text">${q.text}</span>

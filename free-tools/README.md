@@ -4,7 +4,7 @@ Static marketing utilities under GitHub Pages: one folder per tool, shared brand
 
 | Doc | Purpose |
 |-----|---------|
-| [TEMPLATE.md](TEMPLATE.md) | Full build spec: SEO, layout, API patterns, **Smart QR** (§5.1c), **QRCustomizer** + logo rules (§5.1d), analytics, QA. |
+| [TEMPLATE.md](TEMPLATE.md) | Full build spec: SEO, layout, API patterns, **Smart QR** (§5.1c), **QRCustomizer** + logo rules (§5.1d), analytics, QA, **Portuguese PT-PT locale** (§11). |
 | [TODO.md](TODO.md) | Roadmap and shipped tools (kept in sync with the hub). |
 | [index.html](index.html) | Public hub — every new tool needs a card here before “done”. |
 

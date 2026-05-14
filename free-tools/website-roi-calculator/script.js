@@ -4,6 +4,11 @@
 
 'use strict';
 
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
 // ─── State ────────────────────────────────────────────────────────────────────
 let toolRunStartedAt = 0;
 
@@ -38,7 +43,12 @@ async function runTool() {
     !Number.isFinite(websiteCost) ||
     websiteCost <= 0
   ) {
-    alert('Please fill in all fields with valid numbers (greater than 0).');
+    alert(
+      L(
+        'Please fill in all fields with valid numbers (greater than 0).',
+        'Preencha todos os campos com números válidos (superiores a 0).'
+      )
+    );
     return;
   }
 
@@ -77,15 +87,16 @@ async function runTool() {
 
 function renderResult(data) {
   // Format numbers
+  const loc = PT ? 'pt-PT' : 'en-GB';
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('pt-PT', {
+    return new Intl.NumberFormat(loc, {
       style: 'currency',
       currency: 'EUR'
     }).format(value);
   };
 
   const formatNumber = (value) => {
-    return new Intl.NumberFormat('pt-PT').format(value);
+    return new Intl.NumberFormat(loc).format(value);
   };
 
   // Update display
@@ -102,11 +113,12 @@ function renderResult(data) {
 
   let breakEvenText;
   if (data.monthlyRevenue <= 0 || !Number.isFinite(data.breakEven)) {
-    breakEvenText = 'Not at current inputs';
+    breakEvenText = L('Not at current inputs', 'Não com estes valores');
   } else if (data.breakEven <= 1) {
-    breakEvenText = '< 1 month';
+    breakEvenText = L('< 1 month', '< 1 mês');
   } else {
-    breakEvenText = Math.ceil(data.breakEven) + ' months';
+    breakEvenText =
+      Math.ceil(data.breakEven) + L(' months', ' meses');
   }
   document.getElementById('break-even').textContent = breakEvenText;
 

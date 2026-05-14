@@ -16,6 +16,7 @@
 8. [Marketing Funnel & Conversion](#8-marketing-funnel--conversion)
 9. [Analytics & Tracking](#9-analytics--tracking)
 10. [Launch QA Checklist](#10-launch-qa-checklist)
+11. [Portuguese (Portugal) — required locale](#11-portuguese-portugal--required-locale)
 
 ---
 
@@ -45,11 +46,15 @@ Every tool lives in its **own subfolder** under the `free-tools/` directory so i
 
 ```
 free-tools/
-└── [slug]/                   ← one folder per tool
-    ├── index.html            ← the tool page (required)
-    ├── style.css             ← tool-specific styles (optional)
-    ├── script.js             ← tool logic (optional, can be inline)
-    └── og-image.png          ← 1200×630 px Open Graph image (required)
+├── [slug]/                   ← English (default) tool page
+│   ├── index.html            ← required (`<html lang="en">`)
+│   ├── style.css             ← optional
+│   ├── script.js             ← optional; must serve **both** EN and PT copy (see §11)
+│   └── og-image.png          ← 1200×630 (required)
+└── pt/
+    ├── index.html            ← Portuguese hub (lists `pt/[slug]/`)
+    └── [slug]/
+        └── index.html        ← PT page: reuse `../../[slug]/script.js` and `../../[slug]/style.css` when those exist
 ```
 
 **Rules:**
@@ -62,7 +67,7 @@ free-tools/
 
 ## 3. Hub listing — `free-tools/index.html` (required)
 
-The marketing hub at **`free-tools/index.html`** is the only place visitors discover tools. **Ship is not done until you add a card** for the new slug.
+The marketing hubs at **`free-tools/index.html`** (English) and **`free-tools/pt/index.html`** (Portuguese) are where visitors discover tools. **Ship is not done until you add a card** on **both** hubs for the new slug.
 
 1. Open **`free-tools/index.html`** (same folder as this guide; repo path `free-tools/index.html`).
 2. Inside `<main>`, find the `<ul class="space-y-4">` list.
@@ -80,7 +85,8 @@ The marketing hub at **`free-tools/index.html`** is the only place visitors disc
 ```
 
 4. Optionally update the page `<meta name="description">` so it mentions the new tool category.
-5. Keep list order sensible (e.g. newest at bottom, or group by theme — stay consistent with nearby tools).
+5. Open **`free-tools/pt/index.html`** and add a matching `<li>` card with `href="[slug]/"` (path is relative to the PT hub).
+6. Keep list order sensible (e.g. newest at bottom, or group by theme — stay consistent with nearby tools).
 
 This step is also repeated in the [Launch QA Checklist](#10-launch-qa-checklist) so it is not missed at release time.
 
@@ -682,6 +688,50 @@ Complete **every item** before pushing to GitHub Pages.
 - [ ] Added a link on the hub per **[§3 Hub listing](#3-hub-listing--free-toolsindexhtml-required)** (`free-tools/index.html`) or InfoWeb main nav — do not ship without one of these
 - [ ] Announced via InfoWeb social channels / newsletter
 
+### Portuguese (PT-PT) — same release as English
+
+- [ ] **`free-tools/pt/[slug]/index.html`** exists with **translated** visible copy, `<html lang="pt">`, and **matching** FAQ / `FAQPage` JSON-LD text where the EN page has it
+- [ ] **Language switcher** in header: stable path swap to the sibling locale (EN ↔ `pt/[slug]/`), not only `localStorage`
+- [ ] **Relative assets from `pt/[slug]/`:** shared scripts/styles at **`../../../assets/...`** (three levels to repo root); tool **`../../[slug]/script.js`** and **`../../[slug]/style.css`** when the slug ships those files
+- [ ] **`script.js`** uses `document.documentElement.lang` (or equivalent) so validation alerts, dynamic labels, and `textContent` updates are correct in **both** locales; `defer` on script tags so `lang` is parsed first
+- [ ] **`bash scripts/check-html-ga.sh`** still passes after adding the PT page
+
 ---
 
-*Template version 1.1 — InfoWeb by Sousa Dev (Smart QR + QRCustomizer logo policy)*
+## 11. Portuguese (Portugal) — required locale
+
+Every public free tool ships in **two** URL spaces:
+
+| Locale | Hub | Tool example |
+|--------|-----|----------------|
+| English (default) | `free-tools/index.html` | `free-tools/[slug]/index.html` |
+| Portuguese (Portugal) | `free-tools/pt/index.html` | `free-tools/pt/[slug]/index.html` |
+
+### Paths from `free-tools/pt/[slug]/index.html`
+
+- **Canonical, `og:url`, and `WebApplication` `url`:** use the **PT** path, e.g. `https://[GITHUB-USER].github.io/[REPO]/free-tools/pt/[slug]/`.
+- **Styles / logic:** prefer a single `script.js` / `style.css` under `free-tools/[slug]/`:
+  - `href="../../[slug]/style.css"`
+  - `src="../../[slug]/script.js" defer`
+- **Site-wide assets** (e.g. `assets/js/analytics.js`, `assets/js/qr-customizer.js`): **`../../../assets/...`** (three segments up from `free-tools/pt/[slug]/` to repo root).
+
+### SEO and `lang`
+
+- **`<html lang="en">`** on EN; **`<html lang="pt">`** on PT (use the same BCP47 style everywhere).
+- On **both** locales: **`link rel="canonical"`** for that page’s URL; **`meta property="og:locale"`** (`en_GB` vs `pt_PT`) plus **`og:locale:alternate`** for the other; **`link rel="alternate" hreflang="en"`**, **`hreflang="pt"`**, and optional **`x-default`** (point to EN if that is the default).
+- Translate `<title>`, meta description, OG/Twitter, and any **`FAQPage` / `WebApplication`** JSON-LD so structured data matches visible text.
+- Reusing the same **`og-image.png`** per slug from the EN folder is acceptable for v1; PT-specific artwork is optional follow-up.
+
+### JavaScript
+
+At the top of `free-tools/[slug]/script.js` (or equivalent), derive locale once, e.g.  
+`const PT = document.documentElement.getAttribute('lang').toLowerCase().startsWith('pt');`  
+Keep API field names, `tool_source`, and payloads unchanged; only **user-facing** strings switch language.
+
+### Hub and cards
+
+- Add the tool card to **`free-tools/index.html`** (EN hub) **and** **`free-tools/pt/index.html`** (PT hub) before launch.
+
+---
+
+*Template version 1.2 — InfoWeb by Sousa Dev (Smart QR + QRCustomizer logo policy; EN + PT-PT locale)*

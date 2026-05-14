@@ -1,6 +1,11 @@
 'use strict';
 
-const fmt = new Intl.NumberFormat('en-GB', {
+const PT = (document.documentElement.getAttribute('lang') || '').toLowerCase().startsWith('pt');
+function L(en, pt) {
+  return PT ? pt : en;
+}
+
+const fmt = new Intl.NumberFormat(PT ? 'pt-PT' : 'en-GB', {
   style: 'currency',
   currency: 'EUR',
   minimumFractionDigits: 2,
@@ -21,16 +26,25 @@ function updateModeFields() {
   const mode = getMode();
   document.getElementById('label-second').textContent =
     mode === 'margin'
-      ? 'Target margin (%)'
+      ? L('Target margin (%)', 'Margem alvo (%)')
       : mode === 'markup'
-        ? 'Markup on cost (%)'
-        : 'Selling price (€)';
+        ? L('Markup on cost (%)', 'Markup sobre o custo (%)')
+        : L('Selling price (€)', 'Preço de venda (€)');
   document.getElementById('second-field-hint').textContent =
     mode === 'margin'
-      ? 'Margin is profit as a % of selling price (e.g. 40 means you keep 40% of the price as gross profit).'
+      ? L(
+          'Margin is profit as a % of selling price (e.g. 40 means you keep 40% of the price as gross profit).',
+          'A margem é o lucro em % do preço de venda (ex.: 40 significa 40% do preço como lucro bruto).'
+        )
       : mode === 'markup'
-        ? 'Markup is profit as a % of cost (e.g. 100 doubles your cost).'
-        : 'Price you charge customers (must be greater than cost).';
+        ? L(
+            'Markup is profit as a % of cost (e.g. 100 doubles your cost).',
+            'O markup é o lucro em % do custo (ex.: 100 duplica o custo).'
+          )
+        : L(
+            'Price you charge customers (must be greater than cost).',
+            'Preço que cobra ao cliente (deve ser superior ao custo).'
+          );
 }
 
 function compute() {
@@ -56,7 +70,10 @@ function compute() {
 
   if (mode === 'margin') {
     if (Number.isNaN(second) || second <= 0 || second >= 100) {
-      errSecond.textContent = 'Enter a margin between 0 and 100 (exclusive).';
+      errSecond.textContent = L(
+        'Enter a margin between 0 and 100 (exclusive).',
+        'Introduza uma margem entre 0 e 100 (exclusive).'
+      );
       errSecond.classList.remove('hidden');
       valid = false;
     } else {
@@ -67,7 +84,10 @@ function compute() {
     }
   } else if (mode === 'markup') {
     if (Number.isNaN(second) || second <= -100) {
-      errSecond.textContent = 'Enter a valid markup % (greater than −100).';
+      errSecond.textContent = L(
+        'Enter a valid markup % (greater than −100).',
+        'Introduza um markup % válido (superior a −100).'
+      );
       errSecond.classList.remove('hidden');
       valid = false;
     } else {
@@ -78,7 +98,7 @@ function compute() {
     }
   } else {
     if (Number.isNaN(second) || second <= cost) {
-      errSecond.textContent = 'Selling price must be greater than cost.';
+      errSecond.textContent = L('Selling price must be greater than cost.', 'O preço de venda deve ser superior ao custo.');
       errSecond.classList.remove('hidden');
       valid = false;
     } else {
