@@ -10,6 +10,8 @@ let toolRunStartedAt = 0;
 // ─── API Configuration ────────────────────────────────────────────────────────
 const API_BASE = 'https://infoweb.api.sousadev.com';
 const SMARTQR_API = `${API_BASE}/smartqr/codes/`;
+const QR_PREVIEW_LIVE_SELECTOR = '#qr-preview-live';
+const QR_PREVIEW_RESULT_ID = 'qr-preview-result';
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
 function show(id)   { document.getElementById(id).classList.remove('hidden'); }
@@ -24,6 +26,32 @@ function hideSpinner()  {
   const el = document.getElementById('spinner');
   el.classList.add('hidden');
   el.classList.remove('show-flex');
+}
+
+function toAbsoluteUrl(url) {
+  if (!url) return url;
+  try {
+    return new URL(url, `${API_BASE}/`).toString();
+  } catch {
+    return url;
+  }
+}
+
+function syncResultPreview() {
+  const resultContainer = document.getElementById(QR_PREVIEW_RESULT_ID);
+  if (!resultContainer) return;
+  resultContainer.innerHTML = '';
+  if (!qrCustomizer || !qrCustomizer.canvas) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = qrCustomizer.canvas.width;
+  canvas.height = qrCustomizer.canvas.height;
+  canvas.style.maxWidth = '100%';
+  canvas.style.height = 'auto';
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  ctx.drawImage(qrCustomizer.canvas, 0, 0);
+  resultContainer.appendChild(canvas);
 }
 
 // ─── File Upload Handling ─────────────────────────────────────────────────────
@@ -152,7 +180,7 @@ async function runTool() {
       }
       
       const uploadResult = await uploadResponse.json();
-      menuUrl = uploadResult.url;
+      menuUrl = toAbsoluteUrl(uploadResult.url);
     } else {
       menuUrl = `https://infoweb.api.sousadev.com/menu/${encodeURIComponent(restaurantName.toLowerCase().replace(/\s+/g, '-'))}`;
     }
@@ -160,9 +188,9 @@ async function runTool() {
     // Generate QR with customizer
     if (!qrCustomizer) {
       qrCustomizer = new QRCustomizer({
-        container: '#qr-preview',
+        container: QR_PREVIEW_LIVE_SELECTOR,
         defaultText: menuUrl,
-        onChange: (config) => console.log('QR updated:', config)
+        onChange: () => syncResultPreview()
       });
     }
     
@@ -204,14 +232,19 @@ function renderResult(smartQR) {
   smartqrInfo.classList.remove('hidden');
   
   const shortUrlEl = document.getElementById('smartqr-short-url');
-  shortUrlEl.textContent = smartQR.short_url;
-  shortUrlEl.href = smartQR.short_url;
+  const shortUrl = smartQR.slug
+    ? `${API_BASE}/q/${smartQR.slug}`
+    : toAbsoluteUrl(smartQR.short_url || '');
+  smartQR.short_url = shortUrl;
+  shortUrlEl.textContent = shortUrl;
+  shortUrlEl.href = shortUrl;
   
   const manageEl = document.getElementById('smartqr-manage-url');
   manageEl.href = smartQR.manage_url;
 
   // Show result
   show('result-box');
+  syncResultPreview();
   document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   if (typeof window.trackEvent === 'function') {
@@ -288,8 +321,9 @@ function resetTool() {
 // ─── Initialize QR Customizer on load ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   qrCustomizer = new QRCustomizer({
-    container: '#qr-preview',
+    container: QR_PREVIEW_LIVE_SELECTOR,
     defaultText: 'https://infoweb.api.sousadev.com/free-tools/qr-example/',
-    onChange: (config) => console.log('QR config:', config)
+    onChange: () => syncResultPreview()
   });
+  syncResultPreview();
 });
