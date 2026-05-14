@@ -18,7 +18,7 @@
   <meta property="og:url" content="https://infoweb.sousadev.com/free-tools/google-review-generator/" />
   <meta property="og:title" content="Free Google Review Link Generator — InfoWeb" />
   <meta property="og:description" content="Create a direct Google review link for your business in seconds. Get more 5-star reviews with one click." />
-  <meta property="og:image" content="https://infoweb.sousadev.com/free-tools/google-review-generator/og-image.png" />
+  <meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_GB" />
@@ -27,7 +27,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free Google Review Link Generator — InfoWeb" />
   <meta name="twitter:description" content="Create a direct Google review link for your business in seconds. Get more 5-star reviews with one click." />
-  <meta name="twitter:image" content="https://infoweb.sousadev.com/free-tools/google-review-generator/og-image.png" />
+  <meta name="twitter:image" content="https://infoweb.sousadev.com/assets/images/og-image.png" />
 
   <!-- STRUCTURED DATA -->
   <script type="application/ld+json">
@@ -75,7 +75,7 @@
   <link rel="stylesheet" href="../../assets/css/free-tools-shared.css" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) — GA4 measurement ID (same as site root index.html) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -128,8 +128,7 @@
         <div>
           <label for="business-name" class="block text-sm font-semibold text-slate-300 mb-2">Business Name</label>
           <input id="business-name" type="text" placeholder="e.g., Casa da Comida"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
-            oninput="updatePreview()" />
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all" />
         </div>
 
         <!-- Place ID -->
@@ -141,19 +140,20 @@
           <input id="place-id" type="text" placeholder="ChIJ..."
             class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all" />
           <p class="text-xs text-slate-500 mt-1.5">
-            <a href="https://developers.google.com/maps/documentation/places/web-service/place-id" target="_blank" class="text-green-400 hover:text-green-300 underline">Find your Place ID</a> or leave blank for a search link
+            <a href="https://developers.google.com/maps/documentation/places/web-service/place-id" target="_blank" class="text-green-400 hover:text-green-300 underline">Find your Place ID</a> or leave blank for a Google Maps search link
           </p>
         </div>
 
         <!-- Review Message -->
         <div>
           <label for="review-message" class="block text-sm font-semibold text-slate-300 mb-2">
-            Suggested Review Text
-            <span class="font-normal text-slate-500 ml-1">(optional)</span>
+            Suggested review text
+            <span class="font-normal text-slate-500 ml-1">(optional — copy yourself; not added to the link)</span>
           </label>
           <textarea id="review-message" rows="3" placeholder="Great service! Highly recommended."
             maxlength="500"
             class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition-all"></textarea>
+          <p class="text-xs text-slate-500 mt-1.5">Google does not support prefilled review text in URLs. After the review page opens, paste this text (or use Copy suggested text in your results).</p>
           <p class="text-xs text-slate-500 mt-1 text-right">
             <span id="char-count">0</span>/500
           </p>
@@ -209,6 +209,16 @@
               Test link
             </a>
           </div>
+
+          <div id="suggested-copy-wrap" class="hidden mt-4 pt-4 border-t border-slate-700">
+            <p class="text-xs text-slate-400 mb-2">Suggested review (paste after the page opens)</p>
+            <p id="suggested-preview-text" class="text-sm text-slate-300 bg-slate-800 rounded-lg px-3 py-2 mb-3 border border-slate-700 whitespace-pre-wrap break-words"></p>
+            <button type="button" onclick="copySuggestedText()"
+              class="flex items-center gap-2 text-sm border border-slate-600 rounded-lg px-4 py-2 hover:border-blue-400 hover:text-blue-400 text-slate-300 transition-all">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span id="copy-suggested-btn-text">Copy suggested text</span>
+            </button>
+          </div>
         </div>
 
         <!-- QR Code -->
@@ -251,7 +261,7 @@
         </details>
         <details class="bg-slate-900 border border-slate-800 rounded-xl p-4">
           <summary class="font-semibold text-white cursor-pointer">Can I use this without a Place ID?</summary>
-          <p class="text-slate-400 text-sm mt-2">Yes! We'll create a search link that helps customers find your business on Google.</p>
+          <p class="text-slate-400 text-sm mt-2">Without a Place ID we use a Google Maps search link (<code class="text-slate-500">maps/search/?api=1</code>) so customers can pick your listing.</p>
         </details>
         <details class="bg-slate-900 border border-slate-800 rounded-xl p-4">
           <summary class="font-semibold text-white cursor-pointer">How do I get more reviews?</summary>

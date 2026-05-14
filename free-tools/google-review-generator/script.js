@@ -6,7 +6,7 @@
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let reviewLink = '';
-let qrCode = null;
+let suggestedReviewText = '';
 let toolRunStartedAt = 0;
 
 // ─── UI Helpers ───────────────────────────────────────────────────────────────
@@ -43,22 +43,19 @@ async function runTool() {
   hide('error-box');
 
   try {
-    // Generate review link
+    suggestedReviewText = reviewMessage;
+
     if (placeId) {
-      // Direct link with Place ID
-      reviewLink = `https://search.google.com/local/writereview?placeid=${placeId}`;
+      reviewLink =
+        'https://search.google.com/local/writereview?placeid=' +
+        encodeURIComponent(placeId);
     } else {
-      // Search-based link
-      const encodedName = encodeURIComponent(businessName);
-      reviewLink = `https://www.google.com/search?q=${encodedName}+review`;
+      reviewLink =
+        'https://www.google.com/maps/search/?api=1&query=' +
+        encodeURIComponent(businessName);
     }
 
-    // Add review message if provided
-    if (reviewMessage) {
-      reviewLink += `&review=${encodeURIComponent(reviewMessage)}`;
-    }
-
-    renderResult(businessName);
+    renderResult();
   } catch (err) {
     console.error('[runTool]', err);
     showFriendlyError();
@@ -67,7 +64,7 @@ async function runTool() {
   }
 }
 
-function renderResult(businessName) {
+function renderResult() {
   // Update link display
   const linkEl = document.getElementById('review-link');
   linkEl.textContent = reviewLink;
@@ -76,43 +73,57 @@ function renderResult(businessName) {
   const testLink = document.getElementById('test-link');
   testLink.href = reviewLink;
 
+  const wrap = document.getElementById('suggested-copy-wrap');
+  const preview = document.getElementById('suggested-preview-text');
+  if (suggestedReviewText) {
+    wrap.classList.remove('hidden');
+    preview.textContent = suggestedReviewText;
+  } else {
+    wrap.classList.add('hidden');
+    preview.textContent = '';
+  }
+
   // Generate QR Code
   const qrContainer = document.getElementById('qr-container');
   qrContainer.innerHTML = '';
 
+  if (typeof qrcode === 'undefined') {
+    console.error('QR library not loaded');
+    showFriendlyError();
+    return;
+  }
+
   try {
-    if (typeof qrcode !== 'undefined') {
-      const qr = qrcode(0, 'H');
-      qr.addData(reviewLink);
-      qr.make();
+    const qr = qrcode(0, 'H');
+    qr.addData(reviewLink);
+    qr.make();
 
-      // Create canvas
-      const canvas = document.createElement('canvas');
-      const size = 220;
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext('2d');
+    const canvas = document.createElement('canvas');
+    const size = 220;
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
 
-      // Draw QR
-      const moduleCount = qr.getModuleCount();
-      const moduleSize = size / moduleCount;
+    const moduleCount = qr.getModuleCount();
+    const moduleSize = size / moduleCount;
 
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, size, size);
 
-      for (let row = 0; row < moduleCount; row++) {
-        for (let col = 0; col < moduleCount; col++) {
-          if (qr.isDark(row, col)) {
-            ctx.fillStyle = '#020617';
-            ctx.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
-          }
+    for (let row = 0; row < moduleCount; row++) {
+      for (let col = 0; col < moduleCount; col++) {
+        if (qr.isDark(row, col)) {
+          ctx.fillStyle = '#020617';
+          ctx.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
         }
       }
-
-      qrContainer.appendChild(canvas);
     }
+
+    qrContainer.appendChild(canvas);
   } catch (e) {
     console.error('QR generation failed:', e);
+    showFriendlyError();
+    return;
   }
 
   // Show result
@@ -129,6 +140,42 @@ function renderResult(businessName) {
 function showFriendlyError() {
   hide('result-box');
   show('error-box');
+}
+
+function copySuggestedText() {
+  if (!suggestedReviewText) return;
+
+  const doFeedback = () => {
+    const el = document.getElementById('copy-suggested-btn-text');
+    if (!el) return;
+    el.textContent = 'Copied!';
+    setTimeout(() => {
+      el.textContent = 'Copy suggested text';
+    }, 2000);
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('suggested_review_copied');
+    }
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(suggestedReviewText).then(doFeedback).catch(() => fallbackCopySuggested(doFeedback));
+  } else {
+    fallbackCopySuggested(doFeedback);
+  }
+}
+
+function fallbackCopySuggested(callback) {
+  const ta = document.createElement('textarea');
+  ta.value = suggestedReviewText;
+  ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try {
+    document.execCommand('copy');
+  } catch (_) {}
+  document.body.removeChild(ta);
+  if (callback) callback();
 }
 
 // ─── Copy Link ────────────────────────────────────────────────────────────────
@@ -190,17 +237,9 @@ function resetTool() {
   document.getElementById('qr-container').innerHTML = '';
 
   reviewLink = '';
+  suggestedReviewText = '';
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ─── Update Preview ───────────────────────────────────────────────────────────
-function updatePreview() {
-  // Preview updates as user types
-  const businessName = document.getElementById('business-name').value.trim();
-  if (businessName && typeof window.trackEvent === 'function') {
-    // Debounced tracking
-  }
 }
 
 // ─── Char Counter ─────────────────────────────────────────────────────────────
