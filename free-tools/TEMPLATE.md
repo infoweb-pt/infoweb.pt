@@ -8,13 +8,14 @@
 
 1. [Concept Brief](#1-concept-brief)
 2. [Folder & File Structure](#2-folder--file-structure)
-3. [SEO & Meta Tags Template](#3-seo--meta-tags-template)
-4. [Technical Requirements](#4-technical-requirements)
-5. [UI / UX Page Structure](#5-ui--ux-page-structure)
-6. [HTML Page Skeleton](#6-html-page-skeleton)
-7. [Marketing Funnel & Conversion](#7-marketing-funnel--conversion)
-8. [Analytics & Tracking](#8-analytics--tracking)
-9. [Launch QA Checklist](#9-launch-qa-checklist)
+3. [Hub listing — `free-tools/index.html` (required)](#3-hub-listing--free-toolsindexhtml-required)
+4. [SEO & Meta Tags Template](#4-seo--meta-tags-template)
+5. [Technical Requirements](#5-technical-requirements)
+6. [UI / UX Page Structure](#6-ui--ux-page-structure)
+7. [HTML Page Skeleton](#7-html-page-skeleton)
+8. [Marketing Funnel & Conversion](#8-marketing-funnel--conversion)
+9. [Analytics & Tracking](#9-analytics--tracking)
+10. [Launch QA Checklist](#10-launch-qa-checklist)
 
 ---
 
@@ -59,7 +60,33 @@ free-tools/
 
 ---
 
-## 3. SEO & Meta Tags Template
+## 3. Hub listing — `free-tools/index.html` (required)
+
+The marketing hub at **`free-tools/index.html`** is the only place visitors discover tools. **Ship is not done until you add a card** for the new slug.
+
+1. Open **`free-tools/index.html`** (same folder as this guide; repo path `free-tools/index.html`).
+2. Inside `<main>`, find the `<ul class="space-y-4">` list.
+3. Add a new `<li>` using the same pattern as existing tools: `href="[slug]/"`, Tailwind card classes, `data-track="tool_card_click"`, and **`data-track-tool_name`** with the slug in **snake_case** (hyphens → underscores), e.g. `whatsapp_qr_generator`.
+
+**Copy-paste template** (replace `[Title]`, `[slug]`, `[snake_slug]`, `[One-line benefit]`):
+
+```html
+<li>
+  <a href="[slug]/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="[snake_slug]">
+    <span class="text-white font-semibold">[Title]</span>
+    <span class="block text-sm text-slate-400 mt-1">[One-line benefit]</span>
+  </a>
+</li>
+```
+
+4. Optionally update the page `<meta name="description">` so it mentions the new tool category.
+5. Keep list order sensible (e.g. newest at bottom, or group by theme — stay consistent with nearby tools).
+
+This step is also repeated in the [Launch QA Checklist](#10-launch-qa-checklist) so it is not missed at release time.
+
+---
+
+## 4. SEO & Meta Tags Template
 
 Copy this `<head>` block into every tool's `index.html`. Replace every `[PLACEHOLDER]`.
 
@@ -152,9 +179,9 @@ Copy this `<head>` block into every tool's `index.html`. Replace every `[PLACEHO
 
 ---
 
-## 4. Technical Requirements
+## 5. Technical Requirements
 
-### 4.1 Environment Constraints (GitHub Pages)
+### 5.1 Environment Constraints (GitHub Pages)
 
 | Rule | Detail |
 |---|---|
@@ -162,16 +189,16 @@ Copy this `<head>` block into every tool's `index.html`. Replace every `[PLACEHO
 | **Client-side first** | All calculations, validations and data transformations happen in the browser. Only reach the Django API when strictly necessary (external data, AI, DB reads). |
 | **No exposed keys** | Sensitive API keys (OpenAI, DB credentials, etc.) live exclusively in the API backend (`api/`). Never in source files on GitHub Pages. |
 | **CORS** | The Django API (`https://infoweb.api.sousadev.com`) must allow browser `fetch()` from your GitHub Pages origin `https://[GITHUB-USER].github.io`. In production set `CORS_ALLOWED_ORIGINS` on the API; avoid `CORS_ALLOW_ALL_ORIGINS` except local dev. |
-| **Paths** | Use **relative** paths for local assets. Use absolute URLs for GitHub-hosted static pages + the Django API (see §4.1b). CDN libraries stay as absolute URLs. |
+| **Paths** | Use **relative** paths for local assets. Use absolute URLs for GitHub-hosted static pages + the Django API (see §5.1b). CDN libraries stay as absolute URLs. |
 
-### 4.1b Django API URL (lead capture)
+### 5.1b Django API URL (lead capture)
 
 - **Production base:** `https://infoweb.api.sousadev.com`
 - **Path pattern:** `https://infoweb.api.sousadev.com/leads/[endpoint]/` — there is **no** `/api` prefix before `leads/`.
 - In each tool's `script.js`, set `API_ENDPOINT` to the **full HTTPS URL above** when shipping to GitHub Pages (browser `fetch` is cross-origin; relative URLs like `/api/...` hit the Pages host, not Django).
 - **Local:** `http://localhost:8001/leads/[endpoint]/` with `python manage.py runserver 8001` from `api/`.
 
-### 4.2 Loading States (Mandatory)
+### 5.2 Loading States (Mandatory)
 
 Any action that triggers an async call **must** show a loading indicator before the result appears.
 
@@ -199,7 +226,7 @@ async function runTool() {
 }
 ```
 
-### 4.3 Error Handling Rules
+### 5.3 Error Handling Rules
 
 - **Never** show raw `console.error` or HTTP status codes to the user.
 - Always display a friendly message: *"Something went wrong. Please try again in a moment."*
@@ -208,7 +235,7 @@ async function runTool() {
 
 ---
 
-## 5. UI / UX Page Structure
+## 6. UI / UX Page Structure
 
 Every tool page follows this exact vertical layout, top to bottom:
 
@@ -261,7 +288,7 @@ Every tool page follows this exact vertical layout, top to bottom:
 
 ---
 
-## 6. HTML Page Skeleton
+## 7. HTML Page Skeleton
 
 Copy this skeleton into `free-tools/[slug]/index.html` and build from here.
 
@@ -269,7 +296,7 @@ Copy this skeleton into `free-tools/[slug]/index.html` and build from here.
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <!-- ▶ Paste the full <head> from Section 3 here ◀ -->
+  <!-- ▶ Paste the full <head> from Section 4 here ◀ -->
 </head>
 <body class="bg-slate-950 text-white font-sans antialiased">
 
@@ -459,14 +486,14 @@ Copy this skeleton into `free-tools/[slug]/index.html` and build from here.
 
 ---
 
-## 7. Marketing Funnel & Conversion
+## 8. Marketing Funnel & Conversion
 
-### 7.1 The 80% Free Value Rule
+### 8.1 The 80% Free Value Rule
 
 Deliver **at least 80% of the promised value with zero friction** (no sign-up, no email, no paywall).  
 Trust is built before you ask for anything. The remaining 20% (e.g. PDF export, advanced options, email report) can be gated.
 
-### 7.2 Gating Options
+### 8.2 Gating Options
 
 | Option | When to use | Implementation |
 |---|---|---|
@@ -490,7 +517,7 @@ Trust is built before you ask for anything. The remaining 20% (e.g. PDF export, 
 </div>
 ```
 
-### 7.3 CTA Formula
+### 8.3 CTA Formula
 
 Place the CTA section **immediately after** the output area, always visible after a result is generated.
 
@@ -498,7 +525,7 @@ Place the CTA section **immediately after** the output area, always visible afte
 > *"Liked how easy that was? Your business website can work just as smoothly."*  
 > **→ [See Website Plans]** `(opens in new tab, with UTM params)`
 
-### 7.4 UTM Link Formula
+### 8.4 UTM Link Formula
 
 All links from a free tool to the main InfoWeb site **must** include UTM parameters:
 
@@ -514,9 +541,9 @@ https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=[SLUG]&utm_campaign
 
 ---
 
-## 8. Analytics & Tracking
+## 9. Analytics & Tracking
 
-### 8.1 Shared bundle (required)
+### 9.1 Shared bundle (required)
 
 Every tool page must load the site-wide **`assets/js/analytics.js`** (relative from the tool folder: `../../assets/js/analytics.js`) **after** the GA4 `gtag` snippet in `<head>`.
 
@@ -530,7 +557,7 @@ That file defines **`window.trackEvent(name, params)`**, auto-fires **`page_view
 
 Do **not** ship a private `trackEvent` implementation in `script.js` — always call `window.trackEvent` so base params stay consistent (`page_path`, `page_location`, `language`, `tool_name` derived from URL slug with `-` → `_`).
 
-### 8.2 Recommended tool events
+### 9.2 Recommended tool events
 
 | Event | When | Params (examples) |
 |---|---|---|
@@ -549,7 +576,7 @@ Do **not** ship a private `trackEvent` implementation in `script.js` — always 
 
 FAQ accordions: use `<details>`; `faq_open` is automatic from `analytics.js`.
 
-### 8.3 Google Analytics tag
+### 9.3 Google Analytics tag
 
 Paste this block in `index.html` `<head>` (before `</head>`). Measurement ID **`G-XXQSMBERJM`**.
 
@@ -572,7 +599,7 @@ See **[GA4 key events (admin)](../docs/GA4-key-events.md)** for which events to 
 
 ---
 
-## 9. Launch QA Checklist
+## 10. Launch QA Checklist
 
 Complete **every item** before pushing to GitHub Pages.
 
@@ -626,7 +653,7 @@ Complete **every item** before pushing to GitHub Pages.
 ### Final
 - [ ] Tool URL works when accessed directly: `https://[GITHUB-USER].github.io/[REPO]/free-tools/[slug]/`
 - [ ] Shared via WhatsApp — preview shows the correct OG image, title and description
-- [ ] Added a link to the new tool in the main `free-tools/` index page (or InfoWeb nav)
+- [ ] Added a link on the hub per **[§3 Hub listing](#3-hub-listing--free-toolsindexhtml-required)** (`free-tools/index.html`) or InfoWeb main nav — do not ship without one of these
 - [ ] Announced via InfoWeb social channels / newsletter
 
 ---
