@@ -33,7 +33,14 @@ class QRCustomizer {
       console.error('QRCustomizer: Container not found');
       return;
     }
-    
+
+    if (typeof qrcode === 'undefined') {
+      console.error(
+        'QRCustomizer: load qrcode-generator (https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js) before qr-customizer.js'
+      );
+      return;
+    }
+
     this.canvas = document.createElement('canvas');
     this.canvas.width = this.config.size;
     this.canvas.height = this.config.size;
@@ -303,12 +310,15 @@ class QRCustomizer {
   }
   
   download(filename = 'qr-code.png') {
+    if (!this.canvas) return;
     const link = document.createElement('a');
     link.download = filename;
     link.href = this.canvas.toDataURL('image/png');
     link.click();
   }
 }
+
+window.QRCustomizer = QRCustomizer;
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = QRCustomizer;
