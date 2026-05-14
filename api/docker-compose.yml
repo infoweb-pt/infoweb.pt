@@ -4,6 +4,7 @@ networks:
 
 volumes:
   postgres_data:
+  media_data:
 
 services:
   db:
@@ -41,6 +42,11 @@ services:
       DB_PORT: 5432
       CORS_ALLOW_ALL_ORIGINS: ${CORS_ALLOW_ALL_ORIGINS:-False}
       CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-}
+      SMARTQR_PUBLIC_BASE_URL: ${SMARTQR_PUBLIC_BASE_URL:-}
+      SMARTQR_FRONTEND_MANAGE_URL: ${SMARTQR_FRONTEND_MANAGE_URL:-}
+      SMARTQR_SHORT_LINK_PREFIX: ${SMARTQR_SHORT_LINK_PREFIX:-smartqr/q}
+    volumes:
+      - media_data:/app/media
     ports:
       - "8123:8000"
     depends_on:
