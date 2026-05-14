@@ -52,39 +52,43 @@ async function runTool() {
     const qrContainer = document.getElementById('qr-container');
     qrContainer.innerHTML = '';
 
+    if (typeof qrcode === 'undefined') {
+      console.error('QR library not loaded');
+      showFriendlyError();
+      return;
+    }
+
     try {
-      if (typeof qrcode !== 'undefined') {
-        const qr = qrcode(0, 'H');
-        qr.addData(vCardData);
-        qr.make();
+      const qr = qrcode(0, 'H');
+      qr.addData(vCardData);
+      qr.make();
 
-        // Create canvas
-        const canvas = document.createElement('canvas');
-        const size = 220;
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d');
+      const canvas = document.createElement('canvas');
+      const size = 220;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
 
-        // Draw QR
-        const moduleCount = qr.getModuleCount();
-        const moduleSize = size / moduleCount;
+      const moduleCount = qr.getModuleCount();
+      const moduleSize = size / moduleCount;
 
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
 
-        for (let row = 0; row < moduleCount; row++) {
-          for (let col = 0; col < moduleCount; col++) {
-            if (qr.isDark(row, col)) {
-              ctx.fillStyle = '#020617';
-              ctx.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
-            }
+      for (let row = 0; row < moduleCount; row++) {
+        for (let col = 0; col < moduleCount; col++) {
+          if (qr.isDark(row, col)) {
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
           }
         }
-
-        qrContainer.appendChild(canvas);
       }
+
+      qrContainer.appendChild(canvas);
     } catch (e) {
       console.error('QR generation failed:', e);
+      showFriendlyError();
+      return;
     }
 
     renderResult({ name, title, company, phone, email, website });
@@ -96,28 +100,40 @@ async function runTool() {
   }
 }
 
+/** RFC 2426 / vCard 3.0 value escaping */
+function escapeVCardValue(value) {
+  return String(value)
+    .replace(/\r/g, '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\n/g, '\\n')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,');
+}
+
 function generateVCard(data) {
-  let vCard = 'BEGIN:VCARD\n';
-  vCard += 'VERSION:3.0\n';
-  vCard += `FN:${data.name}\n`;
-  vCard += `N:${data.name};;;\n`;
-  
+  const e = escapeVCardValue;
+  const nl = '\r\n';
+  let vCard = 'BEGIN:VCARD' + nl;
+  vCard += 'VERSION:3.0' + nl;
+  vCard += 'FN:' + e(data.name) + nl;
+  vCard += 'N:' + e(data.name) + ';;;;' + nl;
+
   if (data.title) {
-    vCard += `TITLE:${data.title}\n`;
+    vCard += 'TITLE:' + e(data.title) + nl;
   }
   if (data.company) {
-    vCard += `ORG:${data.company}\n`;
+    vCard += 'ORG:' + e(data.company) + nl;
   }
   if (data.phone) {
-    vCard += `TEL:${data.phone}\n`;
+    vCard += 'TEL:' + e(data.phone) + nl;
   }
   if (data.email) {
-    vCard += `EMAIL:${data.email}\n`;
+    vCard += 'EMAIL:' + e(data.email) + nl;
   }
   if (data.website) {
-    vCard += `URL:${data.website}\n`;
+    vCard += 'URL:' + e(data.website) + nl;
   }
-  
+
   vCard += 'END:VCARD';
   return vCard;
 }
@@ -166,7 +182,7 @@ function downloadQR() {
 function downloadVCard() {
   if (!vCardData) return;
 
-  const blob = new Blob([vCardData], { type: 'text/vcard' });
+  const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
