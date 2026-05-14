@@ -1,0 +1,219 @@
+/**
+ * Digital Business Card QR Generator
+ */
+
+'use strict';
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let vCardData = null;
+let toolRunStartedAt = 0;
+
+// ─── UI Helpers ───────────────────────────────────────────────────────────────
+function show(id)   { document.getElementById(id).classList.remove('hidden'); }
+function hide(id)   { document.getElementById(id).classList.add('hidden'); }
+function showFlex(id) {
+  const el = document.getElementById(id);
+  el.classList.remove('hidden');
+  el.classList.add('show-flex');
+}
+function hideFlex(id) {
+  const el = document.getElementById(id);
+  el.classList.add('hidden');
+  el.classList.remove('show-flex');
+}
+
+// ─── Main Tool Logic ──────────────────────────────────────────────────────────
+async function runTool() {
+  const name = document.getElementById('card-name').value.trim();
+  const title = document.getElementById('card-title').value.trim();
+  const company = document.getElementById('card-company').value.trim();
+  const phone = document.getElementById('card-phone').value.trim();
+  const email = document.getElementById('card-email').value.trim();
+  const website = document.getElementById('card-website').value.trim();
+
+  if (!name) {
+    alert('Please enter your name.');
+    document.getElementById('card-name').focus();
+    return;
+  }
+
+  toolRunStartedAt = performance.now();
+  if (typeof window.trackEvent === 'function') window.trackEvent('tool_used');
+
+  showFlex('spinner');
+  hide('result-box');
+  hide('error-box');
+
+  try {
+    // Generate vCard data
+    vCardData = generateVCard({ name, title, company, phone, email, website });
+
+    // Generate QR Code
+    const qrContainer = document.getElementById('qr-container');
+    qrContainer.innerHTML = '';
+
+    if (typeof qrcode === 'undefined') {
+      console.error('QR library not loaded');
+      showFriendlyError();
+      return;
+    }
+
+    try {
+      const qr = qrcode(0, 'H');
+      qr.addData(vCardData);
+      qr.make();
+
+      const canvas = document.createElement('canvas');
+      const size = 220;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      const moduleCount = qr.getModuleCount();
+      const moduleSize = size / moduleCount;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
+
+      for (let row = 0; row < moduleCount; row++) {
+        for (let col = 0; col < moduleCount; col++) {
+          if (qr.isDark(row, col)) {
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
+          }
+        }
+      }
+
+      qrContainer.appendChild(canvas);
+    } catch (e) {
+      console.error('QR generation failed:', e);
+      showFriendlyError();
+      return;
+    }
+
+    renderResult({ name, title, company, phone, email, website });
+  } catch (err) {
+    console.error('[runTool]', err);
+    showFriendlyError();
+  } finally {
+    hideFlex('spinner');
+  }
+}
+
+/** RFC 2426 / vCard 3.0 value escaping */
+function escapeVCardValue(value) {
+  return String(value)
+    .replace(/\r/g, '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\n/g, '\\n')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,');
+}
+
+function generateVCard(data) {
+  const e = escapeVCardValue;
+  const nl = '\r\n';
+  let vCard = 'BEGIN:VCARD' + nl;
+  vCard += 'VERSION:3.0' + nl;
+  vCard += 'FN:' + e(data.name) + nl;
+  vCard += 'N:' + e(data.name) + ';;;;' + nl;
+
+  if (data.title) {
+    vCard += 'TITLE:' + e(data.title) + nl;
+  }
+  if (data.company) {
+    vCard += 'ORG:' + e(data.company) + nl;
+  }
+  if (data.phone) {
+    vCard += 'TEL:' + e(data.phone) + nl;
+  }
+  if (data.email) {
+    vCard += 'EMAIL:' + e(data.email) + nl;
+  }
+  if (data.website) {
+    vCard += 'URL:' + e(data.website) + nl;
+  }
+
+  vCard += 'END:VCARD';
+  return vCard;
+}
+
+function renderResult(data) {
+  // Update preview
+  document.getElementById('preview-name').textContent = data.name;
+  document.getElementById('preview-title').textContent = data.title || '';
+  document.getElementById('preview-company').textContent = data.company || '';
+  document.getElementById('preview-phone').textContent = data.phone ? `📞 ${data.phone}` : '';
+  document.getElementById('preview-email').textContent = data.email ? `✉️ ${data.email}` : '';
+  document.getElementById('preview-website').textContent = data.website ? `🌐 ${data.website}` : '';
+
+  // Show result
+  show('result-box');
+  document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('tool_result_shown', {
+      duration_ms: Math.round(performance.now() - toolRunStartedAt)
+    });
+  }
+}
+
+function showFriendlyError() {
+  hide('result-box');
+  show('error-box');
+}
+
+// ─── Download QR ──────────────────────────────────────────────────────────────
+function downloadQR() {
+  const canvas = document.querySelector('#qr-container canvas');
+  if (!canvas) return;
+
+  const link = document.createElement('a');
+  link.download = 'business-card-qr.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('qr_downloaded');
+  }
+}
+
+// ─── Download vCard ───────────────────────────────────────────────────────────
+function downloadVCard() {
+  if (!vCardData) return;
+
+  const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'contact.vcf';
+  link.click();
+  URL.revokeObjectURL(url);
+
+  if (typeof window.trackEvent === 'function') {
+    window.trackEvent('vcard_downloaded');
+  }
+}
+
+// ─── Reset ────────────────────────────────────────────────────────────────────
+function resetTool() {
+  hide('result-box');
+  hide('error-box');
+
+  document.getElementById('card-name').value = '';
+  document.getElementById('card-title').value = '';
+  document.getElementById('card-company').value = '';
+  document.getElementById('card-phone').value = '';
+  document.getElementById('card-email').value = '';
+  document.getElementById('card-website').value = '';
+  document.getElementById('qr-container').innerHTML = '';
+
+  vCardData = null;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── Initialize ───────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize
+});
