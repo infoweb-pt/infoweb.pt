@@ -26,6 +26,7 @@ from .utils import (
     generate_slug,
     hash_ip,
     hash_manage_token,
+    short_link_url_for_slug,
 )
 
 
@@ -69,9 +70,8 @@ class SmartQRCodeListCreateView(APIView):
         if code is None:
             return Response({'detail': 'Could not generate unique slug.'}, status=500)
 
-        public_base = settings.SMARTQR_PUBLIC_BASE_URL
         manage_base = settings.SMARTQR_FRONTEND_MANAGE_URL
-        short_url = f'{public_base}/q/{code.slug}'
+        short_url = short_link_url_for_slug(code.slug)
         manage_url = f'{manage_base}?slug={code.slug}&token={raw_manage_token}'
 
         return Response(

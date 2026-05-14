@@ -6,6 +6,7 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 
 from smartqr.models import SmartQRCode
+from smartqr.utils import short_link_url_for_slug
 
 
 class SmartQRPngTests(TestCase):
@@ -26,6 +27,11 @@ class SmartQRPngTests(TestCase):
         self.assertEqual(response['Cache-Control'], 'public, max-age=31536000, immutable')
         self.assertTrue(response.content.startswith(b'\x89PNG\r\n\x1a\n'))
 
+    def test_png_via_smartqr_q_prefix(self):
+        response = self.client.get('/smartqr/q/Ax9k2P.png?size=512&ec=M')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'image/png')
+
     def test_png_size_is_clamped(self):
         low = self.client.get('/q/Ax9k2P.png?size=64')
         high = self.client.get('/q/Ax9k2P.png?size=2048')
@@ -38,4 +44,4 @@ class SmartQRPngTests(TestCase):
         with patch('smartqr.public_views.qrcode.QRCode.add_data') as add_data:
             response = self.client.get('/q/Ax9k2P.png?size=512&ec=M')
         self.assertEqual(response.status_code, 200)
-        add_data.assert_called_once_with('https://infoweb.sousadev.com/q/Ax9k2P')
+        add_data.assert_called_once_with(short_link_url_for_slug('Ax9k2P'))

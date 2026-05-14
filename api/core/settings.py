@@ -116,6 +116,9 @@ SMARTQR_FRONTEND_MANAGE_URL = config(
     'SMARTQR_FRONTEND_MANAGE_URL',
     default='https://infoweb.sousadev.com/free-tools/qr-manage',
 ).rstrip('/')
+# Path segment(s) between SMARTQR_PUBLIC_BASE_URL and the slug, e.g. "q" -> /q/<slug>,
+# "smartqr/q" -> /smartqr/q/<slug> (works when only /smartqr/* is routed to the API).
+SMARTQR_SHORT_LINK_PREFIX = config('SMARTQR_SHORT_LINK_PREFIX', default='smartqr/q').strip().strip('/')
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
 # Allow all origins in development.

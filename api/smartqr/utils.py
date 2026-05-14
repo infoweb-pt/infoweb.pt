@@ -72,6 +72,15 @@ def parse_user_agent(user_agent_raw):
     }
 
 
+def short_link_url_for_slug(slug):
+    """Public URL encoded in printed QR codes and used by the redirect + PNG endpoints."""
+    base = settings.SMARTQR_PUBLIC_BASE_URL.rstrip('/')
+    prefix = settings.SMARTQR_SHORT_LINK_PREFIX.strip().strip('/')
+    if not prefix:
+        return f'{base}/{slug}'
+    return f'{base}/{prefix}/{slug}'
+
+
 def validate_target_url(url):
     parsed = urlparse(url or '')
     if len(url or '') > 2048:

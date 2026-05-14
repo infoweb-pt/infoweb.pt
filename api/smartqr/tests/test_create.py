@@ -2,7 +2,7 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 
 from smartqr.models import SmartQRCode
-from smartqr.utils import check_manage_token
+from smartqr.utils import check_manage_token, short_link_url_for_slug
 
 
 class SmartQRCodeCreateEndpointTests(TestCase):
@@ -25,7 +25,7 @@ class SmartQRCodeCreateEndpointTests(TestCase):
         self.assertIn('manage_url', body)
         self.assertIn('manage_token', body)
         self.assertIn('qr_png_url', body)
-        self.assertTrue(body['short_url'].endswith(f"/q/{body['slug']}"))
+        self.assertEqual(body['short_url'], short_link_url_for_slug(body['slug']))
 
         code = SmartQRCode.objects.get(slug=body['slug'])
         self.assertNotEqual(body['manage_token'], code.manage_token_hash)

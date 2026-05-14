@@ -9,6 +9,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('leads/', include('leads.urls')),
     path('q/', include('smartqr.public_urls')),
+    # Same redirect/PNG handlers under /smartqr/q/ for reverse proxies that only forward /smartqr/*.
+    path('smartqr/q/', include('smartqr.public_urls')),
     path('smartqr/', include('smartqr.urls')),
     path('upload/', FileUploadView.as_view(), name='file-upload'),
 ]

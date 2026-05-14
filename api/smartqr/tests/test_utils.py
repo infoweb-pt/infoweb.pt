@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from rest_framework import serializers
 
 from smartqr.utils import (
@@ -11,6 +11,7 @@ from smartqr.utils import (
     hash_manage_token,
     parse_user_agent,
     validate_target_url,
+    short_link_url_for_slug,
 )
 
 
@@ -52,6 +53,14 @@ class SmartQRUtilsTests(TestCase):
         ua = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
         parsed = parse_user_agent(ua)
         self.assertTrue(parsed['is_bot'])
+
+    def test_short_link_url_for_slug_default_prefix(self):
+        url = short_link_url_for_slug('Ab12cd')
+        self.assertTrue(url.endswith('/smartqr/q/Ab12cd'))
+
+    @override_settings(SMARTQR_PUBLIC_BASE_URL='https://api.example', SMARTQR_SHORT_LINK_PREFIX='q')
+    def test_short_link_url_for_slug_custom_prefix(self):
+        self.assertEqual(short_link_url_for_slug('Xy9'), 'https://api.example/q/Xy9')
 
     def test_validate_target_url_accepts_allowed_schemes(self):
         for url in [

@@ -2,7 +2,6 @@ import logging
 from io import BytesIO
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
-from django.conf import settings
 from django.core.cache import cache
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
@@ -13,7 +12,7 @@ import qrcode
 from qrcode.constants import ERROR_CORRECT_H, ERROR_CORRECT_L, ERROR_CORRECT_M, ERROR_CORRECT_Q
 
 from .models import SmartQRCode, SmartQRScan
-from .utils import client_ip, hash_ip, parse_user_agent
+from .utils import client_ip, hash_ip, parse_user_agent, short_link_url_for_slug
 
 logger = logging.getLogger(__name__)
 SLUG_CACHE_TTL_SECONDS = 60
@@ -139,7 +138,7 @@ class QRCodePngView(View):
             box_size=10,
             border=2,
         )
-        qr.add_data(f'{settings.SMARTQR_PUBLIC_BASE_URL}/q/{code.slug}')
+        qr.add_data(short_link_url_for_slug(code.slug))
         qr.make(fit=True)
         image = qr.make_image(fill_color='black', back_color='white').convert('RGB')
         image = image.resize((size, size))

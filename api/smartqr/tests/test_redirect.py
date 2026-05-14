@@ -60,6 +60,12 @@ class SmartQRRedirectTests(TestCase):
         scan = SmartQRScan.objects.get(code=self.code)
         self.assertTrue(scan.is_bot)
 
+    def test_redirect_smartqr_q_prefix_matches_short_link(self):
+        with self.captureOnCommitCallbacks(execute=True):
+            response = self.client.get('/smartqr/q/Ax9k2P', REMOTE_ADDR='203.0.113.10')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['Location'], 'https://example.com/landing?foo=bar')
+
     def test_inactive_code_returns_200_and_no_scan(self):
         self.code.is_active = False
         self.code.save(update_fields=['is_active'])
