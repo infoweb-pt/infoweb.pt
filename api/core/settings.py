@@ -110,7 +110,7 @@ SMARTQR_IP_HASH_SECRET = config('SMARTQR_IP_HASH_SECRET', default=SECRET_KEY)
 SMARTQR_DAILY_SALT_SECRET = config('SMARTQR_DAILY_SALT_SECRET', default=SECRET_KEY)
 SMARTQR_PUBLIC_BASE_URL = config(
     'SMARTQR_PUBLIC_BASE_URL',
-    default='https://infoweb.sousadev.com',
+    default='https://infoweb.api.sousadev.com',
 ).rstrip('/')
 SMARTQR_FRONTEND_MANAGE_URL = config(
     'SMARTQR_FRONTEND_MANAGE_URL',
