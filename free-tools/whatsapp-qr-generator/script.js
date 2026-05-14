@@ -99,7 +99,7 @@ function handleLogoUpload(input) {
       uploadedLogo = img;
       document.getElementById('logo-label').textContent = file.name;
       if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.2);
+        qrCustomizer.setLogo(img, 0.16);
       }
     };
     img.src = e.target.result;

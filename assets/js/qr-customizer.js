@@ -212,8 +212,30 @@ class QRCustomizer {
     
     // Draw logo if present
     if (logo && logo.image) {
-      await this.drawLogo(size, logo);
+      const safeLogoSize = this.computeSafeLogoSize(logo.size, moduleCount, moduleSize, size);
+      await this.drawLogo(size, logo, safeLogoSize, moduleSize);
     }
+  }
+
+  computeSafeLogoSize(requestedSize, moduleCount, moduleSize, canvasSize) {
+    const requested = Math.max(0.08, Math.min(0.24, Number(requestedSize) || 0.16));
+    let maxByDensity = 0.18;
+    if (moduleCount >= 45) {
+      maxByDensity = 0.11;
+    } else if (moduleCount >= 41) {
+      maxByDensity = 0.12;
+    } else if (moduleCount >= 37) {
+      maxByDensity = 0.14;
+    } else if (moduleCount >= 33) {
+      maxByDensity = 0.16;
+    }
+
+    const cappedRatio = Math.min(requested, maxByDensity);
+    const rawModules = (cappedRatio * canvasSize) / moduleSize;
+    const logoModules = Math.max(7, Math.floor(rawModules));
+    const snappedSizePx = logoModules * moduleSize;
+    const snappedRatio = snappedSizePx / canvasSize;
+    return Math.max(0.08, Math.min(snappedRatio, maxByDensity));
   }
   
   isCornerFinder(moduleCount, row, col) {
@@ -258,16 +280,23 @@ class QRCustomizer {
     this.ctx.fill();
   }
   
-  async drawLogo(canvasSize, logo) {
+  async drawLogo(canvasSize, logo, safeLogoSizeRatio, moduleSize) {
     return new Promise((resolve) => {
-      const logoSize = canvasSize * logo.size;
+      const logoSize = canvasSize * safeLogoSizeRatio;
       const x = (canvasSize - logoSize) / 2;
       const y = (canvasSize - logoSize) / 2;
+      const padding = Math.max(4, moduleSize * 1.25);
       
       // White background for logo
       this.ctx.fillStyle = this.config.colorLight;
       this.ctx.beginPath();
-      this.roundRect(x - 4, y - 4, logoSize + 8, logoSize + 8, 8);
+      this.roundRect(
+        x - padding,
+        y - padding,
+        logoSize + padding * 2,
+        logoSize + padding * 2,
+        Math.max(8, padding * 1.2)
+      );
       this.ctx.fill();
       
       // Draw logo image
