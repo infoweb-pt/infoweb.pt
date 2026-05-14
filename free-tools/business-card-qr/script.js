@@ -11,6 +11,7 @@ const SAMPLE_VCARD =
 let vCardData = null;
 let toolRunStartedAt = 0;
 let qrCustomizer = null;
+let uploadedLogo = null;
 
 // ─── UI Helpers ───────────────────────────────────────────────────────────────
 function show(id) {
