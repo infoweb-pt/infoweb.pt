@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Free Markup vs Margin Calculator — InfoWeb</title>
+  <meta name="description"
+    content="Convert between markup % and margin %, or set a target margin and get your selling price from cost. Free calculator for shops, restaurants and freelancers." />
+  <meta name="keywords"
+    content="markup vs margin calculator, margin calculator, markup calculator, gross margin formula, pricing calculator small business, InfoWeb" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="InfoWeb by Sousa Dev" />
+  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/markup-margin-calculator/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="InfoWeb" />
+  <meta property="og:url" content="https://hc-sousa.github.io/infoweb/free-tools/markup-margin-calculator/" />
+  <meta property="og:title" content="Free Markup vs Margin Calculator — InfoWeb" />
+  <meta property="og:description"
+    content="Turn cost + margin (or markup) into selling price. See both percentages side by side — free, in your browser." />
+  <meta property="og:image" content="https://hc-sousa.github.io/infoweb/free-tools/markup-margin-calculator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_GB" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Markup vs Margin Calculator — InfoWeb" />
+  <meta name="twitter:description"
+    content="Turn cost + margin (or markup) into selling price. See both percentages side by side." />
+  <meta name="twitter:image" content="https://hc-sousa.github.io/infoweb/free-tools/markup-margin-calculator/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Markup vs Margin Calculator",
+    "url": "https://hc-sousa.github.io/infoweb/free-tools/markup-margin-calculator/",
+    "description": "Convert between markup % and margin %, or set a target margin and get your selling price from cost.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "InfoWeb",
+      "url": "https://infoweb.sousadev.com"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../../favicon_io/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="../../favicon_io/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui'] },
+          colors: { ink: '#020617', signal: '#d7b46a' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-XXQSMBERJM");
+  </script>
+  <script src="../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+
+  <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/60">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=markup_margin_calculator&utm_campaign=header"
+         target="_blank" rel="noopener" aria-label="InfoWeb homepage">
+        <img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
+      </a>
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=markup_margin_calculator&utm_campaign=header_btn#pricing"
+         target="_blank" rel="noopener"
+         class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition-all"
+         data-track="header_cta_click">
+        See Website Plans
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-12">
+
+    <section class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-400 mb-5">
+        Free · no sign-up
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4 text-white">
+        Markup vs Margin Calculator
+      </h1>
+      <p class="text-slate-400 text-lg leading-relaxed">
+        <strong class="text-slate-300">Margin</strong> is profit ÷ selling price.
+        <strong class="text-slate-300">Markup</strong> is profit ÷ cost.
+        Use this to price products, menus or services without mixing them up.
+      </p>
+    </section>
+
+    <section aria-labelledby="tool-input-heading" class="mb-6">
+      <h2 id="tool-input-heading" class="sr-only">Inputs</h2>
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+
+        <fieldset>
+          <legend class="block text-sm font-semibold text-slate-300 mb-3">What do you know?</legend>
+          <div class="space-y-2">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="radio" name="mm-mode" value="margin" checked class="mt-1 text-amber-500 focus:ring-amber-500" />
+              <span><span class="font-semibold text-white">Target margin %</span>
+                <span class="block text-slate-500 text-sm">I have cost and the margin I want on the sale.</span></span>
+            </label>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="radio" name="mm-mode" value="markup" class="mt-1 text-amber-500 focus:ring-amber-500" />
+              <span><span class="font-semibold text-white">Markup % on cost</span>
+                <span class="block text-slate-500 text-sm">I add a percentage on top of my cost.</span></span>
+            </label>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="radio" name="mm-mode" value="price" class="mt-1 text-amber-500 focus:ring-amber-500" />
+              <span><span class="font-semibold text-white">Selling price</span>
+                <span class="block text-slate-500 text-sm">I already know what I charge — show me margin and markup.</span></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="mm-cost" class="block text-sm font-semibold text-slate-300 mb-2">Cost (€)</label>
+          <input id="mm-cost" type="text" inputmode="decimal" placeholder="e.g. 10 or 10,50"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-lg placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          <p id="err-cost" class="text-xs text-red-400 mt-1 hidden" role="alert">Enter a cost greater than zero.</p>
+        </div>
+
+        <div>
+          <label for="mm-second" id="label-second" class="block text-sm font-semibold text-slate-300 mb-2">Target margin (%)</label>
+          <input id="mm-second" type="text" inputmode="decimal" placeholder="e.g. 40"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-lg placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          <p id="second-field-hint" class="text-xs text-slate-500 mt-1.5"></p>
+          <p id="err-second" class="text-xs text-red-400 mt-1 hidden" role="alert"></p>
+        </div>
+
+        <button type="button" onclick="runCalculate()"
+          class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl px-6 py-4 transition focus:outline-none focus:ring-2 focus:ring-amber-300">
+          Calculate
+        </button>
+      </div>
+    </section>
+
+    <section aria-labelledby="tool-output-heading" class="mb-10" id="output-section">
+      <h2 id="tool-output-heading" class="sr-only">Results</h2>
+      <div id="result-panel" class="hidden bg-slate-900 border border-amber-500/30 rounded-2xl p-6 space-y-4">
+        <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Results</p>
+        <div class="grid gap-3 text-sm">
+          <div class="flex justify-between items-center bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400">Cost</span>
+            <span class="font-mono font-semibold"><span id="out-cost"></span>
+              <button type="button" onclick="copyText('out-cost')" class="ml-2 text-xs text-amber-400 hover:underline">Copy</button></span>
+          </div>
+          <div class="flex justify-between items-center bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400">Selling price</span>
+            <span class="font-mono font-semibold"><span id="out-price"></span>
+              <button type="button" onclick="copyText('out-price')" class="ml-2 text-xs text-amber-400 hover:underline">Copy</button></span>
+          </div>
+          <div class="flex justify-between items-center bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400">Gross profit</span>
+            <span class="font-mono font-semibold"><span id="out-profit"></span>
+              <button type="button" onclick="copyText('out-profit')" class="ml-2 text-xs text-amber-400 hover:underline">Copy</button></span>
+          </div>
+          <div class="flex justify-between items-center bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400">Margin (of price)</span>
+            <span class="font-mono font-semibold text-amber-300"><span id="out-margin"></span></span>
+          </div>
+          <div class="flex justify-between items-center bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400">Markup (on cost)</span>
+            <span class="font-mono font-semibold text-amber-300"><span id="out-markup"></span></span>
+          </div>
+        </div>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          <strong class="text-slate-400">Margin</strong> = (price − cost) ÷ price.
+          <strong class="text-slate-400">Markup</strong> = (price − cost) ÷ cost.
+        </p>
+      </div>
+    </section>
+
+    <section aria-label="Call to action" class="mb-12 text-center bg-slate-900 rounded-2xl p-8 border border-slate-800">
+      <h2 class="text-2xl font-bold mb-3">Need a site that explains your pricing clearly?</h2>
+      <p class="text-slate-400 mb-6 text-sm">InfoWeb builds simple, fast websites for local businesses — flat monthly fee.</p>
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=markup_margin_calculator&utm_campaign=cta#pricing"
+         target="_blank" rel="noopener"
+         class="inline-block bg-white text-slate-950 font-bold rounded-full px-8 py-3 hover:bg-slate-200 transition"
+         data-track="cta_click" data-track-location="markup_margin_calculator">
+        See Website Plans →
+      </a>
+    </section>
+
+    <section aria-labelledby="faq-heading" class="mb-12">
+      <h2 id="faq-heading" class="text-2xl font-bold mb-6">Frequently asked questions</h2>
+
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          What is the difference between markup and margin?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          Both compare profit to something else. Markup compares profit to your cost. Margin compares profit to the final selling price. A 50% markup is not the same as a 50% margin.
+        </p>
+      </details>
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          How do I get a selling price from a target margin?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          Choose “Target margin %”, enter your cost and desired margin. We compute price as cost ÷ (1 − margin), which is the standard gross-margin pricing formula.
+        </p>
+      </details>
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          Does this include VAT or taxes?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          No — enter cost and price consistently (both excluding VAT or both including VAT). For Portuguese IVA math, use our <a href="../vat-calculator-pt/" class="text-amber-400 underline hover:text-amber-300">IVA calculator (Portugal)</a>.
+        </p>
+      </details>
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          Is this financial advice?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          This is a quick educational calculator. For tax, payroll and formal accounts, speak to a qualified accountant.
+        </p>
+      </details>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between markup and margin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Markup compares profit to your cost. Margin compares profit to the final selling price. A 50% markup is not the same as a 50% margin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get a selling price from a target margin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enter your cost and desired margin. Price equals cost divided by (1 minus margin), the standard gross-margin pricing formula."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this include VAT or taxes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enter cost and price consistently (both excluding VAT or both including VAT). For Portuguese IVA use our IVA calculator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this financial advice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This is an educational calculator only. For formal accounts speak to a qualified accountant."
+            }
+          }
+        ]
+      }
+      </script>
+    </section>
+
+    <section class="text-center text-slate-500 text-sm mb-8">
+      <p>Built by <a href="https://infoweb.sousadev.com" class="underline hover:text-white" target="_blank" rel="noopener">InfoWeb</a></p>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-6">
+    <div class="max-w-2xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-600">
+      <span>© <span id="year"></span> InfoWeb by Sousa Dev</span>
+      <nav class="flex gap-4">
+        <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener" class="hover:text-white transition">Main site</a>
+        <a href="../" class="hover:text-white transition" data-track="back_to_tools_click">All free tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

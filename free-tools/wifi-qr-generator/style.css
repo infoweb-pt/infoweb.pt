@@ -1,0 +1,24 @@
+/* Wi-Fi QR generator — small overrides on top of Tailwind */
+
+.show-flex {
+  display: flex !important;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+    background: white !important;
+    color: #0f172a !important;
+  }
+}

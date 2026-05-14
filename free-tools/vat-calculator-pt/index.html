@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Calculadora IVA Portugal (Continente, Madeira, Açores) — InfoWeb</title>
+  <meta name="description"
+    content="Calcule IVA a 6%, 13% ou 23% (Continente), taxas da Madeira e Açores. Adicionar IVA ao preço ou retirar IVA do total. Grátis, sem registo." />
+  <meta name="keywords"
+    content="calculadora iva portugal, retirar iva, iva 23, iva madeira, iva açores, VAT calculator Portugal, InfoWeb" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="InfoWeb by Sousa Dev" />
+  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/vat-calculator-pt/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="InfoWeb" />
+  <meta property="og:url" content="https://hc-sousa.github.io/infoweb/free-tools/vat-calculator-pt/" />
+  <meta property="og:title" content="Calculadora IVA Portugal — InfoWeb" />
+  <meta property="og:description"
+    content="Adicione ou retire IVA com as taxas corretas para Continente, Madeira e Açores. Grátis no browser." />
+  <meta property="og:image" content="https://hc-sousa.github.io/infoweb/free-tools/vat-calculator-pt/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calculadora IVA Portugal — InfoWeb" />
+  <meta name="twitter:description"
+    content="Adicione ou retire IVA com as taxas corretas para Continente, Madeira e Açores." />
+  <meta name="twitter:image" content="https://hc-sousa.github.io/infoweb/free-tools/vat-calculator-pt/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora IVA Portugal",
+    "url": "https://hc-sousa.github.io/infoweb/free-tools/vat-calculator-pt/",
+    "description": "Calcule IVA a 6%, 13% ou 23% (Continente), taxas da Madeira e Açores. Adicionar IVA ao preço ou retirar IVA do total.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "InfoWeb",
+      "url": "https://infoweb.sousadev.com"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../../favicon_io/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="../../favicon_io/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui'] },
+          colors: { ink: '#020617', signal: '#d7b46a' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-XXQSMBERJM");
+  </script>
+  <script src="../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+
+  <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/60">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=vat_calculator_pt&utm_campaign=header"
+         target="_blank" rel="noopener" aria-label="InfoWeb homepage">
+        <img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
+      </a>
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=vat_calculator_pt&utm_campaign=header_btn#pricing"
+         target="_blank" rel="noopener"
+         class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition-all"
+         data-track="header_cta_click">
+        Ver planos
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-12">
+
+    <section class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-1.5 text-sm font-semibold text-emerald-400 mb-5">
+        Grátis · sem registo
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4 text-white">
+        Calculadora de IVA (Portugal)
+      </h1>
+      <p class="text-slate-400 text-lg leading-relaxed">
+        Continente, Madeira e Açores — adicionar IVA a um preço líquido ou retirar IVA de um preço com IVA incluído.
+      </p>
+      <p class="text-slate-500 text-sm mt-3">
+        <span class="text-slate-400">EN:</span> Free VAT calculator for Portugal (mainland + islands). For informational use; always confirm current legal rates with your accountant.
+      </p>
+    </section>
+
+    <section aria-labelledby="tool-input-heading" class="mb-6">
+      <h2 id="tool-input-heading" class="sr-only">Dados</h2>
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+
+        <fieldset>
+          <legend class="block text-sm font-semibold text-slate-300 mb-3">Região</legend>
+          <div class="flex flex-wrap gap-3">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="vat-region" value="continente" checked class="text-emerald-500 focus:ring-emerald-500" />
+              <span>Continente</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="vat-region" value="madeira" class="text-emerald-500 focus:ring-emerald-500" />
+              <span>Madeira</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="vat-region" value="acores" class="text-emerald-500 focus:ring-emerald-500" />
+              <span>Açores</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="vat-rate" class="block text-sm font-semibold text-slate-300 mb-2">Taxa de IVA</label>
+          <select id="vat-rate"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
+        </div>
+
+        <fieldset>
+          <legend class="block text-sm font-semibold text-slate-300 mb-3">Modo</legend>
+          <div class="space-y-2">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="radio" name="vat-mode" value="add" checked class="mt-1 text-emerald-500 focus:ring-emerald-500" />
+              <span>
+                <span class="font-semibold text-white">Adicionar IVA</span>
+                <span class="block text-slate-500 text-sm">Introduza o valor <strong class="text-slate-300">sem IVA</strong> (líquido).</span>
+              </span>
+            </label>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="radio" name="vat-mode" value="remove" class="mt-1 text-emerald-500 focus:ring-emerald-500" />
+              <span>
+                <span class="font-semibold text-white">Retirar IVA</span>
+                <span class="block text-slate-500 text-sm">Introduza o valor <strong class="text-slate-300">com IVA incluído</strong> (bruto).</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="vat-amount" class="block text-sm font-semibold text-slate-300 mb-2">Valor (€)</label>
+          <input id="vat-amount" type="text" inputmode="decimal" placeholder="ex.: 100 ou 100,50"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-lg placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <p id="amount-error" class="text-xs text-red-400 mt-1.5 hidden" role="alert">Introduza um número válido (≥ 0).</p>
+        </div>
+
+        <button type="button" onclick="runCalculate()"
+          class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl px-6 py-4 transition focus:outline-none focus:ring-2 focus:ring-emerald-400">
+          Calcular
+        </button>
+      </div>
+    </section>
+
+    <section aria-labelledby="tool-output-heading" class="mb-10" id="output-section">
+      <h2 id="tool-output-heading" class="sr-only">Resultado</h2>
+      <div id="result-panel" class="hidden bg-slate-900 border border-emerald-500/30 rounded-2xl p-6 space-y-4">
+        <p class="text-xs font-bold uppercase tracking-widest text-emerald-400">Resultado · taxa <span id="out-rate-pct"></span></p>
+        <div class="grid gap-3">
+          <div class="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400 text-sm">Líquido (sem IVA)</span>
+            <div class="flex items-center gap-2">
+              <span id="out-net" class="font-mono font-semibold text-white"></span>
+              <button type="button" onclick="copyField('net')" class="text-xs text-emerald-400 hover:underline">Copiar</button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400 text-sm">Montante de IVA</span>
+            <div class="flex items-center gap-2">
+              <span id="out-vat" class="font-mono font-semibold text-white"></span>
+              <button type="button" onclick="copyField('vat')" class="text-xs text-emerald-400 hover:underline">Copiar</button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
+            <span class="text-slate-400 text-sm">Bruto (com IVA)</span>
+            <div class="flex items-center gap-2">
+              <span id="out-gross" class="font-mono font-semibold text-white"></span>
+              <button type="button" onclick="copyField('gross')" class="text-xs text-emerald-400 hover:underline">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Call to action" class="mb-12 text-center bg-slate-900 rounded-2xl p-8 border border-slate-800">
+      <h2 class="text-2xl font-bold mb-3">Site profissional, preço fixo</h2>
+      <p class="text-slate-400 mb-6 text-sm">A InfoWeb cria e mantém o seu site — sem agências complicadas.</p>
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=vat_calculator_pt&utm_campaign=cta#pricing"
+         target="_blank" rel="noopener"
+         class="inline-block bg-white text-slate-950 font-bold rounded-full px-8 py-3 hover:bg-slate-200 transition"
+         data-track="cta_click" data-track-location="vat_calculator_pt">
+        Ver planos →
+      </a>
+    </section>
+
+    <section aria-labelledby="faq-heading" class="mb-12">
+      <h2 id="faq-heading" class="text-2xl font-bold mb-6">Perguntas frequentes</h2>
+
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          Como calcular IVA a 23% em Portugal?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          Multiplique o valor líquido por 1,23 para obter o bruto, ou use esta calculadora no modo “Adicionar IVA” com a taxa 23% (Continente).
+        </p>
+      </details>
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          Como retirar o IVA de um preço com IVA incluído?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          Escolha “Retirar IVA” e introduza o valor bruto. O líquido é o preço dividido por (1 + taxa) e o IVA é a diferença até ao bruto.
+        </p>
+      </details>
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          Quais são as taxas na Madeira e nos Açores?
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          A ferramenta inclui os escalões habituais (ex.: 22% / 12% / 5% na Madeira e 16% / 9% / 4% nos Açores). As taxas podem ser alteradas por lei — confirme sempre a legislação em vigor.
+        </p>
+      </details>
+      <details class="border border-slate-800 rounded-xl mb-3 bg-slate-900/50 group">
+        <summary class="px-5 py-4 cursor-pointer font-medium flex justify-between items-center list-none">
+          Is this a substitute for accounting advice? (EN)
+          <span class="text-slate-500 group-open:rotate-180 transition-transform">▾</span>
+        </summary>
+        <p class="px-5 pb-4 text-slate-400 text-sm leading-relaxed">
+          No. This is a quick VAT / IVA math helper for Portugal regions. For invoices, exemptions and filing, consult a certified accountant (TOC) or the AT.
+        </p>
+      </details>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Como calcular IVA a 23% em Portugal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Multiplique o valor líquido por 1,23 para obter o bruto, ou use esta calculadora no modo Adicionar IVA com a taxa 23% (Continente)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como retirar o IVA de um preço com IVA incluído?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Escolha Retirar IVA e introduza o valor bruto. O líquido é o preço dividido por (1 + taxa) e o IVA é a diferença até ao bruto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais são as taxas na Madeira e nos Açores?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A ferramenta inclui os escalões habituais (ex.: 22%, 12%, 5% na Madeira e 16%, 9%, 4% nos Açores). As taxas podem ser alteradas por lei — confirme sempre a legislação em vigor."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this a substitute for accounting advice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. This is a quick VAT / IVA math helper for Portugal regions. For invoices, exemptions and filing, consult a certified accountant or the AT."
+            }
+          }
+        ]
+      }
+      </script>
+    </section>
+
+    <section class="text-center text-slate-500 text-sm mb-8">
+      <p>InfoWeb · ferramentas para negócios locais</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-6">
+    <div class="max-w-2xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-600">
+      <span>© <span id="year"></span> InfoWeb by Sousa Dev</span>
+      <nav class="flex gap-4">
+        <a href="https://infoweb.sousadev.com" target="_blank" rel="noopener" class="hover:text-white transition">Site</a>
+        <a href="../" class="hover:text-white transition" data-track="back_to_tools_click">Todas as ferramentas</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

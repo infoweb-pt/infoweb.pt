@@ -198,6 +198,32 @@ Copy this `<head>` block into every tool's `index.html`. Replace every `[PLACEHO
 - In each tool's `script.js`, set `API_ENDPOINT` to the **full HTTPS URL above** when shipping to GitHub Pages (browser `fetch` is cross-origin; relative URLs like `/api/...` hit the Pages host, not Django).
 - **Local:** `http://localhost:8001/leads/[endpoint]/` with `python manage.py runserver 8001` from `api/`.
 
+### 5.1c Smart QR (short links + scan analytics)
+
+Use the Django **`smartqr`** app whenever the QR should resolve through **our** domain (editable destination later, per-scan logging). Full contract: [`api/SMART-QR-CODE-TODO.md`](../api/SMART-QR-CODE-TODO.md).
+
+| Item | Detail |
+|---|---|
+| **Create code** | `POST https://infoweb.api.sousadev.com/smartqr/codes/` — JSON body: `target_url`, `label`, `tool_source`, optional `owner_email`. |
+| **`tool_source`** | Must be an allowed string (see `smartqr/constants.py` in the API repo), e.g. `whatsapp_qr`, `menu_qr`, `generic`. Add a new constant before shipping a new tool. |
+| **Response** | `slug`, `short_url`, `manage_url`, `manage_token` (show once), `qr_png_url` (optional server-rendered PNG). |
+| **What to encode in the QR** | The **`short_url`** (or `qr_png_url` as `<img src>`). Never put the raw long destination in the QR if you want analytics + edit-in-place. |
+| **Manage API** | `GET` / `PATCH` / `DELETE` `/smartqr/codes/<slug>/` with **`X-Manage-Token`** header or authenticated owner. CORS must allow your GitHub Pages origin for credentialed flows if you add auth later. |
+| **Static manage page** | `free-tools/qr-manage/` — reads `?slug=&token=` from URL; forwards token as `X-Manage-Token`. |
+
+**Exceptions (no Smart QR):** payloads that **must** be scanned as raw strings by the OS — e.g. **`WIFI:`** QR codes. Those stay client-side only.
+
+### 5.1d Shared `QRCustomizer` + centre logo rules
+
+All current QR tools load **`../../assets/js/qr-customizer.js`** (from `free-tools/[slug]/`) after **`qrcode-generator`** from CDN. The class is exposed as **`window.QRCustomizer`**.
+
+| Rule | Detail |
+|---|---|
+| **Library** | `qrcode-generator` (`qrcode(typeNumber, 'H')`) — we keep **error correction H** so a centre logo remains viable. |
+| **Logo API** | `qrCustomizer.setLogo(imageElement, ratio)` — pass a loaded `Image()`. Prefer **`ratio` 0.16**; the customizer **further clamps** logo size from QR density (module count) and **snaps** to whole modules so the code stays readable. |
+| **Strict mode** | Tool scripts use `'use strict'`. Declare **`let uploadedLogo = null`** (or similar) at top level if you assign in upload handlers. |
+| **Re-apply after `setText`** | If you replace payload after Smart QR returns, call `setLogo` again when `uploadedLogo` is non-null (same pattern as WhatsApp / menu tools). |
+
 ### 5.2 Loading States (Mandatory)
 
 Any action that triggers an async call **must** show a loading indicator before the result appears.
@@ -658,4 +684,4 @@ Complete **every item** before pushing to GitHub Pages.
 
 ---
 
-*Template version 1.0 — InfoWeb by Sousa Dev*
+*Template version 1.1 — InfoWeb by Sousa Dev (Smart QR + QRCustomizer logo policy)*

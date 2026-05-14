@@ -1,0 +1,5 @@
+/* VAT calculator PT — minimal helpers */
+
+.show-flex {
+  display: flex !important;
+}

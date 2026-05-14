@@ -4,15 +4,31 @@ Pipeline of free tools for local/small businesses (restaurants, clinics, salons,
 
 Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API/AI · 💎 premium gateable report · 📱 uses Smart QR backend
 
-> **Smart QR rule:** every tool that produces a QR code (WhatsApp, Wi-Fi, menu, vCard, booking, generic, etc.) MUST encode a short link served by our Django `smartqr` app — never the raw destination. This gives us scan analytics + the ability for the user to later edit the destination URL without reprinting. Spec: [`api/SMART-QR-CODE-TODO.md`](../api/SMART-QR-CODE-TODO.md).
+> **Smart QR rule:** every tool that produces a **redirect** QR code (WhatsApp, menu, review, booking, generic URL, etc.) MUST encode a short link served by our Django `smartqr` app — never the raw destination. **Exception:** payloads the OS must read verbatim (e.g. `WIFI:` for Wi-Fi join). Spec: [`api/SMART-QR-CODE-TODO.md`](../api/SMART-QR-CODE-TODO.md).
 
 ---
 
 ## ✅ Already shipped
 
-- [x] **WhatsApp link & QR generator** — `whatsapp-qr-generator/` &nbsp;⚠️ **needs migration to Smart QR backend** 📱
+- [x] **WhatsApp link & QR generator** — `whatsapp-qr-generator/` 📱 Creates a **Smart QR** short link via `POST https://infoweb.api.sousadev.com/smartqr/codes/` (`tool_source: whatsapp_qr`); printable QR encodes the short URL + optional centre logo. Optional email lead → `/leads/tool-contact/`.
+- [x] **Menu QR generator** — `menu-qr-generator/` 📱 Menu PDF upload → public URL via API upload; Smart QR short link for the menu URL (`tool_source: menu_qr`); shared `QRCustomizer` + logo safety caps.
+- [x] **Digital business card (vCard) QR** — `business-card-qr/` 📱 vCard payload in QR; centre logo via `QRCustomizer` (declare `uploadedLogo` in script state; strict mode).
+- [x] **Google review link + QR** — `google-review-generator/` Smart QR + review URL flow; logo optional.
+- [x] **Website ROI calculator** — `website-roi-calculator/` (no Smart QR — not a scan-to-redirect QR product).
 - [x] **Local presence score** — `presence-score/`
 - [x] **Lost customers calculator** — `lost-customers-calculator/`
+- [x] **QR manage UI (static)** — `qr-manage/` — reads `slug` + `token` query params; calls Smart QR manage API with `X-Manage-Token` (see spec).
+- [x] **QR example landing** — `qr-example/` — safe demo target for previews.
+- [x] **Wi-Fi QR generator** — `wifi-qr-generator/` Raw `WIFI:` string in QR (phones auto-join) — **exception** to Smart QR rule; optional centre logo via `QRCustomizer`; optional email → `/leads/tool-contact/` (`wifi_qr_generator`).
+- [x] **IVA / VAT calculator (PT)** — `vat-calculator-pt/` Continente / Madeira / Açores rates; add or remove IVA; client-side only.
+- [x] **Markup vs margin calculator** — `markup-margin-calculator/` Cost + margin or markup or price → full breakdown; client-side only.
+
+**Shared frontend:** `assets/js/qr-customizer.js` — canvas QR (qrcode-generator), error correction **H**, **density-aware logo cap** + module-aligned knockout so centre logos stay scannable across all tools.
+
+**Deferred (no OpenAI in stack for now)**
+
+- **Review response generator (AI)** — not shipped; requires hosted LLM. Revisit if/when we add an approved API path and budget.
+
 
 ---
 
@@ -20,21 +36,21 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 ### Lead-gen & ROI calculators (great for B2B funnel)
 
-- [ ] **Website ROI calculator** 🔥💎 — input avg. ticket + monthly visitors → projected extra revenue from having a proper site. Email-gated full PDF report.
+- [x] **Website ROI calculator** 🔥💎 — shipped as `website-roi-calculator/` (calculator only; not a Smart QR surface).
 - [ ] **"How much is your downtime costing you?" calculator** 🔥💎 — for shops/restaurants without online presence; estimates monthly lost orders.
 - [ ] **Cost-per-lead calculator** ⚡ — ad spend ÷ leads → CPL, with industry benchmarks.
 - [ ] **Customer Lifetime Value (LTV) calculator** ⚡ — avg ticket × visits/year × retention years.
 - [ ] **Break-even calculator for small business** ⚡ — fixed costs, variable cost, price → break-even units/€.
 - [ ] **Freelancer hourly rate calculator** 🔥 — desired salary + expenses + billable hours → minimum rate.
-- [ ] **Markup vs margin calculator** ⚡ — converts between the two, shows final price.
-- [ ] **VAT / IVA calculator (PT/EU rates)** 🔥⚡ — add/remove VAT at 6/13/23%. Massive search volume in PT.
+- [x] **Markup vs margin calculator** ⚡ — shipped as `markup-margin-calculator/`.
+- [x] **VAT / IVA calculator (PT/EU rates)** 🔥⚡ — shipped as `vat-calculator-pt/` (Continente / Madeira / Açores).
 
 ### Local SEO / Google Business
 
 - [ ] **Google Business Profile audit** 🔥🧠💎 — input business name + city, scrape/check public profile, score completeness (photos, hours, posts, reviews). Email-gated full action plan.
 - [ ] **NAP consistency checker** 🔥🧠 — paste name/address/phone, checks across major directories.
-- [ ] **Review response generator (AI)** 🔥🧠 — paste review text + tone → ready-to-post reply in PT/EN. Top funnel tool for restaurants/clinics.
-- [ ] **Google review link generator** ⚡ — paste Place ID or business name → short shareable review link + QR.
+- [ ] **Review response generator (AI)** 🔥🧠 — **SKIP FOR NOW** (no OpenAI / server LLM). Paste review + tone → reply in PT/EN. Revisit when product approves model + spend.
+- [x] **Google review link generator** ⚡ — shipped as `google-review-generator/` (Smart QR + optional logo).
 - [ ] **Local keyword finder** 🧠 — niche + city → 20 long-tail keyword ideas with intent.
 - [ ] **Schema.org local business generator** ⚡ — form → copy-paste JSON-LD snippet for `LocalBusiness`.
 
@@ -43,12 +59,12 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 - [ ] **WhatsApp business hours auto-reply generator** ⚡ — form → ready-to-paste away-message text in PT/EN.
 - [ ] **WhatsApp catalog link builder** ⚡ — products → formatted message with prices + emojis.
 - [ ] **Click-to-call link + QR generator** ⚡📱 — phone → smart-QR short link wrapping `tel:`.
-- [ ] **vCard / contact card QR** ⚡📱 — name, phone, email, web → smart-QR resolving to a hosted vCard download (editable later).
-- [ ] **Wi-Fi QR generator** 🔥⚡ — SSID + password → standard `WIFI:` QR (cannot be a redirect, must stay raw so phones auto-join).
+- [x] **vCard / contact card QR** ⚡📱 — shipped as `business-card-qr/` (vCard in QR; centre logo; destination is the encoded payload — swap “hosted vCard URL” later if product needs edit-in-place without reprint).
+- [x] **Wi-Fi QR generator** 🔥⚡ — shipped as `wifi-qr-generator/` (`WIFI:` QR only; raw payload, not Smart QR).
 
 ### Restaurant / hospitality
 
-- [ ] **Menu QR generator** 🔥⚡📱 — paste menu URL (or upload PDF we host) → smart-QR for tables. Owner can swap the menu later without reprinting.
+- [x] **Menu QR generator** 🔥⚡📱 — shipped as `menu-qr-generator/` (upload + Smart QR short link).
 - [ ] **Food cost / plate margin calculator** ⚡ — ingredients + price → margin %.
 - [ ] **Reservation no-show cost calculator** 💎 — covers/week × avg ticket × no-show rate → annual loss.
 - [ ] **Tip split calculator** ⚡ — bill + people + % → per-person split.
@@ -119,8 +135,8 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 ## Build order suggestion
 
-0. **Smart QR backend (`api/smartqr` Django app)** — prerequisite for every QR-based tool. See `api/SMART-QR-CODE-TODO.md`.
-1. **Migrate WhatsApp QR generator** to smart-QR backend (replace raw `wa.me/...` payload with `https://infoweb.api.sousadev.com/q/<slug>`).
+0. **Smart QR backend (`api/smartqr` Django app)** — live. Spec: [`api/SMART-QR-CODE-TODO.md`](../api/SMART-QR-CODE-TODO.md). Public redirect: `GET https://infoweb.api.sousadev.com/q/<slug>` (or path under configured public base).
+1. **WhatsApp / menu / review / vCard tools** — wired to Smart QR + shared `QRCustomizer`; keep new QR tools consistent (see `TEMPLATE.md` §5.1c–5.1d).
 2. **Wi-Fi QR generator** — trivial build, massive search volume, perfect cousin to existing WhatsApp QR. (Stays raw, no backend.)
 3. **VAT calculator (PT)** — huge organic traffic in PT, 1h build.
 4. **Generic smart-QR generator** — once backend is up, this is the flagship lead magnet (analytics dashboard preview = upsell).
