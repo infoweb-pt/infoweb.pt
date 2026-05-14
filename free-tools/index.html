@@ -38,9 +38,9 @@
     };
   </script>
 </head>
-<body class="bg-slate-950 text-white font-sans antialiased min-h-screen flex flex-col">
-  <header class="border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-xl">
-    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+<body class="bg-slate-950 text-white font-sans antialiased min-h-screen flex flex-col bg-[radial-gradient(circle_at_top,_rgba(215,180,106,0.22),_transparent_42%),radial-gradient(circle_at_80%_18%,_rgba(56,189,248,0.18),_transparent_36%),linear-gradient(180deg,_#020617_0%,_#020617_70%,_#0f172a_100%)]">
+  <header class="border-b border-slate-800/60 bg-slate-950/70 backdrop-blur-xl sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="../" class="inline-flex items-center gap-2 text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="header" data-track-target="/">
         <img src="../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" width="120" height="36" />
       </a>
@@ -50,65 +50,99 @@
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-4 py-12 flex-1 w-full">
-    <p class="text-signal text-sm font-semibold tracking-wide uppercase mb-2">InfoWeb</p>
-    <h1 class="text-3xl sm:text-4xl font-bold text-white mb-3">Free tools</h1>
-    <p class="text-slate-400 text-lg mb-10 leading-relaxed">
-      Small utilities you can use right away — no account required.
-    </p>
-    <ul class="space-y-4">
+  <main class="max-w-6xl mx-auto px-4 py-14 sm:py-16 flex-1 w-full">
+    <div class="max-w-3xl">
+      <p class="text-signal text-sm font-semibold tracking-[0.2em] uppercase mb-3">InfoWeb</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight">Free tools for local business growth</h1>
+      <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+        Practical calculators and QR utilities you can use immediately. No sign-up, no hidden steps.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-10">
+        <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300">10 tools available</span>
+        <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300">Fast and mobile-friendly</span>
+        <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300">Built for PT small businesses</span>
+      </div>
+    </div>
+
+    <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
       <li>
-        <a href="menu-qr-generator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="menu_qr_generator">
-          <span class="text-white font-semibold">Menu QR Code generator</span>
-          <span class="block text-sm text-slate-400 mt-1">Upload your menu, customize colors, add logo, track scans.</span>
+        <a href="menu-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-signal/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="menu_qr_generator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-300/15 text-2xl mb-4 ring-1 ring-amber-200/20">🍽️</span>
+          <span class="block text-white text-lg font-bold">Menu QR Code generator</span>
+          <span class="block text-sm text-slate-400 mt-2">Upload your menu, customize colors, add logo, track scans.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-amber-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="whatsapp-qr-generator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="whatsapp_qr_generator">
-          <span class="text-white font-semibold">WhatsApp link &amp; QR generator</span>
-          <span class="block text-sm text-slate-400 mt-1">Click-to-chat link and printable QR for your shop or menu.</span>
+        <a href="whatsapp-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-emerald-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="whatsapp_qr_generator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-300/15 text-2xl mb-4 ring-1 ring-emerald-200/20">💬</span>
+          <span class="block text-white text-lg font-bold">WhatsApp link &amp; QR generator</span>
+          <span class="block text-sm text-slate-400 mt-2">Click-to-chat link and printable QR for your shop or menu.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-emerald-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="presence-score/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="presence_score">
-          <span class="text-white font-semibold">Local presence score</span>
-          <span class="block text-sm text-slate-400 mt-1">See how visible your business looks online.</span>
+        <a href="presence-score/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-cyan-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="presence_score">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-300/15 text-2xl mb-4 ring-1 ring-cyan-200/20">📍</span>
+          <span class="block text-white text-lg font-bold">Local presence score</span>
+          <span class="block text-sm text-slate-400 mt-2">See how visible your business looks online.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-cyan-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="business-card-qr/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="business_card_qr">
-          <span class="text-white font-semibold">Digital business card QR</span>
-          <span class="block text-sm text-slate-400 mt-1">vCard + QR so people can save your contact in one scan.</span>
+        <a href="business-card-qr/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-indigo-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="business_card_qr">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-300/15 text-2xl mb-4 ring-1 ring-indigo-200/20">🪪</span>
+          <span class="block text-white text-lg font-bold">Digital business card QR</span>
+          <span class="block text-sm text-slate-400 mt-2">vCard + QR so people can save your contact in one scan.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-indigo-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="google-review-generator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="google_review_generator">
-          <span class="text-white font-semibold">Google review link generator</span>
-          <span class="block text-sm text-slate-400 mt-1">Direct review URL or Maps search + optional copy-paste suggested text.</span>
+        <a href="google-review-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-rose-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="google_review_generator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-rose-300/15 text-2xl mb-4 ring-1 ring-rose-200/20">⭐</span>
+          <span class="block text-white text-lg font-bold">Google review link generator</span>
+          <span class="block text-sm text-slate-400 mt-2">Direct review URL or Maps search + optional copy-paste suggested text.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-rose-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="website-roi-calculator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="website_roi_calculator">
-          <span class="text-white font-semibold">Website ROI calculator</span>
-          <span class="block text-sm text-slate-400 mt-1">Rough monthly/annual revenue and break-even from visitors and conversion.</span>
+        <a href="website-roi-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-sky-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="website_roi_calculator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-300/15 text-2xl mb-4 ring-1 ring-sky-200/20">📈</span>
+          <span class="block text-white text-lg font-bold">Website ROI calculator</span>
+          <span class="block text-sm text-slate-400 mt-2">Rough monthly/annual revenue and break-even from visitors and conversion.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-sky-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="wifi-qr-generator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="wifi_qr_generator">
-          <span class="text-white font-semibold">Wi-Fi QR code generator</span>
-          <span class="block text-sm text-slate-400 mt-1">Printable QR so guests join your network without typing the password.</span>
+        <a href="lost-customers-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-red-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="lost_customers_calculator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-red-300/15 text-2xl mb-4 ring-1 ring-red-200/20">📉</span>
+          <span class="block text-white text-lg font-bold">Lost customers calculator</span>
+          <span class="block text-sm text-slate-400 mt-2">Estimate monthly revenue lost from missed calls, no website, or low response times.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-red-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="vat-calculator-pt/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="vat_calculator_pt">
-          <span class="text-white font-semibold">IVA / VAT calculator (Portugal)</span>
-          <span class="block text-sm text-slate-400 mt-1">Continente, Madeira e Açores — add or remove IVA in seconds.</span>
+        <a href="wifi-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-teal-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="wifi_qr_generator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-teal-300/15 text-2xl mb-4 ring-1 ring-teal-200/20">📶</span>
+          <span class="block text-white text-lg font-bold">Wi-Fi QR code generator</span>
+          <span class="block text-sm text-slate-400 mt-2">Printable QR so guests join your network without typing the password.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-teal-200/90">Open tool →</span>
         </a>
       </li>
       <li>
-        <a href="markup-margin-calculator/" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-5 hover:border-slate-600 transition" data-track="tool_card_click" data-track-tool_name="markup_margin_calculator">
-          <span class="text-white font-semibold">Markup vs margin calculator</span>
-          <span class="block text-sm text-slate-400 mt-1">Turn cost + target margin (or markup) into selling price.</span>
+        <a href="vat-calculator-pt/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-yellow-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="vat_calculator_pt">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-300/15 text-2xl mb-4 ring-1 ring-yellow-200/20">🧾</span>
+          <span class="block text-white text-lg font-bold">IVA / VAT calculator (Portugal)</span>
+          <span class="block text-sm text-slate-400 mt-2">Continente, Madeira e Açores — add or remove IVA in seconds.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-yellow-200/90">Open tool →</span>
+        </a>
+      </li>
+      <li>
+        <a href="markup-margin-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-violet-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="markup_margin_calculator">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-300/15 text-2xl mb-4 ring-1 ring-violet-200/20">💹</span>
+          <span class="block text-white text-lg font-bold">Markup vs margin calculator</span>
+          <span class="block text-sm text-slate-400 mt-2">Turn cost + target margin (or markup) into selling price.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-violet-200/90">Open tool →</span>
         </a>
       </li>
     </ul>
