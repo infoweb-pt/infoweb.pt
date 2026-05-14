@@ -3,6 +3,8 @@ from decouple import config
 from pathlib import Path
 from urllib.parse import urlparse
 
+from corsheaders.defaults import default_headers
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-dev-key-change-in-production')
@@ -124,6 +126,12 @@ CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=True, cast=boo
 if not CORS_ALLOW_ALL_ORIGINS:
     _cors_origins = config('CORS_ALLOWED_ORIGINS', default='https://hc-sousa.github.io')
     CORS_ALLOWED_ORIGINS = [o.strip() for o in _cors_origins.split(',') if o.strip()]
+
+# Custom headers on cross-origin fetch (e.g. qr-manage sends X-Manage-Token).
+# Browsers lowercase header names in Access-Control-Request-Headers.
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'x-manage-token',
+]
 
 # ── Cache (used by DRF throttling) ────────────────────────────────────────────
 CACHES = {
