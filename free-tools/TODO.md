@@ -22,6 +22,7 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 - [x] **Wi-Fi QR generator** — `wifi-qr-generator/` Raw `WIFI:` string in QR (phones auto-join) — **exception** to Smart QR rule; optional centre logo via `QRCustomizer`; optional email → `/leads/tool-contact/` (`wifi_qr_generator`).
 - [x] **IVA / VAT calculator (PT)** — `vat-calculator-pt/` Continente / Madeira / Açores rates; add or remove IVA; client-side only.
 - [x] **Markup vs margin calculator** — `markup-margin-calculator/` Cost + margin or markup or price → full breakdown; client-side only.
+- [x] **Website health scorecard** — `website-health-scorecard/` 🔥💎 5-point audit (speed, mobile, SSL, meta tags, Google Business). Score 0-100 + prioritized fix list. Email-gated full PDF report. Client-side checks only; EN + PT.
 
 **Shared frontend:** `assets/js/qr-customizer.js` — canvas QR (qrcode-generator), error correction **H**, **density-aware logo cap** + module-aligned knockout so centre logos stay scannable across all tools.
 
@@ -92,6 +93,7 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 ### Web/perf checks
 
+- [x] **Website health scorecard** 🔥💎 — `website-health-scorecard/` 5-point client-side audit (speed, mobile, SSL, meta tags, Google Business). Score 0-100 + prioritized fix list. Email-gated full report.
 - [ ] **Website speed snapshot** 🔥🧠💎 — paste URL → call PageSpeed Insights API, show 3 KPIs + fixes. Email-gated full report.
 - [ ] **Mobile-friendly checker** 🧠 — URL → screenshot at 375px + checklist.
 - [ ] **SSL / HTTPS checker** ⚡ — domain → cert validity + expiry warning.
