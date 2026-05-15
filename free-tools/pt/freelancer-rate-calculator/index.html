@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Calculadora de Tarifa Freelancer — InfoWeb</title>
+  <meta name="description" content="Calcule a sua tarifa horária ideal como freelancer. Cubra custos, impostos e lucro. Grátis e sem registo." />
+  <meta name="keywords" content="calculadora tarifa freelancer, tarifa horária freelancer, quanto cobrar freelancer, calculadora preço freelancer, freelancer portugal, InfoWeb" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="InfoWeb by Sousa Dev" />
+  <link rel="canonical" href="https://hc-sousa.github.io/infoweb/free-tools/pt/freelancer-rate-calculator/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="InfoWeb" />
+  <meta property="og:url" content="https://hc-sousa.github.io/infoweb/free-tools/pt/freelancer-rate-calculator/" />
+  <meta property="og:title" content="Calculadora de Tarifa Freelancer — InfoWeb" />
+  <meta property="og:description" content="Calcule a sua tarifa horária ideal como freelancer. Cubra custos, impostos e lucro." />
+  <meta property="og:image" content="https://hc-sousa.github.io/infoweb/free-tools/freelancer-rate-calculator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <link rel="alternate" hreflang="pt" href="https://hc-sousa.github.io/infoweb/free-tools/pt/freelancer-rate-calculator/" />
+  <link rel="alternate" hreflang="en" href="https://hc-sousa.github.io/infoweb/free-tools/freelancer-rate-calculator/" />
+  <link rel="alternate" hreflang="x-default" href="https://hc-sousa.github.io/infoweb/free-tools/freelancer-rate-calculator/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calculadora de Tarifa Freelancer — InfoWeb" />
+  <meta name="twitter:description" content="Calcule a sua tarifa horária ideal como freelancer. Cubra custos, impostos e lucro." />
+  <meta name="twitter:image" content="https://hc-sousa.github.io/infoweb/free-tools/freelancer-rate-calculator/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Tarifa Freelancer",
+    "url": "https://hc-sousa.github.io/infoweb/free-tools/pt/freelancer-rate-calculator/",
+    "description": "Calcule a sua tarifa horária ideal como freelancer. Cubra custos, impostos e lucro.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": { "@type": "Organization", "name": "InfoWeb", "url": "https://infoweb.sousadev.com" }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../../favicon_io/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="../../favicon_io/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui'] },
+          colors: { ink: '#020617', signal: '#d7b46a' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../freelancer-rate-calculator/style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXQSMBERJM');
+  </script>
+  <script src="../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+
+  <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/60">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=freelancer_rate_calculator&utm_campaign=header"
+         target="_blank" rel="noopener" aria-label="InfoWeb homepage">
+        <img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" />
+      </a>
+      <div class="flex items-center gap-2 shrink-0">
+        <nav class="flex items-center gap-1 text-[11px] font-semibold" aria-label="Idioma">
+          <a href="../../freelancer-rate-calculator/" hreflang="en" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="en" title="English">EN</a>
+          <span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white" title="Português">PT</span>
+        </nav>
+        <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=freelancer_rate_calculator&utm_campaign=header_btn#pricing"
+           target="_blank" rel="noopener"
+           class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition-all"
+           data-track="header_cta_click">Ver Planos</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-12">
+
+    <section class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-400 mb-5">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        Grátis — Sem registo
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4 text-white">
+        Quanto Deve Cobrar por Hora?
+      </h1>
+      <p class="text-slate-400 text-lg leading-relaxed">
+        Calcule a sua tarifa horária ideal como freelancer. Cubra os seus custos, impostos e lucro desejado — sem adivinhar.
+      </p>
+    </section>
+
+    <section aria-labelledby="tool-input-heading" class="mb-6">
+      <h2 id="tool-input-heading" class="sr-only">Entradas</h2>
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+
+        <div>
+          <label for="monthly-expenses" class="block text-sm font-semibold text-slate-300 mb-2">Despesas Mensais (€)</label>
+          <input id="monthly-expenses" type="number" min="1" placeholder="ex: 1500"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all" />
+          <p class="text-xs text-slate-500 mt-1.5">Renda, software, seguro, utilidades — os seus custos mensais.</p>
+        </div>
+
+        <div>
+          <label for="billable-hours" class="block text-sm font-semibold text-slate-300 mb-2">Horas Faturáveis por Mês</label>
+          <input id="billable-hours" type="number" min="1" max="744" placeholder="ex: 120"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all" />
+          <p class="text-xs text-slate-500 mt-1.5">Quantas horas consegue faturar? (Tempo inteiro ≈ 160h, meio tempo ≈ 80h)</p>
+        </div>
+
+        <div>
+          <label for="tax-rate" class="block text-sm font-semibold text-slate-300 mb-2">Taxa de Imposto (%)</label>
+          <input id="tax-rate" type="number" min="0" max="100" placeholder="ex: 25"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all" />
+          <p class="text-xs text-slate-500 mt-1.5">A sua taxa estimada (IRS + segurança social).</p>
+        </div>
+
+        <div>
+          <label for="profit-margin" class="block text-sm font-semibold text-slate-300 mb-2">Margem de Lucro Desejada (%)</label>
+          <input id="profit-margin" type="number" min="0" max="100" placeholder="ex: 20"
+            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all" />
+          <p class="text-xs text-slate-500 mt-1.5">Quanto lucro deseja além dos custos?</p>
+        </div>
+
+        <button id="btn-generate" type="button" onclick="runTool()"
+          class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl px-6 py-4 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400 text-base">
+          Calcular a Minha Tarifa — Grátis
+        </button>
+      </div>
+    </section>
+
+    <section aria-labelledby="tool-output-heading" class="mb-10" id="output-section">
+      <h2 id="tool-output-heading" class="sr-only">Resultado</h2>
+
+      <div id="spinner" class="hidden flex-col items-center justify-center py-12 text-slate-400" aria-live="polite">
+        <svg class="animate-spin h-8 w-8 mb-3 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+        </svg>
+        <span>A calcular a sua tarifa...</span>
+      </div>
+
+      <div id="error-box" class="hidden bg-red-900/30 border border-red-700/50 rounded-2xl p-5 text-center" role="alert">
+        <p class="text-red-300 mb-3">Algo correu mal. Tente novamente dentro de momentos.</p>
+        <button onclick="runTool()" class="text-sm underline text-red-400 hover:text-red-200">Tentar novamente</button>
+      </div>
+
+      <div id="result-box" class="hidden space-y-4">
+        <div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Resultados</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="bg-slate-800 rounded-xl p-4 text-center">
+              <p class="text-2xl font-bold text-white mb-1" id="hourly-rate">0 €</p>
+              <p class="text-xs text-slate-400">Tarifa Horária</p>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-4 text-center">
+              <p class="text-2xl font-bold text-white mb-1" id="daily-rate">0 €</p>
+              <p class="text-xs text-slate-400">Tarifa Diária (8h)</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-4 text-center mb-4">
+            <p class="text-3xl font-bold text-amber-400 mb-1" id="monthly-income">0 €</p>
+            <p class="text-sm text-slate-400">Rendimento Mensal</p>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-4">
+            <p class="text-sm text-slate-300 mb-2">Após impostos: <span id="after-tax" class="font-bold text-white">0 €</span></p>
+            <p class="text-sm text-slate-300">Após despesas: <span id="after-expenses" class="font-bold text-white">0 €</span></p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-ink border-2 border-signal/40 rounded-2xl p-6 text-center">
+          <p class="text-signal mb-2 text-xs font-black uppercase tracking-[0.2em]">Pareça profissional</p>
+          <h3 class="text-xl font-bold text-white mb-3">Um site que justifica a sua tarifa</h3>
+          <p class="text-slate-400 mb-4 text-sm">A InfoWeb constrói sites de portfólio profissionais que ajudam freelancers a cobrar o que valem.</p>
+          <a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=freelancer_rate_calculator&utm_campaign=result_cta#pricing"
+             target="_blank"
+             class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl px-6 py-3 transition-all">
+            Ver Planos
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-center">
+          <button onclick="resetTool()" class="text-sm text-slate-500 hover:text-slate-300 underline transition-all">Calcular novamente</button>
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-white mb-4">Perguntas Frequentes</h2>
+      <div class="space-y-3">
+        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <summary class="font-semibold text-white cursor-pointer">Quantas horas faturáveis por mês?</summary>
+          <p class="text-slate-400 text-sm mt-2">Freelancers a tempo inteiro tipicamente faturam 120-160 horas/mês. Conte com admin, marketing e trabalho não faturável.</p>
+        </details>
+        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <summary class="font-semibold text-white cursor-pointer">Qual taxa de imposto devo usar?</summary>
+          <p class="text-slate-400 text-sm mt-2">Em Portugal, freelancers tipicamente pagam 21% IRS + segurança social. Consulte um contabilista para a sua taxa exata.</p>
+        </details>
+        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <summary class="font-semibold text-white cursor-pointer">Devo cobrar o mesmo a todos os clientes?</summary>
+          <p class="text-slate-400 text-sm mt-2">Não — ajuste com base na complexidade, tamanho do cliente, urgência e valor entregue. Esta calculadora dá-lhe uma linha de base.</p>
+        </details>
+        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <summary class="font-semibold text-white cursor-pointer">Com que frequência rever a tarifa?</summary>
+          <p class="text-slate-400 text-sm mt-2">Reveja a cada 6-12 meses ou quando as suas competências, despesas ou procura mudarem significativamente.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
+    <a href="../../" class="text-slate-400 hover:text-white transition">← Início InfoWeb</a>
+  </footer>
+
+  <script src="../../freelancer-rate-calculator/script.js" defer></script>
+</body>
+</html>
