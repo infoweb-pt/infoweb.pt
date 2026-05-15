@@ -686,6 +686,7 @@ Complete **every item** before pushing to GitHub Pages.
 - [ ] Tool URL works when accessed directly: `https://[GITHUB-USER].github.io/[REPO]/free-tools/[slug]/`
 - [ ] Shared via WhatsApp — preview shows the correct OG image, title and description
 - [ ] Added a link on the hub per **[§3 Hub listing](#3-hub-listing--free-toolsindexhtml-required)** (`free-tools/index.html`) or InfoWeb main nav — do not ship without one of these
+- [ ] **Updated sitemap:** run `bash scripts/update-sitemap.sh` from repo root and commit the updated `sitemap.xml`
 - [ ] Announced via InfoWeb social channels / newsletter
 
 ### Portuguese (PT-PT) — same release as English
