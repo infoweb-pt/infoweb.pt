@@ -1,0 +1,10 @@
+/* Customer LTV Calculator — minimal overrides */
+
+#spinner.flex,
+#spinner.show-flex {
+  display: flex !important;
+}
+
+#result-box.show-flex {
+  display: flex !important;
+}
