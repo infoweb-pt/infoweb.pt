@@ -77,6 +77,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://infoweb.sousadev.com/free-tools/downtime-cost-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/cost-per-lead-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/customer-ltv-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/break-even-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/freelancer-rate-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://infoweb.sousadev.com/free-tools/whatsapp-qr-generator/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -134,6 +159,31 @@
   </url>
   <url>
     <loc>https://infoweb.sousadev.com/free-tools/pt/website-roi-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/pt/downtime-cost-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/pt/cost-per-lead-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/pt/customer-ltv-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/pt/break-even-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/pt/freelancer-rate-calculator/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
