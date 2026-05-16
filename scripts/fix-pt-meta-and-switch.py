@@ -15,7 +15,7 @@ def swap_header_nav(html: str, slug: str) -> str:
     old = (
         '        <nav class="flex items-center gap-1 text-[11px] font-semibold" aria-label="Language">\n'
         '          <span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white" title="English">EN</span>\n'
-        f'          <a href="pt/{slug}/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>\n'
+        f'          <a href="../pt/{slug}/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>\n'
         "        </nav>\n"
     )
     new = (

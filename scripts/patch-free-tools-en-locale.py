@@ -50,7 +50,7 @@ NAV_INNER = (
     '      <div class="flex items-center gap-2 shrink-0">\n'
     '        <nav class="flex items-center gap-1 text-[11px] font-semibold" aria-label="Language">\n'
     '          <span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white" title="English">EN</span>\n'
-    '          <a href="pt/{slug}/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>\n'
+    '          <a href="../pt/{slug}/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>\n'
     "        </nav>\n"
 )
 
@@ -93,7 +93,7 @@ def patch_header_inline_presence_lost(text: str, slug: str) -> str:
         '      <div style="display:flex;align-items:center;gap:0.5rem;">\n'
         '        <nav style="display:flex;align-items:center;gap:0.25rem;font-size:11px;font-weight:700;" aria-label="Language">\n'
         '          <span style="border-radius:999px;padding:0.2rem 0.45rem;background:#1e293b;border:1px solid #64748b;color:#fff;">EN</span>\n'
-        f'          <a href="pt/{slug}/" hreflang="pt" style="border-radius:999px;padding:0.2rem 0.45rem;color:#94a3b8;text-decoration:none;" data-track="language_switch" data-track-target="pt">PT</a>\n'
+        f'          <a href="../pt/{slug}/" hreflang="pt" style="border-radius:999px;padding:0.2rem 0.45rem;color:#94a3b8;text-decoration:none;" data-track="language_switch" data-track-target="pt">PT</a>\n'
         "        </nav>\n"
     )
     new, n = PLAN_AFTER_LOGO.subn(r"\1" + nav + r"\2", text, count=1)
@@ -123,7 +123,7 @@ def patch_qr_manage(text: str, slug: str) -> str:
         "      </a>\n"
         '      <nav class="flex items-center gap-1 text-[11px] font-semibold shrink-0" aria-label="Language">\n'
         '        <span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white" title="English">EN</span>\n'
-        '        <a href="pt/qr-manage/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>\n'
+        '        <a href="../pt/qr-manage/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt" title="Português">PT</a>\n'
         "      </nav>\n"
         "    </div>"
     )
