@@ -46,6 +46,17 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/local-seo-checklist-small-business/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/checklist-seo-local-pequenos-negocios/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Free Tools Hub -->
   <url>
     <loc>https://infoweb.sousadev.com/free-tools/</loc>
