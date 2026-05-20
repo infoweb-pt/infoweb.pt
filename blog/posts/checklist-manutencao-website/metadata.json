@@ -1,0 +1,24 @@
+{
+  "title": "Checklist de Manutenção de Website para Pequenos Negócios",
+  "description": "Checklist de manutenção: backups, SSL, uptime, atualizações, conteúdos, formulários, analytics, SEO e segurança para PME em Portugal.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "domains-hosting",
+  "tags": [
+    "manutenção website",
+    "pequenos negócios",
+    "segurança",
+    "backups"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Checklist de manutenção de website com ícones de escudo e calendário",
+  "readTime": 6,
+  "featured": false,
+  "published": true,
+  "slug": "checklist-manutencao-website",
+  "language": "pt",
+  "alternateLanguage": {
+    "en": "website-maintenance-checklist"
+  }
+}

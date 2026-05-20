@@ -1,0 +1,24 @@
+{
+  "title": "What Should Be on a Small Business Homepage?",
+  "description": "Small business homepage checklist: promise, services, proof, hours, contact, location, FAQ, and CTAs that turn visitors into leads.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "web-design",
+  "tags": [
+    "homepage",
+    "small business",
+    "web design",
+    "conversion"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Small business homepage wireframe with clear call to action",
+  "readTime": 6,
+  "featured": false,
+  "published": true,
+  "slug": "small-business-homepage-checklist",
+  "language": "en",
+  "alternateLanguage": {
+    "pt": "checklist-homepage-pequeno-negocio"
+  }
+}

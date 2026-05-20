@@ -50,7 +50,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **CTA:** `{{CTA:tools}}`
 - **Status:** Done — drafted in `local-seo-checklist-small-business/` and `checklist-seo-local-pequenos-negocios/`.
 
-### 4. What to put on a small business homepage
+### 4. What to put on a small business homepage (done)
 
 - **EN title:** What Should Be on a Small Business Homepage?
 - **PT title:** O Que Deve Ter a Homepage de um Pequeno Negócio?
@@ -61,8 +61,9 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Informational
 - **Description:** Give a practical homepage anatomy: promise, services, proof, opening hours, contact options, location, FAQ, and CTA. Include before/after examples of vague vs useful copy.
 - **CTA:** `{{CTA}}`
+- **Status:** Done — drafted in `small-business-homepage-checklist/` and `checklist-homepage-pequeno-negocio/`.
 
-### 5. Why cheap websites become expensive
+### 5. Why cheap websites become expensive (done)
 
 - **EN title:** Why Cheap Websites Become Expensive Later
 - **PT title:** Porque é que Websites Baratos Ficam Caros Mais Tarde
@@ -73,8 +74,9 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Commercial investigation
 - **Description:** Explain maintenance gaps, poor SEO, slow loading, no backups, plugin issues, unclear ownership, missing analytics, and rebuild costs. Keep tone educational, not fear-based.
 - **CTA:** `{{CTA}}`
+- **Status:** Done — drafted in `cheap-websites-expensive-later/` and `websites-baratos-ficam-caros/`.
 
-### 6. Domain name checklist
+### 6. Domain name checklist (done)
 
 - **EN title:** Domain Name Checklist Before You Buy One
 - **PT title:** Checklist Antes de Comprar um Domínio
@@ -85,8 +87,9 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Informational
 - **Description:** A shorter tactical companion to the existing domain guide: length, pronunciation, trademark check, extension choice, social handles, renewal cost, ownership email, and DNS control.
 - **CTA:** `{{CTA}}`
+- **Status:** Done — drafted in `domain-name-checklist/` and `checklist-comprar-dominio/`.
 
-### 7. Website maintenance checklist
+### 7. Website maintenance checklist (done)
 
 - **EN title:** Website Maintenance Checklist for Small Businesses
 - **PT title:** Checklist de Manutenção de Website para Pequenos Negócios
@@ -97,8 +100,9 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Informational/commercial
 - **Description:** Explain backups, SSL, uptime, software updates, content changes, forms, analytics, SEO checks, and security basics. Position managed maintenance as less risky than remembering everything manually.
 - **CTA:** `{{CTA}}`
+- **Status:** Done — drafted in `website-maintenance-checklist/` and `checklist-manutencao-website/`.
 
-### 8. Google Business Profile optimization
+### 8. Google Business Profile optimization (done)
 
 - **EN title:** How to Optimize Your Google Business Profile for More Local Leads
 - **PT title:** Como Otimizar o Perfil de Empresa no Google para Receber Mais Contactos
@@ -109,6 +113,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Informational
 - **Description:** Cover categories, services, photos, reviews, posts, Q&A, website link, booking/contact links, and measuring calls/directions. Tie back to website conversion once users click through.
 - **CTA:** `{{CTA:tools}}`
+- **Status:** Done — drafted in `optimize-google-business-profile/` and `otimizar-perfil-empresa-google/`.
 
 ### 9. Website speed and lost customers
 

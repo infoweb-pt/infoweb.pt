@@ -1,0 +1,24 @@
+{
+  "title": "Porque é que Websites Baratos Ficam Caros Mais Tarde",
+  "description": "Websites baratos costumam sair caros: SEO fraco, lentidão, falta de backups, plugins, propriedade confusa e custos de reconstrução — explicado para donos de negócio.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "small-business",
+  "tags": [
+    "custo website",
+    "pequenos negócios",
+    "manutenção",
+    "SEO"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Dono de negócio a comparar custos escondidos de website barato",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "slug": "websites-baratos-ficam-caros",
+  "language": "pt",
+  "alternateLanguage": {
+    "en": "cheap-websites-expensive-later"
+  }
+}

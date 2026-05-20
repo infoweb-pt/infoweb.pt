@@ -1,0 +1,24 @@
+{
+  "title": "O Que Deve Ter a Homepage de um Pequeno Negócio?",
+  "description": "Checklist da homepage para pequenos negócios: proposta, serviços, prova social, horário, contacto, localização, FAQ e CTAs que geram contactos.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "web-design",
+  "tags": [
+    "homepage",
+    "pequenos negócios",
+    "web design",
+    "conversão"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Wireframe de homepage de pequeno negócio com chamada à ação clara",
+  "readTime": 6,
+  "featured": false,
+  "published": true,
+  "slug": "checklist-homepage-pequeno-negocio",
+  "language": "pt",
+  "alternateLanguage": {
+    "en": "small-business-homepage-checklist"
+  }
+}

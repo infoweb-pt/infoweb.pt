@@ -56,6 +56,56 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/small-business-homepage-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/checklist-homepage-pequeno-negocio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/cheap-websites-expensive-later/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/websites-baratos-ficam-caros/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/domain-name-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/checklist-comprar-dominio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/website-maintenance-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/checklist-manutencao-website/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/optimize-google-business-profile/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/otimizar-perfil-empresa-google/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Free Tools Hub -->
   <url>

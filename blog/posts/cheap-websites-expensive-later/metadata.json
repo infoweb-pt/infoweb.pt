@@ -1,0 +1,24 @@
+{
+  "title": "Why Cheap Websites Become Expensive Later",
+  "description": "Cheap websites often cost more later: poor SEO, slow speed, no backups, plugin debt, unclear ownership, and rebuild fees explained for owners.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "small-business",
+  "tags": [
+    "website cost",
+    "small business",
+    "maintenance",
+    "SEO"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Business owner comparing cheap website hidden costs on a laptop",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "slug": "cheap-websites-expensive-later",
+  "language": "en",
+  "alternateLanguage": {
+    "pt": "websites-baratos-ficam-caros"
+  }
+}

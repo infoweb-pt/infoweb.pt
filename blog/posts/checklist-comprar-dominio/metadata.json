@@ -1,0 +1,24 @@
+{
+  "title": "Checklist Antes de Comprar um Domínio",
+  "description": "Checklist de domínio: comprimento, pronúncia, marcas, extensão .pt/.com, redes sociais, renovação, email de propriedade e controlo DNS antes de comprar.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "domains-hosting",
+  "tags": [
+    "domínio",
+    "DNS",
+    "pequenos negócios",
+    "checklist"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Checklist de compra de domínio com ícones de globo e segurança",
+  "readTime": 5,
+  "featured": false,
+  "published": true,
+  "slug": "checklist-comprar-dominio",
+  "language": "pt",
+  "alternateLanguage": {
+    "en": "domain-name-checklist"
+  }
+}

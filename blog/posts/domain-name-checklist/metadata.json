@@ -1,0 +1,24 @@
+{
+  "title": "Domain Name Checklist Before You Buy One",
+  "description": "Domain name checklist: length, pronunciation, trademarks, extensions, social handles, renewal price, ownership email, and DNS control before you buy.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "domains-hosting",
+  "tags": [
+    "domain name",
+    "domains",
+    "small business",
+    "checklist"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Domain name checklist with globe and secure lock icons",
+  "readTime": 5,
+  "featured": false,
+  "published": true,
+  "slug": "domain-name-checklist",
+  "language": "en",
+  "alternateLanguage": {
+    "pt": "checklist-comprar-dominio"
+  }
+}

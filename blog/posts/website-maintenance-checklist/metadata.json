@@ -1,0 +1,24 @@
+{
+  "title": "Website Maintenance Checklist for Small Businesses",
+  "description": "Website maintenance checklist: backups, SSL, uptime, updates, content, forms, analytics, SEO checks, and security basics for small businesses.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "domains-hosting",
+  "tags": [
+    "website maintenance",
+    "small business",
+    "security",
+    "backups"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Website maintenance checklist with shield and calendar icons",
+  "readTime": 6,
+  "featured": false,
+  "published": true,
+  "slug": "website-maintenance-checklist",
+  "language": "en",
+  "alternateLanguage": {
+    "pt": "checklist-manutencao-website"
+  }
+}
