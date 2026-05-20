@@ -189,7 +189,7 @@ blog/
      "author": "InfoWeb",
      "dateCreated": "2026-05-20",
      "dateUpdated": "2026-05-20",
-     "category": "Web Design",
+     "category": "web-design",
      "tags": ["websites", "small business", "SEO"],
      "image": "./assets/featured.jpg",
      "imageAlt": "Descriptive alt text for accessibility",
@@ -229,7 +229,7 @@ blog/
      "author": "InfoWeb",
      "dateCreated": "2026-05-20",
      "dateUpdated": "2026-05-20",
-     "category": "Web Design",
+     "category": "web-design",
      "tags": ["websites", "pequenos negócios", "SEO"],
      "image": "./assets/featured.jpg",
      "imageAlt": "Texto alt descritivo para acessibilidade",
@@ -308,17 +308,34 @@ blog/
 
 ### Categories
 
-Standard categories (keep consistent and use appropriate categories):
-- `Domains & Hosting`
-- `Web Design`
-- `SEO`
-- `Digital Marketing`
-- `Small Business`
-- `Tutorials`
-- `Case Studies`
-- `Company News`
+**⚠️ IMPORTANT:** Categories use **keys** (not display names) and are automatically translated.
 
-**Important:** Choose categories that accurately describe the post topic. Don't default to "Web Design" for everything — use the most specific and relevant category.
+Use these category keys in your `metadata.json`:
+
+| Category Key | English Display | Portuguese Display |
+|--------------|-----------------|-------------------|
+| `domains-hosting` | Domains & Hosting | Domínios & Hosting |
+| `web-design` | Web Design | Web Design |
+| `seo` | SEO | SEO |
+| `digital-marketing` | Digital Marketing | Marketing Digital |
+| `small-business` | Small Business | Pequenos Negócios |
+| `tutorials` | Tutorials | Tutoriais |
+| `case-studies` | Case Studies | Casos de Estudo |
+| `company-news` | Company News | Notícias |
+
+**Example in metadata.json:**
+```json
+{
+  "category": "domains-hosting",
+  ...
+}
+```
+
+**Important:** 
+- Always use the **key** (lowercase with hyphens), not the display name
+- The blog system automatically shows the correct translation based on language
+- Choose categories that accurately describe the post topic
+- Don't default to one category for everything — use the most specific and relevant one
 
 ### Index Metadata (`posts/metadata.json`)
 

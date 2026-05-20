@@ -1,5 +1,49 @@
 // InfoWeb Blog - Post Content Loader
 
+// Category translations
+const categoryTranslations = {
+  'domains-hosting': {
+    en: 'Domains & Hosting',
+    pt: 'Domínios & Hosting'
+  },
+  'web-design': {
+    en: 'Web Design',
+    pt: 'Web Design'
+  },
+  'seo': {
+    en: 'SEO',
+    pt: 'SEO'
+  },
+  'digital-marketing': {
+    en: 'Digital Marketing',
+    pt: 'Marketing Digital'
+  },
+  'small-business': {
+    en: 'Small Business',
+    pt: 'Pequenos Negócios'
+  },
+  'tutorials': {
+    en: 'Tutorials',
+    pt: 'Tutoriais'
+  },
+  'case-studies': {
+    en: 'Case Studies',
+    pt: 'Casos de Estudo'
+  },
+  'company-news': {
+    en: 'Company News',
+    pt: 'Notícias'
+  }
+};
+
+// Get translated category name
+function getCategoryName(categoryKey, lang) {
+  if (categoryTranslations[categoryKey]) {
+    return categoryTranslations[categoryKey][lang] || categoryKey;
+  }
+  return categoryKey;
+}
+
 // Get the current post slug from the URL
 function getPostSlug() {
   const pathParts = window.location.pathname.split('/').filter(p => p);
@@ -108,9 +152,13 @@ async function loadPost() {
     document.getElementById('postContent').innerHTML = htmlContent;
     
     // Update post meta info
-    document.getElementById('postCategory').textContent = metadata.category;
+    const categoryName = getCategoryName(metadata.category, metadata.language);
+    document.getElementById('postCategory').textContent = categoryName;
     document.getElementById('postDate').textContent = formatDate(metadata.dateCreated);
-    document.getElementById('postReadTime').textContent = `${metadata.readTime} min leitura`;
+    
+    // Set read time text based on language
+    const readTimeText = metadata.language === 'en' ? 'min read' : 'min leitura';
+    document.getElementById('postReadTime').textContent = `${metadata.readTime} ${readTimeText}`;
     
     // Render tags
     renderTags(metadata.tags);

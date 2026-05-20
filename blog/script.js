@@ -5,6 +5,50 @@ let filteredPosts = [];
 let categories = new Set();
 let currentLanguage = 'pt'; // default
 
+// Category translations
+const categoryTranslations = {
+  'domains-hosting': {
+    en: 'Domains & Hosting',
+    pt: 'Domínios & Hosting'
+  },
+  'web-design': {
+    en: 'Web Design',
+    pt: 'Web Design'
+  },
+  'seo': {
+    en: 'SEO',
+    pt: 'SEO'
+  },
+  'digital-marketing': {
+    en: 'Digital Marketing',
+    pt: 'Marketing Digital'
+  },
+  'small-business': {
+    en: 'Small Business',
+    pt: 'Pequenos Negócios'
+  },
+  'tutorials': {
+    en: 'Tutorials',
+    pt: 'Tutoriais'
+  },
+  'case-studies': {
+    en: 'Case Studies',
+    pt: 'Casos de Estudo'
+  },
+  'company-news': {
+    en: 'Company News',
+    pt: 'Notícias'
+  }
+};
+
+// Get translated category name
+function getCategoryName(categoryKey, lang) {
+  if (categoryTranslations[categoryKey]) {
+    return categoryTranslations[categoryKey][lang] || categoryKey;
+  }
+  return categoryKey;
+}
+
 // UI translations
 const translations = {
   en: {
@@ -192,10 +236,10 @@ function populateCategoryFilter() {
   
   const sortedCategories = Array.from(categories).sort();
   
-  sortedCategories.forEach(category => {
+  sortedCategories.forEach(categoryKey => {
     const option = document.createElement('option');
-    option.value = category;
-    option.textContent = category;
+    option.value = categoryKey;
+    option.textContent = getCategoryName(categoryKey, currentLanguage);
     categoryFilter.appendChild(option);
   });
 }
@@ -257,6 +301,7 @@ function createPostCard(post, isFeatured = false) {
   const imageUrl = `./posts/${post.slug}/${post.image}`;
   const postUrl = `./posts/${post.slug}/`;
   const formattedDate = formatDate(post.dateCreated);
+  const categoryName = getCategoryName(post.category, currentLanguage);
   const tagsHtml = post.tags.slice(0, 3).map(tag => 
     `<span class="text-xs text-slate-400">#${tag}</span>`
   ).join(' ');
@@ -274,7 +319,7 @@ function createPostCard(post, isFeatured = false) {
           />
           <div class="absolute top-3 left-3">
             <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-slate-950/80 text-signal border border-signal/30">
-              ${post.category}
+              ${categoryName}
             </span>
           </div>
         </div>
