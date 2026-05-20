@@ -26,6 +26,17 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/need-website-if-have-instagram/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/precisa-website-se-tem-instagram/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Free Tools Hub -->
   <url>
     <loc>https://infoweb.sousadev.com/free-tools/</loc>

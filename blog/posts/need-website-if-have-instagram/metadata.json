@@ -1,0 +1,24 @@
+{
+  "slug": "need-website-if-have-instagram",
+  "language": "en",
+  "title": "Do You Still Need a Website If Your Business Has Instagram?",
+  "description": "Instagram helps discovery, but a website gives small businesses trust, Google visibility, bookings, ownership, and better lead conversion.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "small-business",
+  "tags": [
+    "website",
+    "Instagram",
+    "small business",
+    "digital presence"
+  ],
+  "image": "./assets/featured.jpg",
+  "imageAlt": "Small business owner comparing Instagram and website channels",
+  "readTime": 6,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "precisa-website-se-tem-instagram"
+  }
+}
