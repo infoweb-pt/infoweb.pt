@@ -254,4 +254,25 @@ input[type="color"]::-webkit-color-swatch {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  a,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  label[for] {
+    min-height: 44px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
 }

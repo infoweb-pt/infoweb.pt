@@ -23,6 +23,8 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="InfoWeb" />
   <link rel="canonical" href="https://infoweb.sousadev.com/blog/" />
+  <link rel="alternate" hreflang="pt" href="https://infoweb.sousadev.com/blog/" />
+  <link rel="alternate" hreflang="x-default" href="https://infoweb.sousadev.com/blog/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -80,6 +82,28 @@
       object-fit: cover;
     }
   </style>
+
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://infoweb.sousadev.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://infoweb.sousadev.com/blog/"
+    }
+  ]
+}
+  </script>
 </head>
 <body class="bg-slate-950 text-white font-sans antialiased min-h-screen flex flex-col bg-[radial-gradient(circle_at_top,_rgba(215,180,106,0.22),_transparent_42%),radial-gradient(circle_at_80%_18%,_rgba(56,189,248,0.18),_transparent_36%),linear-gradient(180deg,_#020617_0%,_#020617_70%,_#0f172a_100%)]">
   

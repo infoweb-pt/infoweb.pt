@@ -29,6 +29,9 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="author" content="Sousa Dev" />
     <link rel="canonical" href="https://infoweb.sousadev.com/" />
+  <link rel="alternate" hreflang="en" href="https://infoweb.sousadev.com/" />
+  <link rel="alternate" hreflang="pt" href="https://infoweb.sousadev.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://infoweb.sousadev.com/" />
 
     <meta property="og:site_name" content="InfoWeb" />
     <meta property="og:type" content="website" />
@@ -79,7 +82,7 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+        "@type": ["ProfessionalService", "LocalBusiness"],
         "name": "InfoWeb",
         "alternateName": "InfoWeb Website as a Service",
         "url": "https://infoweb.sousadev.com/",
@@ -88,6 +91,10 @@
         "description": "InfoWeb provides managed websites for small businesses: domain, maintenance, bookings, dashboards, payments, and CMS access.",
         "email": "info@sousadev.com",
         "areaServed": { "@type": "Country", "name": "Portugal" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "PT"
+        },
         "priceRange": "€€",
         "sameAs": [
           "https://www.linkedin.com/in/henriquecsousa/",
@@ -148,7 +155,7 @@
         <a href="#top" class="flex items-center text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="header" data-track-target="#top">
           <img
             src="assets/images/infoweb-logo.png"
-            alt="InfoWeb"
+            alt="InfoWeb logo — website as a service for small businesses"
             class="h-10 w-auto sm:h-11"
           />
         </a>
@@ -449,7 +456,7 @@
             <p class="section-kicker text-signal" data-i18n="developer.eyebrow">Who will manage your site?</p>
             <h2 class="font-display text-4xl font-bold leading-tight sm:text-5xl" data-i18n="developer.title">A full-stack developer, not a faceless template vendor.</h2>
             <div class="developer-card mt-8">
-              <img src="assets/images/sousadev-photo.jpeg" alt="Henrique Sousa" class="developer-photo" />
+              <img src="assets/images/sousadev-photo.jpeg" alt="Henrique Sousa — InfoWeb founder and full-stack developer" class="developer-photo" />
               <div>
                 <h3>Henrique Sousa</h3>
                 <p class="developer-role" data-i18n="developer.role1">Software Engineer</p>
@@ -535,7 +542,7 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="#top" class="inline-flex items-center gap-3 text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="footer" data-track-target="#top">
-              <img src="assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto opacity-95" width="120" height="36" />
+              <img src="assets/images/infoweb-logo.png" alt="InfoWeb logo — managed websites for small businesses" class="h-9 w-auto opacity-95" width="120" height="36" />
             </a>
             <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400" data-i18n="footer.tagline">
               Managed websites for small businesses: domain, hosting, updates, and a clear path to grow online.

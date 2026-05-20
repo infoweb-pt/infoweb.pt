@@ -49,7 +49,10 @@ async function loadPost() {
     let markdownContent = await contentResponse.text();
 
     markdownContent = replaceCtaPlaceholdersInMarkdown(markdownContent, postLang);
-    const htmlContent = marked.parse(markdownContent);
+    let htmlContent = marked.parse(markdownContent);
+
+    // Avoid duplicate H1: static H1 exists in HTML for crawlers; strip first heading from markdown body
+    htmlContent = htmlContent.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
 
     const title = replaceDynamicTokens(metadata.title);
     const description = replaceDynamicTokens(metadata.description);
@@ -59,6 +62,11 @@ async function loadPost() {
     updateMetaTags({ ...metadata, title, description }, postLang);
 
     document.getElementById('postContent').innerHTML = htmlContent;
+
+    const postTitleEl = document.getElementById('postTitle');
+    if (postTitleEl) {
+      postTitleEl.textContent = title;
+    }
 
     const categoryName = getCategoryName(metadata.category, postLang);
     document.getElementById('postCategory').textContent = categoryName;
