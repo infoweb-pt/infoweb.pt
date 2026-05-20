@@ -202,17 +202,17 @@ function createPostCard(post) {
             loading="lazy"
             onerror="this.src='../assets/images/og-image.png'"
           />
-          <div class="absolute top-3 left-3">
-            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-slate-950/80 text-signal border border-signal/30">
-              ${categoryName}
-            </span>
-          </div>
         </div>
         <div class="p-5">
-          <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
-            <span>${formattedDate}</span>
-            <span>•</span>
-            <span>${post.readTime} ${t.minRead}</span>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <div class="flex items-center gap-3 text-xs text-slate-500 min-w-0">
+              <span>${formattedDate}</span>
+              <span>•</span>
+              <span>${post.readTime} ${t.minRead}</span>
+            </div>
+            <span class="inline-block shrink-0 px-3 py-1 text-xs font-semibold rounded-full bg-slate-950/80 text-signal border border-signal/30">
+              ${categoryName}
+            </span>
           </div>
           <h3 class="text-white text-lg font-bold mb-2 group-hover:text-signal transition">
             ${title}
