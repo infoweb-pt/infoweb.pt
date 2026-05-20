@@ -9,6 +9,19 @@ const {
   replaceDynamicTokens
 } = window.BlogI18n;
 
+if (typeof marked !== 'undefined' && typeof marked.use === 'function') {
+  marked.use({
+    gfm: true,
+    breaks: false
+  });
+}
+
+function enhanceMarkdownHtml(html) {
+  return html
+    .replace(/<table>/g, '<div class="table-wrapper"><table>')
+    .replace(/<\/table>/g, '</table></div>');
+}
+
 // Get the current post slug from the URL
 function getPostSlug() {
   const pathParts = window.location.pathname.split('/').filter((p) => p);
@@ -48,8 +61,10 @@ async function loadPost() {
     }
     let markdownContent = await contentResponse.text();
 
+    markdownContent = replaceDynamicTokens(markdownContent);
     markdownContent = replaceCtaPlaceholdersInMarkdown(markdownContent, postLang);
     let htmlContent = marked.parse(markdownContent);
+    htmlContent = enhanceMarkdownHtml(htmlContent);
 
     // Avoid duplicate H1: static H1 exists in HTML for crawlers; strip first heading from markdown body
     htmlContent = htmlContent.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');

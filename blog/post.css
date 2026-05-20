@@ -91,6 +91,70 @@
   color: white;
 }
 
+.blog-content hr {
+  border: 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  margin: 2.5rem 0;
+}
+
+/* GFM tables */
+.blog-content .table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.blog-content table {
+  width: 100%;
+  min-width: 28rem;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-content th {
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  font-weight: 700;
+}
+
+.blog-content tbody tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.blog-content tbody tr:hover {
+  background: rgba(30, 41, 59, 0.55);
+}
+
+/* GFM task lists */
+.blog-content ul:has(input[type='checkbox']) {
+  list-style: none;
+  padding-left: 0;
+}
+
+.blog-content li:has(> input[type='checkbox']) {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+
+.blog-content input[type='checkbox'] {
+  margin-top: 0.35rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: #d7b46a;
+  flex-shrink: 0;
+}
+
 /* CTA block (injected from markdown placeholders) */
 .cta-block {
   background: linear-gradient(135deg, rgba(215, 180, 106, 0.15), rgba(56, 189, 248, 0.1));

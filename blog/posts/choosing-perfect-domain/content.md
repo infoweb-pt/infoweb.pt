@@ -98,7 +98,7 @@ You can register domains through:
 
 - **[GoDaddy](https://www.godaddy.com/)** — popular registrar with good support
 - **[Namecheap](https://www.namecheap.com/)** — affordable with free privacy protection
-- **[Google Domains](https://domains.google/)** — simple interface, integrated with Google services
+- **[Squarespace Domains](https://domains.squarespace.com/)** — straightforward registrar (formerly Google Domains)
 - **Your hosting provider** — many include domain registration
 
 **Tip:** When you choose a website service like InfoWeb, domain registration is included, saving time and eliminating technical complications.
