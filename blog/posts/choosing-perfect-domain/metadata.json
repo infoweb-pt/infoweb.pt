@@ -1,0 +1,19 @@
+{
+  "slug": "choosing-perfect-domain",
+  "language": "en",
+  "title": "How to Choose the Perfect Domain Name for Your Business",
+  "description": "Complete guide to choosing a memorable, SEO-optimized domain name. Practical tips for small businesses looking to establish their online presence.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "Web Design",
+  "tags": ["domain", "small business", "SEO", "website"],
+  "image": "./assets/featured.jpg",
+  "imageAlt": "Person choosing a domain name on computer",
+  "readTime": 5,
+  "featured": true,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "como-escolher-dominio-perfeito"
+  }
+}

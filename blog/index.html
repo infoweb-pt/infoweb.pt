@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-XXQSMBERJM");
+  </script>
+  <script src="../assets/js/analytics.js" defer></script>
+
+  <!-- Primary SEO -->
+  <title>Blog InfoWeb — Dicas de Web Design, SEO e Marketing Digital</title>
+  <meta name="description" content="Artigos práticos sobre web design, SEO, marketing digital e estratégias para pequenos negócios. Aprenda a crescer online com a InfoWeb." />
+  <meta name="keywords" content="blog web design, SEO Portugal, marketing digital, pequenos negócios, websites, dicas digitais" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="InfoWeb" />
+  <link rel="canonical" href="https://infoweb.sousadev.com/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="InfoWeb" />
+  <meta property="og:url" content="https://infoweb.sousadev.com/blog/" />
+  <meta property="og:title" content="Blog InfoWeb — Dicas de Web Design e Marketing Digital" />
+  <meta property="og:description" content="Artigos práticos sobre web design, SEO, marketing digital e estratégias para pequenos negócios." />
+  <meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog InfoWeb — Dicas de Web Design e Marketing Digital" />
+  <meta name="twitter:description" content="Artigos práticos sobre web design, SEO, marketing digital e estratégias para pequenos negócios." />
+  <meta name="twitter:image" content="https://infoweb.sousadev.com/assets/images/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog InfoWeb",
+    "description": "Artigos práticos sobre web design, SEO, marketing digital e estratégias para pequenos negócios.",
+    "url": "https://infoweb.sousadev.com/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfoWeb",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infoweb.sousadev.com/assets/images/infoweb-logo.png"
+      }
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../favicon_io/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui'] },
+          colors: { ink: '#020617', signal: '#d7b46a' }
+        }
+      }
+    };
+  </script>
+  <style>
+    .blog-card-image {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased min-h-screen flex flex-col bg-[radial-gradient(circle_at_top,_rgba(215,180,106,0.22),_transparent_42%),radial-gradient(circle_at_80%_18%,_rgba(56,189,248,0.18),_transparent_36%),linear-gradient(180deg,_#020617_0%,_#020617_70%,_#0f172a_100%)]">
+  
+  <!-- Header -->
+  <header class="border-b border-slate-800/60 bg-slate-950/70 backdrop-blur-xl sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="../" class="inline-flex items-center gap-2 text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="header" data-track-target="/">
+        <img src="../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" width="120" height="36" />
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="../free-tools/" class="text-sm font-semibold text-slate-300 hover:text-white transition" data-track="nav_click" data-track-location="header" data-track-target="/free-tools/">
+          Ferramentas Grátis
+        </a>
+        <a href="../#pricing" class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition" data-track="cta_click" data-track-location="blog_header" data-track-target="/#pricing">
+          Planos
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-14 sm:py-16 flex-1 w-full">
+    <div class="max-w-3xl mb-10">
+      <p class="text-signal text-sm font-semibold tracking-[0.2em] uppercase mb-3">Blog InfoWeb</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight">Dicas para o seu negócio crescer online</h1>
+      <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+        Artigos práticos sobre web design, SEO, marketing digital e estratégias comprovadas para pequenos negócios em Portugal.
+      </p>
+    </div>
+
+    <!-- Search and Filter -->
+    <div class="mb-8 flex flex-col sm:flex-row gap-4">
+      <div class="flex-1">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Pesquisar artigos..." 
+          class="w-full px-4 py-3 rounded-xl bg-slate-900/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-signal/60 focus:ring-2 focus:ring-signal/20 transition"
+          aria-label="Pesquisar artigos"
+        />
+      </div>
+      <div class="flex gap-2">
+        <select 
+          id="categoryFilter" 
+          class="px-4 py-3 rounded-xl bg-slate-900/70 border border-slate-700 text-white focus:outline-none focus:border-signal/60 transition"
+          aria-label="Filtrar por categoria"
+        >
+          <option value="">Todas as categorias</option>
+        </select>
+        <select 
+          id="sortBy" 
+          class="px-4 py-3 rounded-xl bg-slate-900/70 border border-slate-700 text-white focus:outline-none focus:border-signal/60 transition"
+          aria-label="Ordenar por"
+        >
+          <option value="dateDesc">Mais recentes</option>
+          <option value="dateAsc">Mais antigos</option>
+          <option value="titleAsc">Título (A-Z)</option>
+          <option value="titleDesc">Título (Z-A)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="text-center py-20">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-signal"></div>
+      <p class="text-slate-400 mt-4">A carregar artigos...</p>
+    </div>
+
+    <!-- No Results -->
+    <div id="noResults" class="hidden text-center py-20">
+      <p class="text-slate-400 text-lg">Nenhum artigo encontrado.</p>
+      <button onclick="resetFilters()" class="mt-4 text-signal hover:text-signal/80 font-semibold">
+        Limpar filtros
+      </button>
+    </div>
+
+    <!-- Featured Posts -->
+    <div id="featuredPosts" class="hidden mb-12">
+      <h2 class="text-2xl font-bold text-white mb-6">Em destaque</h2>
+      <div id="featuredPostsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </div>
+
+    <!-- All Posts -->
+    <div id="allPostsSection" class="hidden">
+      <h2 class="text-2xl font-bold text-white mb-6">Todos os artigos</h2>
+      <div id="allPostsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-8 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="../" class="text-slate-400 hover:text-white transition" data-track="nav_click" data-track-location="footer" data-track-target="/">
+          ← InfoWeb home
+        </a>
+        <div class="flex gap-6 text-sm text-slate-500">
+          <a href="../free-tools/" class="hover:text-white transition">Ferramentas Grátis</a>
+          <a href="../#pricing" class="hover:text-white transition">Planos</a>
+          <a href="mailto:info@sousadev.com" class="hover:text-white transition">Contacto</a>
+        </div>
+      </div>
+      <p class="text-slate-500 text-sm mt-4">© 2026 InfoWeb by Sousa Dev. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Blog Script -->
+  <script src="./script.js"></script>
+</body>
+</html>
