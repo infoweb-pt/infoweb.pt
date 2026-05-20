@@ -3,18 +3,126 @@
 let allPosts = [];
 let filteredPosts = [];
 let categories = new Set();
+let currentLanguage = 'pt'; // default
+
+// UI translations
+const translations = {
+  en: {
+    heroTitle: 'Tips to grow your business online',
+    heroSubtitle: 'Practical articles about web design, SEO, digital marketing, and proven strategies for small businesses.',
+    searchPlaceholder: 'Search articles...',
+    allCategories: 'All categories',
+    sortNewest: 'Newest first',
+    sortOldest: 'Oldest first',
+    sortTitleAsc: 'Title (A-Z)',
+    sortTitleDesc: 'Title (Z-A)',
+    loading: 'Loading articles...',
+    noResults: 'No articles found.',
+    clearFilters: 'Clear filters',
+    featured: 'Featured',
+    allPosts: 'All articles',
+    minRead: 'min read',
+    readMore: 'Read more',
+    freeTools: 'Free Tools',
+    plans: 'Plans',
+    contact: 'Contact',
+    copyright: '© 2026 InfoWeb by Sousa Dev. All rights reserved.'
+  },
+  pt: {
+    heroTitle: 'Dicas para o seu negócio crescer online',
+    heroSubtitle: 'Artigos práticos sobre web design, SEO, marketing digital e estratégias comprovadas para pequenos negócios em Portugal.',
+    searchPlaceholder: 'Pesquisar artigos...',
+    allCategories: 'Todas as categorias',
+    sortNewest: 'Mais recentes',
+    sortOldest: 'Mais antigos',
+    sortTitleAsc: 'Título (A-Z)',
+    sortTitleDesc: 'Título (Z-A)',
+    loading: 'A carregar artigos...',
+    noResults: 'Nenhum artigo encontrado.',
+    clearFilters: 'Limpar filtros',
+    featured: 'Em destaque',
+    allPosts: 'Todos os artigos',
+    minRead: 'min leitura',
+    readMore: 'Ler mais',
+    freeTools: 'Ferramentas Grátis',
+    plans: 'Planos',
+    contact: 'Contacto',
+    copyright: '© 2026 InfoWeb by Sousa Dev. Todos os direitos reservados.'
+  }
+};
+
+// Get current language from localStorage or default to PT
+function getCurrentLanguage() {
+  return localStorage.getItem('blogLanguage') || 'pt';
+}
+
+// Set and persist language
+function setLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem('blogLanguage', lang);
+  updateUILanguage();
+  filterByLanguage();
+}
+
+// Update all UI text based on current language
+function updateUILanguage() {
+  const t = translations[currentLanguage];
+  
+  // Update language buttons
+  document.getElementById('langEN').classList.toggle('bg-slate-800', currentLanguage === 'en');
+  document.getElementById('langEN').classList.toggle('border-slate-500', currentLanguage === 'en');
+  document.getElementById('langEN').classList.toggle('text-white', currentLanguage === 'en');
+  
+  document.getElementById('langPT').classList.toggle('bg-slate-800', currentLanguage === 'pt');
+  document.getElementById('langPT').classList.toggle('border-slate-500', currentLanguage === 'pt');
+  document.getElementById('langPT').classList.toggle('text-white', currentLanguage === 'pt');
+  
+  // Update hero text
+  document.getElementById('heroTitle').textContent = t.heroTitle;
+  document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
+  
+  // Update search placeholder
+  document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+  
+  // Update filter options
+  document.getElementById('allCategoriesOption').textContent = t.allCategories;
+  document.getElementById('sortNewestOption').textContent = t.sortNewest;
+  document.getElementById('sortOldestOption').textContent = t.sortOldest;
+  document.getElementById('sortTitleAscOption').textContent = t.sortTitleAsc;
+  document.getElementById('sortTitleDescOption').textContent = t.sortTitleDesc;
+  
+  // Update status messages
+  document.getElementById('loadingText').textContent = t.loading;
+  document.getElementById('noResultsText').textContent = t.noResults;
+  document.getElementById('clearFiltersBtn').textContent = t.clearFilters;
+  
+  // Update section titles
+  document.getElementById('featuredTitle').textContent = t.featured;
+  document.getElementById('allPostsTitle').textContent = t.allPosts;
+  
+  // Update header/footer
+  document.getElementById('headerToolsText').textContent = t.freeTools;
+  document.getElementById('headerPlansText').textContent = t.plans;
+  document.getElementById('footerToolsLink').textContent = t.freeTools;
+  document.getElementById('footerPlansLink').textContent = t.plans;
+  document.getElementById('footerContactLink').textContent = t.contact;
+  document.getElementById('footerCopyright').textContent = t.copyright;
+}
 
 // Initialize the blog
 async function initBlog() {
+  currentLanguage = getCurrentLanguage();
+  updateUILanguage();
+  
   try {
     await loadPosts();
-    populateCategoryFilter();
-    renderPosts();
+    filterByLanguage();
     setupEventListeners();
   } catch (error) {
     console.error('Error initializing blog:', error);
+    const t = translations[currentLanguage];
     document.getElementById('loadingState').innerHTML = 
-      '<p class="text-red-400">Erro ao carregar artigos. Por favor, tente novamente mais tarde.</p>';
+      `<p class="text-red-400">${currentLanguage === 'en' ? 'Error loading articles. Please try again later.' : 'Erro ao carregar artigos. Por favor, tente novamente mais tarde.'}</p>`;
   }
 }
 
@@ -37,7 +145,6 @@ async function loadPosts() {
         
         // Only include published posts
         if (metadata.published) {
-          categories.add(metadata.category);
           return metadata;
         }
         return null;
@@ -48,7 +155,6 @@ async function loadPosts() {
     });
     
     allPosts = (await Promise.all(postPromises)).filter(post => post !== null);
-    filteredPosts = [...allPosts];
     
   } catch (error) {
     console.error('Error loading posts:', error);
@@ -56,9 +162,34 @@ async function loadPosts() {
   }
 }
 
+// Filter posts by current language
+function filterByLanguage() {
+  // Filter posts by language
+  filteredPosts = allPosts.filter(post => post.language === currentLanguage);
+  
+  // Rebuild categories from filtered posts
+  categories = new Set();
+  filteredPosts.forEach(post => {
+    categories.add(post.category);
+  });
+  
+  populateCategoryFilter();
+  applyCategoryFilter();
+}
+
 // Populate category filter dropdown
 function populateCategoryFilter() {
   const categoryFilter = document.getElementById('categoryFilter');
+  const t = translations[currentLanguage];
+  
+  // Clear existing options except the first one
+  while (categoryFilter.options.length > 1) {
+    categoryFilter.remove(1);
+  }
+  
+  // Update first option text
+  categoryFilter.options[0].textContent = t.allCategories;
+  
   const sortedCategories = Array.from(categories).sort();
   
   sortedCategories.forEach(category => {
@@ -114,13 +245,15 @@ function renderPosts() {
   // Track analytics
   if (typeof gtag === 'function') {
     gtag('event', 'blog_index_view', {
-      posts_count: filteredPosts.length
+      posts_count: filteredPosts.length,
+      language: currentLanguage
     });
   }
 }
 
 // Create a post card HTML
 function createPostCard(post, isFeatured = false) {
+  const t = translations[currentLanguage];
   const imageUrl = `./posts/${post.slug}/${post.image}`;
   const postUrl = `./posts/${post.slug}/`;
   const formattedDate = formatDate(post.dateCreated);
@@ -149,7 +282,7 @@ function createPostCard(post, isFeatured = false) {
           <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
             <span>${formattedDate}</span>
             <span>•</span>
-            <span>${post.readTime} min leitura</span>
+            <span>${post.readTime} ${t.minRead}</span>
           </div>
           <h3 class="text-white text-lg font-bold mb-2 group-hover:text-signal transition">
             ${post.title}
@@ -161,7 +294,7 @@ function createPostCard(post, isFeatured = false) {
             <div class="flex gap-2 flex-wrap">
               ${tagsHtml}
             </div>
-            <span class="text-xs font-semibold text-signal/90">Ler mais →</span>
+            <span class="text-xs font-semibold text-signal/90">${t.readMore} →</span>
           </div>
         </div>
       </a>
@@ -169,21 +302,25 @@ function createPostCard(post, isFeatured = false) {
   `;
 }
 
-// Format date to Portuguese format
+// Format date to appropriate locale
 function formatDate(dateString) {
   const date = new Date(dateString);
+  const locale = currentLanguage === 'en' ? 'en-GB' : 'pt-PT';
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('pt-PT', options);
+  return date.toLocaleDateString(locale, options);
 }
 
 // Search posts
 function searchPosts(query) {
   const searchTerm = query.toLowerCase().trim();
   
+  // Start with language-filtered posts
+  const languagePosts = allPosts.filter(post => post.language === currentLanguage);
+  
   if (!searchTerm) {
-    filteredPosts = [...allPosts];
+    filteredPosts = languagePosts;
   } else {
-    filteredPosts = allPosts.filter(post => {
+    filteredPosts = languagePosts.filter(post => {
       return (
         post.title.toLowerCase().includes(searchTerm) ||
         post.description.toLowerCase().includes(searchTerm) ||
@@ -196,7 +333,8 @@ function searchPosts(query) {
     if (typeof gtag === 'function') {
       gtag('event', 'search_query', {
         search_term: searchTerm,
-        results_count: filteredPosts.length
+        results_count: filteredPosts.length,
+        language: currentLanguage
       });
     }
   }
@@ -219,6 +357,7 @@ function applyCategoryFilter() {
 // Apply sorting
 function applySorting() {
   const sortBy = document.getElementById('sortBy').value;
+  const locale = currentLanguage === 'en' ? 'en-GB' : 'pt-PT';
   
   switch (sortBy) {
     case 'dateDesc':
@@ -228,10 +367,10 @@ function applySorting() {
       filteredPosts.sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated));
       break;
     case 'titleAsc':
-      filteredPosts.sort((a, b) => a.title.localeCompare(b.title, 'pt-PT'));
+      filteredPosts.sort((a, b) => a.title.localeCompare(b.title, locale));
       break;
     case 'titleDesc':
-      filteredPosts.sort((a, b) => b.title.localeCompare(a.title, 'pt-PT'));
+      filteredPosts.sort((a, b) => b.title.localeCompare(a.title, locale));
       break;
   }
   
@@ -244,8 +383,7 @@ function resetFilters() {
   document.getElementById('categoryFilter').value = '';
   document.getElementById('sortBy').value = 'dateDesc';
   
-  filteredPosts = [...allPosts];
-  applySorting();
+  filterByLanguage();
 }
 
 // Setup event listeners
@@ -253,6 +391,39 @@ function setupEventListeners() {
   const searchInput = document.getElementById('searchInput');
   const categoryFilter = document.getElementById('categoryFilter');
   const sortBy = document.getElementById('sortBy');
+  const langEN = document.getElementById('langEN');
+  const langPT = document.getElementById('langPT');
+  
+  // Language switchers
+  langEN.addEventListener('click', () => {
+    if (currentLanguage !== 'en') {
+      setLanguage('en');
+      
+      // Track analytics
+      if (typeof gtag === 'function') {
+        gtag('event', 'language_switch', {
+          from: 'pt',
+          to: 'en',
+          location: 'blog_index'
+        });
+      }
+    }
+  });
+  
+  langPT.addEventListener('click', () => {
+    if (currentLanguage !== 'pt') {
+      setLanguage('pt');
+      
+      // Track analytics
+      if (typeof gtag === 'function') {
+        gtag('event', 'language_switch', {
+          from: 'en',
+          to: 'pt',
+          location: 'blog_index'
+        });
+      }
+    }
+  });
   
   // Debounce search input
   let searchTimeout;
@@ -264,7 +435,8 @@ function setupEventListeners() {
   });
   
   categoryFilter.addEventListener('change', () => {
-    filteredPosts = [...allPosts];
+    // Start fresh from language-filtered posts
+    filteredPosts = allPosts.filter(post => post.language === currentLanguage);
     searchPosts(searchInput.value);
   });
   

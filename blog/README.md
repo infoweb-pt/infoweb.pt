@@ -308,7 +308,8 @@ blog/
 
 ### Categories
 
-Standard categories (keep consistent):
+Standard categories (keep consistent and use appropriate categories):
+- `Domains & Hosting`
 - `Web Design`
 - `SEO`
 - `Digital Marketing`
@@ -316,6 +317,8 @@ Standard categories (keep consistent):
 - `Tutorials`
 - `Case Studies`
 - `Company News`
+
+**Important:** Choose categories that accurately describe the post topic. Don't default to "Web Design" for everything — use the most specific and relevant category.
 
 ### Index Metadata (`posts/metadata.json`)
 

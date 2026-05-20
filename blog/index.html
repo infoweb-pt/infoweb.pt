@@ -89,12 +89,16 @@
       <a href="../" class="inline-flex items-center gap-2 text-white" aria-label="InfoWeb home" data-track="nav_click" data-track-location="header" data-track-target="/">
         <img src="../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9 w-auto" width="120" height="36" />
       </a>
-      <div class="flex items-center gap-4">
-        <a href="../free-tools/" class="text-sm font-semibold text-slate-300 hover:text-white transition" data-track="nav_click" data-track-location="header" data-track-target="/free-tools/">
-          Ferramentas Grátis
+      <div class="flex items-center gap-2 shrink-0">
+        <nav class="flex items-center gap-1 text-[11px] font-semibold" aria-label="Language">
+          <button id="langEN" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-lang="en" title="English">EN</button>
+          <button id="langPT" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-lang="pt" title="Português">PT</button>
+        </nav>
+        <a href="../free-tools/" class="text-sm font-semibold text-slate-300 hover:text-white transition hidden sm:inline-block" data-track="nav_click" data-track-location="header" data-track-target="/free-tools/">
+          <span id="headerToolsText">Ferramentas Grátis</span>
         </a>
         <a href="../#pricing" class="text-sm font-semibold border border-slate-600 rounded-full px-4 py-1.5 hover:border-white text-slate-300 transition" data-track="cta_click" data-track-location="blog_header" data-track-target="/#pricing">
-          Planos
+          <span id="headerPlansText">Planos</span>
         </a>
       </div>
     </div>
@@ -104,8 +108,8 @@
   <main class="max-w-6xl mx-auto px-4 py-14 sm:py-16 flex-1 w-full">
     <div class="max-w-3xl mb-10">
       <p class="text-signal text-sm font-semibold tracking-[0.2em] uppercase mb-3">Blog InfoWeb</p>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight">Dicas para o seu negócio crescer online</h1>
-      <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+      <h1 id="heroTitle" class="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight">Dicas para o seu negócio crescer online</h1>
+      <p id="heroSubtitle" class="text-slate-300 text-lg mb-8 leading-relaxed">
         Artigos práticos sobre web design, SEO, marketing digital e estratégias comprovadas para pequenos negócios em Portugal.
       </p>
     </div>
@@ -127,17 +131,17 @@
           class="px-4 py-3 rounded-xl bg-slate-900/70 border border-slate-700 text-white focus:outline-none focus:border-signal/60 transition"
           aria-label="Filtrar por categoria"
         >
-          <option value="">Todas as categorias</option>
+          <option value="" id="allCategoriesOption">Todas as categorias</option>
         </select>
         <select 
           id="sortBy" 
           class="px-4 py-3 rounded-xl bg-slate-900/70 border border-slate-700 text-white focus:outline-none focus:border-signal/60 transition"
           aria-label="Ordenar por"
         >
-          <option value="dateDesc">Mais recentes</option>
-          <option value="dateAsc">Mais antigos</option>
-          <option value="titleAsc">Título (A-Z)</option>
-          <option value="titleDesc">Título (Z-A)</option>
+          <option value="dateDesc" id="sortNewestOption">Mais recentes</option>
+          <option value="dateAsc" id="sortOldestOption">Mais antigos</option>
+          <option value="titleAsc" id="sortTitleAscOption">Título (A-Z)</option>
+          <option value="titleDesc" id="sortTitleDescOption">Título (Z-A)</option>
         </select>
       </div>
     </div>
@@ -145,26 +149,26 @@
     <!-- Loading State -->
     <div id="loadingState" class="text-center py-20">
       <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-signal"></div>
-      <p class="text-slate-400 mt-4">A carregar artigos...</p>
+      <p id="loadingText" class="text-slate-400 mt-4">A carregar artigos...</p>
     </div>
 
     <!-- No Results -->
     <div id="noResults" class="hidden text-center py-20">
-      <p class="text-slate-400 text-lg">Nenhum artigo encontrado.</p>
-      <button onclick="resetFilters()" class="mt-4 text-signal hover:text-signal/80 font-semibold">
+      <p id="noResultsText" class="text-slate-400 text-lg">Nenhum artigo encontrado.</p>
+      <button onclick="resetFilters()" id="clearFiltersBtn" class="mt-4 text-signal hover:text-signal/80 font-semibold">
         Limpar filtros
       </button>
     </div>
 
     <!-- Featured Posts -->
     <div id="featuredPosts" class="hidden mb-12">
-      <h2 class="text-2xl font-bold text-white mb-6">Em destaque</h2>
+      <h2 id="featuredTitle" class="text-2xl font-bold text-white mb-6">Em destaque</h2>
       <div id="featuredPostsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </div>
 
     <!-- All Posts -->
     <div id="allPostsSection" class="hidden">
-      <h2 class="text-2xl font-bold text-white mb-6">Todos os artigos</h2>
+      <h2 id="allPostsTitle" class="text-2xl font-bold text-white mb-6">Todos os artigos</h2>
       <div id="allPostsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
     </div>
   </main>
@@ -177,12 +181,12 @@
           ← InfoWeb home
         </a>
         <div class="flex gap-6 text-sm text-slate-500">
-          <a href="../free-tools/" class="hover:text-white transition">Ferramentas Grátis</a>
-          <a href="../#pricing" class="hover:text-white transition">Planos</a>
-          <a href="mailto:info@sousadev.com" class="hover:text-white transition">Contacto</a>
+          <a href="../free-tools/" class="hover:text-white transition" id="footerToolsLink">Ferramentas Grátis</a>
+          <a href="../#pricing" class="hover:text-white transition" id="footerPlansLink">Planos</a>
+          <a href="mailto:info@sousadev.com" class="hover:text-white transition" id="footerContactLink">Contacto</a>
         </div>
       </div>
-      <p class="text-slate-500 text-sm mt-4">© 2026 InfoWeb by Sousa Dev. Todos os direitos reservados.</p>
+      <p id="footerCopyright" class="text-slate-500 text-sm mt-4">© 2026 InfoWeb by Sousa Dev. Todos os direitos reservados.</p>
     </div>
   </footer>
 
