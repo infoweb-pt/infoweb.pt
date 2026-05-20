@@ -16,6 +16,11 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/choosing-perfect-domain/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://infoweb.sousadev.com/blog/posts/como-escolher-dominio-perfeito/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
