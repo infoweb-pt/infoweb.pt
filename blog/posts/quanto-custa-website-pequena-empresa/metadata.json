@@ -1,0 +1,24 @@
+{
+  "slug": "quanto-custa-website-pequena-empresa",
+  "language": "pt",
+  "title": "Quanto Custa um Website para Pequenas Empresas em {{CURRENT_YEAR}}?",
+  "description": "Quanto custa um website para pequenas empresas: domínio, hosting, design, SEO, manutenção e custos escondidos explicados.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "small-business",
+  "tags": [
+    "custo website",
+    "pequenas empresas",
+    "preços",
+    "website"
+  ],
+  "image": "./assets/featured.jpg",
+  "imageAlt": "Dono de pequeno negócio a analisar custos de website no computador",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "small-business-website-cost"
+  }
+}
