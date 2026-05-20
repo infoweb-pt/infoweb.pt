@@ -12,4 +12,4 @@ Composition: 16:9 Open Graph layout, leave safe negative space in the upper-left
 
 Avoid: tiny unreadable tables, fake UI clutter, exaggerated money imagery, euro/dollar piles, watermarks, distorted text.
 
-Output: `featured.jpg` or `featured.webp` at 1200x630, optimized under 250KB if possible.
+Output: `featured.png` at 1200x630, optimized under 250KB if possible.

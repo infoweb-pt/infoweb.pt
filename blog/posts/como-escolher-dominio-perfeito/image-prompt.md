@@ -12,4 +12,4 @@ Composição: deixar espaço livre seguro à esquerda ou no canto superior esque
 
 Não incluir: rostos em grande plano, aspeto de stock photo, screenshots de registadores reais, logótipos DNS.PT/GoDaddy/Namecheap, marcas de água, texto distorcido.
 
-Output: `featured.jpg` ou `featured.webp` em 1200x630, otimizado para web com menos de 250KB se possível.
+Output: `featured.png` em 1200x630, otimizado para web com menos de 250KB se possível.

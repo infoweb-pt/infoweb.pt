@@ -195,7 +195,7 @@ blog/
      "dateUpdated": "2026-05-20",
      "category": "web-design",
      "tags": ["websites", "small business", "SEO"],
-     "image": "./assets/featured.jpg",
+     "image": "./assets/featured.png",
      "imageAlt": "Descriptive alt text for accessibility",
      "readTime": 5,
      "featured": false,
@@ -209,7 +209,7 @@ blog/
 4. **Create English image prompt:**
    Create `blog/posts/your-post-slug-en/image-prompt.md` with the exact prompt an image-generation agent should use for the featured image. Include:
    - target size: `1200x630`
-   - output filename: `featured.jpg` or `featured.webp`
+   - output filename: `featured.png` (canonical — must match `index.html` OG/Twitter/JSON-LD URLs)
    - style direction matching InfoWeb (dark navy, gold accent, premium small-business SaaS feel)
    - market-specific visual cues for EN content
    - things to avoid (logos, watermarks, unreadable text, real brand screenshots)
@@ -243,7 +243,7 @@ blog/
      "dateUpdated": "2026-05-20",
      "category": "web-design",
      "tags": ["websites", "pequenos negócios", "SEO"],
-     "image": "./assets/featured.jpg",
+     "image": "./assets/featured.png",
      "imageAlt": "Texto alt descritivo para acessibilidade",
      "readTime": 5,
      "featured": false,
@@ -426,11 +426,11 @@ CTAs will be automatically replaced with a conversion component. Place them:
 
 ### Image Guidelines
 
-- **Format:** WebP preferred (or JPG/PNG)
+- **Featured image (social card):** Must be `assets/featured.png` at exactly **1200×630px**, optimized for web (<250KB). This filename is a contract — used by `metadata.json`, `index.html` OG tags, Twitter Card, and JSON-LD. If you change the filename or format, update all four places.
+- **In-body images:** WebP preferred (or JPG/PNG)
 - **Size:** Max 1200px wide, optimize for web (<200KB)
-- **Featured image:** 1200x630px for social sharing
-- **Alt text:** Descriptive and accessible
-- **Naming:** `kebab-case-descriptive.webp`
+- **Alt text:** Descriptive and accessible (must match `imageAlt` in metadata and `og:image:alt` / `twitter:image:alt` in `index.html`)
+- **Naming:** `kebab-case-descriptive.webp` for in-body images; featured is always `featured.png`
 
 ---
 
@@ -454,13 +454,27 @@ Every blog post page must include:
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Post Title" />
 <meta property="og:description" content="Post description" />
-<meta property="og:image" content="https://infoweb.sousadev.com/blog/posts/slug/assets/featured.jpg" />
+<meta property="og:image" content="https://infoweb.sousadev.com/blog/posts/slug/assets/featured.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Descriptive alt text from metadata imageAlt" />
 <meta property="og:url" content="https://infoweb.sousadev.com/blog/posts/slug/" />
 <meta property="article:published_time" content="2026-05-20T00:00:00Z" />
 <meta property="article:modified_time" content="2026-05-20T00:00:00Z" />
 <meta property="article:author" content="InfoWeb" />
 <meta property="article:section" content="Web Design" />
 <meta property="article:tag" content="websites" />
+```
+
+### Twitter Card
+
+```html
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Post Title" />
+<meta name="twitter:description" content="Post description" />
+<meta name="twitter:image" content="https://infoweb.sousadev.com/blog/posts/slug/assets/featured.png" />
+<meta name="twitter:image:alt" content="Descriptive alt text from metadata imageAlt" />
 ```
 
 ### Structured Data (JSON-LD)
@@ -472,7 +486,7 @@ Every blog post page must include:
   "@type": "BlogPosting",
   "headline": "Post Title",
   "description": "Post description",
-  "image": "https://infoweb.sousadev.com/blog/posts/slug/assets/featured.jpg",
+  "image": "https://infoweb.sousadev.com/blog/posts/slug/assets/featured.png",
   "author": {
     "@type": "Organization",
     "name": "InfoWeb"
@@ -619,7 +633,8 @@ Before publishing a new post:
 - [ ] `content.md` has proper markdown formatting
 - [ ] `metadata.json` has all required fields including `language: "en"` and `alternateLanguage`
 - [ ] `image-prompt.md` exists and includes size, style, output filename, and avoid-list
-- [ ] Featured image exists and is optimized
+- [ ] Featured image exists at `assets/featured.png`, 1200×630, and OG/Twitter/JSON-LD URLs match exactly
+- [ ] `og:image:width`, `og:image:height`, `og:image:alt`, and `twitter:image:alt` are set in `index.html`
 - [ ] All images have alt text
 - [ ] CTAs are placed strategically
 - [ ] Content focuses on international market (.com domains, global examples)
@@ -629,7 +644,8 @@ Before publishing a new post:
 - [ ] `content.md` is adapted (not just translated) for Portuguese market
 - [ ] `metadata.json` has all required fields including `language: "pt"` and `alternateLanguage`
 - [ ] `image-prompt.md` exists and includes size, style, output filename, and avoid-list
-- [ ] Featured image exists and is optimized
+- [ ] Featured image exists at `assets/featured.png`, 1200×630, and OG/Twitter/JSON-LD URLs match exactly
+- [ ] `og:image:width`, `og:image:height`, `og:image:alt`, and `twitter:image:alt` are set in `index.html`
 - [ ] All images have alt text
 - [ ] CTAs are placed strategically
 - [ ] Content focuses on Portuguese market (.pt domains, local examples)

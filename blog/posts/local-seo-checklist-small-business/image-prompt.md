@@ -12,4 +12,4 @@ Composition: 16:9 Open Graph layout, strong central checklist/map visual, safe e
 
 Avoid: Google logo, Maps screenshots, real business names, fake customer data, cluttered dashboards, tiny unreadable text, watermarks, distorted typography.
 
-Output: `featured.jpg` or `featured.webp` at 1200x630, optimized under 250KB if possible.
+Output: `featured.png` at 1200x630, optimized under 250KB if possible.

@@ -12,4 +12,4 @@ Composition: leave safe empty space on the left or top-left for possible title o
 
 Do not include: people’s faces in close-up, stock-photo look, screenshots of actual registrars, GoDaddy/Namecheap logos, watermarks, distorted text.
 
-Output: `featured.jpg` or `featured.webp` at 1200x630, web-optimized under 250KB if possible.
+Output: `featured.png` at 1200x630, web-optimized under 250KB if possible.

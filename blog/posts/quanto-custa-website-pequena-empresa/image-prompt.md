@@ -12,4 +12,4 @@ Composição: layout 16:9 para Open Graph, deixar espaço livre no canto superio
 
 Evitar: tabelas ilegíveis, UI confusa, imagens exageradas de dinheiro, montes de euros/dólares, marcas de água, texto distorcido.
 
-Output: `featured.jpg` ou `featured.webp` em 1200x630, otimizado abaixo de 250KB se possível.
+Output: `featured.png` em 1200x630, otimizado abaixo de 250KB se possível.

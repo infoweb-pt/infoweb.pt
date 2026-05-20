@@ -12,4 +12,4 @@ Composição: layout 16:9 para Open Graph, visual central forte com checklist/ma
 
 Evitar: logótipo Google, screenshots de Maps, nomes reais de negócios, dados falsos de clientes, dashboards confusos, texto pequeno ilegível, marcas de água, tipografia distorcida.
 
-Output: `featured.jpg` ou `featured.webp` em 1200x630, otimizado abaixo de 250KB se possível.
+Output: `featured.png` em 1200x630, otimizado abaixo de 250KB se possível.

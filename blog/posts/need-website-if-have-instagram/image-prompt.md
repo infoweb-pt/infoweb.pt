@@ -12,4 +12,4 @@ Composition: 16:9 Open Graph layout, clear visual hierarchy, safe empty space ne
 
 Avoid: real Instagram UI, Meta/Instagram logos, screenshots, influencer aesthetic, fake notifications with readable text, watermarks, distorted text.
 
-Output: `featured.jpg` or `featured.webp` at 1200x630, optimized under 250KB if possible.
+Output: `featured.png` at 1200x630, optimized under 250KB if possible.
