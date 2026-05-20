@@ -1,0 +1,24 @@
+{
+  "slug": "local-seo-checklist-small-business",
+  "language": "en",
+  "title": "Local SEO Checklist for Small Businesses That Want More Calls",
+  "description": "A practical local SEO checklist for small businesses: Google Business Profile, reviews, service pages, speed, schema, and local landing pages.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "seo",
+  "tags": [
+    "local SEO",
+    "small business",
+    "Google Business Profile",
+    "SEO checklist"
+  ],
+  "image": "./assets/featured.jpg",
+  "imageAlt": "Local business owner reviewing a local SEO checklist",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "checklist-seo-local-pequenos-negocios"
+  }
+}

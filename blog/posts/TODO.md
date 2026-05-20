@@ -35,7 +35,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Description:** Explain ownership, Google visibility, trust, menus/services, booking flows, analytics, and what happens when social reach drops. Use local service and restaurant examples.
 - **CTA:** `{{CTA}}`
 
-### 3. Local SEO basics for businesses with no technical team
+### 3. Local SEO basics for businesses with no technical team (done)
 
 - **EN title:** Local SEO Checklist for Small Businesses That Want More Calls
 - **PT title:** Checklist de SEO Local para Pequenos Negócios Receberem Mais Contactos
@@ -46,6 +46,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Informational
 - **Description:** Cover Google Business Profile, NAP consistency, service pages, reviews, schema, page speed, mobile experience, and local landing pages. Include quick wins and what to avoid.
 - **CTA:** `{{CTA:tools}}`
+- **Status:** Done — drafted in `local-seo-checklist-small-business/` and `checklist-seo-local-pequenos-negocios/`.
 
 ### 4. What to put on a small business homepage
 

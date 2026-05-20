@@ -1,0 +1,24 @@
+{
+  "slug": "checklist-seo-local-pequenos-negocios",
+  "language": "pt",
+  "title": "Checklist de SEO Local para Pequenos Negócios Receberem Mais Contactos",
+  "description": "Checklist prático de SEO local para pequenos negócios: Perfil de Empresa Google, avaliações, páginas de serviço, velocidade e SEO básico.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "seo",
+  "tags": [
+    "SEO local",
+    "pequenos negócios",
+    "Perfil de Empresa Google",
+    "checklist SEO"
+  ],
+  "image": "./assets/featured.jpg",
+  "imageAlt": "Dono de negócio local a rever checklist de SEO local",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "local-seo-checklist-small-business"
+  }
+}
