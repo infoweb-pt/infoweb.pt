@@ -1,52 +1,11 @@
 // InfoWeb Blog - Post Content Loader
 
-// Category translations
-const categoryTranslations = {
-  'domains-hosting': {
-    en: 'Domains & Hosting',
-    pt: 'Domínios & Hosting'
-  },
-  'web-design': {
-    en: 'Web Design',
-    pt: 'Web Design'
-  },
-  'seo': {
-    en: 'SEO',
-    pt: 'SEO'
-  },
-  'digital-marketing': {
-    en: 'Digital Marketing',
-    pt: 'Marketing Digital'
-  },
-  'small-business': {
-    en: 'Small Business',
-    pt: 'Pequenos Negócios'
-  },
-  'tutorials': {
-    en: 'Tutorials',
-    pt: 'Tutoriais'
-  },
-  'case-studies': {
-    en: 'Case Studies',
-    pt: 'Casos de Estudo'
-  },
-  'company-news': {
-    en: 'Company News',
-    pt: 'Notícias'
-  }
-};
-
-// Get translated category name
-function getCategoryName(categoryKey, lang) {
-  if (categoryTranslations[categoryKey]) {
-    return categoryTranslations[categoryKey][lang] || categoryKey;
-  }
-  return categoryKey;
-}
+const { getCategoryName, replaceCtaPlaceholdersInMarkdown, formatPostDate, getPostUi, normalizeLanguage } =
+  window.BlogI18n;
 
 // Get the current post slug from the URL
 function getPostSlug() {
-  const pathParts = window.location.pathname.split('/').filter(p => p);
+  const pathParts = window.location.pathname.split('/').filter((p) => p);
   const postsIndex = pathParts.indexOf('posts');
   if (postsIndex >= 0 && pathParts[postsIndex + 1]) {
     return pathParts[postsIndex + 1];
@@ -54,202 +13,132 @@ function getPostSlug() {
   return null;
 }
 
-// CTA templates
-const CTA_TEMPLATES = {
-  default: `
-    <div class="cta-block">
-      <div class="cta-content">
-        <h3>Precisa de um website profissional?</h3>
-        <p>InfoWeb cria e gere o seu site. Domínio, hosting, manutenção incluídos.</p>
-        <a href="/#pricing" class="cta-button" data-track="cta_click" data-track-location="blog_post_content" data-track-target="/#pricing">
-          Ver Planos →
-        </a>
-      </div>
-    </div>
-  `,
-  tools: `
-    <div class="cta-block">
-      <div class="cta-content">
-        <h3>Ferramentas grátis para o seu negócio</h3>
-        <p>Calculadoras, geradores de QR, e mais. Sem registo, use já.</p>
-        <a href="/free-tools/" class="cta-button" data-track="cta_click" data-track-location="blog_post_content" data-track-target="/free-tools/">
-          Ver Ferramentas →
-        </a>
-      </div>
-    </div>
-  `,
-  contact: `
-    <div class="cta-block">
-      <div class="cta-content">
-        <h3>Vamos conversar sobre o seu projeto?</h3>
-        <p>Agende uma chamada gratuita para discutir as suas necessidades.</p>
-        <a href="mailto:info@sousadev.com" class="cta-button" data-track="cta_click" data-track-location="blog_post_content" data-track-target="mailto">
-          Entrar em Contacto →
-        </a>
-      </div>
-    </div>
-  `
-};
-
-// Replace CTA placeholders with actual CTAs
-function replaceCTAPlaceholders(content) {
-  // Replace {{CTA}} or {{CTA:default}}
-  content = content.replace(/\{\{CTA(:default)?\}\}/g, CTA_TEMPLATES.default);
-  
-  // Replace {{CTA:tools}}
-  content = content.replace(/\{\{CTA:tools\}\}/g, CTA_TEMPLATES.tools);
-  
-  // Replace {{CTA:contact}}
-  content = content.replace(/\{\{CTA:contact\}\}/g, CTA_TEMPLATES.contact);
-  
-  return content;
-}
-
-// Format date to Portuguese format
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('pt-PT', options);
-}
-
 // Load and render the blog post
 async function loadPost() {
   const slug = getPostSlug();
-  
+  const lang = document.documentElement.lang?.slice(0, 2) || 'en';
+  const ui = getPostUi(lang);
+
   if (!slug) {
-    showError('Post não encontrado');
+    const pageLang = normalizeLanguage(document.documentElement.lang?.slice(0, 2));
+    showError(getPostUi(pageLang).postNotFound, pageLang);
     return;
   }
-  
+
   try {
-    // Load metadata
-    const metadataResponse = await fetch(`./metadata.json`);
+    const metadataResponse = await fetch('./metadata.json');
     if (!metadataResponse.ok) {
       throw new Error('Failed to load metadata');
     }
     const metadata = await metadataResponse.json();
-    
-    // Load content
-    const contentResponse = await fetch(`./content.md`);
+    const postLang = normalizeLanguage(metadata.language);
+    const postUi = getPostUi(postLang);
+
+    document.documentElement.lang = postLang;
+
+    const contentResponse = await fetch('./content.md');
     if (!contentResponse.ok) {
       throw new Error('Failed to load content');
     }
-    const markdownContent = await contentResponse.text();
-    
-    // Parse markdown to HTML
-    let htmlContent = marked.parse(markdownContent);
-    
-    // Replace CTA placeholders
-    htmlContent = replaceCTAPlaceholders(htmlContent);
-    
-    // Update page title and meta
+    let markdownContent = await contentResponse.text();
+
+    markdownContent = replaceCtaPlaceholdersInMarkdown(markdownContent, postLang);
+    const htmlContent = marked.parse(markdownContent);
+
     document.title = `${metadata.title} — Blog InfoWeb`;
-    
-    // Update meta tags
-    updateMetaTags(metadata);
-    
-    // Render content
+
+    updateMetaTags(metadata, postLang);
+
     document.getElementById('postContent').innerHTML = htmlContent;
-    
-    // Update post meta info
-    const categoryName = getCategoryName(metadata.category, metadata.language);
+
+    const categoryName = getCategoryName(metadata.category, postLang);
     document.getElementById('postCategory').textContent = categoryName;
-    document.getElementById('postDate').textContent = formatDate(metadata.dateCreated);
-    
-    // Set read time text based on language
-    const readTimeText = metadata.language === 'en' ? 'min read' : 'min leitura';
-    document.getElementById('postReadTime').textContent = `${metadata.readTime} ${readTimeText}`;
-    
-    // Render tags
+    document.getElementById('postDate').textContent = formatPostDate(metadata.dateCreated, postLang);
+    document.getElementById('postReadTime').textContent = `${metadata.readTime} ${postUi.minRead}`;
+
     renderTags(metadata.tags);
-    
-    // Setup share buttons
-    setupShareButtons(metadata);
-    
-    // Track page view
+    setupShareButtons(metadata, postLang);
+
     if (typeof gtag === 'function') {
       gtag('event', 'blog_post_view', {
         post_slug: slug,
         post_title: metadata.title,
-        post_category: metadata.category
+        post_category: metadata.category,
+        language: postLang
       });
     }
-    
   } catch (error) {
     console.error('Error loading post:', error);
-    showError('Erro ao carregar o artigo. Por favor, tente novamente mais tarde.');
+    showError(ui.loadError, lang);
   }
 }
 
-// Update meta tags dynamically
-function updateMetaTags(metadata) {
-  // Description
+function updateMetaTags(metadata, lang) {
+  const categoryName = getCategoryName(metadata.category, lang);
+
   const descMeta = document.querySelector('meta[name="description"]');
   if (descMeta) descMeta.setAttribute('content', metadata.description);
-  
-  // Keywords
+
   const keywordsMeta = document.querySelector('meta[name="keywords"]');
   if (keywordsMeta) keywordsMeta.setAttribute('content', metadata.tags.join(', '));
-  
-  // OG tags
+
   const ogTitle = document.querySelector('meta[property="og:title"]');
   if (ogTitle) ogTitle.setAttribute('content', metadata.title);
-  
+
   const ogDesc = document.querySelector('meta[property="og:description"]');
   if (ogDesc) ogDesc.setAttribute('content', metadata.description);
-  
-  // Twitter tags
+
+  const articleSection = document.querySelector('meta[property="article:section"]');
+  if (articleSection) articleSection.setAttribute('content', categoryName);
+
   const twitterTitle = document.querySelector('meta[name="twitter:title"]');
   if (twitterTitle) twitterTitle.setAttribute('content', metadata.title);
-  
+
   const twitterDesc = document.querySelector('meta[name="twitter:description"]');
   if (twitterDesc) twitterDesc.setAttribute('content', metadata.description);
 }
 
-// Render tags
 function renderTags(tags) {
   const tagsContainer = document.getElementById('postTags');
   if (!tagsContainer) return;
-  
-  tagsContainer.innerHTML = tags.map(tag => 
-    `<span class="px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm">
-      #${tag}
-    </span>`
-  ).join('');
+
+  tagsContainer.innerHTML = tags
+    .map(
+      (tag) =>
+        `<span class="px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm">#${tag}</span>`
+    )
+    .join('');
 }
 
-// Setup share buttons
-function setupShareButtons(metadata) {
+function setupShareButtons(metadata, lang) {
+  const ui = getPostUi(lang);
   const postUrl = encodeURIComponent(window.location.href);
   const postTitle = encodeURIComponent(metadata.title);
-  
-  // Twitter
+
   const twitterBtn = document.getElementById('shareTwitter');
   if (twitterBtn) {
     twitterBtn.href = `https://twitter.com/intent/tweet?url=${postUrl}&text=${postTitle}`;
   }
-  
-  // Facebook
+
   const facebookBtn = document.getElementById('shareFacebook');
   if (facebookBtn) {
     facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${postUrl}`;
   }
-  
-  // LinkedIn
+
   const linkedinBtn = document.getElementById('shareLinkedIn');
   if (linkedinBtn) {
     linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`;
   }
-  
-  // Copy link
+
   const copyBtn = document.getElementById('copyLink');
   if (copyBtn) {
+    copyBtn.textContent = ui.copyLinkDefault;
     copyBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(window.location.href);
-        copyBtn.textContent = '✓ Copiado!';
+        copyBtn.textContent = ui.copied;
         setTimeout(() => {
-          copyBtn.textContent = 'Copiar link';
+          copyBtn.textContent = ui.copyLinkDefault;
         }, 2000);
       } catch (error) {
         console.error('Failed to copy:', error);
@@ -258,22 +147,21 @@ function setupShareButtons(metadata) {
   }
 }
 
-// Show error message
-function showError(message) {
+function showError(message, lang) {
+  const ui = getPostUi(lang);
   const contentDiv = document.getElementById('postContent');
   if (contentDiv) {
     contentDiv.innerHTML = `
       <div class="text-center py-20">
         <p class="text-red-400 text-lg">${message}</p>
         <a href="../../" class="mt-4 inline-block text-signal hover:opacity-80 transition">
-          ← Voltar ao blog
+          ${ui.backToBlog}
         </a>
       </div>
     `;
   }
 }
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', loadPost);
 } else {

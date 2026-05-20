@@ -114,8 +114,10 @@ This enables:
 blog/
 ├── index.html              ← Main blog listing page
 ├── README.md               ← This file
-├── style.css               ← Blog-specific styles
-├── script.js               ← Blog functionality (search, sort, load posts)
+├── blog-i18n.js            ← Shared EN/PT strings, categories, CTAs (required)
+├── post.css                ← Shared post + CTA styles (link from each post)
+├── post-loader.js          ← Loads markdown, injects CTAs, renders post
+├── script.js               ← Blog index (search, sort, language filter)
 └── posts/
     ├── metadata.json       ← Index of all blog posts (MUST UPDATE)
     ├── choosing-perfect-domain/        ← English post
@@ -483,26 +485,38 @@ Every blog post page must include:
 
 ### CTA Placeholder
 
-Use `{{CTA}}` in markdown. The blog script will replace it with:
+Use `{{CTA}}` on its own line in `content.md` (not inside a paragraph). **`post-loader.js` replaces placeholders in the raw markdown before `marked.parse()`**, so CTAs are not wrapped in invalid `<p><div>…</div></p>` markup.
 
-```html
-<div class="cta-block">
-  <div class="cta-content">
-    <h3>Precisa de um website profissional?</h3>
-    <p>InfoWeb cria e gere o seu site. Domínio, hosting, manutenção incluídos.</p>
-    <a href="/#pricing" class="cta-button" data-track="cta_click" data-track-location="blog_post" data-track-target="/#pricing">
-      Ver Planos →
-    </a>
-  </div>
-</div>
-```
+Copy is chosen from [`blog/blog-i18n.js`](blog-i18n.js) using the post’s `metadata.language` field (`en` or `pt`).
+
+| Placeholder | EN (example) | PT (example) |
+|-------------|--------------|--------------|
+| `{{CTA}}` / `{{CTA:default}}` | “Need a professional website?” → See plans | “Precisa de um website profissional?” → Ver planos |
+| `{{CTA:tools}}` | Free tools CTA | Ferramentas grátis CTA |
+| `{{CTA:contact}}` | Get in touch | Entrar em contacto |
+
+Links use **relative paths** (`../../../#pricing`, `../../../free-tools/`) so they work on subdirectory deploys.
 
 ### CTA Variants
 
-You can customize CTAs by using:
-- `{{CTA:default}}` — Standard CTA (default)
-- `{{CTA:tools}}` — Link to free tools
-- `{{CTA:contact}}` — Contact form CTA
+- `{{CTA}}` or `{{CTA:default}}` — Plans / pricing
+- `{{CTA:tools}}` — Free tools hub
+- `{{CTA:contact}}` — Email contact
+
+To change CTA copy for all posts, edit `ctaTemplates` in `blog-i18n.js` only (do not hardcode HTML in markdown).
+
+### Post page scripts (required order)
+
+```html
+<link rel="stylesheet" href="../../post.css" />
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="../../blog-i18n.js"></script>
+<script src="../../post-loader.js"></script>
+```
+
+### Language persistence (blog index)
+
+The blog index uses the same `localStorage` key as the main site: **`infoweb-language`** (default `en`). Switching language on the homepage carries over to `/blog/`.
 
 ---
 
@@ -616,6 +630,8 @@ Before publishing a new post:
 - [ ] Analytics tracking works
 - [ ] Sitemap is updated with both URLs
 - [ ] Language switcher links between EN/PT versions
+- [ ] CTA blocks show correct language; **button label is readable** (dark text on gold button)
+- [ ] Post `index.html` links `../../post.css` and loads `blog-i18n.js` before `post-loader.js`
 
 ---
 
