@@ -1,7 +1,13 @@
 // InfoWeb Blog - Post Content Loader
 
-const { getCategoryName, replaceCtaPlaceholdersInMarkdown, formatPostDate, getPostUi, normalizeLanguage } =
-  window.BlogI18n;
+const {
+  getCategoryName,
+  replaceCtaPlaceholdersInMarkdown,
+  formatPostDate,
+  getPostUi,
+  normalizeLanguage,
+  replaceDynamicTokens
+} = window.BlogI18n;
 
 // Get the current post slug from the URL
 function getPostSlug() {
@@ -45,9 +51,12 @@ async function loadPost() {
     markdownContent = replaceCtaPlaceholdersInMarkdown(markdownContent, postLang);
     const htmlContent = marked.parse(markdownContent);
 
-    document.title = `${metadata.title} — Blog InfoWeb`;
+    const title = replaceDynamicTokens(metadata.title);
+    const description = replaceDynamicTokens(metadata.description);
 
-    updateMetaTags(metadata, postLang);
+    document.title = `${title} — Blog InfoWeb`;
+
+    updateMetaTags({ ...metadata, title, description }, postLang);
 
     document.getElementById('postContent').innerHTML = htmlContent;
 
@@ -62,7 +71,7 @@ async function loadPost() {
     if (typeof gtag === 'function') {
       gtag('event', 'blog_post_view', {
         post_slug: slug,
-        post_title: metadata.title,
+        post_title: title,
         post_category: metadata.category,
         language: postLang
       });
@@ -113,7 +122,7 @@ function renderTags(tags) {
 function setupShareButtons(metadata, lang) {
   const ui = getPostUi(lang);
   const postUrl = encodeURIComponent(window.location.href);
-  const postTitle = encodeURIComponent(metadata.title);
+  const postTitle = encodeURIComponent(replaceDynamicTokens(metadata.title));
 
   const twitterBtn = document.getElementById('shareTwitter');
   if (twitterBtn) {

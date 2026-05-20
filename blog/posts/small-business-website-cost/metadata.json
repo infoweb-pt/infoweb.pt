@@ -1,0 +1,24 @@
+{
+  "slug": "small-business-website-cost",
+  "language": "en",
+  "title": "How Much Does a Small Business Website Cost in {{CURRENT_YEAR}}?",
+  "description": "Small business website costs explained: domain, hosting, design, SEO, maintenance, and hidden costs to budget for this year.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-20",
+  "dateUpdated": "2026-05-20",
+  "category": "small-business",
+  "tags": [
+    "website cost",
+    "small business",
+    "pricing",
+    "website"
+  ],
+  "image": "./assets/featured.jpg",
+  "imageAlt": "Small business owner reviewing website costs on a laptop",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "quanto-custa-website-pequena-empresa"
+  }
+}

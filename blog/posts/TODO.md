@@ -11,7 +11,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 
 ## High-priority post ideas
 
-### 1. Website cost guide for small businesses
+### 1. Website cost guide for small businesses (done)
 
 - **EN title:** How Much Does a Small Business Website Cost in 2026?
 - **PT title:** Quanto Custa um Website para Pequenas Empresas em 2026?
@@ -22,6 +22,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Commercial investigation
 - **Description:** Break down domain, hosting, design, maintenance, copy, SEO, booking tools, and hidden costs. Compare DIY builders, freelancers, agencies, and managed website plans. Position InfoWeb as predictable recurring pricing.
 - **CTA:** `{{CTA}}`
+- **Status:** Done — drafted in `small-business-website-cost/` and `quanto-custa-website-pequena-empresa/`.
 
 ### 2. Website vs social media only
 

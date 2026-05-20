@@ -233,6 +233,17 @@
     });
   }
 
+  function getCurrentYear() {
+    return String(new Date().getFullYear());
+  }
+
+  function replaceDynamicTokens(value) {
+    if (typeof value !== 'string') {
+      return value;
+    }
+    return value.replace(/\{\{CURRENT_YEAR\}\}/g, getCurrentYear());
+  }
+
   function getPostUi(lang) {
     return postUiStrings[normalizeLanguage(lang)];
   }
@@ -256,6 +267,8 @@
     getCtaHtml,
     replaceCtaPlaceholdersInMarkdown,
     formatPostDate,
+    getCurrentYear,
+    replaceDynamicTokens,
     getPostUi,
     getIndexTranslations
   };

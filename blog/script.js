@@ -5,7 +5,8 @@ const {
   setPreferredLanguage,
   getCategoryName,
   formatPostDate,
-  getIndexTranslations
+  getIndexTranslations,
+  replaceDynamicTokens
 } = window.BlogI18n;
 
 let allPosts = [];
@@ -183,6 +184,8 @@ function createPostCard(post) {
   const postUrl = `./posts/${post.slug}/`;
   const formattedDate = formatPostDate(post.dateCreated, currentLanguage);
   const categoryName = getCategoryName(post.category, currentLanguage);
+  const title = replaceDynamicTokens(post.title);
+  const description = replaceDynamicTokens(post.description);
   const tagsHtml = post.tags
     .slice(0, 3)
     .map((tag) => `<span class="text-xs text-slate-400">#${tag}</span>`)
@@ -212,10 +215,10 @@ function createPostCard(post) {
             <span>${post.readTime} ${t.minRead}</span>
           </div>
           <h3 class="text-white text-lg font-bold mb-2 group-hover:text-signal transition">
-            ${post.title}
+            ${title}
           </h3>
           <p class="text-sm text-slate-400 mb-4 line-clamp-2">
-            ${post.description}
+            ${description}
           </p>
           <div class="flex items-center justify-between">
             <div class="flex gap-2 flex-wrap">
@@ -239,8 +242,8 @@ function searchPosts(query) {
     filteredPosts = languagePosts.filter((post) => {
       const categoryLabel = getCategoryName(post.category, currentLanguage).toLowerCase();
       return (
-        post.title.toLowerCase().includes(searchTerm) ||
-        post.description.toLowerCase().includes(searchTerm) ||
+        replaceDynamicTokens(post.title).toLowerCase().includes(searchTerm) ||
+        replaceDynamicTokens(post.description).toLowerCase().includes(searchTerm) ||
         categoryLabel.includes(searchTerm) ||
         post.tags.some((tag) => tag.toLowerCase().includes(searchTerm))
       );
