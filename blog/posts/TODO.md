@@ -24,7 +24,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **CTA:** `{{CTA}}`
 - **Status:** Done — drafted in `small-business-website-cost/` and `quanto-custa-website-pequena-empresa/`.
 
-### 2. Website vs social media only
+### 2. Website vs social media only (done)
 
 - **EN title:** Do You Still Need a Website If Your Business Has Instagram?
 - **PT title:** Ainda Precisa de um Website se o Seu Negócio Já Tem Instagram?
@@ -35,6 +35,7 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Search intent:** Informational/commercial
 - **Description:** Explain ownership, Google visibility, trust, menus/services, booking flows, analytics, and what happens when social reach drops. Use local service and restaurant examples.
 - **CTA:** `{{CTA}}`
+- **Status:** Done — drafted in `need-website-if-have-instagram/` and `precisa-website-se-tem-instagram/`.
 
 ### 3. Local SEO basics for businesses with no technical team
 

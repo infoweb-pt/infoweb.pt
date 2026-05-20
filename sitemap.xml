@@ -25,7 +25,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://infoweb.sousadev.com/blog/posts/small-business-website-cost/</loc>
     <changefreq>monthly</changefreq>
@@ -33,6 +32,16 @@
   </url>
   <url>
     <loc>https://infoweb.sousadev.com/blog/posts/quanto-custa-website-pequena-empresa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/need-website-if-have-instagram/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/precisa-website-se-tem-instagram/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
