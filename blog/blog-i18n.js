@@ -172,6 +172,11 @@
     if (SUPPORTED_LANGUAGES.includes(stored)) {
       return stored;
     }
+    const legacyBlog = localStorage.getItem('blogLanguage');
+    if (SUPPORTED_LANGUAGES.includes(legacyBlog)) {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, legacyBlog);
+      return legacyBlog;
+    }
     const browser = navigator.language?.slice(0, 2).toLowerCase();
     return SUPPORTED_LANGUAGES.includes(browser) ? browser : DEFAULT_LANGUAGE;
   }
