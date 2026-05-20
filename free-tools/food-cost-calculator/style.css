@@ -1,0 +1,4 @@
+#spinner.flex,#spinner.show-flex{display:flex!important;}
+.copy-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem;}
+.copy-row input,.copy-row textarea{flex:1;min-width:0;background:#1e293b;border:1px solid #334155;border-radius:.75rem;color:#f1f5f9;font-family:ui-monospace,monospace;font-size:.8rem;padding:.65rem 1rem;}
+.copy-row textarea{min-height:12rem;resize:vertical;}

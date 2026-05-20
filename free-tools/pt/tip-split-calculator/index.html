@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Calculadora gorjeta e divisão — InfoWeb</title>
+<meta name="description" content="Divida a conta do restaurante com gorjeta por pessoa. Total, pessoas e %. Grátis."/>
+<meta name="keywords" content="calculadora gorjeta, dividir conta, restaurante gorjeta, InfoWeb"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://infoweb.sousadev.com/free-tools/pt/tip-split-calculator/"/>
+<meta property="og:url" content="https://infoweb.sousadev.com/free-tools/pt/tip-split-calculator/"/><meta property="og:title" content="Calculadora gorjeta e divisão — InfoWeb"/>
+<meta property="og:description" content="Total por pessoa com gorjeta em segundos."/><meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png"/>
+<link rel="alternate" hreflang="en" href="https://infoweb.sousadev.com/free-tools/tip-split-calculator/"/><link rel="alternate" hreflang="pt" href="https://infoweb.sousadev.com/free-tools/pt/tip-split-calculator/"/>
+<link rel="icon" href="../../../favicon_io/favicon-32x32.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../tip-split-calculator/style.css"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXQSMBERJM");</script>
+<script src="../../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800/60">
+<div class="max-w-2xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=tip_split_calculator&utm_campaign=header" target="_blank" rel="noopener"><img src="../../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9"/></a>
+<div class="flex gap-2 items-center"><nav class="flex gap-1 text-[11px] font-semibold"><a href="../../tip-split-calculator/" hreflang="en" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="en">EN</a><span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white">PT</span></nav>
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=tip_split_calculator&utm_campaign=header_btn#pricing" target="_blank" class="text-sm border border-slate-600 rounded-full px-4 py-1.5 text-slate-300">Ver planos de website</a></div></div></header>
+<main class="max-w-2xl mx-auto px-4 py-12">
+<section class="text-center mb-10"><div class="inline-flex gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-4 py-1.5 text-sm text-teal-400 mb-5"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>Grátis — Sem registo</div>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">Gorjeta e divisão de conta</h1><p class="text-slate-400 text-lg">Conta + gorjeta + número de pessoas → quanto paga cada um.</p></section>
+<section class="mb-6"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+<div><label for="bill" class="block text-sm font-semibold text-slate-300 mb-2">Total da conta (€)</label>
+<input id="bill" type="number" min="0.01" step="0.01" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-teal-500"/></div>
+<div class="grid grid-cols-2 gap-4">
+<div><label for="people" class="block text-sm font-semibold text-slate-300 mb-2">Pessoas</label>
+<input id="people" type="number" min="1" step="1" value="2" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-teal-500"/></div>
+<div><label for="tip-pct" class="block text-sm font-semibold text-slate-300 mb-2">Gorjeta (%)</label>
+<input id="tip-pct" type="number" min="0" max="100" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-teal-500"/></div></div>
+<button type="button" onclick="runTool()" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl px-6 py-4">Dividir conta</button></div></section>
+<section class="mb-10" id="output-section">
+<div id="spinner" class="hidden flex-col items-center py-12 text-slate-400"><svg class="animate-spin h-8 w-8 mb-3 text-teal-500" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>A dividir…</div>
+<div id="error-box" class="hidden bg-red-900/30 border border-red-700/50 rounded-2xl p-5 text-center text-red-300">Algo correu mal.</div>
+<div id="result-box" class="hidden space-y-4"></div></section>
+<section class="mb-10"><h2 class="text-xl font-bold mb-4">Perguntas frequentes</h2><div class="space-y-3">        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4"><summary class="font-semibold text-white cursor-pointer">A gorjeta é sobre o total com IVA?</summary><p class="text-slate-400 text-sm mt-2">Use o valor que os clientes pagam na mesa (com IVA se aplicável).</p></details></div></section>
+</main>
+<section class="max-w-2xl mx-auto px-4 mb-8"><h2 class="text-sm font-bold uppercase text-slate-500 mb-3">Ferramentas relacionadas</h2><ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-400">
+        <li><a href="menu-qr-generator/" class="hover:text-signal transition">Gerador QR ementa</a></li>
+        <li><a href="food-cost-calculator/" class="hover:text-signal transition">Custo alimentar do prato</a></li>
+        <li><a href="markup-margin-calculator/" class="hover:text-signal transition">Calculadora margem</a></li><li><a href="../../" class="hover:text-signal">Todas as ferramentas</a></li></ul></section>
+<footer class="border-t border-slate-800 py-6 text-center text-sm"><a href="../../../" class="text-slate-400">← Início InfoWeb</a></footer>
+<script src="../../tip-split-calculator/script.js" defer></script></body></html>

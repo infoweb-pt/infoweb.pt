@@ -39,6 +39,11 @@ TOOL_RELATED = {
     "customer-ltv-calculator": ["cost-per-lead-calculator", "website-roi-calculator", "lost-customers-calculator"],
     "lost-customers-calculator": ["customer-ltv-calculator", "downtime-cost-calculator", "website-roi-calculator"],
     "downtime-cost-calculator": ["lost-customers-calculator", "website-roi-calculator", "break-even-calculator"],
+    "utm-link-builder": ["website-roi-calculator", "cost-per-lead-calculator", "presence-score"],
+    "discount-calculator": ["markup-margin-calculator", "vat-calculator-pt", "break-even-calculator"],
+    "schema-local-business-generator": ["presence-score", "google-review-generator", "website-health-scorecard"],
+    "tip-split-calculator": ["menu-qr-generator", "food-cost-calculator", "markup-margin-calculator"],
+    "food-cost-calculator": ["menu-qr-generator", "markup-margin-calculator", "tip-split-calculator"],
 }
 
 TOOL_LABELS_EN = {
@@ -59,6 +64,11 @@ TOOL_LABELS_EN = {
     "customer-ltv-calculator": "Customer LTV Calculator",
     "lost-customers-calculator": "Lost Customers Calculator",
     "downtime-cost-calculator": "Downtime Cost Calculator",
+    "utm-link-builder": "UTM Link Builder",
+    "discount-calculator": "Discount Calculator",
+    "schema-local-business-generator": "Local Business Schema Generator",
+    "tip-split-calculator": "Tip Split Calculator",
+    "food-cost-calculator": "Food Cost Calculator",
 }
 
 BLOG_RELATED = {

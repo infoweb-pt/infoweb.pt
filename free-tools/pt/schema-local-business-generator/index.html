@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gerador Schema LocalBusiness — InfoWeb</title>
+<meta name="description" content="Gere JSON-LD Schema.org para restaurantes, lojas e clínicas. Copie para o seu site. Ferramenta SEO grátis."/>
+<meta name="keywords" content="gerador schema local, json-ld negócio local, seo local dados estruturados, InfoWeb"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://infoweb.sousadev.com/free-tools/pt/schema-local-business-generator/"/>
+<meta property="og:url" content="https://infoweb.sousadev.com/free-tools/pt/schema-local-business-generator/"/><meta property="og:title" content="Gerador Schema LocalBusiness — InfoWeb"/>
+<meta property="og:description" content="JSON-LD pronto para resultados locais no Google."/><meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png"/>
+<link rel="alternate" hreflang="en" href="https://infoweb.sousadev.com/free-tools/schema-local-business-generator/"/><link rel="alternate" hreflang="pt" href="https://infoweb.sousadev.com/free-tools/pt/schema-local-business-generator/"/>
+<link rel="icon" href="../../../favicon_io/favicon-32x32.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../schema-local-business-generator/style.css"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXQSMBERJM");</script>
+<script src="../../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800/60">
+<div class="max-w-2xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=schema_local_business_generator&utm_campaign=header" target="_blank" rel="noopener"><img src="../../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9"/></a>
+<div class="flex gap-2 items-center"><nav class="flex gap-1 text-[11px] font-semibold"><a href="../../schema-local-business-generator/" hreflang="en" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="en">EN</a><span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white">PT</span></nav>
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=schema_local_business_generator&utm_campaign=header_btn#pricing" target="_blank" class="text-sm border border-slate-600 rounded-full px-4 py-1.5 text-slate-300">Ver planos de website</a></div></div></header>
+<main class="max-w-2xl mx-auto px-4 py-12">
+<section class="text-center mb-10"><div class="inline-flex gap-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-1.5 text-sm text-indigo-400 mb-5"><span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>Grátis — Sem registo</div>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">Gerador Schema LocalBusiness</h1><p class="text-slate-400 text-lg">Preencha NAP e obtenha JSON-LD válido para Restaurante, Loja, Clínica ou LocalBusiness.</p></section>
+<section class="mb-6"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+<div><label for="biz-name" class="block text-sm font-semibold text-slate-300 mb-2">Nome do negócio *</label>
+<input id="biz-name" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div>
+<div><label for="biz-type" class="block text-sm font-semibold text-slate-300 mb-2">Tipo schema</label>
+<select id="biz-type" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500">
+<option value="Restaurante">Restaurante</option><option value="Loja">Loja</option><option value="MedicalBusiness">Clínica / Saúde</option>
+<option value="HairSalon">Cabeleireiro</option><option value="LocalBusiness">Negócio local (genérico)</option></select></div>
+<div><label for="street" class="block text-sm font-semibold text-slate-300 mb-2">Morada</label>
+<input id="street" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div>
+<div class="grid grid-cols-2 gap-4">
+<div><label for="city" class="block text-sm font-semibold text-slate-300 mb-2">Cidade *</label>
+<input id="city" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div>
+<div><label for="postal" class="block text-sm font-semibold text-slate-300 mb-2">Código postal</label>
+<input id="postal" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div></div>
+<div class="grid grid-cols-2 gap-4">
+<div><label for="region" class="block text-sm font-semibold text-slate-300 mb-2">Distrito</label>
+<input id="region" type="text" placeholder="e.g. Lisbon" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div>
+<div><label for="country" class="block text-sm font-semibold text-slate-300 mb-2">País</label>
+<input id="country" type="text" value="PT" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div></div>
+<div><label for="phone" class="block text-sm font-semibold text-slate-300 mb-2">Telefone</label>
+<input id="phone" type="tel" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div>
+<div><label for="website" class="block text-sm font-semibold text-slate-300 mb-2">URL do website</label>
+<input id="website" type="url" placeholder="https://" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"/></div>
+<div><label for="description" class="block text-sm font-semibold text-slate-300 mb-2">Descrição curta</label>
+<textarea id="description" rows="2" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500"></textarea></div>
+<button type="button" onclick="runTool()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl px-6 py-4">Gerar JSON-LD</button></div></section>
+<section class="mb-10" id="output-section">
+<div id="spinner" class="hidden flex-col items-center py-12 text-slate-400"><svg class="animate-spin h-8 w-8 mb-3 text-indigo-500" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>A gerar…</div>
+<div id="error-box" class="hidden bg-red-900/30 border border-red-700/50 rounded-2xl p-5 text-center text-red-300">Algo correu mal.</div>
+<div id="result-box" class="hidden space-y-4"></div></section>
+<section class="mb-10"><h2 class="text-xl font-bold mb-4">Perguntas frequentes</h2><div class="space-y-3">        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4"><summary class="font-semibold text-white cursor-pointer">Onde coloco o JSON-LD?</summary><p class="text-slate-400 text-sm mt-2">Dentro de <script type="application/ld+json"> no HTML, normalmente no <head>.</p></details>
+        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4"><summary class="font-semibold text-white cursor-pointer">Garante rich results?</summary><p class="text-slate-400 text-sm mt-2">Nada garante — mas markup correto ajuda o Google a entender o negócio.</p></details></div></section>
+</main>
+<section class="max-w-2xl mx-auto px-4 mb-8"><h2 class="text-sm font-bold uppercase text-slate-500 mb-3">Ferramentas relacionadas</h2><ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-400">
+        <li><a href="presence-score/" class="hover:text-signal transition">Score de presença online</a></li>
+        <li><a href="google-review-generator/" class="hover:text-signal transition">Gerador Google Reviews</a></li>
+        <li><a href="website-health-scorecard/" class="hover:text-signal transition">Saúde do website</a></li><li><a href="../../" class="hover:text-signal">Todas as ferramentas</a></li></ul></section>
+<footer class="border-t border-slate-800 py-6 text-center text-sm"><a href="../../../" class="text-slate-400">← Início InfoWeb</a></footer>
+<script src="../../schema-local-business-generator/script.js" defer></script></body></html>

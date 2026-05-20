@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Calculadora de desconto — InfoWeb</title>
+<meta name="description" content="Preço original + % de desconto → preço final e poupança. Frase pronta para redes. Grátis."/>
+<meta name="keywords" content="calculadora desconto, preço promocional, percentagem desconto, InfoWeb"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://infoweb.sousadev.com/free-tools/pt/discount-calculator/"/>
+<meta property="og:url" content="https://infoweb.sousadev.com/free-tools/pt/discount-calculator/"/><meta property="og:title" content="Calculadora de desconto — InfoWeb"/>
+<meta property="og:description" content="Preço final e poupança para a sua próxima promoção."/><meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png"/>
+<link rel="alternate" hreflang="en" href="https://infoweb.sousadev.com/free-tools/discount-calculator/"/><link rel="alternate" hreflang="pt" href="https://infoweb.sousadev.com/free-tools/pt/discount-calculator/"/>
+<link rel="icon" href="../../../favicon_io/favicon-32x32.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../discount-calculator/style.css"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXQSMBERJM");</script>
+<script src="../../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800/60">
+<div class="max-w-2xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=discount_calculator&utm_campaign=header" target="_blank" rel="noopener"><img src="../../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9"/></a>
+<div class="flex gap-2 items-center"><nav class="flex gap-1 text-[11px] font-semibold"><a href="../../discount-calculator/" hreflang="en" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="en">EN</a><span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white">PT</span></nav>
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=discount_calculator&utm_campaign=header_btn#pricing" target="_blank" class="text-sm border border-slate-600 rounded-full px-4 py-1.5 text-slate-300">Ver planos de website</a></div></div></header>
+<main class="max-w-2xl mx-auto px-4 py-12">
+<section class="text-center mb-10"><div class="inline-flex gap-2 bg-rose-500/10 border border-rose-500/30 rounded-full px-4 py-1.5 text-sm text-rose-400 mb-5"><span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>Grátis — Sem registo</div>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">Calculadora de desconto e promoções</h1><p class="text-slate-400 text-lg">Preço de tabela e percentagem → preço final, poupança e frase para copiar.</p></section>
+<section class="mb-6"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+<div><label for="orig-price" class="block text-sm font-semibold text-slate-300 mb-2">Preço original (€)</label>
+<input id="orig-price" type="number" min="0.01" step="0.01" placeholder="49.90" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-rose-500"/></div>
+<div><label for="discount-pct" class="block text-sm font-semibold text-slate-300 mb-2">Desconto (%)</label>
+<input id="discount-pct" type="number" min="1" max="99" step="1" placeholder="20" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-rose-500"/></div>
+<button type="button" onclick="runTool()" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl px-6 py-4">Calcular desconto</button></div></section>
+<section class="mb-10" id="output-section">
+<div id="spinner" class="hidden flex-col items-center py-12 text-slate-400"><svg class="animate-spin h-8 w-8 mb-3 text-rose-500" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>A calcular…</div>
+<div id="error-box" class="hidden bg-red-900/30 border border-red-700/50 rounded-2xl p-5 text-center text-red-300">Algo correu mal.</div>
+<div id="result-box" class="hidden space-y-4"></div></section>
+<section class="mb-10"><h2 class="text-xl font-bold mb-4">Perguntas frequentes</h2><div class="space-y-3">        <details class="bg-slate-900 border border-slate-800 rounded-xl p-4"><summary class="font-semibold text-white cursor-pointer">Como se calcula?</summary><p class="text-slate-400 text-sm mt-2">Preço final = original × (1 − desconto%). Poupança = original − final.</p></details></div></section>
+</main>
+<section class="max-w-2xl mx-auto px-4 mb-8"><h2 class="text-sm font-bold uppercase text-slate-500 mb-3">Ferramentas relacionadas</h2><ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-400">
+        <li><a href="markup-margin-calculator/" class="hover:text-signal transition">Calculadora margem vs markup</a></li>
+        <li><a href="vat-calculator-pt/" class="hover:text-signal transition">Calculadora de IVA</a></li>
+        <li><a href="break-even-calculator/" class="hover:text-signal transition">Calculadora break-even</a></li><li><a href="../../" class="hover:text-signal">Todas as ferramentas</a></li></ul></section>
+<footer class="border-t border-slate-800 py-6 text-center text-sm"><a href="../../../" class="text-slate-400">← Início InfoWeb</a></footer>
+<script src="../../discount-calculator/script.js" defer></script></body></html>

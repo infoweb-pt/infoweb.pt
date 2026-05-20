@@ -23,6 +23,18 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 - [x] **IVA / VAT calculator (PT)** — `vat-calculator-pt/` Continente / Madeira / Açores rates; add or remove IVA; client-side only.
 - [x] **Markup vs margin calculator** — `markup-margin-calculator/` Cost + margin or markup or price → full breakdown; client-side only.
 - [x] **Website health scorecard** — `website-health-scorecard/` 🔥💎 5-point audit (speed, mobile, SSL, meta tags, Google Business). Score 0-100 + prioritized fix list. Email-gated full PDF report. Client-side checks only; EN + PT.
+- [x] **Downtime cost calculator** — `downtime-cost-calculator/` 🔥💎 Client-side; EN + PT.
+- [x] **Cost-per-lead calculator** — `cost-per-lead-calculator/` ⚡ Client-side; EN + PT.
+- [x] **Customer LTV calculator** — `customer-ltv-calculator/` ⚡ Client-side; EN + PT.
+- [x] **Break-even calculator** — `break-even-calculator/` ⚡ Client-side; EN + PT.
+- [x] **Freelancer hourly rate calculator** — `freelancer-rate-calculator/` 🔥 Client-side; EN + PT.
+- [x] **UTM link builder** — `utm-link-builder/` 🔥⚡ InfoWeb UTM defaults; copy tagged URL; EN + PT.
+- [x] **Discount / promo calculator** — `discount-calculator/` ⚡ Sale price + savings + promo line; EN + PT.
+- [x] **Schema.org local business generator** — `schema-local-business-generator/` ⚡ Form → JSON-LD snippet; EN + PT.
+- [x] **Tip split calculator** — `tip-split-calculator/` ⚡ Bill + tip + people; EN + PT.
+- [x] **Food cost / plate margin calculator** — `food-cost-calculator/` ⚡ Ingredients vs menu price; EN + PT.
+
+**PT locale notes (required for every new tool):** Translate all visible copy and FAQ JSON-LD on `free-tools/pt/[slug]/`. Related-tool links on PT subpages use `../other-slug/` (not `../pt/other-slug/`). `script.js` uses `L(en, pt)` when strings are dynamic.
 
 **Shared frontend:** `assets/js/qr-customizer.js` — canvas QR (qrcode-generator), error correction **H**, **density-aware logo cap** + module-aligned knockout so centre logos stay scannable across all tools.
 
@@ -38,11 +50,11 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 ### Lead-gen & ROI calculators (great for B2B funnel)
 
 - [x] **Website ROI calculator** 🔥💎 — shipped as `website-roi-calculator/` (calculator only; not a Smart QR surface).
-- [ ] **"How much is your downtime costing you?" calculator** 🔥💎 — for shops/restaurants without online presence; estimates monthly lost orders.
-- [ ] **Cost-per-lead calculator** ⚡ — ad spend ÷ leads → CPL, with industry benchmarks.
-- [ ] **Customer Lifetime Value (LTV) calculator** ⚡ — avg ticket × visits/year × retention years.
-- [ ] **Break-even calculator for small business** ⚡ — fixed costs, variable cost, price → break-even units/€.
-- [ ] **Freelancer hourly rate calculator** 🔥 — desired salary + expenses + billable hours → minimum rate.
+- [x] **"How much is your downtime costing you?" calculator** 🔥💎 — shipped as `downtime-cost-calculator/`.
+- [x] **Cost-per-lead calculator** ⚡ — shipped as `cost-per-lead-calculator/`.
+- [x] **Customer Lifetime Value (LTV) calculator** ⚡ — shipped as `customer-ltv-calculator/`.
+- [x] **Break-even calculator for small business** ⚡ — shipped as `break-even-calculator/`.
+- [x] **Freelancer hourly rate calculator** 🔥 — shipped as `freelancer-rate-calculator/`.
 - [x] **Markup vs margin calculator** ⚡ — shipped as `markup-margin-calculator/`.
 - [x] **VAT / IVA calculator (PT/EU rates)** 🔥⚡ — shipped as `vat-calculator-pt/` (Continente / Madeira / Açores).
 
@@ -53,7 +65,7 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 - [ ] **Review response generator (AI)** 🔥🧠 — **SKIP FOR NOW** (no OpenAI / server LLM). Paste review + tone → reply in PT/EN. Revisit when product approves model + spend.
 - [x] **Google review link generator** ⚡ — shipped as `google-review-generator/` (Smart QR + optional logo).
 - [ ] **Local keyword finder** 🧠 — niche + city → 20 long-tail keyword ideas with intent.
-- [ ] **Schema.org local business generator** ⚡ — form → copy-paste JSON-LD snippet for `LocalBusiness`.
+- [x] **Schema.org local business generator** ⚡ — shipped as `schema-local-business-generator/`.
 
 ### WhatsApp / messaging utilities (extends existing tool family)
 
@@ -66,9 +78,9 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 ### Restaurant / hospitality
 
 - [x] **Menu QR generator** 🔥⚡📱 — shipped as `menu-qr-generator/` (upload + Smart QR short link).
-- [ ] **Food cost / plate margin calculator** ⚡ — ingredients + price → margin %.
+- [x] **Food cost / plate margin calculator** ⚡ — shipped as `food-cost-calculator/`.
 - [ ] **Reservation no-show cost calculator** 💎 — covers/week × avg ticket × no-show rate → annual loss.
-- [ ] **Tip split calculator** ⚡ — bill + people + % → per-person split.
+- [x] **Tip split calculator** ⚡ — shipped as `tip-split-calculator/`.
 
 ### Salons / clinics / personal services
 
@@ -103,13 +115,13 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 ### Social & sharing
 
 - [ ] **Link-in-bio page generator** 🔥 — form → static HTML "linktree" they can host anywhere, with QR.
-- [ ] **UTM link builder** 🔥⚡ — pre-filled with InfoWeb conventions; copy + shorten.
+- [x] **UTM link builder** 🔥⚡ — shipped as `utm-link-builder/` (copy tagged URL; no shortener).
 - [ ] **QR generator (generic with logo overlay)** ⚡📱 — any URL → smart-QR with centre logo, full scan analytics, swappable destination.
 
 ### Pricing & finance
 
 - [ ] **Subscription pricing calculator** ⚡ — costs + target margin + churn → monthly price.
-- [ ] **Discount / promo calculator** ⚡ — original price + % off → final + savings, copyable for posts.
+- [x] **Discount / promo calculator** ⚡ — shipped as `discount-calculator/`.
 - [ ] **Loan / financing simulator (PT rates)** 🔥 — amount + months + TAN → monthly + total cost.
 
 ### Productivity micro-tools (SEO long tail)
