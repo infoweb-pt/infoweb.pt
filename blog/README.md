@@ -123,11 +123,13 @@ blog/
     ├── choosing-perfect-domain/        ← English post
     │   ├── content.md
     │   ├── metadata.json
+    │   ├── image-prompt.md   ← Required prompt for featured image generation
     │   ├── index.html
     │   └── assets/
     └── como-escolher-dominio-perfeito/ ← Portuguese post (translation)
         ├── content.md
         ├── metadata.json
+        ├── image-prompt.md   ← Required prompt for featured image generation
         ├── index.html
         └── assets/
 ```
@@ -204,23 +206,31 @@ blog/
    }
    ```
 
-4. **Add English images:**
-   Place all images in `blog/posts/your-post-slug-en/assets/`
+4. **Create English image prompt:**
+   Create `blog/posts/your-post-slug-en/image-prompt.md` with the exact prompt an image-generation agent should use for the featured image. Include:
+   - target size: `1200x630`
+   - output filename: `featured.jpg` or `featured.webp`
+   - style direction matching InfoWeb (dark navy, gold accent, premium small-business SaaS feel)
+   - market-specific visual cues for EN content
+   - things to avoid (logos, watermarks, unreadable text, real brand screenshots)
+
+5. **Add English images:**
+   Place generated images in `blog/posts/your-post-slug-en/assets/`
 
 #### Step 2: Create Portuguese Version
 
-5. **Create Portuguese folder:**
+6. **Create Portuguese folder:**
    ```bash
    mkdir -p blog/posts/your-post-slug-pt/assets
    ```
 
-6. **Write Portuguese content:**
+7. **Write Portuguese content:**
    Create `blog/posts/your-post-slug-pt/content.md`:
    - Translate content to Portuguese
    - Adapt examples for Portuguese market (.pt domains, local services)
    - Localize references and case studies
 
-7. **Create Portuguese metadata:**
+8. **Create Portuguese metadata:**
    Create `blog/posts/your-post-slug-pt/metadata.json`:
    ```json
    {
@@ -244,13 +254,16 @@ blog/
    }
    ```
 
-8. **Add Portuguese images:**
+9. **Create Portuguese image prompt:**
+   Create `blog/posts/your-post-slug-pt/image-prompt.md`. Do not blindly translate the EN prompt; adapt visual cues to the Portuguese market when relevant (`.pt`, Portuguese local business context, PT examples).
+
+10. **Add Portuguese images:**
    Place images in `blog/posts/your-post-slug-pt/assets/`
-   (Can reuse English images if applicable, or create localized versions)
+   (Can reuse English images if applicable, but the prompt file is still required for every language version.)
 
 #### Step 3: Update Index and Deploy
 
-9. **Update posts index:**
+11. **Update posts index:**
    Add BOTH entries to `blog/posts/metadata.json`:
    ```json
    {
@@ -271,11 +284,11 @@ blog/
    }
    ```
 
-10. **Test locally:**
+12. **Test locally:**
     - Open `blog/index.html` and verify both posts appear
     - Test language switcher works on post pages
 
-11. **Commit and push:**
+13. **Commit and push:**
     ```bash
     git add blog/posts/your-post-slug-en/
     git add blog/posts/your-post-slug-pt/
@@ -605,6 +618,7 @@ Before publishing a new post:
 - [ ] Slug is unique and SEO-friendly
 - [ ] `content.md` has proper markdown formatting
 - [ ] `metadata.json` has all required fields including `language: "en"` and `alternateLanguage`
+- [ ] `image-prompt.md` exists and includes size, style, output filename, and avoid-list
 - [ ] Featured image exists and is optimized
 - [ ] All images have alt text
 - [ ] CTAs are placed strategically
@@ -614,6 +628,7 @@ Before publishing a new post:
 - [ ] Slug is unique and SEO-friendly (Portuguese naming)
 - [ ] `content.md` is adapted (not just translated) for Portuguese market
 - [ ] `metadata.json` has all required fields including `language: "pt"` and `alternateLanguage`
+- [ ] `image-prompt.md` exists and includes size, style, output filename, and avoid-list
 - [ ] Featured image exists and is optimized
 - [ ] All images have alt text
 - [ ] CTAs are placed strategically
