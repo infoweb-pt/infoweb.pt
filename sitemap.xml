@@ -112,6 +112,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://infoweb.sousadev.com/free-tools/url-qr-generator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://infoweb.sousadev.com/free-tools/utm-link-builder/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -219,6 +224,11 @@
   </url>
   <url>
     <loc>https://infoweb.sousadev.com/free-tools/pt/tip-split-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/free-tools/pt/url-qr-generator/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

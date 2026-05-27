@@ -116,7 +116,7 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 - [ ] **Link-in-bio page generator** 🔥 — form → static HTML "linktree" they can host anywhere, with QR.
 - [x] **UTM link builder** 🔥⚡ — shipped as `utm-link-builder/` (copy tagged URL; no shortener).
-- [ ] **QR generator (generic with logo overlay)** ⚡📱 — any URL → smart-QR with centre logo, full scan analytics, swappable destination.
+- [x] **QR generator (generic with logo overlay)** ⚡📱 — any URL → smart-QR with centre logo, full scan analytics, swappable destination. → `url-qr-generator/`
 
 ### Pricing & finance
 

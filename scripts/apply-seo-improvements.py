@@ -22,11 +22,12 @@ BLOG_PAIRS = {
 }
 
 TOOL_RELATED = {
-    "whatsapp-qr-generator": ["menu-qr-generator", "google-review-generator", "business-card-qr"],
-    "menu-qr-generator": ["whatsapp-qr-generator", "wifi-qr-generator", "google-review-generator"],
-    "wifi-qr-generator": ["menu-qr-generator", "business-card-qr", "whatsapp-qr-generator"],
-    "business-card-qr": ["whatsapp-qr-generator", "wifi-qr-generator", "google-review-generator"],
-    "google-review-generator": ["presence-score", "whatsapp-qr-generator", "menu-qr-generator"],
+    "url-qr-generator": ["whatsapp-qr-generator", "menu-qr-generator", "wifi-qr-generator"],
+    "whatsapp-qr-generator": ["url-qr-generator", "menu-qr-generator", "business-card-qr"],
+    "menu-qr-generator": ["url-qr-generator", "whatsapp-qr-generator", "wifi-qr-generator"],
+    "wifi-qr-generator": ["url-qr-generator", "menu-qr-generator", "business-card-qr"],
+    "business-card-qr": ["url-qr-generator", "whatsapp-qr-generator", "wifi-qr-generator"],
+    "google-review-generator": ["url-qr-generator", "whatsapp-qr-generator", "menu-qr-generator"],
     "presence-score": ["google-review-generator", "website-health-scorecard", "competitor-visibility-gap"],
     "website-health-scorecard": ["presence-score", "website-roi-calculator", "competitor-visibility-gap"],
     "competitor-visibility-gap": ["presence-score", "website-health-scorecard", "google-review-generator"],
@@ -47,6 +48,7 @@ TOOL_RELATED = {
 }
 
 TOOL_LABELS_EN = {
+    "url-qr-generator": "URL QR Generator",
     "whatsapp-qr-generator": "WhatsApp QR Generator",
     "menu-qr-generator": "Menu QR Generator",
     "wifi-qr-generator": "Wi-Fi QR Generator",
