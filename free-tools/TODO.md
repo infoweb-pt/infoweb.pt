@@ -15,7 +15,10 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 - [x] **Digital business card (vCard) QR** — `business-card-qr/` 📱 vCard payload in QR; centre logo via `QRCustomizer` (declare `uploadedLogo` in script state; strict mode).
 - [x] **Google review link + QR** — `google-review-generator/` Smart QR + review URL flow; logo optional.
 - [x] **URL QR generator (generic Smart QR)** — `url-qr-generator/` 📱 Any URL → smart-QR with centre logo, scan analytics, swappable destination; EN + PT.
-- [x] **Competitor visibility gap analyzer** — `competitor-visibility-gap/` 🔥💎 Compare vs up to 2 competitors (reviews, web, social); email-gated report via API. **Hub:** listed on EN/PT index. **PT locale:** `free-tools/pt/competitor-visibility-gap/` not scaffolded yet — PT hub links to EN page.
+- [x] **Competitor visibility gap analyzer** — `competitor-visibility-gap/` 🔥💎 Compare vs up to 2 competitors (reviews, web, social); email-gated report via API. EN + PT (`free-tools/pt/competitor-visibility-gap/`).
+- [x] **SEO title & meta description generator** — `seo-meta-generator/` 🔥⚡ 3 Google-sized title + meta combos; EN + PT.
+- [x] **URL slug generator** — `url-slug-generator/` ⚡ Headline → SEO path; EN + PT.
+- [x] **SEO character & word counter** — `character-counter/` ⚡ Live 60/160 guides; EN + PT.
 - [x] **Website ROI calculator** — `website-roi-calculator/` (no Smart QR — not a scan-to-redirect QR product).
 - [x] **Local presence score** — `presence-score/`
 - [x] **Lost customers calculator** — `lost-customers-calculator/`
@@ -94,7 +97,7 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 - [ ] **Instagram bio generator for local businesses** 🔥🧠 — niche + city + USP → 5 bio options w/ emojis.
 - [ ] **"About us" paragraph generator** 🧠 — questionnaire → polished About text in PT/EN.
-- [ ] **Meta title + description generator** 🔥🧠 — page topic → 5 SEO-ready combos with character counts.
+- [x] **Meta title + description generator** 🔥⚡ — shipped as `seo-meta-generator/` (template-based, no LLM).
 - [ ] **Slogan / tagline generator** 🧠 — business + tone → 10 options.
 - [ ] **Email signature generator** ⚡ — form → HTML signature, copy-to-clipboard.
 
@@ -128,9 +131,9 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 ### Productivity micro-tools (SEO long tail)
 
-- [ ] **Slug generator** ⚡ — text → SEO-friendly slug.
+- [x] **Slug generator** ⚡ — shipped as `url-slug-generator/`.
 - [ ] **Lorem-ipsum in Portuguese** ⚡ — paragraphs of pt-PT placeholder text.
-- [ ] **Character / word counter** ⚡ — for meta descriptions, tweets, etc.
+- [x] **Character / word counter** ⚡ — shipped as `character-counter/`.
 - [ ] **Image compressor (client-side)** ⚡ — drag image → smaller version, no upload.
 - [ ] **Colour contrast checker (WCAG)** ⚡ — fg + bg → AA/AAA pass/fail.
 

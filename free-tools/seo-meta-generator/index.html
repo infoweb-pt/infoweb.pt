@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free SEO Title & Meta Description Generator — InfoWeb</title>
+<meta name="description" content="Generate Google-ready page titles (60 chars) and meta descriptions (160 chars) for your local business. Copy-paste in seconds."/>
+<meta name="keywords" content="meta title generator, meta description generator, seo title tool, free seo meta tags"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+<link rel="canonical" href="https://infoweb.sousadev.com/free-tools/seo-meta-generator/"/>
+<meta property="og:url" content="https://infoweb.sousadev.com/free-tools/seo-meta-generator/"/><meta property="og:title" content="Free SEO Title & Meta Description Generator — InfoWeb"/>
+<meta property="og:description" content="SEO titles and meta descriptions for local businesses."/><meta property="og:image" content="https://infoweb.sousadev.com/assets/images/og-image.png"/>
+<link rel="alternate" hreflang="en" href="https://infoweb.sousadev.com/free-tools/seo-meta-generator/"/><link rel="alternate" hreflang="pt" href="https://infoweb.sousadev.com/free-tools/pt/seo-meta-generator/"/>
+<link rel="icon" href="../../favicon_io/favicon-32x32.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXQSMBERJM");</script>
+<script src="../../assets/js/analytics.js" defer></script>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800/60">
+<div class="max-w-2xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=seo_meta_generator&utm_campaign=header" target="_blank" rel="noopener"><img src="../../assets/images/infoweb-logo.png" alt="InfoWeb" class="h-9"/></a>
+<div class="flex gap-2 items-center"><nav class="flex gap-1 text-[11px] font-semibold"><span class="rounded-full px-2 py-1 bg-slate-800 border border-slate-500 text-white">EN</span><a href="../pt/seo-meta-generator/" hreflang="pt" class="rounded-full px-2 py-1 text-slate-400 hover:text-white border border-transparent hover:border-slate-600 transition" data-track="language_switch" data-track-target="pt">PT</a></nav>
+<a href="https://infoweb.sousadev.com/?utm_source=freetool&utm_medium=seo_meta_generator&utm_campaign=header_btn#pricing" target="_blank" class="text-sm border border-slate-600 rounded-full px-4 py-1.5 text-slate-300">See Website Plans</a></div></div></header>
+<main class="max-w-2xl mx-auto px-4 py-12">
+<section class="text-center mb-10"><div class="inline-flex gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-1.5 text-sm text-emerald-400 mb-5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Free — No sign-up</div>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">SEO title & meta description generator</h1><p class="text-slate-400 text-lg">Three title and description combos sized for Google — ready to paste into your site.</p></section>
+<section class="mb-6"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5"><div><label for="biz" class="block text-sm font-semibold text-slate-300 mb-2">Business name</label><input id="biz" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white" placeholder="Café Central"/></div><div><label for="topic" class="block text-sm font-semibold text-slate-300 mb-2">Page topic / service</label><input id="topic" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white" placeholder="Breakfast menu & brunch"/></div><div><label for="loc" class="block text-sm font-semibold text-slate-300 mb-2">City (optional)</label><input id="loc" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white" placeholder="Lisbon"/></div><button type="button" onclick="runTool()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl px-6 py-4">Generate SEO tags</button></div></section>
+<section class="mb-10" id="output-section">
+<div id="spinner" class="hidden flex-col items-center py-12 text-slate-400"><svg class="animate-spin h-8 w-8 mb-3 text-emerald-500" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg><span>Generating…</span></div>
+<div id="error-box" class="hidden bg-red-900/30 border border-red-700/50 rounded-2xl p-5 text-center text-red-300">Something went wrong.</div>
+<div id="result-box" class="hidden space-y-4"></div></section>
+<section class="mb-10"><h2 class="text-xl font-bold mb-4">FAQ</h2>
+<details class="bg-slate-900 border border-slate-800 rounded-xl p-4"><summary class="font-semibold cursor-pointer">Why 60 and 160 characters?</summary><p class="text-slate-400 text-sm mt-2">Google typically shows ~60 characters for titles and ~160 for meta descriptions. Staying inside these limits avoids truncation in search results.</p></details></section>
+</main>
+<section class="max-w-2xl mx-auto px-4 mb-8"><h2 class="text-sm font-bold uppercase text-slate-500 mb-3">Related tools</h2><ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-400">
+      <li><a href="schema-local-business-generator/" class="hover:text-signal">Schema Generator</a></li>
+      <li><a href="url-slug-generator/" class="hover:text-signal">URL Slug Generator</a></li>
+<li><a href="../" class="hover:text-signal">All free tools</a></li></ul></section>
+<footer class="border-t border-slate-800 py-6 text-center text-sm"><a href="../../" class="text-slate-400">← InfoWeb home</a></footer>
+<script src="script.js" defer></script></body></html>
