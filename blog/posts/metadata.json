@@ -1,6 +1,66 @@
 {
   "posts": [
     {
+      "slug": "guia-valor-vida-cliente-ltv",
+      "language": "pt",
+      "dateCreated": "2026-07-02",
+      "dateUpdated": "2026-07-02"
+    },
+    {
+      "slug": "customer-lifetime-value-guide",
+      "language": "en",
+      "dateCreated": "2026-07-02",
+      "dateUpdated": "2026-07-02"
+    },
+    {
+      "slug": "markup-vs-margin-pricing-guide",
+      "language": "en",
+      "dateCreated": "2026-06-26",
+      "dateUpdated": "2026-06-26"
+    },
+    {
+      "slug": "guia-markup-vs-margem-precos",
+      "language": "pt",
+      "dateCreated": "2026-06-26",
+      "dateUpdated": "2026-06-26"
+    },
+    {
+      "slug": "guia-tarifa-horaria-freelancer",
+      "language": "pt",
+      "dateCreated": "2026-06-18",
+      "dateUpdated": "2026-06-18"
+    },
+    {
+      "slug": "freelancer-hourly-rate-guide",
+      "language": "en",
+      "dateCreated": "2026-06-18",
+      "dateUpdated": "2026-06-18"
+    },
+    {
+      "slug": "guia-break-even-pequeno-negocio",
+      "language": "pt",
+      "dateCreated": "2026-06-13",
+      "dateUpdated": "2026-06-13"
+    },
+    {
+      "slug": "break-even-guide-small-business",
+      "language": "en",
+      "dateCreated": "2026-06-13",
+      "dateUpdated": "2026-06-13"
+    },
+    {
+      "slug": "lost-revenue-small-business-guide",
+      "language": "en",
+      "dateCreated": "2026-06-07",
+      "dateUpdated": "2026-06-07"
+    },
+    {
+      "slug": "guia-receita-perdida-pequenos-negocios",
+      "language": "pt",
+      "dateCreated": "2026-06-07",
+      "dateUpdated": "2026-06-07"
+    },
+    {
       "slug": "utm-campaign-tracking-guide",
       "language": "en",
       "dateCreated": "2026-05-31",
@@ -265,5 +325,5 @@
       "dateUpdated": "2026-01-06"
     }
   ],
-  "lastUpdated": "2026-05-27T20:13:07Z"
+  "lastUpdated": "2026-05-27T20:19:07Z"
 }

@@ -1,0 +1,23 @@
+{
+  "slug": "guia-tarifa-horaria-freelancer",
+  "language": "pt",
+  "title": "Como Definir a Sua Tarifa Horária de Freelancer (Sem Se Vender Barato)",
+  "description": "Calcule uma tarifa horária que cubra custos, impostos, tempo não faturável e lucro — calculadora grátis.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-06-18",
+  "dateUpdated": "2026-06-18",
+  "category": "small-business",
+  "tags": [
+    "calculadora tarifa freelancer",
+    "preço hora freelancer",
+    "freelance portugal"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Freelancer a calcular tarifa horária com fatura e registo de tempo",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "freelancer-hourly-rate-guide"
+  }
+}

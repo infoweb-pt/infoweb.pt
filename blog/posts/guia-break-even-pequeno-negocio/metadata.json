@@ -1,0 +1,23 @@
+{
+  "slug": "guia-break-even-pequeno-negocio",
+  "language": "pt",
+  "title": "Análise de Break-Even para Pequenos Negócios (Guia Simples)",
+  "description": "Descubra quantas vendas precisa para cobrir custos fixos e lucrar — calculadora break-even grátis.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-06-13",
+  "dateUpdated": "2026-06-13",
+  "category": "small-business",
+  "tags": [
+    "calculadora break even",
+    "ponto equilibrio pme",
+    "custos fixos lucro"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Gráfico break-even com custos fixos e contribuição unitária",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "break-even-guide-small-business"
+  }
+}

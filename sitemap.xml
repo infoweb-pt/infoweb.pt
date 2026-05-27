@@ -488,6 +488,56 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/lost-revenue-small-business-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/guia-receita-perdida-pequenos-negocios/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/break-even-guide-small-business/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/guia-break-even-pequeno-negocio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/freelancer-hourly-rate-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/guia-tarifa-horaria-freelancer/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/markup-vs-margin-pricing-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/guia-markup-vs-margem-precos/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/customer-lifetime-value-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoweb.sousadev.com/blog/posts/guia-valor-vida-cliente-ltv/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
   <url>
     <loc>https://infoweb.sousadev.com/free-tools/character-counter/</loc>

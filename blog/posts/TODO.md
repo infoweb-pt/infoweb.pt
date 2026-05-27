@@ -24,7 +24,13 @@ Bilingual posts with `{{CTA:tools}}` / `{{CTA}}` and inline links to free tools:
 | IVA Portugal | `iva-vat-portugal-small-business` | vat-calculator-pt, discount, break-even, freelancer-rate |
 | UTM tracking | `utm-campaign-tracking-guide` | utm-link-builder, cost-per-lead-calculator |
 
-**Still no dedicated post (link from hub or future article):** `lost-customers-calculator` only — optional “missed calls / no website” article.
+| Lost revenue / leaks | `lost-revenue-small-business-guide` | lost-customers, downtime-cost, website-roi |
+| Break-even | `break-even-guide-small-business` | break-even, markup-margin, vat-calculator-pt |
+| Freelancer pricing | `freelancer-hourly-rate-guide` | freelancer-rate, break-even, vat |
+| Markup vs margin | `markup-vs-margin-pricing-guide` | markup-margin, discount, food-cost, customer-ltv |
+| Customer LTV | `customer-lifetime-value-guide` | customer-ltv, cost-per-lead, utm, website-roi |
+
+**Optional future posts:** `wifi-qr-generator`, `business-card-qr` (covered briefly in smart QR guide), dedicated `discount-calculator` promo playbook.
 
 ---
 

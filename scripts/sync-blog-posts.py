@@ -40,10 +40,15 @@ TOPIC_PAIRS: list[tuple[str, str]] = [
     ("restaurant-menu-pricing-guide", "guia-precos-ementa-restaurante"),
     ("iva-vat-portugal-small-business", "iva-portugal-guia-pequenos-negocios"),
     ("utm-campaign-tracking-guide", "guia-rastrear-campanhas-utm"),
+    ("lost-revenue-small-business-guide", "guia-receita-perdida-pequenos-negocios"),
+    ("break-even-guide-small-business", "guia-break-even-pequeno-negocio"),
+    ("freelancer-hourly-rate-guide", "guia-tarifa-horaria-freelancer"),
+    ("markup-vs-margin-pricing-guide", "guia-markup-vs-margem-precos"),
+    ("customer-lifetime-value-guide", "guia-valor-vida-cliente-ltv"),
 ]
 
 # Irregular gaps (~weekly, not exact) from early January 2026
-DAY_GAPS = [0, 6, 8, 5, 9, 7, 6, 10, 5, 8, 6, 9, 7, 5, 6, 8, 5, 7, 6, 9, 5, 8]
+DAY_GAPS = [0, 6, 8, 5, 9, 7, 6, 10, 5, 8, 6, 9, 7, 5, 6, 8, 5, 7, 6, 9, 5, 8, 7, 6, 5, 8, 6]
 
 
 def build_publish_schedule() -> dict[str, str]:

@@ -1,0 +1,24 @@
+{
+  "slug": "guia-valor-vida-cliente-ltv",
+  "language": "pt",
+  "title": "Valor de Vida do Cliente (LTV) para Pequenos Negócios",
+  "description": "Calcule quanto vale um cliente repetido e quanto pode gastar para o adquirir — ferramentas LTV e CPL grátis.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-07-02",
+  "dateUpdated": "2026-07-02",
+  "category": "digital-marketing",
+  "tags": [
+    "ltv cliente",
+    "valor vida cliente",
+    "calculadora ltv",
+    "custo por lead"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Diagrama de valor de vida do cliente para marketing de PME",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "customer-lifetime-value-guide"
+  }
+}

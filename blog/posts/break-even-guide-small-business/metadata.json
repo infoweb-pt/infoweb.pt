@@ -1,0 +1,23 @@
+{
+  "slug": "break-even-guide-small-business",
+  "language": "en",
+  "title": "Break-Even Analysis for Small Businesses (Simple Guide)",
+  "description": "Find how many sales you need to cover fixed costs and start making profit — free break-even calculator included.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-06-13",
+  "dateUpdated": "2026-06-13",
+  "category": "small-business",
+  "tags": [
+    "break even calculator",
+    "break even analysis small business",
+    "fixed costs profit"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Break-even chart showing fixed costs and unit contribution for a small business",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-break-even-pequeno-negocio"
+  }
+}

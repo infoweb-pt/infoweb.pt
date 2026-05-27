@@ -1,0 +1,24 @@
+{
+  "slug": "guia-receita-perdida-pequenos-negocios",
+  "language": "pt",
+  "title": "Quanta Receita Está a Perder Sem um Website à Altura?",
+  "description": "Estime clientes perdidos por chamadas perdidas, respostas lentas e downtime — calculadoras grátis para PME.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-06-07",
+  "dateUpdated": "2026-06-07",
+  "category": "small-business",
+  "tags": [
+    "calculadora clientes perdidos",
+    "chamadas perdidas receita",
+    "custo downtime website",
+    "fugas receita pme"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Dono de PME a analisar receita perdida por chamadas e downtime do site",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "lost-revenue-small-business-guide"
+  }
+}

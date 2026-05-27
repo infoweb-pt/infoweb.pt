@@ -1,0 +1,23 @@
+{
+  "slug": "guia-markup-vs-margem-precos",
+  "language": "pt",
+  "title": "Markup vs Margem: Defina Preços Sem Adivinhar",
+  "description": "Diferença entre markup e margem, erros comuns e calculadoras grátis para retalho e serviços.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-06-26",
+  "dateUpdated": "2026-06-26",
+  "category": "small-business",
+  "tags": [
+    "markup vs margem",
+    "calculadora preços",
+    "margem lucro pme"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Comparação markup versus margem para preços de produtos",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "markup-vs-margin-pricing-guide"
+  }
+}

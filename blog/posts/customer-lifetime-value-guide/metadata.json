@@ -1,0 +1,24 @@
+{
+  "slug": "customer-lifetime-value-guide",
+  "language": "en",
+  "title": "Customer Lifetime Value (LTV) for Small Businesses",
+  "description": "Calculate how much a repeat customer is worth and how much you can spend to acquire them — free LTV and CPL tools.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-07-02",
+  "dateUpdated": "2026-07-02",
+  "category": "digital-marketing",
+  "tags": [
+    "customer lifetime value",
+    "LTV calculator",
+    "cost per lead",
+    "small business marketing budget"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Customer lifetime value funnel diagram for small business marketing",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-valor-vida-cliente-ltv"
+  }
+}

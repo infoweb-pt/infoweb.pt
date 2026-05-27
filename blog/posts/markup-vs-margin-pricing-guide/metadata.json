@@ -1,0 +1,23 @@
+{
+  "slug": "markup-vs-margin-pricing-guide",
+  "language": "en",
+  "title": "Markup vs Margin: Price Products Without Guessing",
+  "description": "Learn the difference between markup and margin, avoid pricing mistakes, and use free calculators for retail and services.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-06-26",
+  "dateUpdated": "2026-06-26",
+  "category": "small-business",
+  "tags": [
+    "markup vs margin",
+    "pricing calculator",
+    "profit margin small business"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Markup versus margin comparison chart for product pricing",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-markup-vs-margem-precos"
+  }
+}
