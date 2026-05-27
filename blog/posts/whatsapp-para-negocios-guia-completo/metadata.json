@@ -1,0 +1,24 @@
+{
+  "slug": "whatsapp-para-negocios-guia-completo",
+  "language": "pt",
+  "title": "WhatsApp para Negócios: Guia Completo para Pequenas Equipas",
+  "description": "WhatsApp para negócios explicado: Business vs API, links click-to-chat, QR codes, respostas rápidas e fluxos que convertem conversas em vendas.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-27",
+  "dateUpdated": "2026-05-27",
+  "category": "digital-marketing",
+  "tags": [
+    "whatsapp negócios",
+    "whatsapp business portugal",
+    "click to chat",
+    "qr code whatsapp empresa"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Equipa de pequeno negócio a gerir conversas WhatsApp no telemóvel e portátil",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "whatsapp-for-business-complete-guide"
+  }
+}

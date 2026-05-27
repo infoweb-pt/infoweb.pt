@@ -1,0 +1,24 @@
+{
+  "slug": "guia-velocidade-website-pequenos-negocios",
+  "language": "pt",
+  "title": "Velocidade de Website para Pequenos Negócios: Guia {{CURRENT_YEAR}}",
+  "description": "Melhore a velocidade do website: Core Web Vitals, compressão de imagens, hosting, cache e correções que ajudam SEO Google e conversões.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-27",
+  "dateUpdated": "2026-05-27",
+  "category": "seo",
+  "tags": [
+    "velocidade website",
+    "core web vitals",
+    "site rápido pequena empresa",
+    "page speed seo"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Dashboard de velocidade de website no portátil com Core Web Vitals melhorados",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "website-speed-small-business-guide"
+  }
+}

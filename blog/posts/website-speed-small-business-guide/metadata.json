@@ -1,0 +1,24 @@
+{
+  "slug": "website-speed-small-business-guide",
+  "language": "en",
+  "title": "Website Speed for Small Business: Practical {{CURRENT_YEAR}} Guide",
+  "description": "Improve small business website speed: Core Web Vitals, image compression, hosting, caching, and fixes that help Google rankings and conversions.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-27",
+  "dateUpdated": "2026-05-27",
+  "category": "seo",
+  "tags": [
+    "website speed small business",
+    "core web vitals",
+    "fast website",
+    "page speed seo"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Website speed metrics dashboard on laptop showing improved Core Web Vitals scores",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-velocidade-website-pequenos-negocios"
+  }
+}

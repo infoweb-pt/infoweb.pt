@@ -1,0 +1,24 @@
+{
+  "slug": "restaurant-menu-qr-code-guide",
+  "language": "en",
+  "title": "Restaurant Menu QR Codes: Setup Guide for {{CURRENT_YEAR}}",
+  "description": "Restaurant menu QR code guide: PDF vs digital menus, table placement, accessibility, updates, and hygiene-friendly setups customers actually scan.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-27",
+  "dateUpdated": "2026-05-27",
+  "category": "small-business",
+  "tags": [
+    "restaurant menu qr code",
+    "digital menu qr",
+    "qr code menu",
+    "hospitality menu"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Restaurant table tent with menu QR code scanned by a customer on a phone",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-qr-code-menu-restaurante"
+  }
+}

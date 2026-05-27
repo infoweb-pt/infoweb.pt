@@ -1,0 +1,24 @@
+{
+  "slug": "guia-qr-code-menu-restaurante",
+  "language": "pt",
+  "title": "QR Code para Ementa de Restaurante: Guia Prático {{CURRENT_YEAR}}",
+  "description": "Guia QR code ementa restaurante: PDF vs ementa digital, colocação na mesa, acessibilidade, atualizações e setups higiénicos que clientes scanneiam.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-27",
+  "dateUpdated": "2026-05-27",
+  "category": "small-business",
+  "tags": [
+    "qr code ementa restaurante",
+    "ementa digital qr",
+    "menu digital restaurante",
+    "qr code menu portugal"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Mesa de restaurante com QR code de ementa scanneado por cliente no telemóvel",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "restaurant-menu-qr-code-guide"
+  }
+}
