@@ -1,0 +1,24 @@
+{
+  "slug": "guia-calculadora-roi-website",
+  "language": "pt",
+  "title": "Como Calcular o ROI de um Website para PME",
+  "description": "Saiba se o website compensa com visitas, taxa de conversão, valor do cliente e período de retorno — calculadoras grátis InfoWeb.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-03",
+  "dateUpdated": "2026-05-03",
+  "category": "small-business",
+  "tags": [
+    "roi website",
+    "calculadora roi site",
+    "website compensa pme",
+    "retorno investimento site"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Gráfico de cálculo ROI de website para receita de PME",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "website-roi-calculator-guide"
+  }
+}

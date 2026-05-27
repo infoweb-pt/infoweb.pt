@@ -1,0 +1,24 @@
+{
+  "slug": "auditoria-saude-website-pequeno-negocio",
+  "language": "pt",
+  "title": "Auditoria Gratuita de Saúde do Website para PME",
+  "description": "Checklist de cinco pontos — velocidade, mobile, SSL, meta tags e Google Business — e calculadora de custo de downtime.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-04-26",
+  "dateUpdated": "2026-04-26",
+  "category": "web-design",
+  "tags": [
+    "auditoria website",
+    "saúde do site",
+    "velocidade site pme",
+    "verificar ssl"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Checklist de auditoria de saúde do website com ícones de velocidade",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "website-health-audit-small-business"
+  }
+}

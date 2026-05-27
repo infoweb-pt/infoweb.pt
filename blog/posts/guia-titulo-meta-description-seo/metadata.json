@@ -1,0 +1,24 @@
+{
+  "slug": "guia-titulo-meta-description-seo",
+  "language": "pt",
+  "title": "Guia de Título SEO e Meta Description para Websites de PME",
+  "description": "Escreva títulos e meta descriptions amigáveis para o Google — comprimento certo, palavras-chave e estrutura, com geradores gratuitos InfoWeb.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-04-13",
+  "dateUpdated": "2026-04-13",
+  "category": "seo",
+  "tags": [
+    "titulo seo",
+    "meta description",
+    "seo pequenos negócios",
+    "comprimento titulo pagina"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Checklist de título SEO e meta description num portátil para website de PME",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "seo-title-meta-description-guide"
+  }
+}

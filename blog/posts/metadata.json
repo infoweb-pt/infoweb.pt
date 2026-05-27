@@ -1,6 +1,102 @@
 {
   "posts": [
     {
+      "slug": "utm-campaign-tracking-guide",
+      "language": "en",
+      "dateCreated": "2026-05-31",
+      "dateUpdated": "2026-05-31"
+    },
+    {
+      "slug": "guia-rastrear-campanhas-utm",
+      "language": "pt",
+      "dateCreated": "2026-05-31",
+      "dateUpdated": "2026-05-31"
+    },
+    {
+      "slug": "iva-vat-portugal-small-business",
+      "language": "en",
+      "dateCreated": "2026-05-23",
+      "dateUpdated": "2026-05-23"
+    },
+    {
+      "slug": "iva-portugal-guia-pequenos-negocios",
+      "language": "pt",
+      "dateCreated": "2026-05-23",
+      "dateUpdated": "2026-05-23"
+    },
+    {
+      "slug": "restaurant-menu-pricing-guide",
+      "language": "en",
+      "dateCreated": "2026-05-18",
+      "dateUpdated": "2026-05-18"
+    },
+    {
+      "slug": "guia-precos-ementa-restaurante",
+      "language": "pt",
+      "dateCreated": "2026-05-18",
+      "dateUpdated": "2026-05-18"
+    },
+    {
+      "slug": "smart-qr-codes-small-business",
+      "language": "en",
+      "dateCreated": "2026-05-09",
+      "dateUpdated": "2026-05-09"
+    },
+    {
+      "slug": "qr-codes-inteligentes-pequenos-negocios",
+      "language": "pt",
+      "dateCreated": "2026-05-09",
+      "dateUpdated": "2026-05-09"
+    },
+    {
+      "slug": "website-roi-calculator-guide",
+      "language": "en",
+      "dateCreated": "2026-05-03",
+      "dateUpdated": "2026-05-03"
+    },
+    {
+      "slug": "guia-calculadora-roi-website",
+      "language": "pt",
+      "dateCreated": "2026-05-03",
+      "dateUpdated": "2026-05-03"
+    },
+    {
+      "slug": "website-health-audit-small-business",
+      "language": "en",
+      "dateCreated": "2026-04-26",
+      "dateUpdated": "2026-04-26"
+    },
+    {
+      "slug": "auditoria-saude-website-pequeno-negocio",
+      "language": "pt",
+      "dateCreated": "2026-04-26",
+      "dateUpdated": "2026-04-26"
+    },
+    {
+      "slug": "online-presence-score-guide",
+      "language": "en",
+      "dateCreated": "2026-04-21",
+      "dateUpdated": "2026-04-21"
+    },
+    {
+      "slug": "guia-score-presenca-online",
+      "language": "pt",
+      "dateCreated": "2026-04-21",
+      "dateUpdated": "2026-04-21"
+    },
+    {
+      "slug": "seo-title-meta-description-guide",
+      "language": "en",
+      "dateCreated": "2026-04-13",
+      "dateUpdated": "2026-04-13"
+    },
+    {
+      "slug": "guia-titulo-meta-description-seo",
+      "language": "pt",
+      "dateCreated": "2026-04-13",
+      "dateUpdated": "2026-04-13"
+    },
+    {
       "slug": "when-to-redesign-small-business-website",
       "language": "en",
       "dateCreated": "2026-04-07",
@@ -169,5 +265,5 @@
       "dateUpdated": "2026-01-06"
     }
   ],
-  "lastUpdated": "2026-05-27T19:51:59Z"
+  "lastUpdated": "2026-05-27T20:13:07Z"
 }

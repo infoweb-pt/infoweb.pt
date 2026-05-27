@@ -1,0 +1,24 @@
+{
+  "slug": "smart-qr-codes-small-business",
+  "language": "en",
+  "title": "Smart QR Codes for Small Business Marketing",
+  "description": "Use trackable QR codes for menus, WhatsApp, Wi-Fi, business cards, and any URL — with logos and editable destinations.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-09",
+  "dateUpdated": "2026-05-09",
+  "category": "digital-marketing",
+  "tags": [
+    "smart qr code generator",
+    "business qr code",
+    "qr code marketing",
+    "trackable qr"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Smart QR codes on menu tent, business card, and shop window",
+  "readTime": 10,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "qr-codes-inteligentes-pequenos-negocios"
+  }
+}

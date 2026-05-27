@@ -1,0 +1,24 @@
+{
+  "slug": "guia-score-presenca-online",
+  "language": "pt",
+  "title": "Como Avaliar o Score de Presença Online do Seu Negócio",
+  "description": "Meça quão encontrável está o seu negócio no Google, Maps e website — e compare com concorrentes com ferramentas InfoWeb grátis.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-04-21",
+  "dateUpdated": "2026-04-21",
+  "category": "seo",
+  "tags": [
+    "presença online",
+    "score visibilidade",
+    "perfil empresa google",
+    "comparar concorrentes"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Medidor de presença online para negócio local no telemóvel",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "online-presence-score-guide"
+  }
+}

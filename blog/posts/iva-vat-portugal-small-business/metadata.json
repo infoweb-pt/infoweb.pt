@@ -1,0 +1,24 @@
+{
+  "slug": "iva-vat-portugal-small-business",
+  "language": "en",
+  "title": "IVA (VAT) in Portugal: Quick Guide for Small Businesses",
+  "description": "Add or remove IVA for Continente, Madeira, and Azores rates — and model discounts and break-even with free calculators.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-23",
+  "dateUpdated": "2026-05-23",
+  "category": "small-business",
+  "tags": [
+    "iva portugal calculator",
+    "vat portugal",
+    "madeira azores iva",
+    "small business tax portugal"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "IVA VAT calculation for Portugal small business invoice",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "iva-portugal-guia-pequenos-negocios"
+  }
+}

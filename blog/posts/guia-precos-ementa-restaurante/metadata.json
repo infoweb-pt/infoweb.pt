@@ -1,0 +1,24 @@
+{
+  "slug": "guia-precos-ementa-restaurante",
+  "language": "pt",
+  "title": "Preços de Ementa: Custo Alimentar, Margens e Gorjetas",
+  "description": "Defina preços com % custo alimentar, markup e divisão de gorjetas — e ementa digital em QR.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-18",
+  "dateUpdated": "2026-05-18",
+  "category": "small-business",
+  "tags": [
+    "custo alimentar restaurante",
+    "preços ementa",
+    "margem prato",
+    "calculadora gorjeta"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Restaurador a calcular preços de ementa e percentagem custo alimentar",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "restaurant-menu-pricing-guide"
+  }
+}

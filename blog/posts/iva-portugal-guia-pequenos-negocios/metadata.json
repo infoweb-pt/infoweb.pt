@@ -1,0 +1,24 @@
+{
+  "slug": "iva-portugal-guia-pequenos-negocios",
+  "language": "pt",
+  "title": "IVA em Portugal: Guia Rápido para Pequenos Negócios",
+  "description": "Adicione ou retire IVA (Continente, Madeira, Açores) e simule descontos e break-even com calculadoras grátis.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-23",
+  "dateUpdated": "2026-05-23",
+  "category": "small-business",
+  "tags": [
+    "calculadora iva",
+    "iva madeira açores",
+    "iva pme portugal",
+    "preços com iva"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Cálculo de IVA para fatura de PME em Portugal",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "iva-vat-portugal-small-business"
+  }
+}

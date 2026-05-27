@@ -1,0 +1,24 @@
+{
+  "slug": "seo-title-meta-description-guide",
+  "language": "en",
+  "title": "SEO Title and Meta Description Guide for Small Business Websites",
+  "description": "Write Google-friendly page titles and meta descriptions with the right length, keywords, and structure — plus free generators to draft them fast.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-04-13",
+  "dateUpdated": "2026-04-13",
+  "category": "seo",
+  "tags": [
+    "seo title tag",
+    "meta description",
+    "small business seo",
+    "page title length"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "SEO title and meta description checklist on a laptop for a small business website",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-titulo-meta-description-seo"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "website-roi-calculator-guide",
+  "language": "en",
+  "title": "How to Calculate Website ROI for a Small Business",
+  "description": "Estimate whether a website pays for itself using traffic, conversion rate, customer value, and payback period — with free calculators.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-03",
+  "dateUpdated": "2026-05-03",
+  "category": "small-business",
+  "tags": [
+    "website roi calculator",
+    "small business website worth it",
+    "website payback period"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Website ROI calculation chart for small business revenue",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-calculadora-roi-website"
+  }
+}

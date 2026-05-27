@@ -1,0 +1,24 @@
+{
+  "slug": "utm-campaign-tracking-guide",
+  "language": "en",
+  "title": "UTM Parameters: Track Marketing Campaigns That Actually Convert",
+  "description": "Tag URLs with utm_source, utm_medium, and utm_campaign so Google Analytics shows which ads, emails, and posts drive leads.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-31",
+  "dateUpdated": "2026-05-31",
+  "category": "digital-marketing",
+  "tags": [
+    "utm builder",
+    "utm parameters guide",
+    "campaign tracking url",
+    "google analytics utm"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "UTM campaign URL builder dashboard for marketing tracking",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-rastrear-campanhas-utm"
+  }
+}

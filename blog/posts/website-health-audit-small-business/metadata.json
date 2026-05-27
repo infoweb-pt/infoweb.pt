@@ -1,0 +1,24 @@
+{
+  "slug": "website-health-audit-small-business",
+  "language": "en",
+  "title": "Free Website Health Audit for Small Businesses",
+  "description": "Run a five-point website health check — speed, mobile, SSL, meta tags, and Google Business — and estimate downtime cost if the site fails.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-04-26",
+  "dateUpdated": "2026-04-26",
+  "category": "web-design",
+  "tags": [
+    "website health check",
+    "small business website audit",
+    "site speed test",
+    "ssl check"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Website health audit checklist with speed and mobile icons",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "auditoria-saude-website-pequeno-negocio"
+  }
+}

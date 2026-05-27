@@ -1,0 +1,24 @@
+{
+  "slug": "online-presence-score-guide",
+  "language": "en",
+  "title": "How to Check Your Business Online Presence Score",
+  "description": "Score how findable your business is on Google, Maps, and your website — then compare against competitors with free InfoWeb tools.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-04-21",
+  "dateUpdated": "2026-04-21",
+  "category": "seo",
+  "tags": [
+    "online presence score",
+    "local business visibility",
+    "google maps listing",
+    "competitor comparison"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Online presence score gauge for a local business on a phone screen",
+  "readTime": 8,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-score-presenca-online"
+  }
+}

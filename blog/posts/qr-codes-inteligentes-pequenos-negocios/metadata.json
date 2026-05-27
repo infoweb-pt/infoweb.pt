@@ -1,0 +1,24 @@
+{
+  "slug": "qr-codes-inteligentes-pequenos-negocios",
+  "language": "pt",
+  "title": "QR Codes Inteligentes para Marketing de PME",
+  "description": "QR rastreáveis para ementa, WhatsApp, Wi-Fi, cartões de visita e URLs — com logótipo e destino editável.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-09",
+  "dateUpdated": "2026-05-09",
+  "category": "digital-marketing",
+  "tags": [
+    "gerador qr code",
+    "qr marketing",
+    "qr inteligente",
+    "qr whatsapp negócio"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "QR codes inteligentes em ementa, cartão de visita e montra",
+  "readTime": 10,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "smart-qr-codes-small-business"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "restaurant-menu-pricing-guide",
+  "language": "en",
+  "title": "Restaurant Menu Pricing: Food Cost, Margins, and Tips",
+  "description": "Price dishes with food cost %, markup, and tip splitting — plus a digital menu QR customers actually use.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-18",
+  "dateUpdated": "2026-05-18",
+  "category": "small-business",
+  "tags": [
+    "restaurant food cost",
+    "menu pricing calculator",
+    "plate margin",
+    "tip split calculator"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Restaurant owner calculating menu prices and food cost percentage",
+  "readTime": 9,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "pt": "guia-precos-ementa-restaurante"
+  }
+}

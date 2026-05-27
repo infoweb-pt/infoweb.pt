@@ -9,6 +9,25 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - Use a CTA naturally after the first practical takeaway and near the end.
 - Prefer `{{CTA}}` for website/build-plan conversion, `{{CTA:tools}}` when a free tool is directly relevant, and `{{CTA:contact}}` for consultation-heavy topics.
 
+## Free tools — blog coverage (done May 2026)
+
+Bilingual posts with `{{CTA:tools}}` / `{{CTA}}` and inline links to free tools:
+
+| Topic | EN slug | Tools linked |
+|-------|---------|----------------|
+| SEO titles & meta | `seo-title-meta-description-guide` | seo-meta-generator, character-counter, url-slug-generator, schema-local-business-generator |
+| Online presence score | `online-presence-score-guide` | presence-score, competitor-visibility-gap, website-health-scorecard |
+| Website health audit | `website-health-audit-small-business` | website-health-scorecard, downtime-cost-calculator, seo-meta-generator |
+| Website ROI | `website-roi-calculator-guide` | website-roi-calculator, customer-ltv-calculator, cost-per-lead-calculator |
+| Smart QR codes | `smart-qr-codes-small-business` | url-qr, menu-qr, whatsapp-qr, wifi-qr, business-card-qr |
+| Restaurant pricing | `restaurant-menu-pricing-guide` | food-cost, markup-margin, tip-split, menu-qr, discount |
+| IVA Portugal | `iva-vat-portugal-small-business` | vat-calculator-pt, discount, break-even, freelancer-rate |
+| UTM tracking | `utm-campaign-tracking-guide` | utm-link-builder, cost-per-lead-calculator |
+
+**Still no dedicated post (link from hub or future article):** `lost-customers-calculator` only — optional “missed calls / no website” article.
+
+---
+
 ## High-priority post ideas
 
 ### 1. Website cost guide for small businesses (done)
@@ -115,17 +134,10 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **CTA:** `{{CTA:tools}}`
 - **Status:** Done — drafted in `optimize-google-business-profile/` and `otimizar-perfil-empresa-google/`.
 
-### 9. Website speed and lost customers
+### 9. Website speed and lost customers (partial — see health audit + speed guide)
 
-- **EN title:** How a Slow Website Costs Small Businesses Customers
-- **PT title:** Como um Website Lento Faz Pequenos Negócios Perder Clientes
-- **EN slug:** `slow-website-lost-customers`
-- **PT slug:** `website-lento-perder-clientes`
-- **Category:** `web-design`
-- **Primary keywords:** `slow website lost customers`, `website lento perde clientes`
-- **Search intent:** Informational/commercial
-- **Description:** Explain mobile impatience, bounce rate, local search, booking/contact friction, image size, hosting, and simple speed checks. Reference the free website health scorecard if useful.
-- **CTA:** `{{CTA:tools}}`
+- Covered by `website-speed-small-business-guide` and `website-health-audit-small-business` (health scorecard + downtime tools).
+- Optional future slug: `slow-website-lost-customers` / `website-lento-perder-clientes` with [lost customers calculator](https://infoweb.sousadev.com/free-tools/lost-customers-calculator/).
 
 ### 10. One-page website vs full website
 
@@ -187,17 +199,9 @@ SEO-focused ideas for future bilingual blog posts. Every topic here needs both a
 - **Description:** List mistakes: unclear CTA, no phone link, slow site, bad mobile layout, missing services, no reviews, weak local SEO, outdated info, hidden pricing, and broken forms.
 - **CTA:** `{{CTA}}`
 
-### 15. Website ROI explainer
+### 15. Website ROI explainer (done)
 
-- **EN title:** How to Calculate If a Website Is Worth It for Your Business
-- **PT title:** Como Calcular se um Website Compensa para o Seu Negócio
-- **EN slug:** `website-roi-small-business`
-- **PT slug:** `roi-website-pequeno-negocio`
-- **Category:** `small-business`
-- **Primary keywords:** `website ROI small business`, `ROI website pequeno negócio`
-- **Search intent:** Commercial investigation
-- **Description:** Explain traffic, conversion rate, average order value, repeat customers, missed calls, and payback period. Link naturally to the website ROI calculator.
-- **CTA:** `{{CTA:tools}}`
+- **Status:** Done — `website-roi-calculator-guide/` + `guia-calculadora-roi-website/` (ROI, LTV, CPL calculators).
 
 ### 16. Service pages for local SEO
 

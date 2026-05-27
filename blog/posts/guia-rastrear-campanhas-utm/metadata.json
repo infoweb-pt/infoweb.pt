@@ -1,0 +1,24 @@
+{
+  "slug": "guia-rastrear-campanhas-utm",
+  "language": "pt",
+  "title": "Parâmetros UTM: Rastrear Campanhas que Convertem",
+  "description": "Etiquete URLs com utm_source, utm_medium e utm_campaign para o Analytics mostrar que anúncios e emails geram leads.",
+  "author": "InfoWeb",
+  "dateCreated": "2026-05-31",
+  "dateUpdated": "2026-05-31",
+  "category": "digital-marketing",
+  "tags": [
+    "utm parametros",
+    "gerador utm",
+    "rastrear campanhas",
+    "google analytics utm"
+  ],
+  "image": "./assets/featured.png",
+  "imageAlt": "Construtor de links UTM para rastrear campanhas de marketing",
+  "readTime": 7,
+  "featured": false,
+  "published": true,
+  "alternateLanguage": {
+    "en": "utm-campaign-tracking-guide"
+  }
+}
