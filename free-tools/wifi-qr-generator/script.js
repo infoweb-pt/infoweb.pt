@@ -10,7 +10,6 @@ const CONTACT_API_ENDPOINT = `${API_BASE}/leads/tool-contact/`;
 const CONTACT_SOURCE = 'wifi_qr_generator';
 
 let qrCustomizer = null;
-let uploadedLogo = null;
 let toolRunStartedAt = 0;
 let lastWifiPayload = '';
 
@@ -114,32 +113,6 @@ function setDotStyle(style) {
   }
 }
 
-function handleLogoUpload(input) {
-  const file = input.files[0];
-  if (!file) return;
-  if (file.size > 2 * 1024 * 1024) {
-    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
-    input.value = '';
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
-    img.onload = function () {
-      uploadedLogo = img;
-      const label = document.getElementById('logo-label');
-      if (label) label.textContent = file.name;
-      if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.16);
-      }
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_input_changed', { field: 'logo_file' });
-  }
-}
 
 function validateSecurityPasswordUI() {
   const sec = document.getElementById('wifi-security').value;
@@ -183,8 +156,8 @@ async function runTool() {
   try {
     qrCustomizer.setText(built.payload);
     updateQRStyle();
-    if (uploadedLogo) {
-      qrCustomizer.setLogo(uploadedLogo, 0.16);
+    if (window.QRLogoPicker) {
+      window.QRLogoPicker.applyTo(qrCustomizer);
     }
     await qrCustomizer.waitForRender();
 
@@ -299,6 +272,9 @@ async function submitContactLead() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.QRLogoPicker) {
+    window.QRLogoPicker.init({ getCustomizer: function () { return qrCustomizer; } });
+  }
   document.getElementById('wifi-security').addEventListener('change', validateSecurityPasswordUI);
   validateSecurityPasswordUI();
 

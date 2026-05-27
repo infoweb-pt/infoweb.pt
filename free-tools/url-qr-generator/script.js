@@ -6,7 +6,6 @@ function L(en, pt) {
 }
 
 let qrCustomizer = null;
-let uploadedLogo = null;
 let smartQRData = null;
 let toolRunStartedAt = 0;
 
@@ -68,34 +67,6 @@ function syncResultPreview() {
   resultContainer.appendChild(canvas);
 }
 
-function handleLogoUpload(input) {
-  const file = input.files[0];
-  if (!file) return;
-
-  if (file.size > 2 * 1024 * 1024) {
-    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
-    input.value = '';
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const img = new Image();
-    img.onload = function() {
-      uploadedLogo = img;
-      document.getElementById('logo-label').textContent = file.name;
-      if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.16);
-      }
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_input_changed', { field: 'logo_file' });
-  }
-}
 
 function updateQRStyle() {
   if (!qrCustomizer) return;
@@ -279,21 +250,15 @@ function resetTool() {
   document.getElementById('target-url').value = '';
   document.getElementById('qr-label').value = '';
   document.getElementById('url-error').classList.add('hidden');
-  document.getElementById('logo-file').value = '';
-  document.getElementById('logo-label').textContent = L(
-    'Upload logo (PNG with transparency)',
-    'Carregar logótipo (PNG com transparência)'
-  );
+  if (window.QRLogoPicker) window.QRLogoPicker.reset();
   document.getElementById('frame-text').value = '';
   document.getElementById('qr-color').value = '#020617';
   document.getElementById('qr-bg').value = '#ffffff';
 
-  uploadedLogo = null;
   smartQRData = null;
 
   if (qrCustomizer) {
     qrCustomizer.setText(PREVIEW_URL);
-    qrCustomizer.removeLogo();
     qrCustomizer.removeFrame();
     qrCustomizer.update({
       colorDark: '#020617',
@@ -306,6 +271,9 @@ function resetTool() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  if (window.QRLogoPicker) {
+    window.QRLogoPicker.init({ getCustomizer: function () { return qrCustomizer; } });
+  }
   qrCustomizer = new QRCustomizer({
     container: QR_PREVIEW_LIVE_SELECTOR,
     defaultText: PREVIEW_URL,

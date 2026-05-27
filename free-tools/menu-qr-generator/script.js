@@ -8,7 +8,6 @@ function L(en, pt) {
 // ─── State ────────────────────────────────────────────────────────────────────
 let qrCustomizer = null;
 let uploadedFile = null;
-let uploadedLogo = null;
 let smartQRData = null;
 let toolRunStartedAt = 0;
 
@@ -78,34 +77,6 @@ function handleFileUpload(input) {
   }
 }
 
-function handleLogoUpload(input) {
-  const file = input.files[0];
-  if (!file) return;
-  
-  if (file.size > 2 * 1024 * 1024) {
-    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
-    input.value = '';
-    return;
-  }
-  
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const img = new Image();
-    img.onload = function() {
-      uploadedLogo = img;
-      document.getElementById('logo-label').textContent = file.name;
-      if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.16);
-      }
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-  
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_input_changed', { field: 'logo_file' });
-  }
-}
 
 // ─── QR Style Updates ─────────────────────────────────────────────────────────
 function updateQRStyle() {
@@ -310,21 +281,15 @@ function resetTool() {
     'Click to upload PDF or image',
     'Clique para carregar PDF ou imagem'
   );
-  document.getElementById('logo-file').value = '';
-  document.getElementById('logo-label').textContent = L(
-    'Upload logo (PNG with transparency)',
-    'Carregar logótipo (PNG com transparência)'
-  );
+  if (window.QRLogoPicker) window.QRLogoPicker.reset();
   document.getElementById('frame-text').value = '';
   document.getElementById('qr-color').value = '#020617';
   document.getElementById('qr-bg').value = '#ffffff';
   
   uploadedFile = null;
-  uploadedLogo = null;
   smartQRData = null;
   
   if (qrCustomizer) {
-    qrCustomizer.removeLogo();
     qrCustomizer.removeFrame();
     qrCustomizer.update({
       colorDark: '#020617',
@@ -338,6 +303,9 @@ function resetTool() {
 
 // ─── Initialize QR Customizer on load ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
+  if (window.QRLogoPicker) {
+    window.QRLogoPicker.init({ getCustomizer: function () { return qrCustomizer; } });
+  }
   qrCustomizer = new QRCustomizer({
     container: QR_PREVIEW_LIVE_SELECTOR,
     defaultText: 'https://infoweb.api.sousadev.com/free-tools/qr-example/',

@@ -74,33 +74,6 @@ function setDotStyle(style) {
   }
 }
 
-function handleLogoUpload(input) {
-  const file = input.files[0];
-  if (!file) return;
-
-  if (file.size > 2 * 1024 * 1024) {
-    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
-    input.value = '';
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
-    img.onload = function () {
-      document.getElementById('logo-label').textContent = file.name;
-      if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.16);
-      }
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_input_changed', { field: 'logo_file' });
-  }
-}
 
 // ─── Main Tool Logic ──────────────────────────────────────────────────────────
 async function runTool() {
@@ -288,11 +261,7 @@ function resetTool() {
   document.getElementById('place-id').value = '';
   document.getElementById('review-message').value = '';
   document.getElementById('char-count').textContent = '0';
-
-  const logoInput = document.getElementById('logo-file');
-  if (logoInput) logoInput.value = '';
-  const logoLabel = document.getElementById('logo-label');
-  if (logoLabel) logoLabel.textContent = L('Upload logo (PNG with transparency)', 'Carregar logótipo (PNG com transparência)');
+  if (window.QRLogoPicker) window.QRLogoPicker.reset();
 
   const frameEl = document.getElementById('frame-text');
   if (frameEl) frameEl.value = '';
@@ -306,7 +275,6 @@ function resetTool() {
   suggestedReviewText = '';
 
   if (qrCustomizer) {
-    qrCustomizer.removeLogo();
     qrCustomizer.removeFrame();
     qrCustomizer.update({
       colorDark: '#020617',
@@ -322,6 +290,9 @@ function resetTool() {
 
 // ─── Initialize ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.QRLogoPicker) {
+    window.QRLogoPicker.init({ getCustomizer: function () { return qrCustomizer; } });
+  }
   document.getElementById('review-message').addEventListener('input', function () {
     document.getElementById('char-count').textContent = String(this.value.length);
   });

@@ -77,6 +77,8 @@
     };
   </script>
   <link rel="stylesheet" href="../../wifi-qr-generator/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/qr-logo-picker.css" />
+
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXQSMBERJM"></script>
   <script>
@@ -222,14 +224,7 @@
               <button type="button" onclick="setDotStyle('dots')" class="dot-style-btn flex-1 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-300 transition-all" data-style="dots">Pontos</button>
             </div>
           </div>
-          <div>
-            <label class="text-xs text-slate-500 mb-1 block">Logótipo (opcional)</label>
-            <input type="file" id="logo-file" accept=".png,.jpg,.jpeg" class="hidden" onchange="handleLogoUpload(this)" />
-            <label for="logo-file"
-              class="flex items-center justify-center gap-2 w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 cursor-pointer hover:border-cyan-500 transition-all">
-              <span id="logo-label" class="text-sm text-slate-400">Carregar logótipo (PNG com transparência)</span>
-            </label>
-          </div>
+          <div id="qr-logo-picker"></div>
           <div>
             <label for="frame-text" class="text-xs text-slate-500 mb-1 block">Texto da moldura (opcional)</label>
             <input id="frame-text" type="text" maxlength="30" placeholder="ex.: Leia para Wi‑Fi"
@@ -451,6 +446,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
   <script src="../../../assets/js/qr-customizer.js"></script>
+  <script src="../../../assets/js/qr-logo-picker.js"></script>
   <script src="../../wifi-qr-generator/script.js" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();

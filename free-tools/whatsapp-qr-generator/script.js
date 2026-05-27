@@ -11,7 +11,6 @@ let smartQRData = null;
 let qrReady = false;
 let toolRunStartedAt = 0;
 let qrCustomizer = null;
-let uploadedLogo = null;
 
 // ─── API Configuration ────────────────────────────────────────────────────────
 const API_BASE = 'https://infoweb.api.sousadev.com';
@@ -87,34 +86,6 @@ function setDownloadEnabled(enabled) {
 }
 
 // ─── Logo Upload ──────────────────────────────────────────────────────────────
-function handleLogoUpload(input) {
-  const file = input.files[0];
-  if (!file) return;
-  
-  if (file.size > 2 * 1024 * 1024) {
-    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
-    input.value = '';
-    return;
-  }
-  
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const img = new Image();
-    img.onload = function() {
-      uploadedLogo = img;
-      document.getElementById('logo-label').textContent = file.name;
-      if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.16);
-      }
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-  
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_input_changed', { field: 'logo_file' });
-  }
-}
 
 // ─── QR Style Updates ─────────────────────────────────────────────────────────
 function updateQRStyle() {
@@ -398,21 +369,15 @@ function resetTool() {
   document.getElementById('frame-text').value = '';
   document.getElementById('qr-color').value = '#020617';
   document.getElementById('qr-bg').value = '#ffffff';
-  document.getElementById('logo-file').value = '';
-  document.getElementById('logo-label').textContent = L(
-    'Upload logo (PNG with transparency)',
-    'Carregar logótipo (PNG com transparência)'
-  );
+  if (window.QRLogoPicker) window.QRLogoPicker.reset();
 
   lastWaLink = '';
   smartQRData = null;
   qrReady = false;
-  uploadedLogo = null;
   setDownloadEnabled(false);
 
   // Reset customizer
   if (qrCustomizer) {
-    qrCustomizer.removeLogo();
     qrCustomizer.removeFrame();
     qrCustomizer.update({
       colorDark: '#020617',
@@ -440,6 +405,9 @@ document.getElementById('phone-number').addEventListener('keydown', function (e)
 
 // ─── Initialize ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
+  if (window.QRLogoPicker) {
+    window.QRLogoPicker.init({ getCustomizer: function () { return qrCustomizer; } });
+  }
   qrCustomizer = new QRCustomizer({
     container: '#qr-preview',
     defaultText: 'https://infoweb.api.sousadev.com/free-tools/qr-example/',

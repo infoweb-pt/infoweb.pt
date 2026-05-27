@@ -16,7 +16,6 @@ const SAMPLE_VCARD =
 let vCardData = null;
 let toolRunStartedAt = 0;
 let qrCustomizer = null;
-let uploadedLogo = null;
 
 // ─── UI Helpers ───────────────────────────────────────────────────────────────
 function show(id) {
@@ -74,34 +73,6 @@ function setDotStyle(style) {
   }
 }
 
-function handleLogoUpload(input) {
-  const file = input.files[0];
-  if (!file) return;
-
-  if (file.size > 2 * 1024 * 1024) {
-    alert(L('Logo too large. Max 2MB.', 'Logótipo demasiado grande. Máx. 2MB.'));
-    input.value = '';
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
-    img.onload = function () {
-      uploadedLogo = img;
-      document.getElementById('logo-label').textContent = file.name;
-      if (qrCustomizer) {
-        qrCustomizer.setLogo(img, 0.16);
-      }
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-
-  if (typeof window.trackEvent === 'function') {
-    window.trackEvent('tool_input_changed', { field: 'logo_file' });
-  }
-}
 
 // ─── Main Tool Logic ──────────────────────────────────────────────────────────
 async function runTool() {
@@ -255,11 +226,7 @@ function resetTool() {
   document.getElementById('card-phone').value = '';
   document.getElementById('card-email').value = '';
   document.getElementById('card-website').value = '';
-
-  const logoInput = document.getElementById('logo-file');
-  if (logoInput) logoInput.value = '';
-  const logoLabel = document.getElementById('logo-label');
-  if (logoLabel) logoLabel.textContent = L('Upload logo (PNG with transparency)', 'Carregar logótipo (PNG com transparência)');
+  if (window.QRLogoPicker) window.QRLogoPicker.reset();
 
   const frameEl = document.getElementById('frame-text');
   if (frameEl) frameEl.value = '';
@@ -269,11 +236,9 @@ function resetTool() {
   if (qc) qc.value = '#020617';
   if (qb) qb.value = '#ffffff';
 
-  uploadedLogo = null;
   vCardData = null;
 
   if (qrCustomizer) {
-    qrCustomizer.removeLogo();
     qrCustomizer.removeFrame();
     qrCustomizer.update({
       colorDark: '#020617',
@@ -289,6 +254,9 @@ function resetTool() {
 
 // ─── Initialize ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.QRLogoPicker) {
+    window.QRLogoPicker.init({ getCustomizer: function () { return qrCustomizer; } });
+  }
   if (typeof window.QRCustomizer === 'undefined') {
     console.error('QRCustomizer not loaded');
     return;
