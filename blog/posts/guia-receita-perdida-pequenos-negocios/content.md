@@ -8,7 +8,7 @@ As fugas são silenciosas: chamadas não atendidas, site que não abre no 4G e f
 2. **Sem website credível** quando pesquisam no Google.pt
 3. **Site em baixo** em campanhas ou fins de semana movimentados
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Simule chamadas perdidas
 
@@ -20,7 +20,7 @@ As fugas são silenciosas: chamadas não atendidas, site que não abre no 4G e f
 
 Cruze com a [calculadora de ROI do site](https://infoweb.sousadev.com/free-tools/pt/website-roi-calculator/).
 
-{CTA}
+{{CTA}}
 
 ## Correções rápidas
 
@@ -28,7 +28,7 @@ Cruze com a [calculadora de ROI do site](https://infoweb.sousadev.com/free-tools
 - WhatsApp com horário ([guia WhatsApp](/blog/posts/whatsapp-para-negocios-guia-completo/))
 - [Avaliação de saúde do site](https://infoweb.sousadev.com/free-tools/pt/website-health-scorecard/)
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

@@ -11,7 +11,7 @@ Break-even is the sales volume where you stop losing money on operations — not
 Contribution per sale = price − variable cost.  
 Break-even units = fixed costs ÷ contribution.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Run the math instantly
 
@@ -25,13 +25,13 @@ If break-even units feel unrealistic, your margin is too thin. Use the [markup v
 
 For Portugal-specific tax display on quotes, pair with the [IVA calculator](https://infoweb.sousadev.com/free-tools/vat-calculator-pt/).
 
-{CTA}
+{{CTA}}
 
 ## After break-even
 
 Target profit = break-even sales + extra units × contribution. Track monthly actuals vs the number — not just bank balance.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

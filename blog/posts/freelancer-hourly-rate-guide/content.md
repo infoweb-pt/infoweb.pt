@@ -14,7 +14,7 @@ You might sell 25 hours a week but work 40 when you include proposals, admin, an
 4. Profit buffer for slow months
 5. Non-billable time
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Use the calculator
 
@@ -22,7 +22,7 @@ The [freelancer rate calculator](https://infoweb.sousadev.com/free-tools/freelan
 
 Sanity-check with the [break-even calculator](https://infoweb.sousadev.com/free-tools/break-even-calculator/) if you also have studio rent or subcontractors.
 
-{CTA}
+{{CTA}}
 
 ## Present prices confidently
 
@@ -30,7 +30,7 @@ Sanity-check with the [break-even calculator](https://infoweb.sousadev.com/free-
 - Show IVA separately for PT clients with the [IVA calculator](https://infoweb.sousadev.com/free-tools/vat-calculator-pt/)
 - Publish a simple services page — freelancers with websites close better deals ([see essentials in our cost guide](/blog/posts/small-business-website-cost/))
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Red flags you are too cheap
 

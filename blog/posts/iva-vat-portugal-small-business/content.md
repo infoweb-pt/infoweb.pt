@@ -10,7 +10,7 @@ Quoting the wrong IVA rate erodes margin or surprises customers at checkout. Por
 
 This is not tax advice — verify with your accountant. For quick math, use the [IVA / VAT calculator](https://infoweb.sousadev.com/free-tools/vat-calculator-pt/) to add or remove tax for each region.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Show prices clearly on your website
 
@@ -24,13 +24,13 @@ Before a sale, run the [discount calculator](https://infoweb.sousadev.com/free-t
 
 IVA collected is not profit. Pair pricing work with the [break-even calculator](https://infoweb.sousadev.com/free-tools/break-even-calculator/) to know how many sales cover rent, wages, and software.
 
-{CTA}
+{{CTA}}
 
 ## Freelancers billing hourly
 
 If you invoice time, the [freelancer rate calculator](https://infoweb.sousadev.com/free-tools/freelancer-rate-calculator/) backs into an hourly rate that includes tax, costs, and profit target.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

@@ -21,7 +21,7 @@ Typical weak spots we see:
 3. Slow mobile site
 4. Only social media, no owned website
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Compare against competitors
 
@@ -29,7 +29,7 @@ Knowing your score is step one. Step two is context: are rivals stronger on revi
 
 Use the [competitor visibility gap analyzer](https://infoweb.sousadev.com/free-tools/competitor-visibility-gap/) to benchmark against up to two competitors and get an action list.
 
-{CTA}
+{{CTA}}
 
 ## Fix the highest-impact gap first
 
@@ -43,7 +43,7 @@ Do not try ten projects at once. Pick the single line item that unlocks calls:
 
 Re-run the presence quiz after changes. Scores should move within weeks when you fix fundamentals.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Takeaway
 

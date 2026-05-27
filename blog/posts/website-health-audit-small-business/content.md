@@ -12,7 +12,7 @@ A website that looks fine on your laptop can still fail customers on mobile — 
 
 Run all five in the [website health scorecard](https://infoweb.sousadev.com/free-tools/website-health-scorecard/). You get a 0–100 score and a prioritized fix list in the browser.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## What downtime actually costs
 
@@ -20,7 +20,7 @@ Hosting outages and broken checkout forms are not abstract IT problems — they 
 
 Plug in your average daily sales and outage hours in the [downtime cost calculator](https://infoweb.sousadev.com/free-tools/downtime-cost-calculator/) to see hourly, daily, and weekly bleed.
 
-{CTA}
+{{CTA}}
 
 ## Fix order we recommend
 
@@ -34,7 +34,7 @@ Plug in your average daily sales and outage hours in the [downtime cost calculat
 
 If score stays below 60 after basics, consider managed hosting and maintenance so updates do not depend on you remembering plugins.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

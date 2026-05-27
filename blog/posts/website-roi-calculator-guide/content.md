@@ -21,7 +21,7 @@ Rough example:
 
 If the site costs £80/month all-in, payback is obvious. If conversion is 0.3%, fix the site before blaming the channel.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Layer customer lifetime value
 
@@ -31,7 +31,7 @@ One-off jobs understate ROI for repeat businesses (salons, clinics, B2B services
 
 Running ads? The [cost-per-lead calculator](https://infoweb.sousadev.com/free-tools/cost-per-lead-calculator/) shows whether Google, Meta, or referrals deliver cheaper leads.
 
-{CTA}
+{{CTA}}
 
 ## When ROI looks negative
 
@@ -42,7 +42,7 @@ Running ads? The [cost-per-lead calculator](https://infoweb.sousadev.com/free-to
 
 Fix conversion before spending more on traffic.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Decision rule
 

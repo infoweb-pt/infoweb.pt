@@ -7,7 +7,7 @@
 - **Markup** = (preço − custo) ÷ custo  
 - **Margem** = (preço − custo) ÷ preço  
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Calculadora
 
@@ -19,11 +19,11 @@ Restauração: [custo alimentar](https://infoweb.sousadev.com/free-tools/pt/food
 
 [Calculadora de desconto](https://infoweb.sousadev.com/free-tools/pt/discount-calculator/) antes de campanhas.
 
-{CTA}
+{{CTA}}
 
 Serviços com margem alta: veja [LTV do cliente](https://infoweb.sousadev.com/free-tools/pt/customer-ltv-calculator/).
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

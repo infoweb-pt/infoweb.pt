@@ -12,7 +12,7 @@ Optional: `utm_content` for A/B variants, `utm_term` for paid keywords.
 
 Build clean URLs with the [UTM link builder](https://infoweb.sousadev.com/free-tools/utm-link-builder/) — copies a full tagged link in one click.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Naming conventions
 
@@ -27,7 +27,7 @@ Document names in a spreadsheet so the team stays consistent.
 
 Once campaigns run, compare channel efficiency with the [cost-per-lead calculator](https://infoweb.sousadev.com/free-tools/cost-per-lead-calculator/).
 
-{CTA}
+{{CTA}}
 
 ## Common mistakes
 
@@ -35,7 +35,7 @@ Once campaigns run, compare channel efficiency with the [cost-per-lead calculato
 - Changing campaign names mid-flight (breaks history)
 - Forgetting UTMs on QR destinations — add them to smart QR target URLs
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

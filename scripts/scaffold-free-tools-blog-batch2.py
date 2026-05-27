@@ -54,7 +54,7 @@ POSTS = [
 
                 Each has a number attached if you are willing to estimate honestly.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Model missed-call loss
 
@@ -68,7 +68,7 @@ POSTS = [
 
                 Pair both numbers with the [website ROI calculator]({TOOL_EN}/website-roi-calculator/) to see if fixes pay back in weeks.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Fixes that stop the bleed
 
@@ -77,7 +77,7 @@ POSTS = [
                 - Uptime monitoring + managed hosting
                 - [Website health scorecard]({TOOL_EN}/website-health-scorecard/) pass on mobile and SSL
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Takeaway
 
@@ -108,7 +108,7 @@ POSTS = [
                 2. **Sem website credível** quando pesquisam no Google.pt
                 3. **Site em baixo** em campanhas ou fins de semana movimentados
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Simule chamadas perdidas
 
@@ -120,7 +120,7 @@ POSTS = [
 
                 Cruze com a [calculadora de ROI do site]({TOOL_PT}/website-roi-calculator/).
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Correções rápidas
 
@@ -128,7 +128,7 @@ POSTS = [
                 - WhatsApp com horário ([guia WhatsApp](/blog/posts/whatsapp-para-negocios-guia-completo/))
                 - [Avaliação de saúde do site]({TOOL_PT}/website-health-scorecard/)
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -169,7 +169,7 @@ POSTS = [
                 Contribution per sale = price − variable cost.  
                 Break-even units = fixed costs ÷ contribution.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Run the math instantly
 
@@ -183,13 +183,13 @@ POSTS = [
 
                 For Portugal-specific tax display on quotes, pair with the [IVA calculator]({TOOL_EN}/vat-calculator-pt/).
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## After break-even
 
                 Target profit = break-even sales + extra units × contribution. Track monthly actuals vs the number — not just bank balance.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -223,7 +223,7 @@ POSTS = [
                 Contribuição = preço − variável.  
                 Unidades break-even = fixos ÷ contribuição.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Calcule já
 
@@ -235,9 +235,9 @@ POSTS = [
 
                 [Calculadora IVA]({TOOL_PT}/vat-calculator-pt/) para orçamentos em Portugal.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -281,7 +281,7 @@ POSTS = [
                 4. Profit buffer for slow months
                 5. Non-billable time
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Use the calculator
 
@@ -289,7 +289,7 @@ POSTS = [
 
                 Sanity-check with the [break-even calculator]({TOOL_EN}/break-even-calculator/) if you also have studio rent or subcontractors.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Present prices confidently
 
@@ -297,7 +297,7 @@ POSTS = [
                 - Show IVA separately for PT clients with the [IVA calculator]({TOOL_EN}/vat-calculator-pt/)
                 - Publish a simple services page — freelancers with websites close better deals ([see essentials in our cost guide](/blog/posts/small-business-website-cost/))
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Red flags you are too cheap
 
@@ -342,7 +342,7 @@ POSTS = [
                 4. Margem para meses fracos
                 5. Tempo não faturável
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Calculadora
 
@@ -350,13 +350,13 @@ POSTS = [
 
                 Valide com [break-even]({TOOL_PT}/break-even-calculator/) se tiver renda de estúdio.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Apresente preços com IVA
 
                 [Calculadora IVA]({TOOL_PT}/vat-calculator-pt/) em orçamentos a clientes em Portugal.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -395,7 +395,7 @@ POSTS = [
 
                 Same euro difference, different denominator — completely different story.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Calculate selling price from target margin
 
@@ -407,7 +407,7 @@ POSTS = [
 
                 Before a sale, run the [discount calculator]({TOOL_EN}/discount-calculator/) to see net price and whether you still cover variable cost.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Rules of thumb by business type
 
@@ -415,7 +415,7 @@ POSTS = [
                 - **Trades:** quote labour + materials with margin on both
                 - **SaaS/services:** high margin, low COGS — focus on LTV instead ([customer LTV calculator]({TOOL_EN}/customer-ltv-calculator/))
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -445,7 +445,7 @@ POSTS = [
                 - **Markup** = (preço − custo) ÷ custo  
                 - **Margem** = (preço − custo) ÷ preço  
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Calculadora
 
@@ -457,11 +457,11 @@ POSTS = [
 
                 [Calculadora de desconto]({TOOL_PT}/discount-calculator/) antes de campanhas.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 Serviços com margem alta: veja [LTV do cliente]({TOOL_PT}/customer-ltv-calculator/).
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -499,7 +499,7 @@ POSTS = [
 
                 A café customer at €4 × 80 visits × 3 years ≈ €960 LTV — very different from a one-off €4 ticket.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Calculate yours
 
@@ -507,7 +507,7 @@ POSTS = [
 
                 Compare channels with the [cost-per-lead calculator]({TOOL_EN}/cost-per-lead-calculator/) — if cost per lead × close rate exceeds what LTV allows, that channel is underwater.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Improve LTV before buying more ads
 
@@ -518,7 +518,7 @@ POSTS = [
 
                 Tie strategy back to [website ROI]({TOOL_EN}/website-roi-calculator/) — traffic without LTV thinking buys vanity clicks.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -549,7 +549,7 @@ POSTS = [
 
                 Cliente de café a 4€ × 80 visitas × 3 anos ≈ 960€ de LTV.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Calcule
 
@@ -557,7 +557,7 @@ POSTS = [
 
                 Compare canais com [custo por lead]({TOOL_PT}/cost-per-lead-calculator/).
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Melhore LTV antes de mais anúncios
 
@@ -568,7 +568,7 @@ POSTS = [
 
                 [ROI do site]({TOOL_PT}/website-roi-calculator/) — tráfego sem LTV compra cliques vazios.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 

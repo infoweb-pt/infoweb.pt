@@ -10,7 +10,7 @@ Leaks are rarely dramatic — they are missed calls, a site that will not load o
 
 Each has a number attached if you are willing to estimate honestly.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Model missed-call loss
 
@@ -24,7 +24,7 @@ Hosting failures during a promo weekend hurt more than the hosting bill. The [do
 
 Pair both numbers with the [website ROI calculator](https://infoweb.sousadev.com/free-tools/website-roi-calculator/) to see if fixes pay back in weeks.
 
-{CTA}
+{{CTA}}
 
 ## Fixes that stop the bleed
 
@@ -33,7 +33,7 @@ Pair both numbers with the [website ROI calculator](https://infoweb.sousadev.com
 - Uptime monitoring + managed hosting
 - [Website health scorecard](https://infoweb.sousadev.com/free-tools/website-health-scorecard/) pass on mobile and SSL
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Takeaway
 

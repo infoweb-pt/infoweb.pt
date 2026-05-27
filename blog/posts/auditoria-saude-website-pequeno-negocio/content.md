@@ -12,19 +12,19 @@ Um site que parece bem no portátil pode falhar no telemóvel do cliente — len
 
 Use a [avaliação de saúde do site](https://infoweb.sousadev.com/free-tools/pt/website-health-scorecard/) para score 0–100 e lista de correções.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Custo real do downtime
 
 [Calculadora de custo de downtime](https://infoweb.sousadev.com/free-tools/pt/downtime-cost-calculator/) — receita perdida por horas offline.
 
-{CTA}
+{{CTA}}
 
 ## Ordem de correção
 
 SSL e formulários → mobile → imagens → meta tags ([gerador SEO](https://infoweb.sousadev.com/free-tools/pt/seo-meta-generator/)) → horário no Google.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

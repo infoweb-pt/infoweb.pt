@@ -21,7 +21,7 @@ Exemplo:
 
 Com site a 45€/mês, o retorno é claro. Com 0,3% conversão, corrija o site primeiro.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Valor de vida do cliente
 
@@ -31,9 +31,9 @@ Com site a 45€/mês, o retorno é claro. Com 0,3% conversão, corrija o site p
 
 [Calculadora custo por lead](https://infoweb.sousadev.com/free-tools/pt/cost-per-lead-calculator/) para comparar canais de marketing.
 
-{CTA}
+{{CTA}}
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Regra prática
 

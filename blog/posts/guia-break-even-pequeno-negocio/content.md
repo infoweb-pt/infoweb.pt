@@ -11,7 +11,7 @@ Break-even é o volume de vendas em que deixa de perder dinheiro na operação �
 Contribuição = preço − variável.  
 Unidades break-even = fixos ÷ contribuição.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Calcule já
 
@@ -23,9 +23,9 @@ Unidades break-even = fixos ÷ contribuição.
 
 [Calculadora IVA](https://infoweb.sousadev.com/free-tools/pt/vat-calculator-pt/) para orçamentos em Portugal.
 
-{CTA}
+{{CTA}}
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

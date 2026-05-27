@@ -8,7 +8,7 @@ Many full-service restaurants aim for **28–35% food cost** (ingredient cost ÷
 
 Use the [food cost calculator](https://infoweb.sousadev.com/free-tools/food-cost-calculator/) per dish: enter ingredient total and menu price, see food cost % and a suggested price for a 30% target.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Markup vs margin
 
@@ -24,7 +24,7 @@ Pool tips across front-of-house? The [tip & bill split calculator](https://infow
 
 Paper costs add up. A [menu QR code](https://infoweb.sousadev.com/free-tools/menu-qr-generator/) lets you update PDFs without reprinting — pair with the [menu QR guide](/blog/posts/restaurant-menu-qr-code-guide/).
 
-{CTA}
+{{CTA}}
 
 ## Weekly routine
 
@@ -32,7 +32,7 @@ Paper costs add up. A [menu QR code](https://infoweb.sousadev.com/free-tools/men
 2. Flag any dish above 40% food cost
 3. Review discount promos with the [discount calculator](https://infoweb.sousadev.com/free-tools/discount-calculator/) before campaigns
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Bottom line
 

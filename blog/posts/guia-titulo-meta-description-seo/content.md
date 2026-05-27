@@ -9,7 +9,7 @@ O título da página e a meta description são o anúncio que o Google mostra an
 
 Se faltar, o Google inventa — normalmente pior do que o que escreveria.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Fórmula para um bom título
 
@@ -47,7 +47,7 @@ O [gerador de título e meta SEO](https://infoweb.sousadev.com/free-tools/pt/seo
 
 Complete com [schema LocalBusiness](https://infoweb.sousadev.com/free-tools/pt/schema-local-business-generator/) para horário e morada.
 
-{CTA}
+{{CTA}}
 
 ## Erros comuns
 
@@ -55,7 +55,7 @@ Complete com [schema LocalBusiness](https://infoweb.sousadev.com/free-tools/pt/s
 - Keyword stuffing ilegível
 - Descrições com mais de 200 caracteres (cortadas)
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

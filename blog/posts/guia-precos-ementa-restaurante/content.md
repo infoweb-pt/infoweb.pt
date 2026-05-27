@@ -8,7 +8,7 @@ Muitos restaurantes em Portugal visam **28–35%** (custo ingredientes ÷ preço
 
 [Calculadora custo alimentar](https://infoweb.sousadev.com/free-tools/pt/food-cost-calculator/) por prato — vê % e preço sugerido para alvo 30%.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Markup vs margem
 
@@ -22,13 +22,13 @@ Muitos restaurantes em Portugal visam **28–35%** (custo ingredientes ÷ preço
 
 [QR ementa](https://infoweb.sousadev.com/free-tools/pt/menu-qr-generator/) — atualize PDF sem reimprimir tudo.
 
-{CTA}
+{{CTA}}
 
 ## Rotina semanal
 
 Recalcule os 10 pratos mais vendidos quando fornecedores sobem preços. Campanhas com [calculadora de desconto](https://infoweb.sousadev.com/free-tools/pt/discount-calculator/).
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

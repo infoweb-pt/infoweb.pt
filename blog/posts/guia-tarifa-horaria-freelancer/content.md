@@ -14,7 +14,7 @@ Pode vender 25 horas/semana e trabalhar 40 com propostas e administração. A ta
 4. Margem para meses fracos
 5. Tempo não faturável
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Calculadora
 
@@ -22,13 +22,13 @@ Pode vender 25 horas/semana e trabalhar 40 com propostas e administração. A ta
 
 Valide com [break-even](https://infoweb.sousadev.com/free-tools/pt/break-even-calculator/) se tiver renda de estúdio.
 
-{CTA}
+{{CTA}}
 
 ## Apresente preços com IVA
 
 [Calculadora IVA](https://infoweb.sousadev.com/free-tools/pt/vat-calculator-pt/) em orçamentos a clientes em Portugal.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

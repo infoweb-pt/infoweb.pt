@@ -59,7 +59,7 @@ POSTS = [
 
                 If either is missing, Google writes its own — usually worse than what you would craft.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Formula for a strong title
 
@@ -99,7 +99,7 @@ POSTS = [
 
                 Pair that with [LocalBusiness schema]({TOOL_EN}/schema-local-business-generator/) so Google understands your name, address, and hours.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Common mistakes
 
@@ -116,7 +116,7 @@ POSTS = [
                 4. Slug matches the page topic
                 5. Schema markup on contact/location pages
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Bottom line
 
@@ -148,7 +148,7 @@ POSTS = [
 
                 Se faltar, o Google inventa — normalmente pior do que o que escreveria.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Fórmula para um bom título
 
@@ -186,7 +186,7 @@ POSTS = [
 
                 Complete com [schema LocalBusiness]({TOOL_PT}/schema-local-business-generator/) para horário e morada.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Erros comuns
 
@@ -194,7 +194,7 @@ POSTS = [
                 - Keyword stuffing ilegível
                 - Descrições com mais de 200 caracteres (cortadas)
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -245,7 +245,7 @@ POSTS = [
                 3. Slow mobile site
                 4. Only social media, no owned website
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Compare against competitors
 
@@ -253,7 +253,7 @@ POSTS = [
 
                 Use the [competitor visibility gap analyzer]({TOOL_EN}/competitor-visibility-gap/) to benchmark against up to two competitors and get an action list.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Fix the highest-impact gap first
 
@@ -267,7 +267,7 @@ POSTS = [
 
                 Re-run the presence quiz after changes. Scores should move within weeks when you fix fundamentals.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Takeaway
 
@@ -304,13 +304,13 @@ POSTS = [
 
                 A ferramenta [pontuação de presença local]({TOOL_PT}/presence-score/) faz sete perguntas Sim/Não e devolve score 0–100 e o maior gap. Cerca de dois minutos, sem registo.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Compare com concorrentes
 
                 O [analizador de gap de visibilidade]({TOOL_PT}/competitor-visibility-gap/) compara até dois rivais em avaliações, web e redes.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Corrija o gap de maior impacto
 
@@ -318,7 +318,7 @@ POSTS = [
                 - **Sem site?** Lançe página com telefone, serviços e prova social
                 - **Site lento?** Use a [avaliação de saúde do site]({TOOL_PT}/website-health-scorecard/)
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -360,7 +360,7 @@ POSTS = [
 
                 Run all five in the [website health scorecard]({TOOL_EN}/website-health-scorecard/). You get a 0–100 score and a prioritized fix list in the browser.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## What downtime actually costs
 
@@ -368,7 +368,7 @@ POSTS = [
 
                 Plug in your average daily sales and outage hours in the [downtime cost calculator]({TOOL_EN}/downtime-cost-calculator/) to see hourly, daily, and weekly bleed.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Fix order we recommend
 
@@ -382,7 +382,7 @@ POSTS = [
 
                 If score stays below 60 after basics, consider managed hosting and maintenance so updates do not depend on you remembering plugins.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -417,19 +417,19 @@ POSTS = [
 
                 Use a [avaliação de saúde do site]({TOOL_PT}/website-health-scorecard/) para score 0–100 e lista de correções.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Custo real do downtime
 
                 [Calculadora de custo de downtime]({TOOL_PT}/downtime-cost-calculator/) — receita perdida por horas offline.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Ordem de correção
 
                 SSL e formulários → mobile → imagens → meta tags ([gerador SEO]({TOOL_PT}/seo-meta-generator/)) → horário no Google.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -480,7 +480,7 @@ POSTS = [
 
                 If the site costs £80/month all-in, payback is obvious. If conversion is 0.3%, fix the site before blaming the channel.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Layer customer lifetime value
 
@@ -490,7 +490,7 @@ POSTS = [
 
                 Running ads? The [cost-per-lead calculator]({TOOL_EN}/cost-per-lead-calculator/) shows whether Google, Meta, or referrals deliver cheaper leads.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## When ROI looks negative
 
@@ -501,7 +501,7 @@ POSTS = [
 
                 Fix conversion before spending more on traffic.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Decision rule
 
@@ -545,7 +545,7 @@ POSTS = [
 
                 Com site a 45€/mês, o retorno é claro. Com 0,3% conversão, corrija o site primeiro.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Valor de vida do cliente
 
@@ -555,9 +555,9 @@ POSTS = [
 
                 [Calculadora custo por lead]({TOOL_PT}/cost-per-lead-calculator/) para comparar canais de marketing.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Regra prática
 
@@ -601,7 +601,7 @@ POSTS = [
 
                 The [URL QR generator]({TOOL_EN}/url-qr-generator/) turns any link into a trackable code with optional centre logo. Change the destination after print if the campaign URL moves.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## WhatsApp and menu workflows
 
@@ -626,13 +626,13 @@ POSTS = [
 
                 Test scan distance and lighting before printing 500 stickers.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Measure what works
 
                 Compare scan counts by location if your smart QR backend provides stats. Double down on placements that actually convert.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -669,7 +669,7 @@ POSTS = [
 
                 O [gerador de QR para URL]({TOOL_PT}/url-qr-generator/) cria código rastreável com logótipo opcional.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Ementa e WhatsApp
 
@@ -683,9 +683,9 @@ POSTS = [
                 - [QR Wi-Fi]({TOOL_PT}/wifi-qr-generator/)
                 - [Cartão de visita QR]({TOOL_PT}/business-card-qr/)
 
-                {{CTA}}
+                {{{{CTA}}}}
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -723,7 +723,7 @@ POSTS = [
 
                 Use the [food cost calculator]({TOOL_EN}/food-cost-calculator/) per dish: enter ingredient total and menu price, see food cost % and a suggested price for a 30% target.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Markup vs margin
 
@@ -739,7 +739,7 @@ POSTS = [
 
                 Paper costs add up. A [menu QR code]({TOOL_EN}/menu-qr-generator/) lets you update PDFs without reprinting — pair with the [menu QR guide](/blog/posts/restaurant-menu-qr-code-guide/).
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Weekly routine
 
@@ -747,7 +747,7 @@ POSTS = [
                 2. Flag any dish above 40% food cost
                 3. Review discount promos with the [discount calculator]({TOOL_EN}/discount-calculator/) before campaigns
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Bottom line
 
@@ -778,7 +778,7 @@ POSTS = [
 
                 [Calculadora custo alimentar]({TOOL_PT}/food-cost-calculator/) por prato — vê % e preço sugerido para alvo 30%.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Markup vs margem
 
@@ -792,13 +792,13 @@ POSTS = [
 
                 [QR ementa]({TOOL_PT}/menu-qr-generator/) — atualize PDF sem reimprimir tudo.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Rotina semanal
 
                 Recalcule os 10 pratos mais vendidos quando fornecedores sobem preços. Campanhas com [calculadora de desconto]({TOOL_PT}/discount-calculator/).
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -838,7 +838,7 @@ POSTS = [
 
                 This is not tax advice — verify with your accountant. For quick math, use the [IVA / VAT calculator]({TOOL_EN}/vat-calculator-pt/) to add or remove tax for each region.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Show prices clearly on your website
 
@@ -852,13 +852,13 @@ POSTS = [
 
                 IVA collected is not profit. Pair pricing work with the [break-even calculator]({TOOL_EN}/break-even-calculator/) to know how many sales cover rent, wages, and software.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Freelancers billing hourly
 
                 If you invoice time, the [freelancer rate calculator]({TOOL_EN}/freelancer-rate-calculator/) backs into an hourly rate that includes tax, costs, and profit target.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -891,7 +891,7 @@ POSTS = [
 
                 Não é aconselhamento fiscal — confirme com o contabilista. Para contas rápidas: [calculadora de IVA]({TOOL_PT}/vat-calculator-pt/).
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Preços no website
 
@@ -905,13 +905,13 @@ POSTS = [
 
                 IVA cobrado não é lucro. [Calculadora break-even]({TOOL_PT}/break-even-calculator/) para saber quantas vendas cobrem renda e salários.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Freelancers
 
                 [Calculadora tarifa horária]({TOOL_PT}/freelancer-rate-calculator/) com impostos e custos incluídos.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 
@@ -953,7 +953,7 @@ POSTS = [
 
                 Build clean URLs with the [UTM link builder]({TOOL_EN}/utm-link-builder/) — copies a full tagged link in one click.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Naming conventions
 
@@ -968,7 +968,7 @@ POSTS = [
 
                 Once campaigns run, compare channel efficiency with the [cost-per-lead calculator]({TOOL_EN}/cost-per-lead-calculator/).
 
-                {{CTA}}
+                {{{{CTA}}}}
 
                 ## Common mistakes
 
@@ -976,7 +976,7 @@ POSTS = [
                 - Changing campaign names mid-flight (breaks history)
                 - Forgetting UTMs on QR destinations — add them to smart QR target URLs
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Summary
 
@@ -1011,7 +1011,7 @@ POSTS = [
 
                 [Gerador de links UTM]({TOOL_PT}/utm-link-builder/) — URL etiquetada pronta a copiar.
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Convenções
 
@@ -1021,9 +1021,9 @@ POSTS = [
 
                 [Calculadora custo por lead]({TOOL_PT}/cost-per-lead-calculator/) para comparar canais.
 
-                {{CTA}}
+                {{{{CTA}}}}
 
-                {{CTA:tools}}
+                {{{{CTA:tools}}}}
 
                 ## Conclusão
 

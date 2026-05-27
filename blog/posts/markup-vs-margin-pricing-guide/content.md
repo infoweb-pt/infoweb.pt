@@ -9,7 +9,7 @@
 
 Same euro difference, different denominator — completely different story.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Calculate selling price from target margin
 
@@ -21,7 +21,7 @@ Restaurants should also check plate economics with the [food cost calculator](ht
 
 Before a sale, run the [discount calculator](https://infoweb.sousadev.com/free-tools/discount-calculator/) to see net price and whether you still cover variable cost.
 
-{CTA}
+{{CTA}}
 
 ## Rules of thumb by business type
 
@@ -29,7 +29,7 @@ Before a sale, run the [discount calculator](https://infoweb.sousadev.com/free-t
 - **Trades:** quote labour + materials with margin on both
 - **SaaS/services:** high margin, low COGS — focus on LTV instead ([customer LTV calculator](https://infoweb.sousadev.com/free-tools/customer-ltv-calculator/))
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

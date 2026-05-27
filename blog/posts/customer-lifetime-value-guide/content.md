@@ -8,7 +8,7 @@ LTV ≈ average order value × purchase frequency per year × average customer l
 
 A café customer at €4 × 80 visits × 3 years ≈ €960 LTV — very different from a one-off €4 ticket.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Calculate yours
 
@@ -16,7 +16,7 @@ The [customer LTV calculator](https://infoweb.sousadev.com/free-tools/customer-l
 
 Compare channels with the [cost-per-lead calculator](https://infoweb.sousadev.com/free-tools/cost-per-lead-calculator/) — if cost per lead × close rate exceeds what LTV allows, that channel is underwater.
 
-{CTA}
+{{CTA}}
 
 ## Improve LTV before buying more ads
 
@@ -27,7 +27,7 @@ Compare channels with the [cost-per-lead calculator](https://infoweb.sousadev.co
 
 Tie strategy back to [website ROI](https://infoweb.sousadev.com/free-tools/website-roi-calculator/) — traffic without LTV thinking buys vanity clicks.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

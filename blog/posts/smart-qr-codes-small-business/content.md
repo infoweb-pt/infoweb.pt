@@ -14,7 +14,7 @@ Static QR codes are fine for Wi-Fi passwords. For marketing links, you want **sm
 
 The [URL QR generator](https://infoweb.sousadev.com/free-tools/url-qr-generator/) turns any link into a trackable code with optional centre logo. Change the destination after print if the campaign URL moves.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## WhatsApp and menu workflows
 
@@ -39,13 +39,13 @@ See our [restaurant menu QR guide](/blog/posts/restaurant-menu-qr-code-guide/) f
 
 Test scan distance and lighting before printing 500 stickers.
 
-{CTA}
+{{CTA}}
 
 ## Measure what works
 
 Compare scan counts by location if your smart QR backend provides stats. Double down on placements that actually convert.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Summary
 

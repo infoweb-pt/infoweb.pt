@@ -8,7 +8,7 @@ LTV ≈ valor médio × frequência anual × anos como cliente
 
 Cliente de café a 4€ × 80 visitas × 3 anos ≈ 960€ de LTV.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Calcule
 
@@ -16,7 +16,7 @@ Cliente de café a 4€ × 80 visitas × 3 anos ≈ 960€ de LTV.
 
 Compare canais com [custo por lead](https://infoweb.sousadev.com/free-tools/pt/cost-per-lead-calculator/).
 
-{CTA}
+{{CTA}}
 
 ## Melhore LTV antes de mais anúncios
 
@@ -27,7 +27,7 @@ Compare canais com [custo por lead](https://infoweb.sousadev.com/free-tools/pt/c
 
 [ROI do site](https://infoweb.sousadev.com/free-tools/pt/website-roi-calculator/) — tráfego sem LTV compra cliques vazios.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

@@ -12,7 +12,7 @@ Opcional: `utm_content`, `utm_term`.
 
 [Gerador de links UTM](https://infoweb.sousadev.com/free-tools/pt/utm-link-builder/) — URL etiquetada pronta a copiar.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Convenções
 
@@ -22,9 +22,9 @@ Minúsculas, hífens, sem espaços. Registe nomes numa folha partilhada.
 
 [Calculadora custo por lead](https://infoweb.sousadev.com/free-tools/pt/cost-per-lead-calculator/) para comparar canais.
 
-{CTA}
+{{CTA}}
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

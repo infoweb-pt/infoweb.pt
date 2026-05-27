@@ -14,13 +14,13 @@ Ser bom no ofício não é o mesmo que ser fácil de encontrar online. Muitas PM
 
 A ferramenta [pontuação de presença local](https://infoweb.sousadev.com/free-tools/pt/presence-score/) faz sete perguntas Sim/Não e devolve score 0–100 e o maior gap. Cerca de dois minutos, sem registo.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Compare com concorrentes
 
 O [analizador de gap de visibilidade](https://infoweb.sousadev.com/free-tools/pt/competitor-visibility-gap/) compara até dois rivais em avaliações, web e redes.
 
-{CTA}
+{{CTA}}
 
 ## Corrija o gap de maior impacto
 
@@ -28,7 +28,7 @@ O [analizador de gap de visibilidade](https://infoweb.sousadev.com/free-tools/pt
 - **Sem site?** Lançe página com telefone, serviços e prova social
 - **Site lento?** Use a [avaliação de saúde do site](https://infoweb.sousadev.com/free-tools/pt/website-health-scorecard/)
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

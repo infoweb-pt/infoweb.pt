@@ -10,7 +10,7 @@ Orçamentos com IVA errado comem margem ou surpreendem o cliente. Em Portugal as
 
 Não é aconselhamento fiscal — confirme com o contabilista. Para contas rápidas: [calculadora de IVA](https://infoweb.sousadev.com/free-tools/pt/vat-calculator-pt/).
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Preços no website
 
@@ -24,13 +24,13 @@ Indique se os preços mostrados incluem IVA. Evita chamadas e abandono de carrin
 
 IVA cobrado não é lucro. [Calculadora break-even](https://infoweb.sousadev.com/free-tools/pt/break-even-calculator/) para saber quantas vendas cobrem renda e salários.
 
-{CTA}
+{{CTA}}
 
 ## Freelancers
 
 [Calculadora tarifa horária](https://infoweb.sousadev.com/free-tools/pt/freelancer-rate-calculator/) com impostos e custos incluídos.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

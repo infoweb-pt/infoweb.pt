@@ -14,7 +14,7 @@ QR estático serve para Wi-Fi. Para marketing, use **smart QR** — links curtos
 
 O [gerador de QR para URL](https://infoweb.sousadev.com/free-tools/pt/url-qr-generator/) cria código rastreável com logótipo opcional.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Ementa e WhatsApp
 
@@ -28,9 +28,9 @@ Guia completo: [QR code ementa](/blog/posts/guia-qr-code-menu-restaurante/).
 - [QR Wi-Fi](https://infoweb.sousadev.com/free-tools/pt/wifi-qr-generator/)
 - [Cartão de visita QR](https://infoweb.sousadev.com/free-tools/pt/business-card-qr/)
 
-{CTA}
+{{CTA}}
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Conclusão
 

@@ -9,7 +9,7 @@ Your page title and meta description are the ad copy Google shows before anyone 
 
 If either is missing, Google writes its own — usually worse than what you would craft.
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Formula for a strong title
 
@@ -49,7 +49,7 @@ Stuck on wording? The [SEO title & meta generator](https://infoweb.sousadev.com/
 
 Pair that with [LocalBusiness schema](https://infoweb.sousadev.com/free-tools/schema-local-business-generator/) so Google understands your name, address, and hours.
 
-{CTA}
+{{CTA}}
 
 ## Common mistakes
 
@@ -66,7 +66,7 @@ Pair that with [LocalBusiness schema](https://infoweb.sousadev.com/free-tools/sc
 4. Slug matches the page topic
 5. Schema markup on contact/location pages
 
-{CTA:tools}
+{{CTA:tools}}
 
 ## Bottom line
 
