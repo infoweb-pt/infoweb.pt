@@ -217,6 +217,16 @@ blog/
 5. **Add English images:**
    Place generated images in `blog/posts/your-post-slug-en/assets/`
 
+   **Required:** generate `featured.png` automatically (do not skip or hand-wave with placeholders):
+
+   ```bash
+   python3 scripts/blog_featured_image.py blog/posts/your-post-slug-en/
+   # or regenerate all missing:
+   python3 scripts/sync-blog-posts.py
+   ```
+
+   The generator writes a 1200×630 navy/gold OG card with the post title. Run this for **every** new post before commit.
+
 #### Step 2: Create Portuguese Version
 
 6. **Create Portuguese folder:**
@@ -259,7 +269,12 @@ blog/
 
 10. **Add Portuguese images:**
    Place images in `blog/posts/your-post-slug-pt/assets/`
-   (Can reuse English images if applicable, but the prompt file is still required for every language version.)
+
+   Generate the PT featured image the same way (each language version has its own `assets/featured.png`):
+
+   ```bash
+   python3 scripts/blog_featured_image.py blog/posts/your-post-slug-pt/
+   ```
 
 #### Step 3: Update Index and Deploy
 
@@ -427,6 +442,8 @@ CTAs will be automatically replaced with a conversion component. Place them:
 ### Image Guidelines
 
 - **Featured image (social card):** Must be `assets/featured.png` at exactly **1200×630px**, optimized for web (<250KB). This filename is a contract — used by `metadata.json`, `index.html` OG tags, Twitter Card, and JSON-LD. If you change the filename or format, update all four places.
+- **Always generate featured images:** After creating `metadata.json`, run `python3 scripts/blog_featured_image.py blog/posts/[slug]/` (or `python3 scripts/sync-blog-posts.py` to fill all missing). Do not commit a post without `assets/featured.png`.
+- **Generator script:** `scripts/blog_featured_image.py` renders the standard InfoWeb navy/gold OG card with the post title. `image-prompt.md` remains useful for future AI art swaps but is not a substitute for committing `featured.png`.
 - **In-body images:** WebP preferred (or JPG/PNG)
 - **Size:** Max 1200px wide, optimize for web (<200KB)
 - **Alt text:** Descriptive and accessible (must match `imageAlt` in metadata and `og:image:alt` / `twitter:image:alt` in `index.html`)
@@ -634,6 +651,7 @@ Before publishing a new post:
 - [ ] `metadata.json` has all required fields including `language: "en"` and `alternateLanguage`
 - [ ] `image-prompt.md` exists and includes size, style, output filename, and avoid-list
 - [ ] Featured image exists at `assets/featured.png`, 1200×630, and OG/Twitter/JSON-LD URLs match exactly
+- [ ] Featured image was generated via `python3 scripts/blog_featured_image.py` (not missing, not a broken export)
 - [ ] `og:image:width`, `og:image:height`, `og:image:alt`, and `twitter:image:alt` are set in `index.html`
 - [ ] All images have alt text
 - [ ] CTAs are placed strategically
@@ -645,6 +663,7 @@ Before publishing a new post:
 - [ ] `metadata.json` has all required fields including `language: "pt"` and `alternateLanguage`
 - [ ] `image-prompt.md` exists and includes size, style, output filename, and avoid-list
 - [ ] Featured image exists at `assets/featured.png`, 1200×630, and OG/Twitter/JSON-LD URLs match exactly
+- [ ] Featured image was generated via `python3 scripts/blog_featured_image.py` (not missing, not a broken export)
 - [ ] `og:image:width`, `og:image:height`, `og:image:alt`, and `twitter:image:alt` are set in `index.html`
 - [ ] All images have alt text
 - [ ] CTAs are placed strategically

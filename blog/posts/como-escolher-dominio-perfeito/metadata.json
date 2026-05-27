@@ -4,10 +4,15 @@
   "title": "Como Escolher o Domínio Perfeito para o Seu Negócio",
   "description": "Guia completo para escolher um nome de domínio memorável e otimizado para SEO. Dicas práticas para pequenos negócios em Portugal.",
   "author": "InfoWeb",
-  "dateCreated": "2026-05-20",
-  "dateUpdated": "2026-05-20",
+  "dateCreated": "2026-01-06",
+  "dateUpdated": "2026-01-06",
   "category": "domains-hosting",
-  "tags": ["domínio", "pequenos negócios", "SEO", "website"],
+  "tags": [
+    "domínio",
+    "pequenos negócios",
+    "SEO",
+    "website"
+  ],
   "image": "./assets/featured.png",
   "imageAlt": "Pessoa a escolher um nome de domínio no computador",
   "readTime": 5,

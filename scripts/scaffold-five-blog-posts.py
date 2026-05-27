@@ -7,8 +7,10 @@ import json
 import textwrap
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
 
-from PIL import Image, ImageDraw, ImageFont
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from blog_featured_image import generate_featured_image, static_title
 
 REPO = Path(__file__).resolve().parents[1]
 POSTS_DIR = REPO / "blog" / "posts"
@@ -1077,11 +1079,7 @@ POSTS = [
 ]
 
 
-def static_title(title: str) -> str:
-    return title.replace("{{CURRENT_YEAR}}", "2026")
-
-
-def write_metadata(slug: str, lang: str, data: dict, alt_slug: str, category: str, read_time: int) -> None:
+def write_metadata(slug: str, lang: str, data: dict, alt_slug: str, category: str, read_time: int, post_date: str) -> None:
     alt_key = "pt" if lang == "en" else "en"
     payload = {
         "slug": slug,
@@ -1089,8 +1087,8 @@ def write_metadata(slug: str, lang: str, data: dict, alt_slug: str, category: st
         "title": data["title"],
         "description": data["description"],
         "author": "InfoWeb",
-        "dateCreated": DATE,
-        "dateUpdated": DATE,
+        "dateCreated": post_date,
+        "dateUpdated": post_date,
         "category": category,
         "tags": data["keywords"].split(", ")[:4],
         "image": "./assets/featured.png",
@@ -1144,7 +1142,7 @@ def related_html(related: list[tuple[str, str]]) -> str:
     )
 
 
-def write_index_html(slug: str, lang: str, data: dict, alt_slug: str, category: str, read_time: int) -> None:
+def write_index_html(slug: str, lang: str, data: dict, alt_slug: str, category: str, read_time: int, post_date: str) -> None:
     title = static_title(data["title"])
     section = CATEGORY_SECTION[category][lang]
     date_display = DATE_DISPLAY_PT if lang == "pt" else DATE_DISPLAY_EN
@@ -1223,8 +1221,8 @@ def write_index_html(slug: str, lang: str, data: dict, alt_slug: str, category: 
   <meta property="og:image:alt" content="{data['image_alt']}" />
   <meta property="og:locale" content="{og_locale}" />
   <meta property="og:locale:alternate" content="{og_alt}" />
-  <meta property="article:published_time" content="{DATE}T00:00:00Z" />
-  <meta property="article:modified_time" content="{DATE}T00:00:00Z" />
+  <meta property="article:published_time" content="{post_date}T00:00:00Z" />
+  <meta property="article:modified_time" content="{post_date}T00:00:00Z" />
   <meta property="article:author" content="InfoWeb" />
   <meta property="article:section" content="{section}" />
 
@@ -1250,8 +1248,8 @@ def write_index_html(slug: str, lang: str, data: dict, alt_slug: str, category: 
         "url": "{BASE_URL}/assets/images/infoweb-logo.png"
       }}
     }},
-    "datePublished": "{DATE}",
-    "dateModified": "{DATE}",
+    "datePublished": "{post_date}",
+    "dateModified": "{post_date}",
     "mainEntityOfPage": "{canonical}",
     "inLanguage": "{in_language}"
   }}
@@ -1382,44 +1380,7 @@ def write_index_html(slug: str, lang: str, data: dict, alt_slug: str, category: 
     (POSTS_DIR / slug / "index.html").write_text(html, encoding="utf-8")
 
 
-def generate_featured_image(path: Path, title: str, accent: str) -> None:
-    width, height = 1200, 630
-    img = Image.new("RGB", (width, height), "#020617")
-    draw = ImageDraw.Draw(img)
-
-    for i in range(height):
-        ratio = i / height
-        r = int(2 + (15 - 2) * ratio)
-        g = int(6 + (23 - 6) * ratio)
-        b = int(23 + (42 - 23) * ratio)
-        draw.line([(0, i), (width, i)], fill=(r, g, b))
-
-    draw.ellipse((820, -80, 1180, 260), fill=(215, 180, 106, 40) if img.mode == "RGBA" else (40, 35, 20))
-    draw.rounded_rectangle((70, 120, 620, 520), radius=28, outline=accent, width=4, fill=(15, 23, 42))
-    draw.rounded_rectangle((110, 170, 580, 250), radius=12, fill=accent)
-    draw.rounded_rectangle((110, 280, 520, 320), radius=8, fill=(51, 65, 85))
-    draw.rounded_rectangle((110, 340, 480, 380), radius=8, fill=(51, 65, 85))
-    draw.rounded_rectangle((110, 400, 400, 440), radius=8, fill=(51, 65, 85))
-
-    try:
-        font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 34)
-        small = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial.ttf", 22)
-    except OSError:
-        font = ImageFont.load_default()
-        small = font
-
-    draw.text((110, 188), "InfoWeb Blog", fill="#020617", font=small)
-    lines = textwrap.wrap(title.replace("{{CURRENT_YEAR}}", "2026"), width=28)
-    y = 290
-    for line in lines[:3]:
-        draw.text((110, y), line, fill="#e2e8f0", font=font)
-        y += 42
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    img.save(path, format="PNG", optimize=True)
-
-
-def update_posts_index() -> None:
+def update_posts_index(post_date: str) -> None:
     index_path = POSTS_DIR / "metadata.json"
     existing = json.loads(index_path.read_text(encoding="utf-8"))
     seen = set()
@@ -1440,8 +1401,8 @@ def update_posts_index() -> None:
                 {
                     "slug": slug,
                     "language": lang,
-                    "dateCreated": DATE,
-                    "dateUpdated": DATE,
+                    "dateCreated": post_date,
+                    "dateUpdated": post_date,
                 }
             )
             seen.add(key)
@@ -1510,13 +1471,19 @@ def main() -> None:
             assets.mkdir(parents=True, exist_ok=True)
 
             (post_dir / "content.md").write_text(data["content"] + "\n", encoding="utf-8")
-            write_metadata(slug, lang, data, alt_slug, category, read_time)
+            write_metadata(slug, lang, data, alt_slug, category, read_time, DATE)
             write_image_prompt(slug, lang, data)
-            write_index_html(slug, lang, data, alt_slug, category, read_time)
-            generate_featured_image(assets / "featured.png", data["title"], accent)
+            write_index_html(slug, lang, data, alt_slug, category, read_time, DATE)
+            generate_featured_image(
+                assets / "featured.png",
+                data["title"],
+                accent=accent,
+                category=category,
+                slug=slug,
+            )
             print(f"Created {slug}")
 
-    update_posts_index()
+    update_posts_index(DATE)
     append_blog_to_sitemap()
     print("Updated posts/metadata.json and sitemap.xml")
 

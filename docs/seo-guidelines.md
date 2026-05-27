@@ -101,6 +101,7 @@ Use descriptive anchor text, not "click here".
 - [ ] `BlogPosting` + `BreadcrumbList` JSON-LD
 - [ ] Meta description 150–160 chars
 - [ ] Featured image with descriptive `og:image:alt`
+- [ ] **`assets/featured.png` generated** — run `python3 scripts/blog_featured_image.py blog/posts/[slug]/` before commit
 - [ ] Related reading section with 3 internal links
 - [ ] Add URL to `sitemap.xml`
 

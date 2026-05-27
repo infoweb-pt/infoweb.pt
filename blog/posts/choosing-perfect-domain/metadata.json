@@ -4,10 +4,15 @@
   "title": "How to Choose the Perfect Domain Name for Your Business",
   "description": "Complete guide to choosing a memorable, SEO-optimized domain name. Practical tips for small businesses looking to establish their online presence.",
   "author": "InfoWeb",
-  "dateCreated": "2026-05-20",
-  "dateUpdated": "2026-05-20",
+  "dateCreated": "2026-01-06",
+  "dateUpdated": "2026-01-06",
   "category": "domains-hosting",
-  "tags": ["domain", "small business", "SEO", "website"],
+  "tags": [
+    "domain",
+    "small business",
+    "SEO",
+    "website"
+  ],
   "image": "./assets/featured.png",
   "imageAlt": "Person choosing a domain name on computer",
   "readTime": 5,
