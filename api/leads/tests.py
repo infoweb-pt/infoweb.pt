@@ -7,7 +7,11 @@ from django.core.management import call_command
 from django.test import TestCase
 from rest_framework.test import APIClient
 
-from leads.models import ToolContactLead
+from leads.models import (
+    CompetitorVisibilityGapLead,
+    ToolContactLead,
+    WebsiteHealthScorecardLead,
+)
 
 
 class EnsureSuperuserCommandTests(TestCase):
@@ -64,4 +68,54 @@ class ToolContactLeadViewTests(TestCase):
         response = self.client.post(url, payload, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(ToolContactLead.objects.filter(source='wifi_qr_generator').count(), 1)
+
+
+class WebsiteHealthScorecardLeadViewTests(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.url = '/leads/website-health-scorecard/'
+        self.payload = {
+            'email': 'owner@example.com',
+            'url': 'https://example.com',
+            'score': 72,
+            'checks': [{'id': 'ssl', 'score': 20, 'max': 20, 'status': 'pass'}],
+            'fixes': [{'priority': 'high', 'text': 'Add HTTPS'}],
+        }
+
+    def test_post_creates_lead(self):
+        response = self.client.post(self.url, self.payload, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {'status': 'ok'})
+        self.assertEqual(WebsiteHealthScorecardLead.objects.count(), 1)
+        lead = WebsiteHealthScorecardLead.objects.first()
+        self.assertEqual(lead.email, 'owner@example.com')
+        self.assertEqual(lead.score, 72)
+
+    def test_duplicate_within_window_returns_ok_without_second_row(self):
+        self.client.post(self.url, self.payload, format='json')
+        response = self.client.post(self.url, self.payload, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(WebsiteHealthScorecardLead.objects.count(), 1)
+
+
+class CompetitorVisibilityGapLeadViewTests(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.url = '/leads/competitor-visibility-gap/'
+        self.payload = {
+            'email': 'gap@example.com',
+            'score': 55,
+            'answers': ['yes', 'no', 'yes'],
+        }
+
+    def test_post_creates_lead(self):
+        response = self.client.post(self.url, self.payload, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(CompetitorVisibilityGapLead.objects.count(), 1)
+
+    def test_duplicate_within_window_returns_ok_without_second_row(self):
+        self.client.post(self.url, self.payload, format='json')
+        response = self.client.post(self.url, self.payload, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(CompetitorVisibilityGapLead.objects.count(), 1)
 

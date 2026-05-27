@@ -45,3 +45,35 @@ class ToolContactLead(models.Model):
 
     def __str__(self):
         return f'{self.email} — {self.source} ({self.created_at:%Y-%m-%d})'
+
+
+class WebsiteHealthScorecardLead(models.Model):
+    email = models.EmailField()
+    url = models.CharField(max_length=500)
+    score = models.PositiveSmallIntegerField()
+    checks = models.JSONField()
+    fixes = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Website Health Scorecard Lead'
+        verbose_name_plural = 'Website Health Scorecard Leads'
+
+    def __str__(self):
+        return f'{self.email} — {self.score}/100 ({self.created_at:%Y-%m-%d})'
+
+
+class CompetitorVisibilityGapLead(models.Model):
+    email = models.EmailField()
+    score = models.PositiveSmallIntegerField()
+    answers = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Competitor Visibility Gap Lead'
+        verbose_name_plural = 'Competitor Visibility Gap Leads'
+
+    def __str__(self):
+        return f'{self.email} — score {self.score}/100 ({self.created_at:%Y-%m-%d})'

@@ -7,11 +7,19 @@ from rest_framework import status
 from rest_framework.throttling import AnonRateThrottle
 
 from .serializers import (
+    CompetitorVisibilityGapLeadSerializer,
     LostCustomerLeadSerializer,
     PresenceScoreLeadSerializer,
     ToolContactLeadSerializer,
+    WebsiteHealthScorecardLeadSerializer,
 )
-from .models import LostCustomerLead, PresenceScoreLead, ToolContactLead
+from .models import (
+    CompetitorVisibilityGapLead,
+    LostCustomerLead,
+    PresenceScoreLead,
+    ToolContactLead,
+    WebsiteHealthScorecardLead,
+)
 
 DEDUP_WINDOW_MINUTES = 60
 
@@ -87,6 +95,54 @@ class ToolContactLeadView(APIView):
         return Response({'status': 'ok'}, status=status.HTTP_200_OK)
 
 
+class WebsiteHealthScorecardLeadView(APIView):
+    """
+    POST /leads/website-health-scorecard/
+    Body: { "email", "url", "score", "checks": [...], "fixes": [...] }
+    """
+
+    throttle_classes = [LeadSubmitThrottle]
+
+    def post(self, request):
+        serializer = WebsiteHealthScorecardLeadSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        email = serializer.validated_data['email']
+        cutoff = timezone.now() - timedelta(minutes=DEDUP_WINDOW_MINUTES)
+        if WebsiteHealthScorecardLead.objects.filter(
+            email=email, created_at__gte=cutoff
+        ).exists():
+            return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+
+        serializer.save()
+        return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+
+
+class CompetitorVisibilityGapLeadView(APIView):
+    """
+    POST /leads/competitor-visibility-gap/
+    Body: { "email", "score", "answers": ["yes","no",...] }
+    """
+
+    throttle_classes = [LeadSubmitThrottle]
+
+    def post(self, request):
+        serializer = CompetitorVisibilityGapLeadSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        email = serializer.validated_data['email']
+        cutoff = timezone.now() - timedelta(minutes=DEDUP_WINDOW_MINUTES)
+        if CompetitorVisibilityGapLead.objects.filter(
+            email=email, created_at__gte=cutoff
+        ).exists():
+            return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+
+        serializer.save()
+        return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+
+
 class NewLeadsView(APIView):
     """
     GET /leads/new/?since=<ISO8601>
@@ -115,6 +171,8 @@ class NewLeadsView(APIView):
         lost_customers = LostCustomerLead.objects.filter(created_at__gte=since)
         presence_scores = PresenceScoreLead.objects.filter(created_at__gte=since)
         tool_contacts = ToolContactLead.objects.filter(created_at__gte=since)
+        health_scorecards = WebsiteHealthScorecardLead.objects.filter(created_at__gte=since)
+        competitor_gaps = CompetitorVisibilityGapLead.objects.filter(created_at__gte=since)
 
         # Build response
         leads = []
@@ -142,6 +200,26 @@ class NewLeadsView(APIView):
                 'type': 'tool_contact',
                 'email': lead.email,
                 'source': lead.source,
+                'created_at': lead.created_at.isoformat(),
+            })
+
+        for lead in health_scorecards:
+            leads.append({
+                'type': 'website_health_scorecard',
+                'email': lead.email,
+                'url': lead.url,
+                'score': lead.score,
+                'checks': lead.checks,
+                'fixes': lead.fixes,
+                'created_at': lead.created_at.isoformat(),
+            })
+
+        for lead in competitor_gaps:
+            leads.append({
+                'type': 'competitor_visibility_gap',
+                'email': lead.email,
+                'score': lead.score,
+                'answers': lead.answers,
                 'created_at': lead.created_at.isoformat(),
             })
 
