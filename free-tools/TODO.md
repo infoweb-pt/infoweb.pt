@@ -14,6 +14,8 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 - [x] **Menu QR generator** — `menu-qr-generator/` 📱 Menu PDF upload → public URL via API upload; Smart QR short link for the menu URL (`tool_source: menu_qr`); shared `QRCustomizer` + logo safety caps.
 - [x] **Digital business card (vCard) QR** — `business-card-qr/` 📱 vCard payload in QR; centre logo via `QRCustomizer` (declare `uploadedLogo` in script state; strict mode).
 - [x] **Google review link + QR** — `google-review-generator/` Smart QR + review URL flow; logo optional.
+- [x] **URL QR generator (generic Smart QR)** — `url-qr-generator/` 📱 Any URL → smart-QR with centre logo, scan analytics, swappable destination; EN + PT.
+- [x] **Competitor visibility gap analyzer** — `competitor-visibility-gap/` 🔥💎 Compare vs up to 2 competitors (reviews, web, social); email-gated report via API. **Hub:** listed on EN/PT index. **PT locale:** `free-tools/pt/competitor-visibility-gap/` not scaffolded yet — PT hub links to EN page.
 - [x] **Website ROI calculator** — `website-roi-calculator/` (no Smart QR — not a scan-to-redirect QR product).
 - [x] **Local presence score** — `presence-score/`
 - [x] **Lost customers calculator** — `lost-customers-calculator/`
@@ -116,7 +118,7 @@ Legend: 🔥 high SEO/lead potential · ⚡ quick build (< 3h) · 🧠 needs API
 
 - [ ] **Link-in-bio page generator** 🔥 — form → static HTML "linktree" they can host anywhere, with QR.
 - [x] **UTM link builder** 🔥⚡ — shipped as `utm-link-builder/` (copy tagged URL; no shortener).
-- [x] **QR generator (generic with logo overlay)** ⚡📱 — any URL → smart-QR with centre logo, full scan analytics, swappable destination. → `url-qr-generator/`
+- [x] **QR generator (generic with logo overlay)** ⚡📱 — shipped as `url-qr-generator/` (see ✅ Already shipped).
 
 ### Pricing & finance
 
