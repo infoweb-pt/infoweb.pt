@@ -96,14 +96,41 @@
         Calculadoras e utilitários de QR que pode usar já. Sem registo, sem passos escondidos.
       </p>
       <div class="flex flex-wrap gap-3 mb-10">
-        <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300">17 ferramentas</span>
+        <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300"><span id="tools-total-count">23</span> ferramentas</span>
         <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300">Rápidas e mobile</span>
         <span class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300">Pensado para PME em Portugal</span>
       </div>
     </div>
 
-    <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
-      <li>
+    <div class="mb-8 space-y-4" id="tools-filters" role="search">
+      <label for="tools-search" class="sr-only">Pesquisar ferramentas</label>
+      <div class="relative max-w-xl">
+        <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="tools-search"
+          name="q"
+          autocomplete="off"
+          placeholder="Pesquisar por nome ou tema (ex.: QR, IVA, avaliações)…"
+          class="w-full rounded-2xl border border-slate-700 bg-slate-900/80 py-3 pl-11 pr-4 text-white placeholder:text-slate-500 focus:border-signal/60 focus:outline-none focus:ring-2 focus:ring-signal/30"
+        />
+      </div>
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filtrar por categoria">
+        <button type="button" data-tool-filter="all" class="rounded-full border px-3 py-1.5 text-xs font-semibold transition" aria-pressed="true">Todas</button>
+        <button type="button" data-tool-filter="qr" class="rounded-full border px-3 py-1.5 text-xs font-semibold transition" aria-pressed="false">QR codes</button>
+        <button type="button" data-tool-filter="seo" class="rounded-full border px-3 py-1.5 text-xs font-semibold transition" aria-pressed="false">SEO e visibilidade</button>
+        <button type="button" data-tool-filter="calculators" class="rounded-full border px-3 py-1.5 text-xs font-semibold transition" aria-pressed="false">Calculadoras</button>
+        <button type="button" data-tool-filter="marketing" class="rounded-full border px-3 py-1.5 text-xs font-semibold transition" aria-pressed="false">Marketing</button>
+      </div>
+      <p class="text-sm text-slate-500">A mostrar <span id="tools-visible-count" class="text-slate-300 font-semibold">23</span> ferramentas</p>
+    </div>
+
+    <p id="tools-empty" class="hidden mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-4 text-slate-400 text-sm">
+      Nenhuma ferramenta corresponde à pesquisa. Experimente outra categoria ou palavra‑chave.
+    </p>
+
+    <ul id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+      <li data-tool-item data-tool-categories="qr hospitality" data-tool-search="ementa menu qr code gerador restaurante pdf logo leituras">
         <a href="menu-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-signal/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="menu_qr_generator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-300/15 text-2xl mb-4 ring-1 ring-amber-200/20">🍽️</span>
           <span class="block text-white text-lg font-bold">Gerador de QR Code para ementa</span>
@@ -111,7 +138,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-amber-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="qr" data-tool-search="whatsapp link qr conversa mensagem clique">
         <a href="whatsapp-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-emerald-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="whatsapp_qr_generator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-300/15 text-2xl mb-4 ring-1 ring-emerald-200/20">💬</span>
           <span class="block text-white text-lg font-bold">Gerador de link e QR WhatsApp</span>
@@ -119,7 +146,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-emerald-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="qr" data-tool-search="url qr code gerador link smart qr logo estatisticas">
         <a href="url-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-blue-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="url_qr_generator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-300/15 text-2xl mb-4 ring-1 ring-blue-200/20">🔗</span>
           <span class="block text-white text-lg font-bold">Gerador de QR Code para URL</span>
@@ -127,7 +154,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-blue-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="seo" data-tool-search="presenca local score visibilidade online negocio google">
         <a href="presence-score/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-cyan-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="presence_score">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-300/15 text-2xl mb-4 ring-1 ring-cyan-200/20">📍</span>
           <span class="block text-white text-lg font-bold">Pontuação de presença local</span>
@@ -135,7 +162,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-cyan-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="qr" data-tool-search="cartao visita vcard contacto qr digital">
         <a href="business-card-qr/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-indigo-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="business_card_qr">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-300/15 text-2xl mb-4 ring-1 ring-indigo-200/20">🪪</span>
           <span class="block text-white text-lg font-bold">Cartão de visita digital em QR</span>
@@ -143,7 +170,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-indigo-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="qr seo" data-tool-search="google avaliacoes review link qr maps estrelas">
         <a href="google-review-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-rose-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="google_review_generator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-rose-300/15 text-2xl mb-4 ring-1 ring-rose-200/20">⭐</span>
           <span class="block text-white text-lg font-bold">Gerador de link para avaliações Google</span>
@@ -151,7 +178,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-rose-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="roi site website calculadora receita conversao visitantes">
         <a href="website-roi-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-sky-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="website_roi_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-300/15 text-2xl mb-4 ring-1 ring-sky-200/20">📈</span>
           <span class="block text-white text-lg font-bold">Calculadora de ROI do site</span>
@@ -159,7 +186,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-sky-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="clientes perdidos calculadora receita chamadas site">
         <a href="lost-customers-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-red-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="lost_customers_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-red-300/15 text-2xl mb-4 ring-1 ring-red-200/20">📉</span>
           <span class="block text-white text-lg font-bold">Calculadora de clientes perdidos</span>
@@ -167,7 +194,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-red-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="qr" data-tool-search="wifi qr code gerador palavra passe rede convidados">
         <a href="wifi-qr-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-teal-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="wifi_qr_generator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-teal-300/15 text-2xl mb-4 ring-1 ring-teal-200/20">📶</span>
           <span class="block text-white text-lg font-bold">Gerador de QR Code Wi‑Fi</span>
@@ -175,7 +202,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-teal-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="iva vat calculadora portugal continente madeira acores imposto">
         <a href="vat-calculator-pt/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-yellow-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="vat_calculator_pt">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-300/15 text-2xl mb-4 ring-1 ring-yellow-200/20">🧾</span>
           <span class="block text-white text-lg font-bold">Calculadora de IVA (Portugal)</span>
@@ -183,7 +210,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-yellow-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="margem markup calculadora preco custo venda">
         <a href="markup-margin-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-violet-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="markup_margin_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-300/15 text-2xl mb-4 ring-1 ring-violet-200/20">💹</span>
           <span class="block text-white text-lg font-bold">Calculadora margem vs markup</span>
@@ -191,7 +218,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-violet-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="seo" data-tool-search="saude site website scorecard auditoria velocidade mobile ssl meta google business">
         <a href="website-health-scorecard/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-orange-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="website_health_scorecard">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-orange-300/15 text-2xl mb-4 ring-1 ring-orange-200/20">🩺</span>
           <span class="block text-white text-lg font-bold">Avaliação de saúde do site</span>
@@ -199,7 +226,16 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-orange-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="seo" data-tool-search="concorrentes visibilidade gap comparacao avaliacoes redes sociais website">
+        <a href="../competitor-visibility-gap/"
+          class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-fuchsia-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="competitor_visibility_gap">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-fuchsia-300/15 text-2xl mb-4 ring-1 ring-fuchsia-200/20">📊</span>
+          <span class="block text-white text-lg font-bold">Gap de visibilidade vs concorrentes</span>
+          <span class="block text-sm text-slate-400 mt-2">Compare o seu negócio com até 2 concorrentes em avaliações, web e redes — com plano de ação.</span>
+          <span class="mt-4 inline-flex text-xs font-semibold text-fuchsia-200/90">Abrir ferramenta →</span>
+        </a>
+      </li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="downtime custo calculadora site offline receita perdida">
         <a href="downtime-cost-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-red-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="downtime_cost_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-red-300/15 text-2xl mb-4 ring-1 ring-red-200/20">⏱️</span>
           <span class="block text-white text-lg font-bold">Calculadora de custo de downtime</span>
@@ -207,7 +243,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-red-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators marketing" data-tool-search="custo por lead calculadora marketing canais cpl">
         <a href="cost-per-lead-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-blue-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="cost_per_lead_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-300/15 text-2xl mb-4 ring-1 ring-blue-200/20">🎯</span>
           <span class="block text-white text-lg font-bold">Calculadora de custo por lead</span>
@@ -215,7 +251,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-blue-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="ltv cliente valor vida calculadora aquisicao">
         <a href="customer-ltv-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-purple-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="customer_ltv_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-purple-300/15 text-2xl mb-4 ring-1 ring-purple-200/20">💎</span>
           <span class="block text-white text-lg font-bold">Calculadora de LTV do cliente</span>
@@ -223,7 +259,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-purple-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="break even ponto equilibrio calculadora lucro vendas custos">
         <a href="break-even-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-green-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="break_even_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-green-300/15 text-2xl mb-4 ring-1 ring-green-200/20">⚖️</span>
           <span class="block text-white text-lg font-bold">Calculadora de break-even</span>
@@ -231,7 +267,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-green-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="freelancer tarifa horaria calculadora impostos custos">
         <a href="freelancer-rate-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-amber-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="freelancer_rate_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-300/15 text-2xl mb-4 ring-1 ring-amber-200/20">🧑‍💻</span>
           <span class="block text-white text-lg font-bold">Calculadora de tarifa freelancer</span>
@@ -239,7 +275,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-amber-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="marketing" data-tool-search="utm link gerador campanha tracking analytics anuncios email">
         <a href="utm-link-builder/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-sky-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="utm_link_builder">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-300/15 text-2xl mb-4 ring-1 ring-sky-200/20">🔗</span>
           <span class="block text-white text-lg font-bold">Gerador de links UTM</span>
@@ -247,7 +283,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-sky-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators" data-tool-search="desconto promo calculadora preco final poupanca">
         <a href="discount-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-rose-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="discount_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-rose-300/15 text-2xl mb-4 ring-1 ring-rose-200/20">🏷️</span>
           <span class="block text-white text-lg font-bold">Calculadora de desconto</span>
@@ -255,7 +291,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-rose-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="seo" data-tool-search="schema local business json-ld gerador restaurante loja clinica seo">
         <a href="schema-local-business-generator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-indigo-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="schema_local_business_generator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-300/15 text-2xl mb-4 ring-1 ring-indigo-200/20">📍</span>
           <span class="block text-white text-lg font-bold">Gerador Schema LocalBusiness</span>
@@ -263,7 +299,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-indigo-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators hospitality" data-tool-search="gorjeta conta divisao calculadora restaurante pessoas">
         <a href="tip-split-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-teal-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="tip_split_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-teal-300/15 text-2xl mb-4 ring-1 ring-teal-200/20">🍽️</span>
           <span class="block text-white text-lg font-bold">Gorjeta e divisão de conta</span>
@@ -271,7 +307,7 @@
           <span class="mt-4 inline-flex text-xs font-semibold text-teal-200/90">Abrir ferramenta →</span>
         </a>
       </li>
-      <li>
+      <li data-tool-item data-tool-categories="calculators hospitality" data-tool-search="custo alimentar calculadora restaurante menu margem ingredientes prato">
         <a href="food-cost-calculator/" class="group block h-full rounded-2xl border border-slate-800/90 bg-slate-900/55 p-5 hover:border-orange-400/60 hover:bg-slate-900/90 hover:-translate-y-0.5 transition duration-200 shadow-[0_10px_35px_rgba(2,6,23,0.35)]" data-track="tool_card_click" data-track-tool_name="food_cost_calculator">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-orange-300/15 text-2xl mb-4 ring-1 ring-orange-200/20">🥘</span>
           <span class="block text-white text-lg font-bold">Calculadora custo alimentar</span>
@@ -298,5 +334,6 @@
   <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
     <a href="../../" class="text-slate-400 hover:text-white transition" data-track="nav_click" data-track-location="footer" data-track-target="/">← Início InfoWeb</a>
   </footer>
+  <script src="../../assets/js/free-tools-hub.js" defer></script>
 </body>
 </html>
