@@ -1,6 +1,6 @@
 # InfoWeb
 
-A professional landing page for a "Website as a Service" business targeting small businesses in Portugal and internationally. Offers managed website plans with hosting, maintenance, and updates on a 4-week billing cycle.
+A professional landing page for a "Website as a Service" business targeting small businesses in Portugal and internationally. Offers managed website plans with hosting, maintenance, and updates on a monthly billing cycle.
 
 ## Run & Operate
 

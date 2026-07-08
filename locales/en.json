@@ -2,7 +2,7 @@
   "meta": {
     "title": "InfoWeb | Website as a Service",
     "description": "InfoWeb provides managed websites for small businesses: domain, maintenance, bookings, dashboards, payments, and CMS access.",
-    "ogImageAlt": "InfoWeb — managed websites, hosting, and updates for small businesses on a plan billed every 4 weeks.",
+    "ogImageAlt": "InfoWeb — managed websites, hosting, and updates for small businesses on a monthly plan.",
     "ogLocale": "en_IE",
     "ogLocaleAlternate": "pt_PT"
   },
@@ -15,14 +15,14 @@
   },
   "hero": {
     "eyebrow": "Website as a Service for small businesses",
-    "title": "Your complete digital presence, managed at one price every 4 weeks.",
+    "title": "Your complete digital presence, managed at one monthly price.",
     "subtitle": "InfoWeb builds, hosts, updates, and improves your website so your business looks professional online without hiring an internal tech team.",
     "primaryCta": "See plans",
     "secondaryCta": "Talk on WhatsApp",
     "card": {
       "label": "Managed site plan",
-      "oldPrice": "€39/4 wks",
-      "price": "from €29/4 wks",
+      "oldPrice": "€39/mo",
+      "price": "from €29/mo",
       "status": "Live support",
       "item1": "Domain and technical maintenance",
       "item2": "Booking and lead capture options",
@@ -40,7 +40,7 @@
     "eyebrow": "Services and pricing",
     "title": "Pick the level of digital presence your business needs.",
     "subtitle": "Start with a professional site and grow into bookings, dashboards, payments, and internal users when the business needs it.",
-    "perFourWeeks": "/4 wks",
+    "perMonth": "/mo",
     "cta": "Choose plan",
     "basic": {
       "name": "Basic",
@@ -86,20 +86,20 @@
     "badge": "Early bird: €10 lifetime discount for the first clients",
     "label": "Early bird offer",
     "title": "€10 lifetime discount for the first clients.",
-    "copy": "Lock the discount while you keep an active plan billed every 4 weeks."
+    "copy": "Lock the discount while you keep an active monthly plan."
   },
   "addon": {
     "label": "Optional add-on",
-    "title": "+€15 every 4 weeks for CMS access.",
+    "title": "+€15 per month for CMS access.",
     "copy": "Edit selected website content yourself while InfoWeb keeps the technical layer managed."
   },
   "payback": {
     "eyebrow": "Payback simulator",
     "title": "How many new clients does the website need to pay for itself?",
-    "copy": "Pick the plan and your average client value. We tell you how many new clients the website needs to bring each billing period (every 4 weeks) to fully pay for itself.",
-    "planLabel": "Plan (same prices as above, every 4 weeks)",
+    "copy": "Pick the plan and your average client value. We tell you how many new clients the website needs to bring each month to fully pay for itself.",
+    "planLabel": "Plan (same prices as above, per month)",
     "clientValueLabel": "Average value per new client",
-    "clientsLabel": "New clients per 4-week period",
+    "clientsLabel": "New clients per month",
     "clientsHelper": "On average, to cover each billing period",
     "cadenceLabel": "Rough pace",
     "note": "Example only: real results depend on your offer, margins, location, and follow-up speed."

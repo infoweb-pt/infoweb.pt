@@ -102,8 +102,8 @@ const applyLanguage = async (language) => {
   updatePaybackSimulator();
 };
 
-/** Billing period length for cadence hints (4 weeks). */
-const PAYBACK_BILLING_PERIOD_DAYS = 28;
+/** Billing period length for cadence hints (monthly). */
+const PAYBACK_BILLING_PERIOD_DAYS = 30;
 
 let paybackAnalyticsTimer = null;
 

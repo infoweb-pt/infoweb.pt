@@ -11,7 +11,7 @@ For most small businesses, a useful website budget usually falls into one of fou
 - **DIY builder:** low monthly fee, but you do the strategy, writing, setup, and fixes yourself.
 - **Freelancer:** flexible one-off build, but ongoing maintenance may be separate.
 - **Agency:** stronger strategy and design, but higher upfront cost and slower changes.
-- **Managed website plan:** predictable monthly or 4-weekly cost that includes build, hosting, domain, updates, and support.
+- **Managed website plan:** predictable monthly cost that includes build, hosting, domain, updates, and support.
 
 The cheapest option is not always the lowest-cost option. If the site is slow, unclear, hard to update, or never appears on Google, the real cost is lost leads.
 
